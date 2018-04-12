@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1523483181595.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3591742593",
+    "id" : "2AF84688",
+    "lastKnownWriteTime" : 1523492813,
+    "last_content_update" : 1523492813437,
+    "path" : "~/Desktop/SHT/R/mean1.Student.R",
+    "project_path" : "R/mean1.Student.R",
+    "properties" : {
+        "cursorPosition" : "39,0",
+        "scrollLine" : "22",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

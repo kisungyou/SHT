@@ -1,0 +1,23 @@
+[
+    {
+        "definitions" : [
+        ],
+        "file" : "/home/kisung/Desktop/SHT/src/comp_preliminary.cpp",
+        "file_last_write" : 1523498823
+    },
+    {
+        "definitions" : [
+            {
+                "column" : 15,
+                "file" : "/home/kisung/Desktop/SHT/src/sample.cpp",
+                "kind" : 6,
+                "line" : 15,
+                "name" : "timesTwo(NumericVector)",
+                "parent_name" : "",
+                "usr" : "c:@F@timesTwo#$@N@Rcpp@C@Vector>#VI14#@N@Rcpp@CT>1#T@PreserveStorage#"
+            }
+        ],
+        "file" : "/home/kisung/Desktop/SHT/src/sample.cpp",
+        "file_last_write" : 1523486785
+    }
+]
