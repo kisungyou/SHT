@@ -5,7 +5,7 @@
 #' @aliases SHT-package
 #' @import Rdpack
 #' @import Rlinsolve
-#' @importFrom stats pt sd cov
+#' @importFrom stats pt sd cov pchisq pf median
 #' @importFrom Rcpp evalCpp
 #' @useDynLib SHT
 NULL

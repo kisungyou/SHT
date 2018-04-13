@@ -1,4 +1,4 @@
-#' One-sample Hotelling's T-squared test
+#' One-Sample Hotelling's T-squared Test for Multivariate Mean
 #' 
 #' 
 #' 
@@ -36,7 +36,7 @@ mean1.Hotelling <- function(X, mu0=rep(0,ncol(X)), alpha=0.05){
 
   ##############################################################
   # REPORT
-  hname  = "One-sample Hotelling's T-squared test"
+  hname  = "One-Sample Hotelling's T-squared Test"
   Ha     = "true mean is different from mu0."
   output = hypothesis(hname, t2, alpha,
                       pvalue, Ha, 

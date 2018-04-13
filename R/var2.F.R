@@ -1,16 +1,14 @@
-#' One-Sample Student's t-test for Univariate Mean
-#' 
-#' 
+#' Two-Sample F Test for Variance
 #' 
 #' 
 #' 
 #' 
 #' @export
-mean1.Student <- function(x, mu0=0, alternative=c("two.sided","less","greater"), alpha=0.05){
+var2.F <- function(x, y, alternative=c("two.sided","less","greater"), alpha=0.05){
   ##############################################################
   # PREPROCESSING
-  check_1d(x)        # univariate vector
-  check_number(mu0)  # number to be compared
+  check_1d(x)        # univariate vector of 1st class
+  check_1d(y)        # univariate vector of 2nd class
   check_alpha(alpha) # significance level
   if (missing(alternative)){
     alternative = "two.sided"
@@ -20,22 +18,24 @@ mean1.Student <- function(x, mu0=0, alternative=c("two.sided","less","greater"),
   
   ##############################################################
   # COMPUTATION : PRELIMINARY
-  n    = length(x)
-  xbar = mean(x)
-  sd   = sd(x)    
-  t    = (xbar-mu0)/(sd/sqrt(n))
+  n = length(x)
+  m = length(y)
+  varx = aux_var(x)
+  vary = aux_var(y)
+  thestat = (varx/vary)
   
   ##############################################################
   # COMPUTATION : HYPOTHESIS and DETERMINATION
   if (alternative=="two.sided"){
-    pvalue = 2*pt(abs(t),(n-1),lower.tail = FALSE)
-    Ha     = paste("true mean is different from ",mu0,".",sep="")
+    tmpval = stats::pf(thestat,(n-1),(m-1))
+    pvalue = 2*min(tmpval, 1-tmpval)
+    Ha     = "two true variances are different."
   } else if (alternative=="less"){
-    pvalue = pt(t,(n-1),lower.tail = TRUE)
-    Ha     = paste("true mean is less than ",mu0,".",sep="")
+    pvalue = stats::pf(thestat,(n-1),(m-1),lower.tail = TRUE)
+    Ha     = "true variance of x is smaller than true variance of y."
   } else if (alternative=="greater"){
-    pvalue = pt(t,(n-1),lower.tail = FALSE)
-    Ha     = paste("true mean is greater than ",mu0,".",sep="")
+    pvalue = stats::pf(thestat,(n-1),(m-1),lower.tail = FALSE)
+    Ha     = "true variance of x is greater than true variance of y."
   }
   if (pvalue < alpha){
     conclusion = "Reject Null Hypothesis"
@@ -45,9 +45,9 @@ mean1.Student <- function(x, mu0=0, alternative=c("two.sided","less","greater"),
   
   ##############################################################
   # REPORT
-  hname  = "One-Sample Student's t-test"
-  output = hypothesis(hname, t, alpha,
+  hname  = "Two-Sample F Test for Variance"
+  output = hypothesis(hname, thestat, alpha,
                       pvalue, Ha, 
                       conclusion)
-  return(output)
 }
+    

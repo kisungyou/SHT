@@ -1,9 +1,9 @@
 # CHECKER FUNCTIONS
-#   1. check_1d     : vector
-#   2. check_nd     : matrix/array
-#   3. check_number : just a real number
-#   4. check_alpha  : (0,1)
-
+#   1. check_1d      : vector
+#   2. check_nd      : matrix/array
+#   3. check_number  : just a real number
+#   4. check_alpha   : (0,1)
+#   5. check_dlist1d : datalist 1d
 
 
 # 01. check_1d ------------------------------------------------------------
@@ -63,6 +63,36 @@ check_alpha <- function(x){
   cond2 = ((!is.na(x))&&(!is.infinite(x)))
   cond3 = ((x<=1)&&(0<=x))
   
+  if (cond1&&cond2&&cond3){
+    return(TRUE)
+  } else {
+    stop()
+  }
+}
+
+
+# 05. check_dlist1d -------------------------------------------------------
+#' @keywords internal
+#' @noRd
+check_dlist1d_single <- function(x){
+  cond1 = ((is.vector(x)))
+  cond2 = (all(!is.infinite(x)))
+  cond3 = (all(!is.na(x)))
+  cond4 = (all(!is.complex(x)))
+  cond5 = (length(x)>=2)
+  
+  if (cond1&&cond2&&cond3&&cond4&&cond5){
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
+}
+#' @keywords internal
+#' @noRd
+check_dlist1d <- function(dlist){
+  cond1 = (is.list(dlist))
+  cond2 = (length(dlist)>=2)
+  cond3 = (all(unlist(lapply(dlist,check_dlist1d_single))==TRUE))
   if (cond1&&cond2&&cond3){
     return(TRUE)
   } else {

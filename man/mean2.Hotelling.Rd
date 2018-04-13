@@ -2,10 +2,10 @@
 % Please edit documentation in R/mean2.Hotelling.R
 \name{mean2.Hotelling}
 \alias{mean2.Hotelling}
-\title{Two-sample Hotelling's T-squared test}
+\title{Two-Sample Hotelling's T-squared Test for Multivariate Mean}
 \usage{
 mean2.Hotelling(X, Y, alpha = 0.05, paired = FALSE, var.equal = TRUE)
 }
 \description{
-Two-sample Hotelling's T-squared test
+Two-Sample Hotelling's T-squared Test for Multivariate Mean
 }

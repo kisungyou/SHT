@@ -6,6 +6,17 @@
 
 using namespace Rcpp;
 
+// cpp_variance
+double cpp_variance(const arma::vec& x);
+RcppExport SEXP _SHT_cpp_variance(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_variance(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 // timesTwo
 NumericVector timesTwo(NumericVector x);
 RcppExport SEXP _SHT_timesTwo(SEXP xSEXP) {
@@ -19,6 +30,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_SHT_cpp_variance", (DL_FUNC) &_SHT_cpp_variance, 1},
     {"_SHT_timesTwo", (DL_FUNC) &_SHT_timesTwo, 1},
     {NULL, NULL, 0}
 };

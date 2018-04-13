@@ -2,10 +2,10 @@
 % Please edit documentation in R/mean1.Hotelling.R
 \name{mean1.Hotelling}
 \alias{mean1.Hotelling}
-\title{One-sample Hotelling's T-squared test}
+\title{One-Sample Hotelling's T-squared Test for Multivariate Mean}
 \usage{
 mean1.Hotelling(X, mu0 = rep(0, ncol(X)), alpha = 0.05)
 }
 \description{
-One-sample Hotelling's T-squared test
+One-Sample Hotelling's T-squared Test for Multivariate Mean
 }

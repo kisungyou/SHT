@@ -2,11 +2,11 @@
 % Please edit documentation in R/mean1.Student.R
 \name{mean1.Student}
 \alias{mean1.Student}
-\title{One-sample Student's t-test}
+\title{One-Sample Student's t-test for Univariate Mean}
 \usage{
 mean1.Student(x, mu0 = 0, alternative = c("two.sided", "less", "greater"),
   alpha = 0.05)
 }
 \description{
-One-sample Student's t-test
+One-Sample Student's t-test for Univariate Mean
 }

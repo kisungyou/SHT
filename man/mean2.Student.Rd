@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.Student.R
 \name{mean2.Student}
 \alias{mean2.Student}
-\title{Two-sample Student's t-test}
+\title{Two-Sample Student's t-test for Univariate Mean}
 \usage{
 mean2.Student(x, y, alternative = c("two.sided", "less", "greater"),
   alpha = 0.05, paired = FALSE, var.equal = FALSE)
@@ -19,5 +19,5 @@ mean2.Student(x, y, alternative = c("two.sided", "less", "greater"),
 \item{var.equal}{a logical indicating to use Welch's variant.}
 }
 \description{
-Two-sample Student's t-test
+Two-Sample Student's t-test for Univariate Mean
 }

@@ -1,4 +1,4 @@
-#' Two-sample Student's t-test
+#' Two-Sample Student's t-test for Univariate Mean
 #' 
 #' 
 #' 
@@ -61,7 +61,7 @@ mean2.Student <- function(x, y, alternative=c("two.sided","less","greater"), alp
     # 2-3. hypothesis and determination
     if (alternative=="two.sided"){
       pvalue = 2*pt(abs(t),df,lower.tail = FALSE)
-      Ha     = "two means are different."
+      Ha     = "two true means are different."
     } else if (alternative=="less"){
       pvalue = pt(t,df,lower.tail = TRUE)
       Ha     = "true mean of x is smaller than true mean of y."

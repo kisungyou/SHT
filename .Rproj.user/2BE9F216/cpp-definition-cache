@@ -1,9 +1,18 @@
 [
     {
         "definitions" : [
+            {
+                "column" : 8,
+                "file" : "/home/kisung/Desktop/SHT/src/comp_preliminary.cpp",
+                "kind" : 6,
+                "line" : 15,
+                "name" : "cpp_variance(const arma::vec &)",
+                "parent_name" : "",
+                "usr" : "c:@F@cpp_variance#&1$@N@arma@C@Col>#d#"
+            }
         ],
         "file" : "/home/kisung/Desktop/SHT/src/comp_preliminary.cpp",
-        "file_last_write" : 1523498823
+        "file_last_write" : 1523582753
     },
     {
         "definitions" : [

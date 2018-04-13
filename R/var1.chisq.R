@@ -1,16 +1,17 @@
-#' One-sample Student's t-test
-#' 
-#' 
+#' One-Sample Chi-Square Test for Variance
 #' 
 #' 
 #' 
 #' 
 #' @export
-mean1.Student <- function(x, mu0=0, alternative=c("two.sided","less","greater"), alpha=0.05){
+var1.chisq <- function(x, var0=1, alternative=c("two.sided","less","greater"), alpha=0.05){
   ##############################################################
   # PREPROCESSING
   check_1d(x)        # univariate vector
-  check_number(mu0)  # number to be compared
+  check_number(var0) # number to be compared
+  if (var0<=0){
+    stop("* var1.chisq : var0 should be a nonnegative real number.")
+  }
   check_alpha(alpha) # significance level
   if (missing(alternative)){
     alternative = "two.sided"
@@ -20,22 +21,22 @@ mean1.Student <- function(x, mu0=0, alternative=c("two.sided","less","greater"),
   
   ##############################################################
   # COMPUTATION : PRELIMINARY
-  n    = length(x)
-  xbar = mean(x)
-  sd   = sd(x)    
-  t    = (xbar-mu0)/(sd/sqrt(n))
+  n     = length(x)
+  varx  = aux_var(x)
+  xstat = ((n-1)*varx/var0)
   
   ##############################################################
   # COMPUTATION : HYPOTHESIS and DETERMINATION
   if (alternative=="two.sided"){
-    pvalue = 2*pt(abs(t),(n-1),lower.tail = FALSE)
-    Ha     = paste("true mean is different from ",mu0,".",sep="")
+    tmpval = pchisq(xstat, (n-1))
+    pvalue = 2*min(tmpval, 1-tmpval)
+    Ha     = paste("true variance is different from ",var0,".",sep="")
   } else if (alternative=="less"){
-    pvalue = pt(t,(n-1),lower.tail = TRUE)
-    Ha     = paste("true mean is less than ",mu0,".",sep="")
+    pvalue = pchisq(xstat, (n-1), lower.tail = TRUE)
+    Ha     = paste("true variance is less than ",var0,".",sep="")
   } else if (alternative=="greater"){
-    pvalue = pt(t,(n-1),lower.tail = FALSE)
-    Ha     = paste("true mean is greater than ",mu0,".",sep="")
+    pvalue = pchisq(xstat, (n-1), lower.tail = FALSE)
+    Ha     = paste("true variance is greater than ",var0,".",sep="")
   }
   if (pvalue < alpha){
     conclusion = "Reject Null Hypothesis"
@@ -45,7 +46,7 @@ mean1.Student <- function(x, mu0=0, alternative=c("two.sided","less","greater"),
   
   ##############################################################
   # REPORT
-  hname  = "One-sample Student's t-test"
+  hname  = "One-Sample Chi-Square Test for Variance"
   output = hypothesis(hname, t, alpha,
                       pvalue, Ha, 
                       conclusion)
