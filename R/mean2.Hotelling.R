@@ -26,7 +26,7 @@ mean2.Hotelling <- function(X, Y, alpha=0.05, paired=FALSE, var.equal=TRUE){
     mu0  = rep(0,ncol(X))
     tmpout = mean1.Hotelling(diff, mu0=mu0, alpha=alpha)
       
-    hname  = "Two-Sample Hotelling's T-squared Test for Paired/Dependent Data"
+    hname  = "Two-Sample Hotelling's T-squared Test for Paired/Dependent Data."
     Ha     = "true mean are different."
     output = hypothesis(hname, tmpout$statistic, tmpout$alpha,
                         tmpout$p.value, Ha, tmpout$conclusion)
@@ -38,7 +38,7 @@ mean2.Hotelling <- function(X, Y, alpha=0.05, paired=FALSE, var.equal=TRUE){
     xbar = as.vector(colMeans(X))
     ybar = as.vector(colMeans(Y))
     p    = ncol(X)
-    Ha   = "true mean are different."
+    Ha   = "true means are different."
     
     if (var.equal==TRUE){ # pooled variance-covariance is used
       vecdiff = (xbar-ybar)
@@ -68,9 +68,9 @@ mean2.Hotelling <- function(X, Y, alpha=0.05, paired=FALSE, var.equal=TRUE){
       pvalue  = pf(t2adj,p,(v-p+1),lower.tail = FALSE)
     }
     if (pvalue < alpha){
-      conclusion = "Reject Null Hypothesis"
+      conclusion = "Reject Null Hypothesis."
     } else {
-      conclusion = "Not Reject Null Hypothesis"
+      conclusion = "Not Reject Null Hypothesis."
     }
     output = hypothesis(hname, t2, alpha,
                         pvalue, Ha, 
