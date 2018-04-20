@@ -18,7 +18,7 @@ hypothesis <- function(method, statistic, alpha, pvalue,
 
 #' @export
 print <- function(x){
-  UseMethod("print")
+ UseMethod("print")
 }
 
 #' @export
@@ -28,8 +28,8 @@ print.hypothesis <- function(x){
   mname = x$method
   
   vert = "\n"
-  ws     = rep(" ", floor((width - nchar(mname))/2))
-  wshalf = rep(" ", min(floor((width - nchar(mname))/4),1))
+  ws     = rep(" ", max(floor((width - nchar(mname))/2),1))
+  wshalf = rep(" ", min(abs(floor((width - nchar(mname))/4)),1))
   
   cat(vert)
   cat(ws, mname, vert, sep="") # method title
