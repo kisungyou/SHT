@@ -21,6 +21,7 @@ print <- function(x){
  UseMethod("print")
 }
 
+#' @noRd
 #' @export
 print.hypothesis <- function(x){
   width = getOption("width")

@@ -27,7 +27,8 @@ aux_trace <- function(A){
 }
 
 # 03. sample variance (univariate) ----------------------------------------
-#' @export
+#' @keywords internal
+#' @noRd
 aux_var <- function(x){
   return(cpp_variance(x))
 }
