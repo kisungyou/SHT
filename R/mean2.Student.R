@@ -2,15 +2,8 @@
 #' 
 #' 
 #' 
-#' @param x a vector of length \eqn{m}.
-#' @param y a vector of length \eqn{n}.
-#' @param alternative
-#' @param alpha significance level, default set as 0.05.
-#' @param paired a logical indicating to use a paired \eqn{t}-test.
-#' @param var.equal a logical indicating to use Welch's variant.
 #' 
-#' 
-#' 
+#' @author Kisung You
 #' @export
 mean2.Student <- function(x, y, alternative=c("two.sided","less","greater"), alpha=0.05, paired=FALSE, var.equal=FALSE){
   ##############################################################

@@ -7,17 +7,9 @@
 mean2.Student(x, y, alternative = c("two.sided", "less", "greater"),
   alpha = 0.05, paired = FALSE, var.equal = FALSE)
 }
-\arguments{
-\item{x}{a vector of length \eqn{m}.}
-
-\item{y}{a vector of length \eqn{n}.}
-
-\item{alpha}{significance level, default set as 0.05.}
-
-\item{paired}{a logical indicating to use a paired \eqn{t}-test.}
-
-\item{var.equal}{a logical indicating to use Welch's variant.}
-}
 \description{
 Two-Sample Student's t-test for Univariate Mean
+}
+\author{
+Kisung You
 }
