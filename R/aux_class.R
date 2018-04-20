@@ -1,3 +1,5 @@
+#' S3 class \emph{hypothesis}
+#' 
 #' @keywords internal
 #' @noRd
 hypothesis <- function(method, statistic, alpha, pvalue, 
@@ -12,4 +14,29 @@ hypothesis <- function(method, statistic, alpha, pvalue,
          ),
     class = c("hypothesis")
   )
+}
+
+#' @export
+print <- function(x){
+  UseMethod("print")
+}
+
+#' @export
+print.hypothesis <- function(x){
+  width = getOption("width")
+  
+  mname = x$method
+  
+  vert = "\n"
+  ws     = rep(" ", floor((width - nchar(mname))/2))
+  wshalf = rep(" ", min(floor((width - nchar(mname))/4),1))
+  
+  cat(vert)
+  cat(ws, mname, vert, sep="") # method title
+  cat(vert)
+  cat(wshalf,"* test statistic : ", x$statistic,vert,sep="")
+  cat(wshalf,"* alternative    : ", x$alternative,vert,sep="")
+  cat(wshalf,"* significance   : ", x$significance,vert,sep="")
+  cat(wshalf,"* p-value        : ", x$p.value,vert,sep="")
+  cat(wshalf,"* conclusion     : ", x$conclusion,vert,sep="")
 }
