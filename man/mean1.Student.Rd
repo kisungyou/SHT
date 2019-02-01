@@ -4,8 +4,8 @@
 \alias{mean1.Student}
 \title{One-Sample Student's t-test for Univariate Mean}
 \usage{
-mean1.Student(x, mu0 = 0, alternative = c("two.sided", "less", "greater"),
-  alpha = 0.05)
+mean1.Student(x, mu0 = 0, alternative = c("two.sided", "less",
+  "greater"), alpha = 0.05)
 }
 \description{
 One-Sample Student's t-test for Univariate Mean

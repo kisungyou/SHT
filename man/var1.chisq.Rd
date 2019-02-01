@@ -4,8 +4,8 @@
 \alias{var1.chisq}
 \title{One-Sample Chi-Square Test for Variance}
 \usage{
-var1.chisq(x, var0 = 1, alternative = c("two.sided", "less", "greater"),
-  alpha = 0.05)
+var1.chisq(x, var0 = 1, alternative = c("two.sided", "less",
+  "greater"), alpha = 0.05)
 }
 \description{
 One-Sample Chi-Square Test for Variance

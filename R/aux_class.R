@@ -17,10 +17,16 @@ hypothesis <- function(method, statistic, alpha, pvalue,
 }
 
 #' @export
+hypothesis.default <- function(object){
+  stop("No applicable method for objects of class ", class(object))  
+}
+
+
+# generic functions -------------------------------------------------------
+#' @export
 print <- function(x){
  UseMethod("print")
 }
-
 #' @noRd
 #' @export
 print.hypothesis <- function(x){
@@ -33,7 +39,8 @@ print.hypothesis <- function(x){
   wshalf = rep(" ", min(abs(floor((width - nchar(mname))/4)),1))
   
   cat(vert)
-  cat(ws, mname, vert, sep="") # method title
+  # cat(ws, mname, vert, sep="") # method title
+  cat(wshalf,wshalf, mname, vert, sep="") # method title
   cat(vert)
   cat(wshalf,"* test statistic : ", x$statistic,vert,sep="")
   cat(wshalf,"* alternative    : ", x$alternative,vert,sep="")

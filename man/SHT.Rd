@@ -4,7 +4,6 @@
 \name{SHT}
 \alias{SHT}
 \alias{SHT-package}
-\alias{SHT-package}
 \title{Dimension Reduction and Estimation Methods}
 \description{
 Dimension Reduction and Estimation Methods

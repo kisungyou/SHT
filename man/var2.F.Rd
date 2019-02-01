@@ -4,7 +4,8 @@
 \alias{var2.F}
 \title{Two-Sample F Test for Variance}
 \usage{
-var2.F(x, y, alternative = c("two.sided", "less", "greater"), alpha = 0.05)
+var2.F(x, y, alternative = c("two.sided", "less", "greater"),
+  alpha = 0.05)
 }
 \description{
 Two-Sample F Test for Variance
