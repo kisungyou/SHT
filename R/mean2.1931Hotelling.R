@@ -73,7 +73,7 @@ mean2.1931Hotelling <- function(X, Y, alpha=0.05, paired=FALSE, var.equal=TRUE){
     tmpout = mean1.Hotelling(diff, mu0=mu0, alpha=alpha)
       
     hname  = "Two-Sample Hotelling's T-squared Test for Paired/Dependent Data."
-    Ha     = "true mean are different."
+    Ha     = "true means are different."
     output = hypothesis(hname, tmpout$statistic, tmpout$alpha,
                         tmpout$p.value, Ha, tmpout$conclusion)
   } else {

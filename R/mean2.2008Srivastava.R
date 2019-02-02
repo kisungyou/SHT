@@ -1,20 +1,54 @@
 #' Two-Sample Test for High-Dimensional Means by Srivastava and Du (2008)
 #' 
+#' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
+#' \deqn{H_0 : \mu_x = \mu_y\quad vs\quad H_1 : \mu_x \neq \mu_y}
+#' using the procedure by Srivastava and Du (2008).
 #' 
+#' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
+#' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
+#' @param alpha significance level.
+#' 
+#' @return a (list) object of \code{S3} class \code{hypothesis} containing: \describe{
+#' \item{method}{name of the test.}
+#' \item{statistic}{a test statistic.}
+#' \item{p.value}{\eqn{p}-value under current setting.}
+#' \item{significance}{a user-specified significance level.}
+#' \item{alternative}{alternative hypothesis.}
+#' \item{conclusion}{conclusion by \eqn{p}-value decision rule.}
+#' }
+#' 
+#' @examples 
+#' \donttest{
+#' ## empirical Type 1 error 
+#' niter   = 1000
+#' counter = rep(0,niter)  # record p-values
+#' for (i in 1:niter){
+#'   X = matrix(rnorm(50*5), ncol=10)
+#'   Y = matrix(rnorm(50*5), ncol=10)
+#'   
+#'   counter[i] = ifelse(mean2.2008Srivastava(X,Y)$p.value < 0.05, 1, 0)
+#' }
+#' 
+#' ## print the result
+#' cat(paste("\n* Example for 'mean2.1958Dempster'\n\n",
+#' sprintf("* number of rejections   : %d\n",sum(counter)),
+#' sprintf("* total number of trials : %d\n",niter),
+#' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
+#' }
 #' 
 #' @references 
 #' \insertRef{srivastava_test_2008}{SHT}
 #' 
 #' @author Kisung You
 #' @export
-mean2.Srivastava2008 <- function(X, Y, alpha=0.05){
+mean2.2008Srivastava <- function(X, Y, alpha=0.05){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
   check_nd(Y)
   check_alpha(alpha)
   if (ncol(X)!=ncol(Y)){
-    stop("* mean2.Srivastava2008 : two samples X and Y should be of same dimension.")
+    stop("* mean2.2008Srivastava : two samples X and Y should be of same dimension.")
   }
   
   ##############################################################

@@ -45,7 +45,7 @@ mean1.Student <- function(x, mu0=0, alternative=c("two.sided","less","greater"),
   
   ##############################################################
   # REPORT
-  hname  = "One-Sample Student's t-test"
+  hname  = "One-Sample Student\'s t-test"
   output = hypothesis(hname, t, alpha,
                       pvalue, Ha, 
                       conclusion)
