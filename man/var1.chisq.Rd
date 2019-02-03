@@ -7,6 +7,48 @@
 var1.chisq(x, var0 = 1, alternative = c("two.sided", "less",
   "greater"), alpha = 0.05)
 }
+\arguments{
+\item{x}{a length-\eqn{n} data vector.}
+
+\item{var0}{hypothesized variance \eqn{\sigma_0^2}.}
+
+\item{alternative}{specifying the alternative hypothesis.}
+
+\item{alpha}{significance level.}
+}
+\value{
+a (list) object of \code{S3} class \code{hypothesis} containing: \describe{
+\item{method}{name of the test.}
+\item{statistic}{a test statistic.}
+\item{p.value}{\eqn{p}-value under current setting.}
+\item{significance}{a user-specified significance level.}
+\item{alternative}{alternative hypothesis.}
+\item{conclusion}{conclusion by \eqn{p}-value decision rule.}
+}
+}
 \description{
-One-Sample Chi-Square Test for Variance
+Given an univariate sample \eqn{x}, it tests
+\deqn{H_0 : \sigma_x^2 \left\lbrace =,\geq,\leq \right\rbrace \sigma_0^2 \quad vs\quad H_1 : \sigma_x^2 \left\lbrace \neq,<,>\right\rbrace \sigma_0^2}.
+}
+\examples{
+\donttest{
+## empirical Type 1 error 
+niter   = 1000
+counter = rep(0,niter)  # record p-values
+for (i in 1:niter){
+  x = rnorm(50)  # sample x from N(0,1)
+  
+  counter[i] = ifelse(var1.chisq(x,var0=1)$p.value < 0.05, 1, 0)
+}
+
+## print the result
+cat(paste("\\n* Example for 'var1.chisq'\\n\\n",
+sprintf("* number of rejections   : \%d\\n",sum(counter)),
+sprintf("* total number of trials : \%d\\n",niter),
+sprintf("* empirical Type 1 error : \%.4f\\n", sum(counter/niter)),sep=""))
+}
+
+}
+\references{
+\insertRef{snedecor_statistical_1996}{SHT}
 }

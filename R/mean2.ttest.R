@@ -1,11 +1,52 @@
-#' Two-Sample Student's t-test for Univariate Mean
+#' Two-Sample Student's t-test for Univariate Means
 #' 
+#' Given two univariate samples \eqn{x} and \eqn{y}, it tests
+#' \deqn{H_0 : \mu_x^2 \left\lbrace =,\geq,\leq \right\rbrace \mu_y^2\quad vs\quad H_1 : \mu_x^2 \left\lbrace \neq,<,>\right\rbrace \mu_y^2}
+#' using the procedure by Student (1908) and Welch (1947).
 #' 
+#' @param x a length-\eqn{n} data vector.
+#' @param y a length-\eqn{m} data vector.
+#' @param alternative specifying the alternative hypothesis.
+#' @param alpha significance level.
 #' 
+#' @return a (list) object of \code{S3} class \code{hypothesis} containing: \describe{
+#' \item{method}{name of the test.}
+#' \item{statistic}{a test statistic.}
+#' \item{p.value}{\eqn{p}-value under current setting.}
+#' \item{significance}{a user-specified significance level.}
+#' \item{alternative}{alternative hypothesis.}
+#' \item{conclusion}{conclusion by \eqn{p}-value decision rule.}
+#' }
+#' 
+#' @examples 
+#' \donttest{
+#' ## empirical Type 1 error 
+#' niter   = 1000
+#' counter = rep(0,niter)  # record p-values
+#' for (i in 1:niter){
+#'   x = rnorm(57)  # sample x from N(0,1)
+#'   y = rnorm(89)  # sample y from N(0,1)
+#'   
+#'   counter[i] = ifelse(mean2.ttest(x,y)$p.value < 0.05, 1, 0)
+#' }
+#' 
+#' ## print the result
+#' cat(paste("\n* Example for 'mean2.ttest'\n\n",
+#' sprintf("* number of rejections   : %d\n",sum(counter)),
+#' sprintf("* total number of trials : %d\n",niter),
+#' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
+#' }
+#' 
+#' @references 
+#' \insertRef{student_probable_1908}{SHT}
+#' 
+#' \insertRef{student_probable_1908-1}{SHT}
+#' 
+#' \insertRef{welch_generalization_1947}{SHT}
 #' 
 #' @author Kisung You
 #' @export
-mean2.Student <- function(x, y, alternative=c("two.sided","less","greater"), alpha=0.05, paired=FALSE, var.equal=FALSE){
+mean2.ttest <- function(x, y, alternative=c("two.sided","less","greater"), alpha=0.05, paired=FALSE, var.equal=FALSE){
   ##############################################################
   # PREPROCESSING
   check_1d(x)        # univariate vector of 1st class

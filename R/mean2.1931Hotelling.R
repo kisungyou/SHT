@@ -109,7 +109,7 @@ mean2.1931Hotelling <- function(X, Y, alpha=0.05, paired=FALSE, var.equal=TRUE){
       v2      = (((aux_trace(Z1sq)+((aux_trace(Z1))^2))/nx)+((aux_trace(Z2sq)+((aux_trace(Z2))^2))/ny))
       v       = (v1/v2)
       
-      t2      = (sum(as.vector(Rlinsolve::lsolve.bicgstab(Stilde, vecdiff, verbose=FALSE)$x)*vecdiff))
+      t2      = (sum(as.vector(solve(Stilde, vecdiff))*vecdiff))
       t2adj   = (t2*(v-p+1)/(v*p))
       pvalue  = pf(t2adj,p,(v-p+1),lower.tail = FALSE)
     }

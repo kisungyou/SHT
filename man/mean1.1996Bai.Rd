@@ -34,7 +34,7 @@ using the procedure by Bai and Saranadasa (1996).
 niter   = 1000
 counter = rep(0,niter)  # record p-values
 for (i in 1:niter){
-  X = matrix(rnorm(50*5), ncol=5)
+  X = matrix(rnorm(50*5), ncol=25)
   counter[i] = ifelse(mean1.1996Bai(X)$p.value < 0.05, 1, 0)
 }
 
