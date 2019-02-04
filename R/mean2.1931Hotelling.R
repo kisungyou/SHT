@@ -7,16 +7,15 @@
 #' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
 #' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
 #' @param alpha significance level.
-#' @param paired a logical indicating whether you want a paired Hotelling's test.
-#' @param var.equal a logical variable indicating whether to treat the two covariances as being equal.
+#' @param paired a logical; whether you want a paired Hotelling's test.
+#' @param var.equal a logical; whether to treat the two covariances as being equal.
 #' 
-#' @return a (list) object of \code{S3} class \code{hypothesis} containing: \describe{
-#' \item{method}{name of the test.}
+#' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
-#' \item{p.value}{\eqn{p}-value under current setting.}
-#' \item{significance}{a user-specified significance level.}
+#' \item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
 #' \item{alternative}{alternative hypothesis.}
-#' \item{conclusion}{conclusion by \eqn{p}-value decision rule.}
+#' \item{method}{name of the test.}
+#' \item{data.name}{name(s) of provided sample data.}
 #' }
 #' 
 #' @examples 
@@ -70,12 +69,16 @@ mean2.1931Hotelling <- function(X, Y, alpha=0.05, paired=FALSE, var.equal=TRUE){
     
     diff = X-Y
     mu0  = rep(0,ncol(X))
-    tmpout = mean1.Hotelling(diff, mu0=mu0, alpha=alpha)
+    tmpout = mean1.1931Hotelling(diff, mu0=mu0, alpha=alpha)
       
     hname  = "Two-Sample Hotelling's T-squared Test for Paired/Dependent Data."
     Ha     = "true means are different."
-    output = hypothesis(hname, tmpout$statistic, tmpout$alpha,
-                        tmpout$p.value, Ha, tmpout$conclusion)
+ 
+    thestat = tmpout$statistic
+    DNAME = paste(deparse(substitute(X))," and ",deparse(substitute(Y)),sep="") # borrowed from HDtest
+    names(thestat) = "T2"
+    res   = list(statistic=thestat, p.value=tmpout$p.value, alternative = Ha, method=hname, data.name = DNAME)
+    class(res) = "htest"
   } else {
     nx = nrow(X)
     ny = nrow(Y) 
@@ -89,7 +92,7 @@ mean2.1931Hotelling <- function(X, Y, alpha=0.05, paired=FALSE, var.equal=TRUE){
     if (var.equal==TRUE){ # pooled variance-covariance is used
       vecdiff = (xbar-ybar)
       Spool   = ((nx-1)*Sx + (ny-1)*Sy)/(nx+ny-2)
-      t2      = (sum(as.vector(Rlinsolve::lsolve.bicgstab(Spool, vecdiff, verbose=FALSE)$x )*vecdiff))*(nx*ny/(nx+ny))
+      t2      = (sum(as.vector(solve(Spool, vecdiff))*vecdiff))*(nx*ny/(nx+ny))
       t2adj   = ((nx+ny-p-1)/(p*(nx+ny-2)))*t2
       pvalue  = pf(t2adj,p,(nx+ny-1-p),lower.tail = FALSE)
       hname   = "Hotelling's T-squared Test for Independent Samples with Equal Covariance Assumption."
@@ -118,12 +121,15 @@ mean2.1931Hotelling <- function(X, Y, alpha=0.05, paired=FALSE, var.equal=TRUE){
     } else {
       conclusion = "Not Reject Null Hypothesis."
     }
-    output = hypothesis(hname, t2, alpha,
-                        pvalue, Ha, 
-                        conclusion)
+    
+    thestat = t2
+    DNAME = paste(deparse(substitute(X))," and ",deparse(substitute(Y)),sep="") # borrowed from HDtest
+    names(thestat) = "T2"
+    res   = list(statistic=thestat, p.value=pvalue, alternative = Ha, method=hname, data.name = DNAME)
+    class(res) = "htest"
   }
 
   ##############################################################
   # REPORT
-  return(output)
+  return(res)
 }

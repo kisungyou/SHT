@@ -8,13 +8,12 @@
 #' @param mu0 a length-\eqn{p} mean vector of interest.
 #' @param alpha significance level.
 #' 
-#' @return a (list) object of \code{S3} class \code{hypothesis} containing: \describe{
-#' \item{method}{name of the test.}
+#' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
-#' \item{p.value}{\eqn{p}-value under current setting.}
-#' \item{significance}{a user-specified significance level.}
+#' \item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
 #' \item{alternative}{alternative hypothesis.}
-#' \item{conclusion}{conclusion by \eqn{p}-value decision rule.}
+#' \item{method}{name of the test.}
+#' \item{data.name}{name(s) of provided sample data.}
 #' }
 #' 
 #' @examples 
@@ -73,8 +72,10 @@ mean1.1931Hotelling <- function(X, mu0=rep(0,ncol(X)), alpha=0.05){
   # REPORT
   hname  = "One-Sample Hotelling's T-squared Test"
   Ha     = "true mean is different from mu0."
-  output = hypothesis(hname, t2, alpha,
-                      pvalue, Ha, 
-                      conclusion)
-  return(output)
+  
+  DNAME = deparse(substitute(X)) # borrowed from HDtest
+  names(t2) = "statistic"
+  res   = list(statistic=t2, p.value=pvalue, alternative = Ha, method=hname, data.name = DNAME)
+  class(res) = "htest"
+  return(res)
 }

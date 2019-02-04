@@ -17,13 +17,12 @@ mean1.ttest(x, mu0 = 0, alternative = c("two.sided", "less",
 \item{alpha}{significance level.}
 }
 \value{
-a (list) object of \code{S3} class \code{hypothesis} containing: \describe{
-\item{method}{name of the test.}
+a (list) object of \code{S3} class \code{htest} containing: \describe{
 \item{statistic}{a test statistic.}
-\item{p.value}{\eqn{p}-value under current setting.}
-\item{significance}{a user-specified significance level.}
+\item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
 \item{alternative}{alternative hypothesis.}
-\item{conclusion}{conclusion by \eqn{p}-value decision rule.}
+\item{method}{name of the test.}
+\item{data.name}{name(s) of provided sample data.}
 }
 }
 \description{
@@ -32,7 +31,6 @@ Given an univariate sample \eqn{x}, it tests
 using the procedure by Student (1908).
 }
 \examples{
-\donttest{
 ## empirical Type 1 error 
 niter   = 1000
 counter = rep(0,niter)  # record p-values
@@ -41,6 +39,7 @@ for (i in 1:niter){
   counter[i] = ifelse(mean1.ttest(x)$p.value < 0.05, 1, 0)
 }
 
+\donttest{
 ## print the result
 cat(paste("\\n* Example for 'mean1.ttest'\\n\\n",
 sprintf("* number of rejections   : \%d\\n",sum(counter)),

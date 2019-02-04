@@ -14,13 +14,12 @@ mean1.1958Dempster(X, mu0 = rep(0, ncol(X)), alpha = 0.05)
 \item{alpha}{significance level.}
 }
 \value{
-a (list) object of \code{S3} class \code{hypothesis} containing: \describe{
-\item{method}{name of the test.}
+a (list) object of \code{S3} class \code{htest} containing: \describe{
 \item{statistic}{a test statistic.}
-\item{p.value}{\eqn{p}-value under current setting.}
-\item{significance}{a user-specified significance level.}
+\item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
 \item{alternative}{alternative hypothesis.}
-\item{conclusion}{conclusion by \eqn{p}-value decision rule.}
+\item{method}{name of the test.}
+\item{data.name}{name(s) of provided sample data.}
 }
 }
 \description{

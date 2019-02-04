@@ -6,13 +6,12 @@
 #' @param dlist a list of length \eqn{k} where each element is a sample vector.
 #' @param alpha significance level.
 #' 
-#' @return a (list) object of \code{S3} class \code{hypothesis} containing: \describe{
-#' \item{method}{name of the test.}
+#' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
-#' \item{p.value}{\eqn{p}-value under current setting.}
-#' \item{significance}{a user-specified significance level.}
+#' \item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
 #' \item{alternative}{alternative hypothesis.}
-#' \item{conclusion}{conclusion by \eqn{p}-value decision rule.}
+#' \item{method}{name of the test.}
+#' \item{data.name}{name(s) of provided sample data.}
 #' }
 #' 
 #' @examples 
@@ -74,9 +73,10 @@ meank.anova <- function(dlist, alpha=0.05){
     conclusion = "Not Reject Null Hypothesis"
   }
 
-  output = hypothesis(hname, thestat, alpha,
-                      pvalue, Ha, 
-                      conclusion)
-  return(output)
+  DNAME = deparse(substitute(dlist))
+  names(thestat) = "statistic"
+  res   = list(statistic=thestat, p.value=pvalue, alternative = Ha, method=hname, data.name = DNAME)
+  class(res) = "htest"
+  return(res)
 }
 

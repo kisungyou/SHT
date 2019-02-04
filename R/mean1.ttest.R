@@ -9,17 +9,15 @@
 #' @param alternative specifying the alternative hypothesis.
 #' @param alpha significance level.
 #' 
-#' @return a (list) object of \code{S3} class \code{hypothesis} containing: \describe{
-#' \item{method}{name of the test.}
+#' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
-#' \item{p.value}{\eqn{p}-value under current setting.}
-#' \item{significance}{a user-specified significance level.}
+#' \item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
 #' \item{alternative}{alternative hypothesis.}
-#' \item{conclusion}{conclusion by \eqn{p}-value decision rule.}
+#' \item{method}{name of the test.}
+#' \item{data.name}{name(s) of provided sample data.}
 #' }
 #' 
 #' @examples 
-#' \donttest{
 #' ## empirical Type 1 error 
 #' niter   = 1000
 #' counter = rep(0,niter)  # record p-values
@@ -28,6 +26,7 @@
 #'   counter[i] = ifelse(mean1.ttest(x)$p.value < 0.05, 1, 0)
 #' }
 #' 
+#' \donttest{
 #' ## print the result
 #' cat(paste("\n* Example for 'mean1.ttest'\n\n",
 #' sprintf("* number of rejections   : %d\n",sum(counter)),
@@ -50,6 +49,13 @@ mean1.ttest <- function(x, mu0=0, alternative=c("two.sided","less","greater"), a
   if (missing(alternative)){
     alternative = "two.sided"
   } else {
+    if (alternative=="g"){
+      alternative = "greater"
+    } else if (alternative=="t"){
+      alternative = "two.sided"
+    } else if (alternative=="l"){
+      alternative = "less"
+    }
     alternative = match.arg(alternative)
   }
   
@@ -80,9 +86,11 @@ mean1.ttest <- function(x, mu0=0, alternative=c("two.sided","less","greater"), a
   
   ##############################################################
   # REPORT
-  hname  = "One-Sample Student\'s t-test"
-  output = hypothesis(hname, t, alpha,
-                      pvalue, Ha, 
-                      conclusion)
-  return(output)
+  hname   = "One-Sample Student\'s t-test"
+  thestat = t
+  DNAME = deparse(substitute(x)) # borrowed from HDtest
+  names(thestat) = "t"
+  res   = list(statistic=thestat, p.value=pvalue, alternative = Ha, method=hname, data.name = DNAME)
+  class(res) = "htest"
+  return(res)
 }

@@ -8,14 +8,15 @@
 #' @param y a length-\eqn{m} data vector.
 #' @param alternative specifying the alternative hypothesis.
 #' @param alpha significance level.
+#' @param paired a logical; whether consider two samples as paired.
+#' @param var.equal a logical; if \code{FALSE}, use Welch's correction.
 #' 
-#' @return a (list) object of \code{S3} class \code{hypothesis} containing: \describe{
-#' \item{method}{name of the test.}
+#' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
-#' \item{p.value}{\eqn{p}-value under current setting.}
-#' \item{significance}{a user-specified significance level.}
+#' \item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
 #' \item{alternative}{alternative hypothesis.}
-#' \item{conclusion}{conclusion by \eqn{p}-value decision rule.}
+#' \item{method}{name of the test.}
+#' \item{data.name}{name(s) of provided sample data.}
 #' }
 #' 
 #' @examples 
@@ -55,13 +56,20 @@ mean2.ttest <- function(x, y, alternative=c("two.sided","less","greater"), alpha
   if (missing(alternative)){
     alternative = "two.sided"
   } else {
+    if (alternative=="g"){
+      alternative = "greater"
+    } else if (alternative=="t"){
+      alternative = "two.sided"
+    } else if (alternative=="l"){
+      alternative = "less"
+    }
     alternative = match.arg(alternative)
   }
   
   ##############################################################
   # CASE 1 : PAIRED/DEPENDENT T-TEST
   if (paired==TRUE){
-    output = mean2.Student.paired(x,y,alternative,alpha)
+    res = mean2.Student.paired(x,y,alternative,alpha)
   } else {
   ##############################################################
   # CASE 2 : INDEPENDENT T-TEST
@@ -108,13 +116,17 @@ mean2.ttest <- function(x, y, alternative=c("two.sided","less","greater"), alpha
     } else {
       conclusion = "Not Reject Null Hypothesis"
     }
-    output = hypothesis(hname, t, alpha,
-                        pvalue, Ha, 
-                        conclusion)
+    
+    
+    thestat = t
+    DNAME = paste(deparse(substitute(x))," and ",deparse(substitute(y)),sep="") # borrowed from HDtest
+    names(thestat) = "t"
+    res   = list(statistic=thestat, p.value=pvalue, alternative = Ha, method=hname, data.name = DNAME)
+    class(res) = "htest"
   }
   ##############################################################
   # REPORT
-  return(output)
+  return(res)
 }
 
 
@@ -126,9 +138,9 @@ mean2.Student.paired <- function(x, y, paired.alternative, paired.alpha){
     stop("* mean2.Student : for paired t-test, length of x and y should be identical.")
   }
   diff   = (x-y)
-  tmpout = mean1.Student(diff,mu0=0,alternative=paired.alternative,alpha=paired.alpha)
+  tmpout = mean1.ttest(diff,mu0=0,alternative=paired.alternative,alpha=paired.alpha)
   
-  hname  = "Two-sample Student's t-test for Paired/Dependent Data"
+  hname  = "Two-sample Student's t-test for Paired/Dependent Data."
   if (paired.alternative=="two.sided"){
     Ha = "true mean difference is not equal to 0."
   } else if (paired.alternative=="less"){
@@ -137,7 +149,10 @@ mean2.Student.paired <- function(x, y, paired.alternative, paired.alpha){
     Ha = "true mean difference is greater than 0."
   }
   
-  output = hypothesis(hname, tmpout$statistic, tmpout$significance,
-                      tmpout$p.value, Ha, tmpout$conclusion)
-  return(output)
+  thestat = tmpout$statistic
+  DNAME = paste(deparse(substitute(x))," and ",deparse(substitute(y)),sep="") # borrowed from HDtest
+  names(thestat) = "t"
+  res   = list(statistic=thestat, p.value=tmpout$p.value, alternative = Ha, method=hname, data.name = DNAME)
+  class(res) = "htest"
+  return(res)
 }
