@@ -39,7 +39,7 @@
 #' }
 #' 
 #' @references 
-#' \insertRef{levene_robust_1960}{SHT}
+#' \insertRef{brown_robust_1974}{SHT}
 #' 
 #' @export
 vark.1974Brown<- function(dlist, alpha=0.05){

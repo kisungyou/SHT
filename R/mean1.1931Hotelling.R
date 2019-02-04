@@ -34,6 +34,9 @@
 #' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
 #' }
 #' 
+#' @references 
+#' \insertRef{hotelling_generalization_1931}{SHT}
+#' 
 #' @export
 mean1.1931Hotelling <- function(X, mu0=rep(0,ncol(X)), alpha=0.05){
   ##############################################################

@@ -46,3 +46,6 @@ sprintf("* empirical Type 1 error : \%.4f\\n", sum(counter/niter)),sep=""))
 }
 
 }
+\references{
+\insertRef{hotelling_generalization_1931}{SHT}
+}

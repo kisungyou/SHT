@@ -30,3 +30,33 @@ or the development version from github:
 devtools::install_github("kisungyou/SHT")
 ```
 
+## List of Available Tests
+We categorized available functions by their object of interest for better navigation. Notations **$x$** and **$y$** refer to samples. Authors are referred by last names. See the help page of each function for complete references. **$k$-sample** means that the test is checking the _homogeneity_ across multiple samples.
+
+### 1. tests for univariate mean $\mu \in \mathbb{R}$
+| function name | authors| description of $H_0$ |
+|-------|------------------------|:----------------|
+| `mean1.ttest` | Student (1908)                  | $\mu_x ~\{\leq, =, \geq\}~ \mu_0$ (1-sample) |
+| `mean2.ttest` | Student (1908) & Welch (1947) | $\mu_x ~\{\leq, =, \geq\}~ \mu_y$ (2-sample) |
+| `meank.anova` |               -                 | $\mu_1 = \cdots = \mu_k$ ($k$-sample) |
+
+### 2. tests for multivariate mean $\mu \in \mathbb{R}^n$
+| function name | authors | description of $H_0$|
+|---------------|------------------------|:----------------|
+| `mean1.1931Hotelling` | Hotelling (1931)       | $\mu_x = \mu_0$ (1-sample) |
+| `mean1.1958Dempster`  | Dempster (1958, 1960)  | $\mu_x = \mu_0$ (1-sample) |
+| `mean1.1996Bai`       | Bai & Saranadasa (1996) | $\mu_x = \mu_0$ (1-sample) |
+| `mean1.2008Srivastava`| Srivastava & Du (2008)  | $\mu_x = \mu_0$ (1-sample) |
+| `mean2.1931Hotelling` | Hotelling (1931)       | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.1958Dempster`  | Dempster (1958, 1960)  | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.1996Bai`       | Bai & Saranadasa (1996) | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.2008Srivastava`| Srivastava & Du (2008)  | $\mu_x = \mu_y$ (2-sample) |
+
+### 3. tests for variance $\sigma^2$
+| function name | authors | description of $H_0$|
+|---------------|------------------------|:----------------|
+| `var1.chisq` | -        | $\sigma_x^2 ~\{\leq, =, \geq\}~ \sigma_0^2$ (1-sample) |
+| `var2.F`     | -        | $\sigma_x^2 ~\{\leq, =, \geq\}~ \sigma_y^2$ (2-sample) |
+| `vark.1937Bartlett` | Bartlett (1937) | $\sigma_1^2 = \cdots = \sigma_k^2$ ($k$-sample) |
+| `vark.1960Levene`   | Levene (1960)   | $\sigma_1^2 = \cdots = \sigma_k^2$ ($k$-sample) |
+| `vark.1974Brown`    | Brown & Forsythe (1974) | $\sigma_1^2 = \cdots = \sigma_k^2$ ($k$-sample) |

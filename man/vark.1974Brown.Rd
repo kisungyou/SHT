@@ -50,5 +50,5 @@ sprintf("* empirical Type 1 error : \%.4f\\n", sum(counter/niter)),sep=""))
 
 }
 \references{
-\insertRef{levene_robust_1960}{SHT}
+\insertRef{brown_robust_1974}{SHT}
 }

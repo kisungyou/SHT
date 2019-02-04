@@ -3,7 +3,7 @@ Type: Package
 Title: Statistical Hypothesis Testing Toolbox
 Version: 1.0
 Authors@R: person("Kisung", "You", role = c("aut", "cre"),email = "kyou@nd.edu",comment=c(ORCID="0000-0002-8584-459X"))
-Description: We provide a collection of popular statistical testing procedures as well as some of most up-to-date methods for non-trivial settings such as high-dimensional scenarios. For the general treatment of statistical hypothesis testing, see the book by Lehmann and Romano (2005, ISBN:978-0-387-27605-2).
+Description: We provide a collection of statistical hypothesis testing procedures ranging from classical to modern methods for non-trivial settings such as high-dimensional scenario. For the general treatment of statistical hypothesis testing, see the book by Lehmann and Romano (2005) <doi:10.1007/0-387-27605-X>.
 License: GPL (>=3)
 Encoding: UTF-8
 Imports: Rcpp, Rdpack, stats
