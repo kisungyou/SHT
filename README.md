@@ -25,7 +25,12 @@ devtools::install_github("kisungyou/SHT")
 List of Available Tests
 -----------------------
 
-We categorized available functions by their object of interest for better navigation. Notations ***x*** and ***y*** refer to samples. Authors are referred by last names. See the help page of each function for complete references. ***k*-sample** means that the test is checking the *homogeneity* across multiple samples.
+We categorized available functions by their object of interest for better navigation.
+
+-   Notations ***x*** and ***y*** refer to samples.
+-   Authors are referred by last names. See the help page of each function for complete references.
+-   ***k*-sample** means that the test is checking the *homogeneity* across multiple samples.
+-   Function naming convention is {`type of test`.`test name`}, or {`type of test`.`year` `authors`}, where there are two or three authors, we took their initials as abbreviation or simply the last name of the first author otherwise.
 
 ### 1. tests for univariate mean *μ* ∈ ℝ
 
@@ -63,16 +68,16 @@ We categorized available functions by their object of interest for better naviga
 
 ### 2. tests for multivariate mean *μ* ∈ ℝ<sup>*n*</sup>
 
-| function name          | authors                 | description of *H*<sub>0</sub>                   |
-|------------------------|-------------------------|:-------------------------------------------------|
-| `mean1.1931Hotelling`  | Hotelling (1931)        | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
-| `mean1.1958Dempster`   | Dempster (1958, 1960)   | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
-| `mean1.1996Bai`        | Bai & Saranadasa (1996) | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
-| `mean1.2008Srivastava` | Srivastava & Du (2008)  | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
-| `mean2.1931Hotelling`  | Hotelling (1931)        | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
-| `mean2.1958Dempster`   | Dempster (1958, 1960)   | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
-| `mean2.1996Bai`        | Bai & Saranadasa (1996) | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
-| `mean2.2008Srivastava` | Srivastava & Du (2008)  | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
+| function name         | authors                 | description of *H*<sub>0</sub>                   |
+|-----------------------|-------------------------|:-------------------------------------------------|
+| `mean1.1931Hotelling` | Hotelling (1931)        | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
+| `mean1.1958Dempster`  | Dempster (1958, 1960)   | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
+| `mean1.1996BS`        | Bai & Saranadasa (1996) | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
+| `mean1.2008SD`        | Srivastava & Du (2008)  | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
+| `mean2.1931Hotelling` | Hotelling (1931)        | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
+| `mean2.1958Dempster`  | Dempster (1958, 1960)   | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
+| `mean2.1996BS`        | Bai & Saranadasa (1996) | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
+| `mean2.2008SD`        | Srivastava & Du (2008)  | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
 
 ### 3. tests for variance *σ*<sup>2</sup>
 
@@ -111,7 +116,7 @@ We categorized available functions by their object of interest for better naviga
 <td align="left"><span class="math inline"><em>σ</em><sub>1</sub><sup>2</sup> = ⋯ = <em>σ</em><sub><em>k</em></sub><sup>2</sup></span> (<span class="math inline"><em>k</em></span>-sample)</td>
 </tr>
 <tr class="odd">
-<td><code>vark.1974Brown</code></td>
+<td><code>vark.1974BF</code></td>
 <td>Brown &amp; Forsythe (1974)</td>
 <td align="left"><span class="math inline"><em>σ</em><sub>1</sub><sup>2</sup> = ⋯ = <em>σ</em><sub><em>k</em></sub><sup>2</sup></span> (<span class="math inline"><em>k</em></span>-sample)</td>
 </tr>

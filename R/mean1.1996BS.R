@@ -1,11 +1,11 @@
-#' Two-Sample Test for High-Dimensional Means by Bai and Saranadasa (1996)
+#' One-Sample Test for High-Dimensional Mean by Bai and Saranadasa (1996)
 #' 
-#' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
-#' \deqn{H_0 : \mu_x = \mu_y\quad vs\quad H_1 : \mu_x \neq \mu_y}
+#' Given two multivariate data \eqn{X} and hypothesized mean \eqn{\mu_0}, it tests
+#' \deqn{H_0 : \mu_x = \mu_0\quad vs\quad H_1 : \mu_x \neq \mu_0}
 #' using the procedure by Bai and Saranadasa (1996).
 #' 
-#' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
-#' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
+#' @param X an \eqn{(n\times p)} data matrix where each row is an observation.
+#' @param mu0 a length-\eqn{p} mean vector of interest.
 #' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
@@ -22,14 +22,12 @@
 #' niter   = 1000
 #' counter = rep(0,niter)  # record p-values
 #' for (i in 1:niter){
-#'   X = matrix(rnorm(50*5), ncol=10)
-#'   Y = matrix(rnorm(50*5), ncol=10)
-#'   
-#'   counter[i] = ifelse(mean2.1996Bai(X,Y)$p.value < 0.05, 1, 0)
+#'   X = matrix(rnorm(50*5), ncol=25)
+#'   counter[i] = ifelse(mean1.1996BS(X)$p.value < 0.05, 1, 0)
 #' }
 #' 
 #' ## print the result
-#' cat(paste("\n* Example for 'mean2.1996Bai'\n\n",
+#' cat(paste("\n* Example for 'mean1.1996BS'\n\n",
 #' sprintf("* number of rejections   : %d\n",sum(counter)),
 #' sprintf("* total number of trials : %d\n",niter),
 #' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
@@ -38,48 +36,45 @@
 #' @references 
 #' \insertRef{bai_high_1996}{SHT}
 #' 
-#' @author Kisung You
 #' @export
-mean2.1996Bai <- function(X, Y, alpha=0.05){
+mean1.1996BS <- function(X, mu0=rep(0,ncol(X)), alpha=0.05){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
-  check_nd(Y)
+  check_1d(mu0)      
   check_alpha(alpha)
-  if (ncol(X)!=ncol(Y)){
-    stop("* mean2.1996Bai : two samples X and Y should be of same dimension.")
+  if (length(mu0)!=ncol(X)){
+    stop("* mean1.1996BS : mu0 does not have consistent size as data.")
   }
+  Xnew = aux_minusvec(X,mu0) # now the problem becomes testing agains (0,0,...,0)
   
   ##############################################################
   # COMPUTATION : PRELIMINARY
-  n1 = nrow(X)
-  n2 = nrow(Y)
-  n  = (n1+n2-2) # from highmean package
+  N      = nrow(Xnew)
+  n      = (N-1)
+  p      = ncol(Xnew)
   
-  x1    = colMeans(X)
-  x2    = colMeans(Y)
-  S     = (((n1-1)*cov(X) + (n2-1)*cov(Y))/n)
-  trS   = aux_trace(S)
-  xdiff = as.vector(x1-x2)
-
-  term1 = ((n1*n2)/(n1+n2))*sum(xdiff*xdiff) - trS
-  term2 = sqrt((2*n*(n+1)/((n-1)*(n+2)))*(aux_trace(S%*%S) - (trS^2)/n))
+  xbar   = colMeans(Xnew)
+  S      = stats::cov(Xnew)    # sample covariance
+  trS    = aux_trace(S)
   
   ##############################################################
   # COMPUTATION : DETERMINATION
-  
+  term1   = N*sum(xbar*xbar) - trS
+  term2   = sqrt((2*n*(n+1)/((n-1)*(n+1)))*(aux_trace(S%*%S) - (trS^2)/n))
   thestat = (term1/term2)
   pvalue  = pnorm(thestat,lower.tail=FALSE) # reject if (Z > thr_alpha)
   
-  hname   = "Two-Sample Test for High-Dimensional Means by Bai and Saranadasa (1996)."
-  Ha      = "true means are different."
+  hname   = "One-Sample Test for High-Dimensional Mean by Bai and Saranadasa (1996)."
+  Ha      = "true mean is different from mu0."
   if (pvalue < alpha){
     conclusion = "Reject Null Hypothesis."
   } else {
     conclusion = "Not Reject Null Hypothesis."
   }
   
-  DNAME = paste(deparse(substitute(X))," and ",deparse(substitute(Y)),sep="") # borrowed from HDtest
+  
+  DNAME = deparse(substitute(X)) # borrowed from HDtest
   names(thestat) = "statistic"
   res   = list(statistic=thestat, p.value=pvalue, alternative = Ha, method=hname, data.name = DNAME)
   class(res) = "htest"

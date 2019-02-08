@@ -25,7 +25,7 @@
 #'   X = matrix(rnorm(50*5), ncol=10)
 #'   Y = matrix(rnorm(50*5), ncol=10)
 #'   
-#'   counter[i] = ifelse(mean2.2008Srivastava(X,Y)$p.value < 0.05, 1, 0)
+#'   counter[i] = ifelse(mean2.2008SD(X,Y)$p.value < 0.05, 1, 0)
 #' }
 #' 
 #' ## print the result
@@ -40,14 +40,14 @@
 #' 
 #' @author Kisung You
 #' @export
-mean2.2008Srivastava <- function(X, Y, alpha=0.05){
+mean2.2008SD <- function(X, Y, alpha=0.05){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
   check_nd(Y)
   check_alpha(alpha)
   if (ncol(X)!=ncol(Y)){
-    stop("* mean2.2008Srivastava : two samples X and Y should be of same dimension.")
+    stop("* mean2.2008SD : two samples X and Y should be of same dimension.")
   }
   
   ##############################################################

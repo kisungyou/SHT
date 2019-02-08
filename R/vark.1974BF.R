@@ -27,11 +27,11 @@
 #'      mylist[[j]] = rnorm(50)   
 #'   }
 #'   
-#'   counter[i] = ifelse(vark.1974Brown(mylist)$p.value < 0.05, 1, 0)
+#'   counter[i] = ifelse(vark.1974BF(mylist)$p.value < 0.05, 1, 0)
 #' }
 #' 
 #' ## print the result
-#' cat(paste("\n* Example for 'vark.1974Brown'\n\n",
+#' cat(paste("\n* Example for 'vark.1974BF'\n\n",
 #' sprintf("* number of rejections   : %d\n",sum(counter)),
 #' sprintf("* total number of trials : %d\n",niter),
 #' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
@@ -41,7 +41,7 @@
 #' \insertRef{brown_robust_1974}{SHT}
 #' 
 #' @export
-vark.1974Brown<- function(dlist, alpha=0.05){
+vark.1974BF<- function(dlist, alpha=0.05){
   ##############################################################
   # PREPROCESSING
   check_dlist1d(dlist) 
