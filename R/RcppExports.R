@@ -5,6 +5,10 @@ cpp_variance <- function(x) {
     .Call('_SHT_cpp_variance', PACKAGE = 'SHT', x)
 }
 
+adjust_clime <- function(omega) {
+    .Call('_SHT_adjust_clime', PACKAGE = 'SHT', omega)
+}
+
 timesTwo <- function(x) {
     .Call('_SHT_timesTwo', PACKAGE = 'SHT', x)
 }

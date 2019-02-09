@@ -19,20 +19,18 @@
 #' 
 #' @examples 
 #' ## empirical Type 1 error 
-#' niter   = 1000
+#' niter   = 100
 #' counter = rep(0,niter)  # record p-values
 #' for (i in 1:niter){
 #'   x = rnorm(10)         # sample from N(0,1)
 #'   counter[i] = ifelse(mean1.ttest(x)$p.value < 0.05, 1, 0)
 #' }
 #' 
-#' \donttest{
 #' ## print the result
 #' cat(paste("\n* Example for 'mean1.ttest'\n\n",
 #' sprintf("* number of rejections   : %d\n",sum(counter)),
 #' sprintf("* total number of trials : %d\n",niter),
 #' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
-#' }
 #' 
 #' @references 
 #' \insertRef{student_probable_1908}{SHT}

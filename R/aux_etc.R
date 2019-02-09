@@ -5,7 +5,7 @@
 #     aux_adjustmat : adjust small values (in magnitude) by some number
 # 05. aux_quadform  : compute x'Ax
 # 06. aux_minusvec  : for one-sample test
-
+# 07. aux_CVsplit   : generate CV splits as list
 
 # 01. PseudoInverse using SVD and NumPy Scheme ----------------------------
 # https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse#Singular_value_decomposition_(SVD)
@@ -90,4 +90,26 @@ aux_minusvec <- function(X,vec){
     Y[i,] = as.vector(X[i,])-vec
   }
   return(Y)
+}
+
+
+# 07. aux_CVsplit   : generate CV splits as list --------------------------
+#' @keywords internal
+#' @noRd
+aux_CVsplit <- function(n, K){
+  allseq= 1:n
+  folds = cut(seq(1,n),breaks=K,labels=FALSE)
+  idxx  = list()
+  for (i in 1:K){
+    idxx[[i]] = which(folds==i, arr.ind=TRUE)
+  }
+  idyy = list()
+  for (i in 1:K){
+    idyy[[i]] = setdiff(allseq, idxx[[i]])
+  }
+  
+  output = list()
+  output$large = idyy
+  output$small = idxx
+  return(output)
 }

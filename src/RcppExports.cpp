@@ -17,6 +17,17 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// adjust_clime
+arma::mat adjust_clime(arma::mat omega);
+RcppExport SEXP _SHT_adjust_clime(SEXP omegaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type omega(omegaSEXP);
+    rcpp_result_gen = Rcpp::wrap(adjust_clime(omega));
+    return rcpp_result_gen;
+END_RCPP
+}
 // timesTwo
 NumericVector timesTwo(NumericVector x);
 RcppExport SEXP _SHT_timesTwo(SEXP xSEXP) {
@@ -31,6 +42,7 @@ END_RCPP
 
 static const R_CallMethodDef CallEntries[] = {
     {"_SHT_cpp_variance", (DL_FUNC) &_SHT_cpp_variance, 1},
+    {"_SHT_adjust_clime", (DL_FUNC) &_SHT_adjust_clime, 1},
     {"_SHT_timesTwo", (DL_FUNC) &_SHT_timesTwo, 1},
     {NULL, NULL, 0}
 };
