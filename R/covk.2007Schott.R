@@ -2,9 +2,10 @@
 #' 
 #' Given multivariate samples \eqn{X_1~,\ldots,~X_k}, it tests
 #' \deqn{H_0 : \Sigma_1 = \cdots \Sigma_k\quad vs\quad H_1 : \textrm{ not } H_0}
-#' by a procedure by Schott (2007).
+#' by a procedure by Schott (2007). In latter papers, this has appeared in the 
+#' context of two-sample testing a lot, though it's performance is not that great in such setting.
 #' 
-#' @param dlist a list of length \eqn{k} where each element is a sample matrix of dimension \eqn{p}.
+#' @param dlist a list of length \eqn{k} whose elements are sample matrices.
 #' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{

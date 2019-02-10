@@ -7,7 +7,7 @@
 covk.2007Schott(dlist, alpha = 0.05)
 }
 \arguments{
-\item{dlist}{a list of length \eqn{k} where each element is a sample matrix of dimension \eqn{p}.}
+\item{dlist}{a list of length \eqn{k} whose elements are sample matrices.}
 
 \item{alpha}{significance level.}
 }
@@ -23,17 +23,18 @@ a (list) object of \code{S3} class \code{htest} containing: \describe{
 \description{
 Given multivariate samples \eqn{X_1~,\ldots,~X_k}, it tests
 \deqn{H_0 : \Sigma_1 = \cdots \Sigma_k\quad vs\quad H_1 : \textrm{ not } H_0}
-by a procedure by Schott (2007).
+by a procedure by Schott (2007). In latter papers, this has appeared in the 
+context of two-sample testing a lot, though it's performance is not that great in such setting.
 }
 \examples{
 \donttest{
-## test when k=3 (samples)
+## test when k=5 (samples)
 ## empirical Type 1 error 
 niter   = 1000
 counter = rep(0,niter)  # record p-values
 for (i in 1:niter){
   mylist = list()
-  for (j in 1:3){
+  for (j in 1:5){
      mylist[[j]] = matrix(rnorm(32*8), ncol=8)
   }
   

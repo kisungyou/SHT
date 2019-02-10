@@ -70,6 +70,7 @@ We categorized available functions by their object of interest for better naviga
 ### 4. tests for covariance $\Sigma$
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
+| `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `covk.2007Schott` | Schott (2007) | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
 
 ### 5. other tests

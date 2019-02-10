@@ -126,8 +126,9 @@ We categorized available functions by their object of interest for better naviga
 
 ### 4. tests for covariance *Σ*
 
-| function name     | authors       | description of *H*<sub>0</sub>                       |
-|-------------------|---------------|:-----------------------------------------------------|
-| `covk.2007Schott` | Schott (2007) | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
+| function name     | authors                  | description of *H*<sub>0</sub>                       |
+|-------------------|--------------------------|:-----------------------------------------------------|
+| `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
+| `covk.2007Schott` | Schott (2007)            | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
 
 ### 5. other tests
