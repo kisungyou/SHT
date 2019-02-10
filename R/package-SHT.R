@@ -11,9 +11,6 @@
 #' @aliases SHT-package
 #' @import Rdpack
 #' @importFrom pracma pinv
-#' @importFrom foreach "%dopar%" foreach registerDoSEQ
-#' @importFrom parallel detectCores stopCluster makeCluster
-#' @importFrom doParallel registerDoParallel
 #' @importFrom fastclime fastclime
 #' @importFrom utils packageVersion
 #' @importFrom stats pt sd cov pchisq pf median aov cov2cor pnorm

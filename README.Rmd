@@ -68,6 +68,8 @@ We categorized available functions by their object of interest for better naviga
 | `vark.1974BF`    | Brown & Forsythe (1974) | $\sigma_1^2 = \cdots = \sigma_k^2$ ($k$-sample) |
 
 ### 4. tests for covariance $\Sigma$
-
+| function name | authors | description of $H_0$|
+|---------------|------------------------|:----------------|
+| `covk.2007Schott` | Schott (2007) | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
 
 ### 5. other tests

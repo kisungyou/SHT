@@ -47,7 +47,7 @@ meank.anova <- function(dlist, alpha=0.05){
   # COMPUTATION : PRELIMINARY FOR USING ANOVA
   K = length(dlist)
   if (K < 2){
-    stop("* meank.anova : we need at least 2 groups of data.")
+    stop("* meank.anova : we need at least 2 sets of data.")
   }
   labellist = list()
   for (i in 1:K){

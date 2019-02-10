@@ -4,6 +4,7 @@
 #   3. check_number  : just a real number
 #   4. check_alpha   : (0,1)
 #   5. check_dlist1d : datalist 1d
+#   6. check_dlistnd : datalist nd
 
 
 # 01. check_1d ------------------------------------------------------------
@@ -94,6 +95,35 @@ check_dlist1d <- function(dlist){
   cond2 = (length(dlist)>=2)
   cond3 = (all(unlist(lapply(dlist,check_dlist1d_single))==TRUE))
   if (cond1&&cond2&&cond3){
+    return(TRUE)
+  } else {
+    stop()
+  }
+}
+
+
+# 06. check_dlistnd -------------------------------------------------------
+check_dlistnd_single <- function(x){
+  cond1 = ((is.matrix(x)))
+  cond2 = (all(!is.infinite(x)))
+  cond3 = (all(!is.na(x)))
+  cond4 = (all(!is.complex(x)))
+  cond5 = (length(x)>=2)
+  
+  if (cond1&&cond2&&cond3&&cond4&&cond5){
+    return(TRUE)
+  } else {
+    return(FALSE)
+  }
+}
+#' @keywords internal
+#' @noRd
+check_dlistnd <- function(dlist){
+  cond1 = (is.list(dlist))
+  cond2 = (length(dlist)>=2)
+  cond3 = (all(unlist(lapply(dlist,check_dlistnd_single))==TRUE))
+  cond4 = (length(unique(unlist(lapply(dlist, ncol))))==1)
+  if (cond1&&cond2&&cond3&&cond4){
     return(TRUE)
   } else {
     stop()

@@ -170,8 +170,8 @@ extreme_type1 <- function(t){
   return(exp(-(1/sqrt(pi))*exp(-t/2)))
 }
 
-#' #' @keywords internal
-#' #' @noRd
+# #' @keywords internal
+# #' @noRd
 #' cv_fastclime_equalcov <- function(X, Y){
 #'   K     = 5
 #'   npath = 10

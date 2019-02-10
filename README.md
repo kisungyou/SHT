@@ -124,5 +124,10 @@ We categorized available functions by their object of interest for better naviga
 </tbody>
 </table>
 
-<!-- ### 4. tests for covariance $\Sigma$ -->
-<!-- ### 5. other tests -->
+### 4. tests for covariance *Σ*
+
+| function name     | authors       | description of *H*<sub>0</sub>                       |
+|-------------------|---------------|:-----------------------------------------------------|
+| `covk.2007Schott` | Schott (2007) | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
+
+### 5. other tests

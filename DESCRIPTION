@@ -7,7 +7,7 @@ Authors@R: person("Kisung", "You", role = c("aut", "cre"),email = "kyou@nd.edu",
 Description: We provide a collection of statistical hypothesis testing procedures ranging from classical to modern methods for non-trivial settings such as high-dimensional scenario. For the general treatment of statistical hypothesis testing, see the book by Lehmann and Romano (2005) <doi:10.1007/0-387-27605-X>.
 License: GPL (>=3)
 Encoding: UTF-8
-Imports: Rcpp, Rdpack, stats, utils, fastclime, pracma, doParallel, foreach, parallel
+Imports: Rcpp, Rdpack, stats, utils, fastclime, pracma
 LinkingTo: Rcpp, RcppArmadillo
 RoxygenNote: 6.1.1
 RdMacros: Rdpack
