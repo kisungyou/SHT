@@ -6,14 +6,49 @@
 
 using namespace Rcpp;
 
-// cpp_variance
-double cpp_variance(const arma::vec& x);
-RcppExport SEXP _SHT_cpp_variance(SEXP xSEXP) {
+// cpp_cov2_2012LC_biased_computeA
+double cpp_cov2_2012LC_biased_computeA(arma::mat X);
+RcppExport SEXP _SHT_cpp_cov2_2012LC_biased_computeA(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< const arma::vec& >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_variance(x));
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_cov2_2012LC_biased_computeA(X));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_cov2_2012LC_biased_computeC
+double cpp_cov2_2012LC_biased_computeC(arma::mat X, arma::mat Y);
+RcppExport SEXP _SHT_cpp_cov2_2012LC_biased_computeC(SEXP XSEXP, SEXP YSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Y(YSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_cov2_2012LC_biased_computeC(X, Y));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_cov2_2012LC_computeA
+double cpp_cov2_2012LC_computeA(arma::mat X);
+RcppExport SEXP _SHT_cpp_cov2_2012LC_computeA(SEXP XSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_cov2_2012LC_computeA(X));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_cov2_2012LC_computeC
+double cpp_cov2_2012LC_computeC(arma::mat X, arma::mat Y);
+RcppExport SEXP _SHT_cpp_cov2_2012LC_computeC(SEXP XSEXP, SEXP YSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Y(YSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_cov2_2012LC_computeC(X, Y));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -28,22 +63,13 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// timesTwo
-NumericVector timesTwo(NumericVector x);
-RcppExport SEXP _SHT_timesTwo(SEXP xSEXP) {
-BEGIN_RCPP
-    Rcpp::RObject rcpp_result_gen;
-    Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< NumericVector >::type x(xSEXP);
-    rcpp_result_gen = Rcpp::wrap(timesTwo(x));
-    return rcpp_result_gen;
-END_RCPP
-}
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_SHT_cpp_variance", (DL_FUNC) &_SHT_cpp_variance, 1},
+    {"_SHT_cpp_cov2_2012LC_biased_computeA", (DL_FUNC) &_SHT_cpp_cov2_2012LC_biased_computeA, 1},
+    {"_SHT_cpp_cov2_2012LC_biased_computeC", (DL_FUNC) &_SHT_cpp_cov2_2012LC_biased_computeC, 2},
+    {"_SHT_cpp_cov2_2012LC_computeA", (DL_FUNC) &_SHT_cpp_cov2_2012LC_computeA, 1},
+    {"_SHT_cpp_cov2_2012LC_computeC", (DL_FUNC) &_SHT_cpp_cov2_2012LC_computeC, 2},
     {"_SHT_adjust_clime", (DL_FUNC) &_SHT_adjust_clime, 1},
-    {"_SHT_timesTwo", (DL_FUNC) &_SHT_timesTwo, 1},
     {NULL, NULL, 0}
 };
 

@@ -6,6 +6,8 @@
 # 05. aux_quadform  : compute x'Ax
 # 06. aux_minusvec  : for one-sample test
 # 07. aux_CVsplit   : generate CV splits as list
+# 08. aux_scatter   : sample covariance without scaling
+# 09. aux_trace     : trace of a matrix
 
 # 01. PseudoInverse using SVD and NumPy Scheme ----------------------------
 # https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse#Singular_value_decomposition_(SVD)
@@ -31,12 +33,6 @@ aux_trace <- function(A){
 }
 
 # 03. sample variance (univariate) ----------------------------------------
-#' @keywords internal
-#' @noRd
-aux_var <- function(x){
-  return(cpp_variance(x))
-}
-
 
 # 04. aux_adjustvec -------------------------------------------------------
 #' @keywords internal
@@ -112,4 +108,21 @@ aux_CVsplit <- function(n, K){
   output$large = idyy
   output$small = idxx
   return(output)
+}
+
+
+# 08. aux_scatter ---------------------------------------------------------
+#' @keywords internal
+#' @noRd
+aux_scatter <- function(X){
+  nX = as.matrix(scale(X, center=TRUE, scale=FALSE))
+  return(t(nX)%*%nX)
+}
+
+
+# 09. aux_trace -----------------------------------------------------------
+#' @keywords internal
+#' @noRd
+aux_trace <- function(A){
+  return(sum(diag(A)))
 }

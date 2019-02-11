@@ -62,8 +62,8 @@ var2.F <- function(x, y, alternative=c("two.sided","less","greater"), alpha=0.05
   # COMPUTATION : PRELIMINARY
   n = length(x)
   m = length(y)
-  varx = aux_var(x)
-  vary = aux_var(y)
+  varx = stats::var(x)
+  vary = stats::var(y)
   thestat = (varx/vary)
   
   ##############################################################

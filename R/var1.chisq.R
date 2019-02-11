@@ -64,7 +64,7 @@ var1.chisq <- function(x, var0=1, alternative=c("two.sided","less","greater"), a
   ##############################################################
   # COMPUTATION : PRELIMINARY
   n     = length(x)
-  varx  = aux_var(x)
+  varx  = as.double(stats::var(x))
   xstat = ((n-1)*varx/var0)
   
   ##############################################################
