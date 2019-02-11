@@ -51,7 +51,7 @@ vark.1937Bartlett <- function(dlist, alpha=0.05){
   # COMPUTATION : PRELIMINARY
   k        = length(dlist)
   vec_n    = unlist(lapply(dlist, length))
-  vec_Si2  = unlist(lapply(dlist, aux_var))
+  vec_Si2  = unlist(lapply(dlist, stats::var))
   
   N        = sum(vec_n)
   Sp2      = (sum((vec_n-1)*vec_Si2))/(N-k)
