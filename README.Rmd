@@ -74,4 +74,6 @@ We categorized available functions by their object of interest for better naviga
 | `cov2.2012LC`    | Li and Chen (2012) | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | $\Sigma_x = \Sigma_y$ (2-sample) |
 
-### 5. other tests
+### 5. simultaneous tests for mean $\mu$ and covariance $\Sigma$
+
+### 6. normality tests
