@@ -63,6 +63,79 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// norm_1987JB_single
+double norm_1987JB_single(arma::vec x);
+RcppExport SEXP _SHT_norm_1987JB_single(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(norm_1987JB_single(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// norm_1987JB_mcarlo
+Rcpp::List norm_1987JB_mcarlo(arma::vec x, int nreps);
+RcppExport SEXP _SHT_norm_1987JB_mcarlo(SEXP xSEXP, SEXP nrepsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int >::type nreps(nrepsSEXP);
+    rcpp_result_gen = Rcpp::wrap(norm_1987JB_mcarlo(x, nreps));
+    return rcpp_result_gen;
+END_RCPP
+}
+// norm_2008RJB_single
+double norm_2008RJB_single(arma::vec x, double C1, double C2);
+RcppExport SEXP _SHT_norm_2008RJB_single(SEXP xSEXP, SEXP C1SEXP, SEXP C2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type x(xSEXP);
+    Rcpp::traits::input_parameter< double >::type C1(C1SEXP);
+    Rcpp::traits::input_parameter< double >::type C2(C2SEXP);
+    rcpp_result_gen = Rcpp::wrap(norm_2008RJB_single(x, C1, C2));
+    return rcpp_result_gen;
+END_RCPP
+}
+// norm_2008RJB_mcarlo
+Rcpp::List norm_2008RJB_mcarlo(arma::vec x, int nreps, double C1, double C2);
+RcppExport SEXP _SHT_norm_2008RJB_mcarlo(SEXP xSEXP, SEXP nrepsSEXP, SEXP C1SEXP, SEXP C2SEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int >::type nreps(nrepsSEXP);
+    Rcpp::traits::input_parameter< double >::type C1(C1SEXP);
+    Rcpp::traits::input_parameter< double >::type C2(C2SEXP);
+    rcpp_result_gen = Rcpp::wrap(norm_2008RJB_mcarlo(x, nreps, C1, C2));
+    return rcpp_result_gen;
+END_RCPP
+}
+// norm_1996AJB_single
+double norm_1996AJB_single(arma::vec x);
+RcppExport SEXP _SHT_norm_1996AJB_single(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(norm_1996AJB_single(x));
+    return rcpp_result_gen;
+END_RCPP
+}
+// norm_1996AJB_mcarlo
+Rcpp::List norm_1996AJB_mcarlo(arma::vec x, int nreps);
+RcppExport SEXP _SHT_norm_1996AJB_mcarlo(SEXP xSEXP, SEXP nrepsSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type x(xSEXP);
+    Rcpp::traits::input_parameter< int >::type nreps(nrepsSEXP);
+    rcpp_result_gen = Rcpp::wrap(norm_1996AJB_mcarlo(x, nreps));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_SHT_cpp_cov2_2012LC_biased_computeA", (DL_FUNC) &_SHT_cpp_cov2_2012LC_biased_computeA, 1},
@@ -70,6 +143,12 @@ static const R_CallMethodDef CallEntries[] = {
     {"_SHT_cpp_cov2_2012LC_computeA", (DL_FUNC) &_SHT_cpp_cov2_2012LC_computeA, 1},
     {"_SHT_cpp_cov2_2012LC_computeC", (DL_FUNC) &_SHT_cpp_cov2_2012LC_computeC, 2},
     {"_SHT_adjust_clime", (DL_FUNC) &_SHT_adjust_clime, 1},
+    {"_SHT_norm_1987JB_single", (DL_FUNC) &_SHT_norm_1987JB_single, 1},
+    {"_SHT_norm_1987JB_mcarlo", (DL_FUNC) &_SHT_norm_1987JB_mcarlo, 2},
+    {"_SHT_norm_2008RJB_single", (DL_FUNC) &_SHT_norm_2008RJB_single, 3},
+    {"_SHT_norm_2008RJB_mcarlo", (DL_FUNC) &_SHT_norm_2008RJB_mcarlo, 4},
+    {"_SHT_norm_1996AJB_single", (DL_FUNC) &_SHT_norm_1996AJB_single, 1},
+    {"_SHT_norm_1996AJB_mcarlo", (DL_FUNC) &_SHT_norm_1996AJB_mcarlo, 2},
     {NULL, NULL, 0}
 };
 

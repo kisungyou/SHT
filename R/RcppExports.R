@@ -21,3 +21,27 @@ adjust_clime <- function(omega) {
     .Call('_SHT_adjust_clime', PACKAGE = 'SHT', omega)
 }
 
+norm_1987JB_single <- function(x) {
+    .Call('_SHT_norm_1987JB_single', PACKAGE = 'SHT', x)
+}
+
+norm_1987JB_mcarlo <- function(x, nreps) {
+    .Call('_SHT_norm_1987JB_mcarlo', PACKAGE = 'SHT', x, nreps)
+}
+
+norm_2008RJB_single <- function(x, C1, C2) {
+    .Call('_SHT_norm_2008RJB_single', PACKAGE = 'SHT', x, C1, C2)
+}
+
+norm_2008RJB_mcarlo <- function(x, nreps, C1, C2) {
+    .Call('_SHT_norm_2008RJB_mcarlo', PACKAGE = 'SHT', x, nreps, C1, C2)
+}
+
+norm_1996AJB_single <- function(x) {
+    .Call('_SHT_norm_1996AJB_single', PACKAGE = 'SHT', x)
+}
+
+norm_1996AJB_mcarlo <- function(x, nreps) {
+    .Call('_SHT_norm_1996AJB_mcarlo', PACKAGE = 'SHT', x, nreps)
+}
+
