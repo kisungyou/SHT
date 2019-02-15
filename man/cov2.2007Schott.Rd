@@ -4,14 +4,12 @@
 \alias{cov2.2007Schott}
 \title{Two-Sample Test for High-Dimensional Covariances by Schott (2007)}
 \usage{
-cov2.2007Schott(X, Y, alpha = 0.05)
+cov2.2007Schott(X, Y)
 }
 \arguments{
 \item{X}{an \eqn{(n_x \times p)} data matrix of 1st sample.}
 
 \item{Y}{an \eqn{(n_y \times p)} data matrix of 2nd sample.}
-
-\item{alpha}{significance level.}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{

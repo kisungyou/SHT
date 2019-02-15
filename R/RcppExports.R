@@ -17,6 +17,10 @@ cpp_cov2_2012LC_computeC <- function(X, Y) {
     .Call('_SHT_cpp_cov2_2012LC_computeC', PACKAGE = 'SHT', X, Y)
 }
 
+cpp_cov2_mxPBF <- function(X, Y, Z, a0, b0, gamma, nCores) {
+    .Call('_SHT_cpp_cov2_mxPBF', PACKAGE = 'SHT', X, Y, Z, a0, b0, gamma, nCores)
+}
+
 adjust_clime <- function(omega) {
     .Call('_SHT_adjust_clime', PACKAGE = 'SHT', omega)
 }
@@ -43,5 +47,9 @@ norm_1996AJB_single <- function(x) {
 
 norm_1996AJB_mcarlo <- function(x, nreps) {
     .Call('_SHT_norm_1996AJB_mcarlo', PACKAGE = 'SHT', x, nreps)
+}
+
+testcpp_lgamma <- function(x) {
+    .Call('_SHT_testcpp_lgamma', PACKAGE = 'SHT', x)
 }
 

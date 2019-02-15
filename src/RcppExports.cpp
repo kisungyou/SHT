@@ -52,6 +52,23 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// cpp_cov2_mxPBF
+arma::mat cpp_cov2_mxPBF(arma::mat X, arma::mat Y, arma::mat Z, double a0, double b0, double gamma, int nCores);
+RcppExport SEXP _SHT_cpp_cov2_mxPBF(SEXP XSEXP, SEXP YSEXP, SEXP ZSEXP, SEXP a0SEXP, SEXP b0SEXP, SEXP gammaSEXP, SEXP nCoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Z(ZSEXP);
+    Rcpp::traits::input_parameter< double >::type a0(a0SEXP);
+    Rcpp::traits::input_parameter< double >::type b0(b0SEXP);
+    Rcpp::traits::input_parameter< double >::type gamma(gammaSEXP);
+    Rcpp::traits::input_parameter< int >::type nCores(nCoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_cov2_mxPBF(X, Y, Z, a0, b0, gamma, nCores));
+    return rcpp_result_gen;
+END_RCPP
+}
 // adjust_clime
 arma::mat adjust_clime(arma::mat omega);
 RcppExport SEXP _SHT_adjust_clime(SEXP omegaSEXP) {
@@ -136,12 +153,24 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// testcpp_lgamma
+arma::vec testcpp_lgamma(arma::vec x);
+RcppExport SEXP _SHT_testcpp_lgamma(SEXP xSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::vec >::type x(xSEXP);
+    rcpp_result_gen = Rcpp::wrap(testcpp_lgamma(x));
+    return rcpp_result_gen;
+END_RCPP
+}
 
 static const R_CallMethodDef CallEntries[] = {
     {"_SHT_cpp_cov2_2012LC_biased_computeA", (DL_FUNC) &_SHT_cpp_cov2_2012LC_biased_computeA, 1},
     {"_SHT_cpp_cov2_2012LC_biased_computeC", (DL_FUNC) &_SHT_cpp_cov2_2012LC_biased_computeC, 2},
     {"_SHT_cpp_cov2_2012LC_computeA", (DL_FUNC) &_SHT_cpp_cov2_2012LC_computeA, 1},
     {"_SHT_cpp_cov2_2012LC_computeC", (DL_FUNC) &_SHT_cpp_cov2_2012LC_computeC, 2},
+    {"_SHT_cpp_cov2_mxPBF", (DL_FUNC) &_SHT_cpp_cov2_mxPBF, 7},
     {"_SHT_adjust_clime", (DL_FUNC) &_SHT_adjust_clime, 1},
     {"_SHT_norm_1987JB_single", (DL_FUNC) &_SHT_norm_1987JB_single, 1},
     {"_SHT_norm_1987JB_mcarlo", (DL_FUNC) &_SHT_norm_1987JB_mcarlo, 2},
@@ -149,6 +178,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_SHT_norm_2008RJB_mcarlo", (DL_FUNC) &_SHT_norm_2008RJB_mcarlo, 4},
     {"_SHT_norm_1996AJB_single", (DL_FUNC) &_SHT_norm_1996AJB_single, 1},
     {"_SHT_norm_1996AJB_mcarlo", (DL_FUNC) &_SHT_norm_1996AJB_mcarlo, 2},
+    {"_SHT_testcpp_lgamma", (DL_FUNC) &_SHT_testcpp_lgamma, 1},
     {NULL, NULL, 0}
 };
 

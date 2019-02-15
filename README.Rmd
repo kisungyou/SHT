@@ -57,6 +57,7 @@ We categorized available functions by their object of interest for better naviga
 | `mean2.1996BS`       | Bai and Saranadasa (1996) | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2008SD`| Srivastava and Du (2008)  | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2014CLX` | Cai, Liu, and Xia (2014) | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.mxPBF` | - | $\mu_x = \mu_y$ (2-sample) |
 
 ### 3. tests for variance $\sigma^2$
 | function name | authors | description of $H_0$|
@@ -70,15 +71,19 @@ We categorized available functions by their object of interest for better naviga
 ### 4. tests for covariance $\Sigma$
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
+| `cov1.mxPBF`  | - | $\Sigma_x = \Sigma_0$ (1-sample) |
 | `cov2.2007Schott`| Schott (2007) | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `cov2.2012LC`    | Li and Chen (2012) | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | $\Sigma_x = \Sigma_y$ (2-sample) |
+| `cov2.mxPBF`    | - | $\Sigma_x = \Sigma_y$ (2-sample) |
 
 ### 5. simultaneous tests for mean $\mu$ and covariance $\Sigma$
 
-### 6. normality tests
+### 6. distribution tests of normality
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
 | `norm.1987JB` | Jarque and Bera (1987) | $F(X) = \textrm{Normal} \in \mathbb{R}^1$|
 | `norm.1996AJB`| Urzua (1996) | $F(X) = \textrm{Normal} \in \mathbb{R}^1$|
 | `norm.2008RJB` | Gel and Gastwirth (2008) | $F(X) = \textrm{Normal} \in \mathbb{R}^1$|
+
+### 7. distribution tests of uniformity

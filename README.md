@@ -79,6 +79,7 @@ We categorized available functions by their object of interest for better naviga
 | `mean2.1996BS`        | Bai and Saranadasa (1996) | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
 | `mean2.2008SD`        | Srivastava and Du (2008)  | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
 | `mean2.2014CLX`       | Cai, Liu, and Xia (2014)  | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
+| `mean2.mxPBF`         | -                         | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
 
 ### 3. tests for variance *σ*<sup>2</sup>
 
@@ -128,13 +129,15 @@ We categorized available functions by their object of interest for better naviga
 
 | function name     | authors                  | description of *H*<sub>0</sub>                   |
 |-------------------|--------------------------|:-------------------------------------------------|
+| `cov1.mxPBF`      | -                        | *Σ*<sub>*x*</sub> = *Σ*<sub>0</sub> (1-sample)   |
 | `cov2.2007Schott` | Schott (2007)            | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample) |
 | `cov2.2012LC`     | Li and Chen (2012)       | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample) |
 | `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample) |
+| `cov2.mxPBF`      | -                        | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample) |
 
 ### 5. simultaneous tests for mean *μ* and covariance *Σ*
 
-### 6. normality tests
+### 6. distribution tests of normality
 
 <table style="width:82%;">
 <colgroup>
@@ -167,3 +170,5 @@ We categorized available functions by their object of interest for better naviga
 </tr>
 </tbody>
 </table>
+
+### 7. distribution tests of uniformity
