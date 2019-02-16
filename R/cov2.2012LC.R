@@ -7,7 +7,6 @@
 #' 
 #' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
 #' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
-#' @param alpha significance level.
 #' @param unbiased a logical; \code{FALSE} to use biased estimator with faster speed, \code{TRUE} otherwise.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
@@ -44,12 +43,11 @@
 #' \insertRef{li_two_2012}{SHT}
 #' 
 #' @export
-cov2.2012LC <- function(X, Y, alpha=0.05, unbiased=FALSE){
+cov2.2012LC <- function(X, Y, unbiased=FALSE){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
   check_nd(Y)
-  check_alpha(alpha)
   if (ncol(X)!=ncol(Y)){
     stop("* cov2.2012LC : two samples X and Y should be of same dimension.")
   }

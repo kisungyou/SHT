@@ -4,14 +4,12 @@
 \alias{mean2.1958Dempster}
 \title{Two-Sample Test for High-Dimensional Means by Dempster (1958, 1960)}
 \usage{
-mean2.1958Dempster(X, Y, alpha = 0.05)
+mean2.1958Dempster(X, Y)
 }
 \arguments{
 \item{X}{an \eqn{(n_x \times p)} data matrix of 1st sample.}
 
 \item{Y}{an \eqn{(n_y \times p)} data matrix of 2nd sample.}
-
-\item{alpha}{significance level.}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{

@@ -4,14 +4,12 @@
 \alias{mean2.2008SD}
 \title{Two-Sample Test for High-Dimensional Means by Srivastava and Du (2008)}
 \usage{
-mean2.2008SD(X, Y, alpha = 0.05)
+mean2.2008SD(X, Y)
 }
 \arguments{
 \item{X}{an \eqn{(n_x \times p)} data matrix of 1st sample.}
 
 \item{Y}{an \eqn{(n_y \times p)} data matrix of 2nd sample.}
-
-\item{alpha}{significance level.}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{

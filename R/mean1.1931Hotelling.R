@@ -6,7 +6,6 @@
 #' 
 #' @param X an \eqn{(n\times p)} data matrix where each row is an observation.
 #' @param mu0 a length-\eqn{p} mean vector of interest.
-#' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -37,12 +36,11 @@
 #' \insertRef{hotelling_generalization_1931}{SHT}
 #' 
 #' @export
-mean1.1931Hotelling <- function(X, mu0=rep(0,ncol(X)), alpha=0.05){
+mean1.1931Hotelling <- function(X, mu0=rep(0,ncol(X))){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
   check_1d(mu0)      
-  check_alpha(alpha)
   if (length(mu0)!=ncol(X)){
     stop("* mean1.1931Hotelling : mu0 does not have consistent size as data.")
   }
@@ -62,11 +60,11 @@ mean1.1931Hotelling <- function(X, mu0=rep(0,ncol(X)), alpha=0.05){
   t2adj   = ((n-p)*t2/(p*(n-1)))
   pvalue  = pf(t2adj,p,(n-p),lower.tail = FALSE)
   
-  if (pvalue < alpha){
-    conclusion = "Reject Null Hypothesis"
-  } else {
-    conclusion = "Not Reject Null Hypothesis"
-  }
+  # if (pvalue < alpha){
+  #   conclusion = "Reject Null Hypothesis"
+  # } else {
+  #   conclusion = "Not Reject Null Hypothesis"
+  # }
 
   ##############################################################
   # REPORT

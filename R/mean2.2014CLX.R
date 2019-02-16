@@ -10,7 +10,6 @@
 #' 
 #' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
 #' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
-#' @param alpha significance level.
 #' @param Omega precision matrix; if \code{NULL}, it applies CLIME estimation. Otherwise, 
 #' a \eqn{(p\times p)} inverse covariance should be provided.
 #' @param cov.equal a logical to determine homogeneous covariance assumption.
@@ -46,12 +45,11 @@
 #' \insertRef{cai_two-sample_2014}{SHT}
 #' 
 #' @export
-mean2.2014CLX <- function(X, Y, alpha=0.05, Omega=NULL, cov.equal = TRUE){
+mean2.2014CLX <- function(X, Y, Omega=NULL, cov.equal = TRUE){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
   check_nd(Y)
-  check_alpha(alpha)
   if (ncol(X)!=ncol(Y)){
     stop("* mean2.2014CLX : two samples X and Y should be of same dimension.")
   }
@@ -89,7 +87,7 @@ mean2.2014CLX <- function(X, Y, alpha=0.05, Omega=NULL, cov.equal = TRUE){
     
     # compute
     thestat   = ((n1*n2)/(n1+n2))*max((zbar^2)/wvec)    # compute and report
-    threshold = 2*log(p) - log(log(p)) - log(pi) - 2*log(log(1/(1-alpha))) # just in case for future use
+    # threshold = 2*log(p) - log(log(p)) - log(pi) - 2*log(log(1/(1-alpha))) # just in case for future use
     pvalue    = 1-extreme_type1(thestat-2*log(p)+log(log(p)))
     
     # report
@@ -118,7 +116,7 @@ mean2.2014CLX <- function(X, Y, alpha=0.05, Omega=NULL, cov.equal = TRUE){
       zbar    = Omega.hat%*% as.vector(base::colMeans(X) - base::colMeans(Y))
       
       thestat = ((n1*n2)/(n1+n2))*max(zbar^2/wvec)
-      threshold = 2*log(p) - log(log(p)) - log(pi) - 2*log(log(1/(1-alpha))) # just in case for future use
+      # threshold = 2*log(p) - log(log(p)) - log(pi) - 2*log(log(1/(1-alpha))) # just in case for future use
       pvalue    = 1-extreme_type1(thestat-2*log(p)+log(log(p)))
       
       # report
@@ -146,7 +144,7 @@ mean2.2014CLX <- function(X, Y, alpha=0.05, Omega=NULL, cov.equal = TRUE){
       
       
       thestat   = n1*max(zbar^2/wvec)
-      threshold = 2*log(p) - log(log(p)) - log(pi) - 2*log(log(1/(1-alpha))) # just in case for future use
+      # threshold = 2*log(p) - log(log(p)) - log(pi) - 2*log(log(1/(1-alpha))) # just in case for future use
       pvalue    = 1-extreme_type1(thestat-2*log(p)+log(log(p)))
       
       # report

@@ -4,14 +4,12 @@
 \alias{mean2.2014CLX}
 \title{Two-Sample Test for High-Dimensional Means by Cai, Liu, and Xia (2014)}
 \usage{
-mean2.2014CLX(X, Y, alpha = 0.05, Omega = NULL, cov.equal = TRUE)
+mean2.2014CLX(X, Y, Omega = NULL, cov.equal = TRUE)
 }
 \arguments{
 \item{X}{an \eqn{(n_x \times p)} data matrix of 1st sample.}
 
 \item{Y}{an \eqn{(n_y \times p)} data matrix of 2nd sample.}
-
-\item{alpha}{significance level.}
 
 \item{Omega}{precision matrix; if \code{NULL}, it applies CLIME estimation. Otherwise, 
 a \eqn{(p\times p)} inverse covariance should be provided.}

@@ -4,14 +4,12 @@
 \alias{mean1.2008SD}
 \title{One-Sample Test for High-Dimensional Mean by Srivastava and Du (2008)}
 \usage{
-mean1.2008SD(X, mu0 = rep(0, ncol(X)), alpha = 0.05)
+mean1.2008SD(X, mu0 = rep(0, ncol(X)))
 }
 \arguments{
 \item{X}{an \eqn{(n\times p)} data matrix where each row is an observation.}
 
 \item{mu0}{a length-\eqn{p} mean vector of interest.}
-
-\item{alpha}{significance level.}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{

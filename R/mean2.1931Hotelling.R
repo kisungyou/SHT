@@ -6,7 +6,6 @@
 #' 
 #' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
 #' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
-#' @param alpha significance level.
 #' @param paired a logical; whether you want a paired Hotelling's test.
 #' @param var.equal a logical; whether to treat the two covariances as being equal.
 #' 
@@ -48,12 +47,12 @@
 #' \insertRef{hotelling_generalization_1931}{SHT}
 #' 
 #' @export
-mean2.1931Hotelling <- function(X, Y, alpha=0.05, paired=FALSE, var.equal=TRUE){
+mean2.1931Hotelling <- function(X, Y, paired=FALSE, var.equal=TRUE){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
   check_nd(Y)
-  check_alpha(alpha)
+  alpha = 0.05
   if (ncol(X)!=ncol(Y)){
     stop("* mean2.1931Hotelling : two samples X and Y should be of same dimension.")
   }
@@ -69,7 +68,7 @@ mean2.1931Hotelling <- function(X, Y, alpha=0.05, paired=FALSE, var.equal=TRUE){
     
     diff = X-Y
     mu0  = rep(0,ncol(X))
-    tmpout = mean1.1931Hotelling(diff, mu0=mu0, alpha=alpha)
+    tmpout = mean1.1931Hotelling(diff, mu0=mu0)
       
     hname  = "Two-Sample Hotelling's T-squared Test for Paired/Dependent Data."
     Ha     = "true means are different."
@@ -116,11 +115,11 @@ mean2.1931Hotelling <- function(X, Y, alpha=0.05, paired=FALSE, var.equal=TRUE){
       t2adj   = (t2*(v-p+1)/(v*p))
       pvalue  = pf(t2adj,p,(v-p+1),lower.tail = FALSE)
     }
-    if (pvalue < alpha){
-      conclusion = "Reject Null Hypothesis."
-    } else {
-      conclusion = "Not Reject Null Hypothesis."
-    }
+    # if (pvalue < alpha){
+    #   conclusion = "Reject Null Hypothesis."
+    # } else {
+    #   conclusion = "Not Reject Null Hypothesis."
+    # }
     
     thestat = t2
     DNAME = paste(deparse(substitute(X))," and ",deparse(substitute(Y)),sep="") # borrowed from HDtest

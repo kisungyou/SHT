@@ -7,7 +7,6 @@
 #' @param x a length-\eqn{n} data vector.
 #' @param y a length-\eqn{m} data vector.
 #' @param alternative specifying the alternative hypothesis.
-#' @param alpha significance level.
 #' @param paired a logical; whether consider two samples as paired.
 #' @param var.equal a logical; if \code{FALSE}, use Welch's correction.
 #' 
@@ -47,12 +46,11 @@
 #' 
 #' @author Kisung You
 #' @export
-mean2.ttest <- function(x, y, alternative=c("two.sided","less","greater"), alpha=0.05, paired=FALSE, var.equal=FALSE){
+mean2.ttest <- function(x, y, alternative=c("two.sided","less","greater"), paired=FALSE, var.equal=FALSE){
   ##############################################################
   # PREPROCESSING
   check_1d(x)        # univariate vector of 1st class
   check_1d(y)        # univariate vector of 2nd class
-  check_alpha(alpha) # significance level
   if (missing(alternative)){
     alternative = "two.sided"
   } else {
@@ -69,7 +67,7 @@ mean2.ttest <- function(x, y, alternative=c("two.sided","less","greater"), alpha
   ##############################################################
   # CASE 1 : PAIRED/DEPENDENT T-TEST
   if (paired==TRUE){
-    res = mean2.Student.paired(x,y,alternative,alpha)
+    res = mean2.Student.paired(x,y,alternative)
   } else {
   ##############################################################
   # CASE 2 : INDEPENDENT T-TEST
@@ -111,11 +109,11 @@ mean2.ttest <- function(x, y, alternative=c("two.sided","less","greater"), alpha
       pvalue = pt(t,df,lower.tail = FALSE)
       Ha     = "true mean of x is greater than true mean of y."
     }
-    if (pvalue < alpha){
-      conclusion = "Reject Null Hypothesis"
-    } else {
-      conclusion = "Not Reject Null Hypothesis"
-    }
+    # if (pvalue < alpha){
+    #   conclusion = "Reject Null Hypothesis"
+    # } else {
+    #   conclusion = "Not Reject Null Hypothesis"
+    # }
     
     
     thestat = t
@@ -133,12 +131,12 @@ mean2.ttest <- function(x, y, alternative=c("two.sided","less","greater"), alpha
 # paired case -------------------------------------------------------------
 #' @keywords internal
 #' @noRd
-mean2.Student.paired <- function(x, y, paired.alternative, paired.alpha){
+mean2.Student.paired <- function(x, y, paired.alternative){
   if (length(x)!=length(y)){
     stop("* mean2.Student : for paired t-test, length of x and y should be identical.")
   }
   diff   = (x-y)
-  tmpout = mean1.ttest(diff,mu0=0,alternative=paired.alternative,alpha=paired.alpha)
+  tmpout = mean1.ttest(diff,mu0=0,alternative=paired.alternative)
   
   hname  = "Two-sample Student's t-test for Paired/Dependent Data."
   if (paired.alternative=="two.sided"){

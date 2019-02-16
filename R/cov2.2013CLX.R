@@ -6,7 +6,6 @@
 #' 
 #' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
 #' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
-#' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -40,12 +39,11 @@
 #' 
 #' 
 #' @export
-cov2.2013CLX <- function(X, Y, alpha=0.05){
+cov2.2013CLX <- function(X, Y){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
   check_nd(Y)
-  check_alpha(alpha)
   if (ncol(X)!=ncol(Y)){
     stop("* cov2.2013CLX : two samples X and Y should be of same dimension.")
   }

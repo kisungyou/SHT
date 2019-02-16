@@ -6,7 +6,6 @@
 #' @param x a length-\eqn{n} data vector.
 #' @param y a length-\eqn{m} data vector.
 #' @param alternative specifying the alternative hypothesis.
-#' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -39,12 +38,11 @@
 #' \insertRef{snedecor_statistical_1996}{SHT}
 #' 
 #' @export
-var2.F <- function(x, y, alternative=c("two.sided","less","greater"), alpha=0.05){
+var2.F <- function(x, y, alternative=c("two.sided","less","greater")){
   ##############################################################
   # PREPROCESSING
   check_1d(x)        # univariate vector of 1st class
   check_1d(y)        # univariate vector of 2nd class
-  check_alpha(alpha) # significance level
   if (missing(alternative)){
     alternative = "two.sided"
   } else {
@@ -79,12 +77,7 @@ var2.F <- function(x, y, alternative=c("two.sided","less","greater"), alpha=0.05
     pvalue = stats::pf(thestat,(n-1),(m-1),lower.tail = FALSE)
     Ha     = "true variance of x is greater than true variance of y."
   }
-  if (pvalue < alpha){
-    conclusion = "Reject Null Hypothesis"
-  } else {
-    conclusion = "Not Reject Null Hypothesis"
-  }
-  
+
   ##############################################################
   # REPORT
   hname  = "Two-Sample F Test for Variance."

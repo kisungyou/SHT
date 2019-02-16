@@ -5,7 +5,7 @@
 \title{One-Sample Student's t-test for Univariate Mean}
 \usage{
 mean1.ttest(x, mu0 = 0, alternative = c("two.sided", "less",
-  "greater"), alpha = 0.05)
+  "greater"))
 }
 \arguments{
 \item{x}{a length-\eqn{n} data vector.}
@@ -13,8 +13,6 @@ mean1.ttest(x, mu0 = 0, alternative = c("two.sided", "less",
 \item{mu0}{hypothesized variance \eqn{\sigma_0^2}.}
 
 \item{alternative}{specifying the alternative hypothesis.}
-
-\item{alpha}{significance level.}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{

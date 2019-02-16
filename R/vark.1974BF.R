@@ -5,7 +5,6 @@
 #' using the procedure by Brown and Forsythe (1974).
 #' 
 #' @param dlist a list of length \eqn{k} where each element is a sample vector.
-#' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -41,12 +40,11 @@
 #' \insertRef{brown_robust_1974}{SHT}
 #' 
 #' @export
-vark.1974BF<- function(dlist, alpha=0.05){
+vark.1974BF<- function(dlist){
   ##############################################################
   # PREPROCESSING
   check_dlist1d(dlist) 
-  check_alpha(alpha)
-  
+
   ##############################################################
   # COMPUTATION : PRELIMINARY
   k        = length(dlist)
@@ -79,11 +77,11 @@ vark.1974BF<- function(dlist, alpha=0.05){
   pvalue  = stats::pf(thestat,(k-1),(N-k),lower.tail = FALSE)
   Ha      = "at least one of equalities does not hold."
   
-  if (pvalue < alpha){
-    conclusion = "Reject Null Hypothesis"
-  } else {
-    conclusion = "Not Reject Null Hypothesis"
-  }
+  # if (pvalue < alpha){
+  #   conclusion = "Reject Null Hypothesis"
+  # } else {
+  #   conclusion = "Not Reject Null Hypothesis"
+  # }
   
   ##############################################################
   # REPORT

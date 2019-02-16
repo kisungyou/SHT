@@ -5,7 +5,7 @@
 \title{Two-Sample Student's t-test for Univariate Means}
 \usage{
 mean2.ttest(x, y, alternative = c("two.sided", "less", "greater"),
-  alpha = 0.05, paired = FALSE, var.equal = FALSE)
+  paired = FALSE, var.equal = FALSE)
 }
 \arguments{
 \item{x}{a length-\eqn{n} data vector.}
@@ -13,8 +13,6 @@ mean2.ttest(x, y, alternative = c("two.sided", "less", "greater"),
 \item{y}{a length-\eqn{m} data vector.}
 
 \item{alternative}{specifying the alternative hypothesis.}
-
-\item{alpha}{significance level.}
 
 \item{paired}{a logical; whether consider two samples as paired.}
 

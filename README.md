@@ -156,17 +156,17 @@ We categorized available functions by their object of interest for better naviga
 <tr class="odd">
 <td><code>norm.1987JB</code></td>
 <td>Jarque and Bera (1987)</td>
-<td align="left"><span class="math inline"><em>F</em>(<em>X</em>)=Normal ∈ ℝ<sup>1</sup></span></td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
 </tr>
 <tr class="even">
 <td><code>norm.1996AJB</code></td>
 <td>Urzua (1996)</td>
-<td align="left"><span class="math inline"><em>F</em>(<em>X</em>)=Normal ∈ ℝ<sup>1</sup></span></td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
 </tr>
 <tr class="odd">
 <td><code>norm.2008RJB</code></td>
 <td>Gel and Gastwirth (2008)</td>
-<td align="left"><span class="math inline"><em>F</em>(<em>X</em>)=Normal ∈ ℝ<sup>1</sup></span></td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
 </tr>
 </tbody>
 </table>

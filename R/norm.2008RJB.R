@@ -25,10 +25,10 @@ norm.2008RJB <- function(x, C1=6, C2=24, method=c("asymptotic","MC"), nreps=2000
   finrule = match.arg(myrule, c("asymptotic","mc"))
   nreps   = as.integer(nreps)
   if ((C1<=0)||(length(C1)>1)){
-    error("* norm.2008RJB : 'C1' must be a nonnegative constant number.")
+    stop("* norm.2008RJB : 'C1' must be a nonnegative constant number.")
   }
   if ((C2<=0)||(length(C2)>1)){
-    error("* norm.2008RJB : 'C2' must be a nonnegative constant number.")
+    stop("* norm.2008RJB : 'C2' must be a nonnegative constant number.")
   }
   
   ##############################################################

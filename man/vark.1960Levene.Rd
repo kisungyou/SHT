@@ -4,12 +4,10 @@
 \alias{vark.1960Levene}
 \title{Levene's Test for Homogeneity of Variance}
 \usage{
-vark.1960Levene(dlist, alpha = 0.05)
+vark.1960Levene(dlist)
 }
 \arguments{
 \item{dlist}{a list of length \eqn{k} where each element is a sample vector.}
-
-\item{alpha}{significance level.}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{

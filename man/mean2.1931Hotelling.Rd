@@ -4,15 +4,12 @@
 \alias{mean2.1931Hotelling}
 \title{Two-Sample Hotelling's T-squared Test for Multivariate Means}
 \usage{
-mean2.1931Hotelling(X, Y, alpha = 0.05, paired = FALSE,
-  var.equal = TRUE)
+mean2.1931Hotelling(X, Y, paired = FALSE, var.equal = TRUE)
 }
 \arguments{
 \item{X}{an \eqn{(n_x \times p)} data matrix of 1st sample.}
 
 \item{Y}{an \eqn{(n_y \times p)} data matrix of 2nd sample.}
-
-\item{alpha}{significance level.}
 
 \item{paired}{a logical; whether you want a paired Hotelling's test.}
 

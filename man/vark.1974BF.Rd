@@ -4,12 +4,10 @@
 \alias{vark.1974BF}
 \title{Brown-Forsythe Test for Homogeneity of Variance}
 \usage{
-vark.1974BF(dlist, alpha = 0.05)
+vark.1974BF(dlist)
 }
 \arguments{
 \item{dlist}{a list of length \eqn{k} where each element is a sample vector.}
-
-\item{alpha}{significance level.}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{

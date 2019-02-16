@@ -1,13 +1,14 @@
-# 01. aux_pinv      : PseudoInverse using SVD and NumPy Scheme
-# 02. aux_trace     : trace of a matrix
-# 03. aux_var       : sample variance for univariate data
-# 04. aux_adjustvec : adjust small values (in magnitude) by some number
-#     aux_adjustmat : adjust small values (in magnitude) by some number
-# 05. aux_quadform  : compute x'Ax
-# 06. aux_minusvec  : for one-sample test
-# 07. aux_CVsplit   : generate CV splits as list
-# 08. aux_scatter   : sample covariance without scaling
-# 09. aux_trace     : trace of a matrix
+# 01. aux_pinv       : PseudoInverse using SVD and NumPy Scheme
+# 02. aux_trace      : trace of a matrix
+# 03. aux_var        : sample variance for univariate data
+# 04. aux_adjustvec  : adjust small values (in magnitude) by some number
+#     aux_adjustmat  : adjust small values (in magnitude) by some number
+# 05. aux_quadform   : compute x'Ax
+# 06. aux_minusvec   : for one-sample test
+# 07. aux_CVsplit    : generate CV splits as list
+# 08. aux_scatter    : sample covariance without scaling
+# 09. aux_trace      : trace of a matrix
+# 10. aux_getinvroot : scaling for one-sample covariance test
 
 # 01. PseudoInverse using SVD and NumPy Scheme ----------------------------
 # https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse#Singular_value_decomposition_(SVD)
@@ -125,4 +126,17 @@ aux_scatter <- function(X){
 #' @noRd
 aux_trace <- function(A){
   return(sum(diag(A)))
+}
+
+
+# 10. aux_getinvroot ------------------------------------------------------
+#' @keywords internal
+#' @noRd
+aux_getinvroot <- function(X){
+  eigs = eigen(X)
+  if (any(eigs$values < .Machine$double.eps*10)){
+    stop("** The desired covariance 'Sigma0' is invalid.")
+  }
+  out = eigs$vectors %*% diag((eigs$values)^(-0.5)) %*% t(eigs$vectors)
+  return(out)
 }

@@ -4,14 +4,12 @@
 \alias{cov2.2012LC}
 \title{Two-Sample Test for High-Dimensional Covariances by Li and Chen (2012)}
 \usage{
-cov2.2012LC(X, Y, alpha = 0.05, unbiased = FALSE)
+cov2.2012LC(X, Y, unbiased = FALSE)
 }
 \arguments{
 \item{X}{an \eqn{(n_x \times p)} data matrix of 1st sample.}
 
 \item{Y}{an \eqn{(n_y \times p)} data matrix of 2nd sample.}
-
-\item{alpha}{significance level.}
 
 \item{unbiased}{a logical; \code{FALSE} to use biased estimator with faster speed, \code{TRUE} otherwise.}
 }

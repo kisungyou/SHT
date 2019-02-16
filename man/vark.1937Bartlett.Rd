@@ -4,12 +4,10 @@
 \alias{vark.1937Bartlett}
 \title{Bartlett's Test for Homogeneity of Variance}
 \usage{
-vark.1937Bartlett(dlist, alpha = 0.05)
+vark.1937Bartlett(dlist)
 }
 \arguments{
 \item{dlist}{a list of length \eqn{k} where each element is a sample vector.}
-
-\item{alpha}{significance level.}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{

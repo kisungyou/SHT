@@ -6,7 +6,6 @@
 #' 
 #' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
 #' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
-#' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -42,12 +41,11 @@
 #' 
 #' @author Kisung You
 #' @export
-mean2.1958Dempster <- function(X, Y, alpha=0.05){
+mean2.1958Dempster <- function(X, Y){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
   check_nd(Y)
-  check_alpha(alpha)
   if (ncol(X)!=ncol(Y)){
     stop("* mean2.1958Dempster : two samples X and Y should be of same dimension.")
   }
@@ -73,11 +71,6 @@ mean2.1958Dempster <- function(X, Y, alpha=0.05){
   
   hname   = "Two-Sample Test for High-Dimensional Means by Dempster (1958, 1960)."
   Ha      = "two means are different."
-  if (pvalue < alpha){
-    conclusion = "Reject Null Hypothesis."
-  } else {
-    conclusion = "Not Reject Null Hypothesis."
-  }
 
   DNAME = paste(deparse(substitute(X))," and ",deparse(substitute(Y)),sep="") # borrowed from HDtest
   names(thestat) = "statistic"

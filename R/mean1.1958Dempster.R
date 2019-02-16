@@ -6,7 +6,6 @@
 #' 
 #' @param X an \eqn{(n\times p)} data matrix where each row is an observation.
 #' @param mu0 a length-\eqn{p} mean vector of interest.
-#' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -40,12 +39,11 @@
 #' 
 #' @author Kisung You
 #' @export
-mean1.1958Dempster <- function(X, mu0=rep(0,ncol(X)), alpha=0.05){
+mean1.1958Dempster <- function(X, mu0=rep(0,ncol(X))){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
   check_1d(mu0)      
-  check_alpha(alpha)
   if (length(mu0)!=ncol(X)){
     stop("* mean1.1958Dempster : mu0 does not have consistent size as data.")
   }
@@ -75,12 +73,12 @@ mean1.1958Dempster <- function(X, mu0=rep(0,ncol(X)), alpha=0.05){
   
   hname   = "One-Sample Test for High-Dimensional Mean by Dempster (1958)."
   Ha      = "true mean is different from mu0."
-  if (pvalue < alpha){
-    conclusion = "Reject Null Hypothesis."
-  } else {
-    conclusion = "Not Reject Null Hypothesis."
-  }
-  
+  # if (pvalue < alpha){
+  #   conclusion = "Reject Null Hypothesis."
+  # } else {
+  #   conclusion = "Not Reject Null Hypothesis."
+  # }
+  # 
   
   DNAME = deparse(substitute(X)) # borrowed from HDtest
   names(thestat) = "statistic"

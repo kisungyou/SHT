@@ -6,7 +6,6 @@
 #' @param x a length-\eqn{n} data vector.
 #' @param var0 hypothesized variance \eqn{\sigma_0^2}.
 #' @param alternative specifying the alternative hypothesis.
-#' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -39,7 +38,7 @@
 #' 
 #' 
 #' @export
-var1.chisq <- function(x, var0=1, alternative=c("two.sided","less","greater"), alpha=0.05){
+var1.chisq <- function(x, var0=1, alternative=c("two.sided","less","greater")){
   ##############################################################
   # PREPROCESSING
   check_1d(x)        # univariate vector
@@ -47,7 +46,6 @@ var1.chisq <- function(x, var0=1, alternative=c("two.sided","less","greater"), a
   if (var0<=0){
     stop("* var1.chisq : var0 should be a nonnegative real number.")
   }
-  check_alpha(alpha) # significance level
   if (missing(alternative)){
     alternative = "two.sided"
   } else {
@@ -79,11 +77,6 @@ var1.chisq <- function(x, var0=1, alternative=c("two.sided","less","greater"), a
   } else if (alternative=="greater"){
     pvalue = pchisq(xstat, (n-1), lower.tail = FALSE)
     Ha     = paste("true variance is greater than ",var0,".",sep="")
-  }
-  if (pvalue < alpha){
-    conclusion = "Reject Null Hypothesis"
-  } else {
-    conclusion = "Not Reject Null Hypothesis"
   }
   
   ##############################################################

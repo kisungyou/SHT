@@ -6,6 +6,35 @@
 
 using namespace Rcpp;
 
+// cpp_cov1_mxPBF_single
+arma::mat cpp_cov1_mxPBF_single(arma::mat X, double a0, double b0, double gamma);
+RcppExport SEXP _SHT_cpp_cov1_mxPBF_single(SEXP XSEXP, SEXP a0SEXP, SEXP b0SEXP, SEXP gammaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< double >::type a0(a0SEXP);
+    Rcpp::traits::input_parameter< double >::type b0(b0SEXP);
+    Rcpp::traits::input_parameter< double >::type gamma(gammaSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_cov1_mxPBF_single(X, a0, b0, gamma));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_cov1_mxPBF_multiple
+arma::mat cpp_cov1_mxPBF_multiple(arma::mat X, double a0, double b0, double gamma, int nCores);
+RcppExport SEXP _SHT_cpp_cov1_mxPBF_multiple(SEXP XSEXP, SEXP a0SEXP, SEXP b0SEXP, SEXP gammaSEXP, SEXP nCoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< double >::type a0(a0SEXP);
+    Rcpp::traits::input_parameter< double >::type b0(b0SEXP);
+    Rcpp::traits::input_parameter< double >::type gamma(gammaSEXP);
+    Rcpp::traits::input_parameter< int >::type nCores(nCoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_cov1_mxPBF_multiple(X, a0, b0, gamma, nCores));
+    return rcpp_result_gen;
+END_RCPP
+}
 // cpp_cov2_2012LC_biased_computeA
 double cpp_cov2_2012LC_biased_computeA(arma::mat X);
 RcppExport SEXP _SHT_cpp_cov2_2012LC_biased_computeA(SEXP XSEXP) {
@@ -52,20 +81,34 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// cpp_cov2_mxPBF
-arma::mat cpp_cov2_mxPBF(arma::mat X, arma::mat Y, arma::mat Z, double a0, double b0, double gamma, int nCores);
-RcppExport SEXP _SHT_cpp_cov2_mxPBF(SEXP XSEXP, SEXP YSEXP, SEXP ZSEXP, SEXP a0SEXP, SEXP b0SEXP, SEXP gammaSEXP, SEXP nCoresSEXP) {
+// cpp_cov2_mxPBF_single
+arma::mat cpp_cov2_mxPBF_single(arma::mat X, arma::mat Y, double a0, double b0, double gamma);
+RcppExport SEXP _SHT_cpp_cov2_mxPBF_single(SEXP XSEXP, SEXP YSEXP, SEXP a0SEXP, SEXP b0SEXP, SEXP gammaSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
     Rcpp::traits::input_parameter< arma::mat >::type Y(YSEXP);
-    Rcpp::traits::input_parameter< arma::mat >::type Z(ZSEXP);
+    Rcpp::traits::input_parameter< double >::type a0(a0SEXP);
+    Rcpp::traits::input_parameter< double >::type b0(b0SEXP);
+    Rcpp::traits::input_parameter< double >::type gamma(gammaSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_cov2_mxPBF_single(X, Y, a0, b0, gamma));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_cov2_mxPBF_multiple
+arma::mat cpp_cov2_mxPBF_multiple(arma::mat X, arma::mat Y, double a0, double b0, double gamma, int nCores);
+RcppExport SEXP _SHT_cpp_cov2_mxPBF_multiple(SEXP XSEXP, SEXP YSEXP, SEXP a0SEXP, SEXP b0SEXP, SEXP gammaSEXP, SEXP nCoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Y(YSEXP);
     Rcpp::traits::input_parameter< double >::type a0(a0SEXP);
     Rcpp::traits::input_parameter< double >::type b0(b0SEXP);
     Rcpp::traits::input_parameter< double >::type gamma(gammaSEXP);
     Rcpp::traits::input_parameter< int >::type nCores(nCoresSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_cov2_mxPBF(X, Y, Z, a0, b0, gamma, nCores));
+    rcpp_result_gen = Rcpp::wrap(cpp_cov2_mxPBF_multiple(X, Y, a0, b0, gamma, nCores));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -77,6 +120,37 @@ BEGIN_RCPP
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::mat >::type omega(omegaSEXP);
     rcpp_result_gen = Rcpp::wrap(adjust_clime(omega));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_mean2_mxPBF_single
+arma::vec cpp_mean2_mxPBF_single(arma::mat X, arma::mat Y, double a0, double b0, double gamma);
+RcppExport SEXP _SHT_cpp_mean2_mxPBF_single(SEXP XSEXP, SEXP YSEXP, SEXP a0SEXP, SEXP b0SEXP, SEXP gammaSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< double >::type a0(a0SEXP);
+    Rcpp::traits::input_parameter< double >::type b0(b0SEXP);
+    Rcpp::traits::input_parameter< double >::type gamma(gammaSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_mean2_mxPBF_single(X, Y, a0, b0, gamma));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_mean2_mxPBF_multiple
+arma::vec cpp_mean2_mxPBF_multiple(arma::mat X, arma::mat Y, double a0, double b0, double gamma, int nCores);
+RcppExport SEXP _SHT_cpp_mean2_mxPBF_multiple(SEXP XSEXP, SEXP YSEXP, SEXP a0SEXP, SEXP b0SEXP, SEXP gammaSEXP, SEXP nCoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Y(YSEXP);
+    Rcpp::traits::input_parameter< double >::type a0(a0SEXP);
+    Rcpp::traits::input_parameter< double >::type b0(b0SEXP);
+    Rcpp::traits::input_parameter< double >::type gamma(gammaSEXP);
+    Rcpp::traits::input_parameter< int >::type nCores(nCoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_mean2_mxPBF_multiple(X, Y, a0, b0, gamma, nCores));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -166,12 +240,17 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_SHT_cpp_cov1_mxPBF_single", (DL_FUNC) &_SHT_cpp_cov1_mxPBF_single, 4},
+    {"_SHT_cpp_cov1_mxPBF_multiple", (DL_FUNC) &_SHT_cpp_cov1_mxPBF_multiple, 5},
     {"_SHT_cpp_cov2_2012LC_biased_computeA", (DL_FUNC) &_SHT_cpp_cov2_2012LC_biased_computeA, 1},
     {"_SHT_cpp_cov2_2012LC_biased_computeC", (DL_FUNC) &_SHT_cpp_cov2_2012LC_biased_computeC, 2},
     {"_SHT_cpp_cov2_2012LC_computeA", (DL_FUNC) &_SHT_cpp_cov2_2012LC_computeA, 1},
     {"_SHT_cpp_cov2_2012LC_computeC", (DL_FUNC) &_SHT_cpp_cov2_2012LC_computeC, 2},
-    {"_SHT_cpp_cov2_mxPBF", (DL_FUNC) &_SHT_cpp_cov2_mxPBF, 7},
+    {"_SHT_cpp_cov2_mxPBF_single", (DL_FUNC) &_SHT_cpp_cov2_mxPBF_single, 5},
+    {"_SHT_cpp_cov2_mxPBF_multiple", (DL_FUNC) &_SHT_cpp_cov2_mxPBF_multiple, 6},
     {"_SHT_adjust_clime", (DL_FUNC) &_SHT_adjust_clime, 1},
+    {"_SHT_cpp_mean2_mxPBF_single", (DL_FUNC) &_SHT_cpp_mean2_mxPBF_single, 5},
+    {"_SHT_cpp_mean2_mxPBF_multiple", (DL_FUNC) &_SHT_cpp_mean2_mxPBF_multiple, 6},
     {"_SHT_norm_1987JB_single", (DL_FUNC) &_SHT_norm_1987JB_single, 1},
     {"_SHT_norm_1987JB_mcarlo", (DL_FUNC) &_SHT_norm_1987JB_mcarlo, 2},
     {"_SHT_norm_2008RJB_single", (DL_FUNC) &_SHT_norm_2008RJB_single, 3},

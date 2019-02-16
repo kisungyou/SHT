@@ -4,12 +4,10 @@
 \alias{meank.anova}
 \title{Analysis of Variance for Homogeneity of Means}
 \usage{
-meank.anova(dlist, alpha = 0.05)
+meank.anova(dlist)
 }
 \arguments{
 \item{dlist}{a list of length \eqn{k} where each element is a sample vector.}
-
-\item{alpha}{significance level.}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{

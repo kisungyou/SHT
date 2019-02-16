@@ -5,7 +5,6 @@
 #' using the procedure by Bartlett (1937).
 #' 
 #' @param dlist a list of length \eqn{k} where each element is a sample vector.
-#' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -41,11 +40,10 @@
 #' \insertRef{bartlett_properties_1937}{SHT}
 #' 
 #' @export
-vark.1937Bartlett <- function(dlist, alpha=0.05){
+vark.1937Bartlett <- function(dlist){
   ##############################################################
   # PREPROCESSING
   check_dlist1d(dlist) 
-  check_alpha(alpha)
   
   ##############################################################
   # COMPUTATION : PRELIMINARY
@@ -65,12 +63,6 @@ vark.1937Bartlett <- function(dlist, alpha=0.05){
   thestat = (term1/term2)
   pvalue  = stats::pchisq(thestat,(k-1),lower.tail = FALSE)
   Ha      = "at least one of equalities does not hold."
-  
-  if (pvalue < alpha){
-    conclusion = "Reject Null Hypothesis"
-  } else {
-    conclusion = "Not Reject Null Hypothesis"
-  }
   
   ##############################################################
   # REPORT

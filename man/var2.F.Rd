@@ -4,8 +4,7 @@
 \alias{var2.F}
 \title{Two-Sample F-Test for Variance}
 \usage{
-var2.F(x, y, alternative = c("two.sided", "less", "greater"),
-  alpha = 0.05)
+var2.F(x, y, alternative = c("two.sided", "less", "greater"))
 }
 \arguments{
 \item{x}{a length-\eqn{n} data vector.}
@@ -13,8 +12,6 @@ var2.F(x, y, alternative = c("two.sided", "less", "greater"),
 \item{y}{a length-\eqn{m} data vector.}
 
 \item{alternative}{specifying the alternative hypothesis.}
-
-\item{alpha}{significance level.}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{

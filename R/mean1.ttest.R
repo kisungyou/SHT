@@ -7,7 +7,6 @@
 #' @param x a length-\eqn{n} data vector.
 #' @param mu0 hypothesized variance \eqn{\sigma_0^2}.
 #' @param alternative specifying the alternative hypothesis.
-#' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -38,12 +37,11 @@
 #' \insertRef{student_probable_1908-1}{SHT}
 #' 
 #' @export
-mean1.ttest <- function(x, mu0=0, alternative=c("two.sided","less","greater"), alpha=0.05){
+mean1.ttest <- function(x, mu0=0, alternative=c("two.sided","less","greater")){
   ##############################################################
   # PREPROCESSING
   check_1d(x)        # univariate vector
   check_number(mu0)  # number to be compared
-  check_alpha(alpha) # significance level
   if (missing(alternative)){
     alternative = "two.sided"
   } else {
@@ -76,12 +74,7 @@ mean1.ttest <- function(x, mu0=0, alternative=c("two.sided","less","greater"), a
     pvalue = pt(t,(n-1),lower.tail = FALSE)
     Ha     = paste("true mean is greater than ",mu0,".",sep="")
   }
-  if (pvalue < alpha){
-    conclusion = "Reject Null Hypothesis"
-  } else {
-    conclusion = "Not Reject Null Hypothesis"
-  }
-  
+
   ##############################################################
   # REPORT
   hname   = "One-Sample Student\'s t-test"

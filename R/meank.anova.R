@@ -4,7 +4,6 @@
 #' \deqn{H_0 : \mu_1^2 = \cdots \mu_k^2\quad vs\quad H_1 : \textrm{at least one equality does not hold.}}
 #' 
 #' @param dlist a list of length \eqn{k} where each element is a sample vector.
-#' @param alpha significance level.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -37,12 +36,11 @@
 #' }
 #' 
 #' @export
-meank.anova <- function(dlist, alpha=0.05){
+meank.anova <- function(dlist){
   ##############################################################
   # PREPROCESSING
   check_dlist1d(dlist) 
-  check_alpha(alpha)
-  
+
   ##############################################################
   # COMPUTATION : PRELIMINARY FOR USING ANOVA
   K = length(dlist)
@@ -67,11 +65,11 @@ meank.anova <- function(dlist, alpha=0.05){
   Ha      = "at least one of equalities does not hold."
   thestat = as.double(aovout[7])
   pvalue  = as.double(aovout[9])
-  if (pvalue < alpha){
-    conclusion = "Reject Null Hypothesis"
-  } else {
-    conclusion = "Not Reject Null Hypothesis"
-  }
+  # if (pvalue < alpha){
+  #   conclusion = "Reject Null Hypothesis"
+  # } else {
+  #   conclusion = "Not Reject Null Hypothesis"
+  # }
 
   DNAME = deparse(substitute(dlist))
   names(thestat) = "statistic"
