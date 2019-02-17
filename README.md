@@ -8,13 +8,7 @@ Statistical Hypothesis Testing in R
 Installation
 ------------
 
-You can install the released version of SHT from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("SHT")
-```
-
-or the development version from github:
+Currently, `SHT` can only be downloaded via github using following commands,
 
 ``` r
 ## install.packages("devtools")
@@ -31,6 +25,14 @@ We categorized available functions by their object of interest for better naviga
 -   Authors are referred by last names. See the help page of each function for complete references.
 -   ***k*-sample** means that the test is checking the *homogeneity* across multiple samples.
 -   Function naming convention is {`type of test`.`test name`}, or {`type of test`.`year` `authors`}, where there are two or three authors, we took their initials as abbreviation or simply the last name of the first author otherwise.
+-   Since *k*-sample test is applicable for a special case of *k* = 2, two functions - **`usek1d`** and **`useknd`** - are provided to extend capabilities of any *k*-sample tests in our package to be applicable for 2-sample testing.
+
+### 0. utilities
+
+| function name | description                                               |
+|---------------|-----------------------------------------------------------|
+| `usek1d`      | apply *k*-sample test method for two univariate samples   |
+| `useknd`      | apply *k*-sample test method for two multivariate samples |
 
 ### 1. tests for univariate mean *μ* ∈ ℝ
 
@@ -127,13 +129,14 @@ We categorized available functions by their object of interest for better naviga
 
 ### 4. tests for covariance *Σ*
 
-| function name     | authors                  | description of *H*<sub>0</sub>                   |
-|-------------------|--------------------------|:-------------------------------------------------|
-| `cov1.mxPBF`      | -                        | *Σ*<sub>*x*</sub> = *Σ*<sub>0</sub> (1-sample)   |
-| `cov2.2007Schott` | Schott (2007)            | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample) |
-| `cov2.2012LC`     | Li and Chen (2012)       | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample) |
-| `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample) |
-| `cov2.mxPBF`      | -                        | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample) |
+| function name     | authors                  | description of *H*<sub>0</sub>                       |
+|-------------------|--------------------------|:-----------------------------------------------------|
+| `cov1.mxPBF`      | -                        | *Σ*<sub>*x*</sub> = *Σ*<sub>0</sub> (1-sample)       |
+| `cov2.2012LC`     | Li and Chen (2012)       | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
+| `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
+| `cov2.mxPBF`      | -                        | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
+| `covk.2001Schott` | Schott (2001)            | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
+| `covk.2007Schott` | Schott (2007)            | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
 
 ### 5. simultaneous tests for mean *μ* and covariance *Σ*
 
@@ -154,8 +157,18 @@ We categorized available functions by their object of interest for better naviga
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>norm.1987JB</code></td>
-<td>Jarque and Bera (1987)</td>
+<td><code>norm.1965SW</code></td>
+<td>Shapiro and Wilk (1965)</td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
+</tr>
+<tr class="even">
+<td><code>norm.1972SF</code></td>
+<td>Shapiro and Francia (1972)</td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
+</tr>
+<tr class="odd">
+<td><code>norm.1980JB</code></td>
+<td>Jarque and Bera (1980)</td>
 <td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
 </tr>
 <tr class="even">

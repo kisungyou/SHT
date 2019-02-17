@@ -1,8 +1,10 @@
-#' Test for Homogeneity of Covariances by Schott (2007)
+#' Test for Homogeneity of Covariances by Schott (2001)
 #' 
 #' Given univariate samples \eqn{X_1~,\ldots,~X_k}, it tests
 #' \deqn{H_0 : \Sigma_1 = \cdots \Sigma_k\quad vs\quad H_1 : \textrm{at least one equality does not hold}}
-#' using the procedure by Schott (2007).
+#' using the procedure by Schott (2001) using Wald statistics. In the original paper, it provides 4 
+#' different test statistics for general elliptical distribution cases. However, we only deliver 
+#' the first one with an assumption of multivariate normal population.
 #' 
 #' @param dlist a list of length \eqn{k} where each element is a sample matrix of same dimension.
 #' 
@@ -26,21 +28,21 @@
 #'      mylist[[j]] = matrix(rnorm(100*20),ncol=20)
 #'   }
 #'   
-#'   counter[i] = ifelse(covk.2007Schott(mylist)$p.value < 0.05, 1, 0)
+#'   counter[i] = ifelse(covk.2001Schott(mylist)$p.value < 0.05, 1, 0)
 #' }
 #' 
 #' ## print the result
-#' cat(paste("\n* Example for 'covk.2007Schott'\n\n",
+#' cat(paste("\n* Example for 'covk.2001Schott'\n\n",
 #' sprintf("* number of rejections   : %d\n",sum(counter)),
 #' sprintf("* total number of trials : %d\n",niter),
 #' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
 #' }
 #' 
 #' @references 
-#' \insertRef{schott_test_2007}{SHT}
+#' \insertRef{schott_tests_2001}{SHT}
 #' 
 #' @export
-covk.2007Schott <- function(dlist){
+covk.2001Schott <- function(dlist){
   ##############################################################
   # PREPROCESSING
   check_dlistnd(dlist) 
@@ -60,63 +62,44 @@ covk.2007Schott <- function(dlist){
   for (i in 1:g){
     S = S + ((vec.n[i]/n)*vec.S[,,i])
   }
+  vec.gamma = vec.n/n
   
-  # tr(Si) and tr(Si^2)
-  vec.trS  = rep(0,g)
-  vec.trS2 = rep(0,g)
+  Sinv = pracma::pinv(S)  # use pinv for Sinv
+  vec.Sinv2 = rep(0,g) # tr((SiSinv)^2)
   for (i in 1:g){
-    Si = vec.S[,,i]
-    vec.trS[i]  = sum(diag(Si))
-    vec.trS2[i] = sum(diag(Si%*%Si))
+    SSinv = vec.S[,,i]%*%Sinv
+    vec.Sinv2[i] = sum(diag(SSinv%*%SSinv))
   }
   
   ##############################################################
-  # COMPUTATION 1 : tnm
-  tnm = 0
+  # MAIN COMPUTATION
+  # 1. first term
+  term1 = 0
   for (i in 1:g){
-    ni = vec.n[i]
-    ei = (ni+2)*(ni-1)
+    term1 = term1 + vec.gamma[i]*vec.Sinv2[i]
+  }
+  
+  # 2. second term
+  term2 = 0
+  for (i in 1:g){
+    gi = vec.gamma[i]
     Si = vec.S[,,i]
     for (j in 1:g){
-      nj = vec.n[j]
-      ej = (nj+2)*(nj-1)
+      gj = vec.gamma[j]
       Sj = vec.S[,,j]
       
-      if (i<j){
-        add1 = (1 - (ni-2)/ei)*vec.trS2[i]
-        add2 = (1 - (nj-2)/ej)*vec.trS2[j]
-        min1 = 2*sum(diag(Si%*%Sj))
-        min2 = (ni/ei)*((vec.trS[i])^2)
-        min3 = (nj/ej)*((vec.trS[j])^2)
-        
-        tnm = tnm + (add1+add2) - (min1+min2+min3)
-      }
+      term2 = term2 + (gi*gj)*sum(diag(Si%*%Sinv%*%Sj%*%Sinv))
     }
   }
   
-  ##############################################################
-  # COMPUTATION 2 : variance of tnm
-  a = ((n^2)/((n+2)*(n-1)))*(sum(diag(S%*%S)) - (1/n)*(sum(diag(S))^2))
+  # wrap up
+  thestat = (term1-term2)*n/2
+  thedf   = (g-1)*p*(p+1)/2
+  pvalue  = stats::pchisq(thestat, df=thedf, lower.tail = FALSE)
   
-  inner1 = 0
-  for (i in 1:g){
-    ni = vec.n[i]
-    for (j in 1:g){
-      nj = vec.n[j]
-      if (i<j){
-        inner1 = inner1 + (((ni+nj)/(ni*nj))^2)
-      }
-    }
-  }
-  inner2 = (g-1)*(g-2)*sum(1/(vec.n^2))
-  theta  = 2.0*sqrt(inner1+inner2)*a
-  
-  thestat = tnm/theta
-  pvalue  = pnorm(tnm/theta, lower.tail = FALSE) 
-
   ##############################################################
   # FINALE
-  hname   = "Test for Homogeneity of Covariances by Schott (2007)"
+  hname   = "Test for Homogeneity of Covariances by Schott (2001)"
   Ha      = "at least one of equalities does not hold."
   
   DNAME = deparse(substitute(dlist)) # borrowed from HDtest

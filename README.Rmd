@@ -18,12 +18,7 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-You can install the released version of SHT from [CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("SHT")
-```
-or the development version from github:
+Currently, `SHT` can only be downloaded via github using following commands,
 ```r
 ## install.packages("devtools")
 ## library(devtools)
@@ -37,6 +32,13 @@ We categorized available functions by their object of interest for better naviga
 * Authors are referred by last names. See the help page of each function for complete references. 
 * **$k$-sample** means that the test is checking the _homogeneity_ across multiple samples.
 * Function naming convention is {`type of test`.`test name`}, or {`type of test`.`year` `authors`}, where there are two or three authors, we took their initials as abbreviation or simply the last name of the first author otherwise.
+* Since $k$-sample test is applicable for a special case of $k=2$, two functions - **`usek1d`** and **`useknd`** - are provided to extend capabilities of any $k$-sample tests in our package to be applicable for $2$-sample testing.
+
+### 0. utilities 
+| function name | description |
+|---------------| ------------|
+| `usek1d`      | apply $k$-sample test method for two univariate samples |
+| `useknd`      | apply $k$-sample test method for two multivariate samples |
 
 ### 1. tests for univariate mean $\mu \in \mathbb{R}$
 | function name | authors| description of $H_0$ |
@@ -72,10 +74,11 @@ We categorized available functions by their object of interest for better naviga
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
 | `cov1.mxPBF`  | - | $\Sigma_x = \Sigma_0$ (1-sample) |
-| `cov2.2007Schott`| Schott (2007) | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `cov2.2012LC`    | Li and Chen (2012) | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `cov2.mxPBF`    | - | $\Sigma_x = \Sigma_y$ (2-sample) |
+| `covk.2001Schott`    | Schott (2001) | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
+| `covk.2007Schott`    | Schott (2007) | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
 
 ### 5. simultaneous tests for mean $\mu$ and covariance $\Sigma$
 
