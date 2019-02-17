@@ -112,6 +112,20 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// energy_distance
+double energy_distance(arma::mat Xi, arma::mat Xj, double alpha, int nCores);
+RcppExport SEXP _SHT_energy_distance(SEXP XiSEXP, SEXP XjSEXP, SEXP alphaSEXP, SEXP nCoresSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type Xi(XiSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type Xj(XjSEXP);
+    Rcpp::traits::input_parameter< double >::type alpha(alphaSEXP);
+    Rcpp::traits::input_parameter< int >::type nCores(nCoresSEXP);
+    rcpp_result_gen = Rcpp::wrap(energy_distance(Xi, Xj, alpha, nCores));
+    return rcpp_result_gen;
+END_RCPP
+}
 // adjust_clime
 arma::mat adjust_clime(arma::mat omega);
 RcppExport SEXP _SHT_adjust_clime(SEXP omegaSEXP) {
@@ -248,6 +262,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_SHT_cpp_cov2_2012LC_computeC", (DL_FUNC) &_SHT_cpp_cov2_2012LC_computeC, 2},
     {"_SHT_cpp_cov2_mxPBF_single", (DL_FUNC) &_SHT_cpp_cov2_mxPBF_single, 5},
     {"_SHT_cpp_cov2_mxPBF_multiple", (DL_FUNC) &_SHT_cpp_cov2_mxPBF_multiple, 6},
+    {"_SHT_energy_distance", (DL_FUNC) &_SHT_energy_distance, 4},
     {"_SHT_adjust_clime", (DL_FUNC) &_SHT_adjust_clime, 1},
     {"_SHT_cpp_mean2_mxPBF_single", (DL_FUNC) &_SHT_cpp_mean2_mxPBF_single, 5},
     {"_SHT_cpp_mean2_mxPBF_multiple", (DL_FUNC) &_SHT_cpp_mean2_mxPBF_multiple, 6},

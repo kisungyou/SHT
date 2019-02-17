@@ -33,6 +33,10 @@ cpp_cov2_mxPBF_multiple <- function(X, Y, a0, b0, gamma, nCores) {
     .Call('_SHT_cpp_cov2_mxPBF_multiple', PACKAGE = 'SHT', X, Y, a0, b0, gamma, nCores)
 }
 
+energy_distance <- function(Xi, Xj, alpha, nCores) {
+    .Call('_SHT_energy_distance', PACKAGE = 'SHT', Xi, Xj, alpha, nCores)
+}
+
 adjust_clime <- function(omega) {
     .Call('_SHT_adjust_clime', PACKAGE = 'SHT', omega)
 }

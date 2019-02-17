@@ -35,7 +35,8 @@ Not Written Here - No Reference Yet.
 \examples{
 \dontrun{
 ## generate from multivariate normal with identity covariance.
-data = matrix(rnorm(100*5), ncol=10)
+p = 10 # dimensionality
+data = matrix(rnorm(100*p), ncol=p)
 
 ## run test with different parameters
 out1 = cov1.mxPBF(data)
@@ -43,8 +44,8 @@ out2 = cov1.mxPBF(data, a0=5.0, b0=5.0) # change some params
 
 ## visualize two Bayes Factor matrices
 par(mfrow=c(1,2), pty="s")
-image(exp(out1$log.BF.mat)[,10:1], main="default")
-image(exp(out2$log.BF.mat)[,10:1], main="a0=b0=5.0")
+image(exp(out1$log.BF.mat)[,p:1], main="a0=b0=1.0")
+image(exp(out2$log.BF.mat)[,p:1], main="a0=b0=5.0")
 }
 
 }
