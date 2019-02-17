@@ -1,4 +1,4 @@
-#' Univariate Test of Normality by Jarque and Bera (1987)
+#' Univariate Test of Normality by Jarque and Bera (1980)
 #' 
 #' 
 #' 
@@ -9,12 +9,12 @@
 #' x = runif(496)
 #' 
 #' ## test with both methods of attaining p-values
-#' test1 = norm.1987JB(x, method="a") # Asymptotics
-#' test2 = norm.1987JB(x, method="m") # Monte Carlo 
+#' test1 = norm.1980JB(x, method="a") # Asymptotics
+#' test2 = norm.1980JB(x, method="m") # Monte Carlo 
 #' }
 #' 
 #' @export
-norm.1987JB <- function(x, method=c("asymptotic","MC"), nreps=2000){
+norm.1980JB <- function(x, method=c("asymptotic","MC"), nreps=2000){
   ##############################################################
   # PREPROCESSING
   check_1d(x)        # univariate vector
@@ -40,7 +40,7 @@ norm.1987JB <- function(x, method=c("asymptotic","MC"), nreps=2000){
   
   ##############################################################
   # REPORT
-  hname   = "Univariate Test of Normality by Jarque and Bera (1987)"
+  hname   = "Univariate Test of Normality by Jarque and Bera (1980)"
   DNAME = deparse(substitute(x)) # borrowed from HDtest
   Ha    = paste("Sample ", DNAME, " does not follow normal distribution.",sep="")
   names(thestat) = "JB"

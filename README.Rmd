@@ -82,7 +82,9 @@ We categorized available functions by their object of interest for better naviga
 ### 6. distribution tests of normality
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
-| `norm.1987JB` | Jarque and Bera (1987) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.1965SW` | Shapiro and Wilk (1965) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.1972SF` | Shapiro and Francia (1972) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.1980JB` | Jarque and Bera (1980) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
 | `norm.1996AJB`| Urzua (1996) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
 | `norm.2008RJB` | Gel and Gastwirth (2008) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
 
