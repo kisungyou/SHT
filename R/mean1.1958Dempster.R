@@ -1,6 +1,6 @@
 #' One-Sample Test for High-Dimensional Mean by Dempster (1958, 1960)
 #' 
-#' Given two multivariate data \eqn{X} and hypothesized mean \eqn{\mu_0}, it tests
+#' Given a multivariate sample \eqn{X} and hypothesized mean \eqn{\mu_0}, it tests
 #' \deqn{H_0 : \mu_x = \mu_0\quad vs\quad H_1 : \mu_x \neq \mu_0}
 #' using the procedure by Dempster (1958, 1960).
 #' 
