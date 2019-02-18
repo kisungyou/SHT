@@ -6,20 +6,38 @@
 \usage{
 norm.1965SW(x)
 }
+\arguments{
+\item{x}{a length-\eqn{n} data vector.}
+}
+\value{
+a (list) object of \code{S3} class \code{htest} containing: \describe{
+\item{statistic}{a test statistic.}
+\item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
+\item{alternative}{alternative hypothesis.}
+\item{method}{name of the test.}
+\item{data.name}{name(s) of provided sample data.}
+}
+}
 \description{
-Univariate Test of Normality by Shapiro and Wilk (1965)
+Given an univariate sample \eqn{x}, it tests
+\deqn{H_0 : x\textrm{ is from normal distribution} \quad vs\quad H_1 : \textrm{ not } H_0}
+using a test procedure by Shapiro and Wilk (1965). Actual computation of \eqn{p}-value 
+is done via an approximation scheme by Royston (1992).
 }
 \examples{
-\donttest{
 ## generate samples from several distributions
-x = stats::runif(496)            # uniform
-y = stats::rgamma(496, shape=2)  # gamma
-z = stats::rlnorm(496)           # log-normal
+x = stats::runif(28)            # uniform
+y = stats::rgamma(28, shape=2)  # gamma
+z = stats::rlnorm(28)           # log-normal
 
 ## test above samples
 test.x = norm.1965SW(x) # uniform
 test.y = norm.1965SW(y) # gamma
 test.z = norm.1965SW(z) # log-normal
-}
 
+}
+\references{
+\insertRef{shapiro_analysis_1965}{SHT}
+
+\insertRef{royston_approximating_1992}{SHT}
 }

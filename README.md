@@ -81,7 +81,6 @@ We categorized available functions by their object of interest for better naviga
 | `mean2.1996BS`        | Bai and Saranadasa (1996) | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
 | `mean2.2008SD`        | Srivastava and Du (2008)  | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
 | `mean2.2014CLX`       | Cai, Liu, and Xia (2014)  | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
-| `mean2.mxPBF`         | -                         | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
 
 ### 3. tests for variance *σ*<sup>2</sup>
 
@@ -131,14 +130,41 @@ We categorized available functions by their object of interest for better naviga
 
 | function name     | authors                  | description of *H*<sub>0</sub>                       |
 |-------------------|--------------------------|:-----------------------------------------------------|
-| `cov1.mxPBF`      | -                        | *Σ*<sub>*x*</sub> = *Σ*<sub>0</sub> (1-sample)       |
 | `cov2.2012LC`     | Li and Chen (2012)       | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
 | `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
-| `cov2.mxPBF`      | -                        | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
 | `covk.2001Schott` | Schott (2001)            | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
 | `covk.2007Schott` | Schott (2007)            | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
 
+<!---
+your comment goes here
+and here
+| `cov1.mxPBF`  | - | $\Sigma_x = \Sigma_0$ (1-sample) |
+| `cov2.mxPBF`    | - | $\Sigma_x = \Sigma_y$ (2-sample) |
+| `mean2.mxPBF` | - | $\mu_x = \mu_y$ (2-sample) |
+-->
 ### 5. simultaneous tests for mean *μ* and covariance *Σ*
+
+<table style="width:82%;">
+<colgroup>
+<col width="22%" />
+<col width="34%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>function name</th>
+<th>authors</th>
+<th align="left">description of <span class="math inline"><em>H</em><sub>0</sub></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>sim1.2017Liu</code></td>
+<td>Liu et al. (2017)</td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub>0</sub> and <em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub>0</sub></span> (1-sample)</td>
+</tr>
+</tbody>
+</table>
 
 ### 6. distribution tests of normality
 
@@ -183,5 +209,3 @@ We categorized available functions by their object of interest for better naviga
 </tr>
 </tbody>
 </table>
-
-### 7. distribution tests of uniformity

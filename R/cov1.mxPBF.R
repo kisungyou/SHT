@@ -33,7 +33,8 @@
 #' image(exp(out2$log.BF.mat)[,p:1], main="a0=b0=5.0")
 #' }
 #' 
-#' @export
+#' @keywords internal
+#' @noRd
 cov1.mxPBF <- function(X, Sigma0=diag(ncol(X)), a0=2.0, b0=2.0, gamma=1.0, nthreads=1){
   ##############################################################
   # PREPROCESSING

@@ -13,7 +13,7 @@
 #' @importFrom pracma pinv
 #' @importFrom fastclime fastclime
 #' @importFrom utils packageVersion
-#' @importFrom stats pt sd cov pchisq pf median aov cov2cor pnorm var runif shapiro.test rgamma rlnorm
+#' @importFrom stats pt sd cov pchisq pf median aov cov2cor pnorm var runif shapiro.test rgamma rlnorm cor ppoints qnorm
 #' @importFrom Rcpp evalCpp
 #' @useDynLib SHT
 NULL

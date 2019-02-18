@@ -6,8 +6,22 @@
 \usage{
 norm.1972SF(x)
 }
+\arguments{
+\item{x}{a length-\eqn{n} data vector.}
+}
+\value{
+a (list) object of \code{S3} class \code{htest} containing: \describe{
+\item{statistic}{a test statistic.}
+\item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
+\item{alternative}{alternative hypothesis.}
+\item{method}{name of the test.}
+\item{data.name}{name(s) of provided sample data.}
+}
+}
 \description{
-Univariate Test of Normality by Shapiro and Francia (1972)
+Given an univariate sample \eqn{x}, it tests
+\deqn{H_0 : x\textrm{ is from normal distribution} \quad vs\quad H_1 : \textrm{ not } H_0}
+using a test procedure by Shapiro and Francia (1972), which is an approximation to Shapiro and Wilk (1965).
 }
 \examples{
 \donttest{
@@ -22,4 +36,7 @@ test.y = norm.1972SF(y) # gamma
 test.z = norm.1972SF(z) # log-normal
 }
 
+}
+\references{
+\insertRef{shapiro_approximate_1972}{SHT}
 }

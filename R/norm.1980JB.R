@@ -1,17 +1,33 @@
 #' Univariate Test of Normality by Jarque and Bera (1980)
 #' 
+#' Given an univariate sample \eqn{x}, it tests
+#' \deqn{H_0 : x\textrm{ is from normal distribution} \quad vs\quad H_1 : \textrm{ not } H_0}
+#' using a test procedure by Jarque and Bera (1980).
 #' 
+#' @param x a length-\eqn{n} data vector.
+#' @param method method to compute \eqn{p}-value. Using initials is possible, \code{"a"} for asymptotic for example.
+#' @param nreps the number of Monte Carlo simulations to be run when \code{method="MC"}.
 #' 
+#' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
+#' \item{statistic}{a test statistic.}
+#' \item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
+#' \item{alternative}{alternative hypothesis.}
+#' \item{method}{name of the test.}
+#' \item{data.name}{name(s) of provided sample data.}
+#' }
 #' 
 #' @examples 
-#' \donttest{
 #' ## generate samples from uniform distribution
-#' x = runif(496)
+#' x = runif(28)
 #' 
 #' ## test with both methods of attaining p-values
 #' test1 = norm.1980JB(x, method="a") # Asymptotics
 #' test2 = norm.1980JB(x, method="m") # Monte Carlo 
-#' }
+#' 
+#' @references 
+#' \insertRef{jarque_efficient_1980}{SHT}
+#' 
+#' \insertRef{jarque_test_1987}{SHT}
 #' 
 #' @export
 norm.1980JB <- function(x, method=c("asymptotic","MC"), nreps=2000){
