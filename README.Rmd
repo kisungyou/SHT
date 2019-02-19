@@ -58,8 +58,9 @@ We categorized available functions by their object of interest for better naviga
 | `mean2.1958Dempster`  | Dempster (1958, 1960)  | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.1996BS`       | Bai and Saranadasa (1996) | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2008SD`| Srivastava and Du (2008)  | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.2011LJW`| Lopes, Jacob, and Wainwright (2011) | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2014CLX` | Cai, Liu, and Xia (2014) | $\mu_x = \mu_y$ (2-sample) |
-
+| `mean2.2014Thulin` | Thulin (2014) | $\mu_x = \mu_y$ (2-sample) |
 
 ### 3. tests for variance $\sigma^2$
 | function name | authors | description of $H_0$|
