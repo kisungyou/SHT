@@ -110,3 +110,12 @@ mean2_2014_Thulin <- function(X,Y,k,B){
   T2fin = base::mean(T2rec)
   return(T2fin)
 }
+
+
+xx = list()
+xx[[1]] = rnorm(10)
+xx[[2]] = rnorm(5)
+xx[[3]] = rnorm(7)
+xx[[4]] = rnorm(21)
+
+xx[order(unlist(lapply(xx, length)))]

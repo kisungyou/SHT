@@ -23,7 +23,7 @@
 #' for (i in 1:niter){
 #'   mylist = list()
 #'   for (j in 1:5){
-#'      mylist[[j]] = matrix(rnorm(100*20),ncol=20)
+#'      mylist[[j]] = matrix(rnorm(*20),ncol=20)
 #'   }
 #'   
 #'   counter[i] = ifelse(covk.2007Schott(mylist)$p.value < 0.05, 1, 0)

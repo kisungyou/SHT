@@ -61,6 +61,7 @@ We categorized available functions by their object of interest for better naviga
 | `mean2.2011LJW`| Lopes, Jacob, and Wainwright (2011) | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2014CLX` | Cai, Liu, and Xia (2014) | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2014Thulin` | Thulin (2014) | $\mu_x = \mu_y$ (2-sample) |
+| `meank.2009ZX` | Zhang and Xu (2009) | $\mu_1 = \cdots = \mu_k$ ($k$-sample) |
 
 ### 3. tests for variance $\sigma^2$
 | function name | authors | description of $H_0$|

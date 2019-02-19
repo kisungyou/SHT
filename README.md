@@ -70,17 +70,20 @@ We categorized available functions by their object of interest for better naviga
 
 ### 2. tests for multivariate mean *μ* ∈ ℝ<sup>*n*</sup>
 
-| function name         | authors                   | description of *H*<sub>0</sub>                   |
-|-----------------------|---------------------------|:-------------------------------------------------|
-| `mean1.1931Hotelling` | Hotelling (1931)          | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
-| `mean1.1958Dempster`  | Dempster (1958, 1960)     | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
-| `mean1.1996BS`        | Bai and Saranadasa (1996) | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
-| `mean1.2008SD`        | Srivastava and Du (2008)  | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)   |
-| `mean2.1931Hotelling` | Hotelling (1931)          | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
-| `mean2.1958Dempster`  | Dempster (1958, 1960)     | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
-| `mean2.1996BS`        | Bai and Saranadasa (1996) | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
-| `mean2.2008SD`        | Srivastava and Du (2008)  | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
-| `mean2.2014CLX`       | Cai, Liu, and Xia (2014)  | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample) |
+| function name         | authors                             | description of *H*<sub>0</sub>                       |
+|-----------------------|-------------------------------------|:-----------------------------------------------------|
+| `mean1.1931Hotelling` | Hotelling (1931)                    | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
+| `mean1.1958Dempster`  | Dempster (1958, 1960)               | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
+| `mean1.1996BS`        | Bai and Saranadasa (1996)           | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
+| `mean1.2008SD`        | Srivastava and Du (2008)            | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
+| `mean2.1931Hotelling` | Hotelling (1931)                    | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.1958Dempster`  | Dempster (1958, 1960)               | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.1996BS`        | Bai and Saranadasa (1996)           | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.2008SD`        | Srivastava and Du (2008)            | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.2011LJW`       | Lopes, Jacob, and Wainwright (2011) | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.2014CLX`       | Cai, Liu, and Xia (2014)            | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.2014Thulin`    | Thulin (2014)                       | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `meank.2009ZX`        | Zhang and Xu (2009)                 | *μ*<sub>1</sub> = ⋯ = *μ*<sub>*k*</sub> (*k*-sample) |
 
 ### 3. tests for variance *σ*<sup>2</sup>
 
