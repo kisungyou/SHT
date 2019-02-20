@@ -78,6 +78,10 @@ We categorized available functions by their object of interest for better naviga
 | `mean1.2008SD`        | Srivastava and Du (2008)            | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
 | `mean2.1931Hotelling` | Hotelling (1931)                    | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
 | `mean2.1958Dempster`  | Dempster (1958, 1960)               | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.1965Yao`       | Yao (1965)                          | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.1980Johansen`  | Johansen (1980)                     | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.1986NVM`       | Nel and Van der Merwe (1986)        | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.2004KY`        | Krishnamoorthy and Yu (2004)        | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
 | `mean2.1996BS`        | Bai and Saranadasa (1996)           | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
 | `mean2.2008SD`        | Srivastava and Du (2008)            | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
 | `mean2.2011LJW`       | Lopes, Jacob, and Wainwright (2011) | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
