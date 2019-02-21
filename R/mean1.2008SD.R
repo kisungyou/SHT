@@ -1,4 +1,4 @@
-#' One-Sample Test for High-Dimensional Mean by Srivastava and Du (2008)
+#' One-sample Test for High-Dimensional Mean by Srivastava and Du (2008)
 #' 
 #' Given a multivariate sample \eqn{X} and hypothesized mean \eqn{\mu_0}, it tests
 #' \deqn{H_0 : \mu_x = \mu_0\quad vs\quad H_1 : \mu_x \neq \mu_0}
@@ -68,7 +68,7 @@ mean1.2008SD <- function(X, mu0=rep(0,ncol(X))){
   thestat = (term1/term2)
   pvalue  = pnorm(thestat,lower.tail=FALSE) # reject if (Z > thr_alpha)
   
-  hname   = "One-Sample Test for High-Dimensional Mean by Srivastava and Du (2008)."
+  hname   = "One-sample Test for High-Dimensional Mean by Srivastava and Du (2008)."
   Ha      = "true mean is different from mu0."
   # if (pvalue < alpha){
   #   conclusion = "Reject Null Hypothesis."

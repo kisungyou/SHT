@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.2004KY.R
 \name{mean2.2004KY}
 \alias{mean2.2004KY}
-\title{Two-Sample Test for Multivariate Means by Krishnamoorthy and Yu (2004)}
+\title{Two-sample Test for Multivariate Means by Krishnamoorthy and Yu (2004)}
 \usage{
 mean2.2004KY(X, Y)
 }

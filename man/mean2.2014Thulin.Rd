@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.2014Thulin.R
 \name{mean2.2014Thulin}
 \alias{mean2.2014Thulin}
-\title{Two-Sample Test for Multivariate Means by Thulin (2014)}
+\title{Two-sample Test for Multivariate Means by Thulin (2014)}
 \usage{
 mean2.2014Thulin(X, Y, B = 100, nreps = 1000)
 }

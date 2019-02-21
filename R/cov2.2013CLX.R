@@ -1,4 +1,4 @@
-#' Two-Sample Test for High-Dimensional Covariances by Cai, Liu, and Xia (2013)
+#' Two-sample Test for High-Dimensional Covariances by Cai, Liu, and Xia (2013)
 #' 
 #' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 #' \deqn{H_0 : \Sigma_x = \Sigma_y\quad vs\quad H_1 : \Sigma_x \neq \Sigma_y}
@@ -82,7 +82,7 @@ cov2.2013CLX <- function(X, Y){
   
   ##############################################################
   # FINALE
-  hname   = "Two-Sample Test for High-Dimensional Covariances by Cai, Liu, and Xia (2013)"
+  hname   = "Two-sample Test for High-Dimensional Covariances by Cai, Liu, and Xia (2013)"
   Ha      = "two covariances are not equal."
   thestat = Mn
   

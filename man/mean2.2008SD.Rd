@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.2008SD.R
 \name{mean2.2008SD}
 \alias{mean2.2008SD}
-\title{Two-Sample Test for High-Dimensional Means by Srivastava and Du (2008)}
+\title{Two-sample Test for High-Dimensional Means by Srivastava and Du (2008)}
 \usage{
 mean2.2008SD(X, Y)
 }

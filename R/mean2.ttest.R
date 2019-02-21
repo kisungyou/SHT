@@ -1,4 +1,4 @@
-#' Two-Sample Student's t-test for Univariate Means
+#' Two-sample Student's t-test for Univariate Means
 #' 
 #' Given two univariate samples \eqn{x} and \eqn{y}, it tests
 #' \deqn{H_0 : \mu_x^2 \left\lbrace =,\geq,\leq \right\rbrace \mu_y^2\quad vs\quad H_1 : \mu_x^2 \left\lbrace \neq,<,>\right\rbrace \mu_y^2}

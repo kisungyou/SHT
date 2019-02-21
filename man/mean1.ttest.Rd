@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean1.ttest.R
 \name{mean1.ttest}
 \alias{mean1.ttest}
-\title{One-Sample Student's t-test for Univariate Mean}
+\title{One-sample Student's t-test for Univariate Mean}
 \usage{
 mean1.ttest(x, mu0 = 0, alternative = c("two.sided", "less",
   "greater"))

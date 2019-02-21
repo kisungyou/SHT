@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.2014CLX.R
 \name{mean2.2014CLX}
 \alias{mean2.2014CLX}
-\title{Two-Sample Test for High-Dimensional Means by Cai, Liu, and Xia (2014)}
+\title{Two-sample Test for High-Dimensional Means by Cai, Liu, and Xia (2014)}
 \usage{
 mean2.2014CLX(X, Y, Omega = NULL, cov.equal = TRUE)
 }

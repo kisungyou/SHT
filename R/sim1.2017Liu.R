@@ -1,4 +1,4 @@
-#' One-sample Test of Mean and Covariance by Liu et al. (2017)
+#' One-sample Simultaneous Test of Mean and Covariance by Liu et al. (2017)
 #' 
 #' Given a multivariate sample \eqn{X}, hypothesized mean \eqn{\mu_0} and covariance \eqn{\Sigma_0}, it tests
 #' \deqn{H_0 : \mu_x = \mu_0 \textrm{ and } \Sigma_x = \Sigma_0 \quad vs\quad H_1 : \textrm{ not } H_0}
@@ -67,7 +67,7 @@ sim1.2017Liu <- function(X, mu0=rep(0,ncol(X)),  Sigma0=diag(ncol(X))){
 
   ##############################################################
   # REPORT
-  hname   = "One-sample Test of Mean and Covariance by Liu et al. (2017)"
+  hname   = "One-sample Simultaneous Test of Mean and Covariance by Liu et al. (2017)"
   Ha      = "both mean and covariance are not equal to mu0 and Sigma0."
 
   DNAME = deparse(substitute(X))

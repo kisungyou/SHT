@@ -81,8 +81,8 @@ We categorized available functions by their object of interest for better naviga
 | `mean2.1965Yao`       | Yao (1965)                          | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
 | `mean2.1980Johansen`  | Johansen (1980)                     | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
 | `mean2.1986NVM`       | Nel and Van der Merwe (1986)        | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `mean2.2004KY`        | Krishnamoorthy and Yu (2004)        | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
 | `mean2.1996BS`        | Bai and Saranadasa (1996)           | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.2004KY`        | Krishnamoorthy and Yu (2004)        | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
 | `mean2.2008SD`        | Srivastava and Du (2008)            | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
 | `mean2.2011LJW`       | Lopes, Jacob, and Wainwright (2011) | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
 | `mean2.2014CLX`       | Cai, Liu, and Xia (2014)            | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
@@ -169,6 +169,11 @@ and here
 <td><code>sim1.2017Liu</code></td>
 <td>Liu et al. (2017)</td>
 <td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub>0</sub> and <em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub>0</sub></span> (1-sample)</td>
+</tr>
+<tr class="even">
+<td><code>sim2.2018HN</code></td>
+<td>Hyodo and Nishiyama (2018)</td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub> and <em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 </tbody>
 </table>

@@ -1,4 +1,4 @@
-#' Two-Sample Test for High-Dimensional Covariances by Li and Chen (2012)
+#' Two-sample Test for High-Dimensional Covariances by Li and Chen (2012)
 #'
 #' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 #' \deqn{H_0 : \Sigma_x = \Sigma_y\quad vs\quad H_1 : \Sigma_x \neq \Sigma_y}
@@ -78,7 +78,7 @@ cov2.2012LC <- function(X, Y, unbiased=FALSE){
   
   ##############################################################
   # FINALE
-  hname   = "Two-Sample Test for High-Dimensional Covariances by Li and Chen (2012)"
+  hname   = "Two-sample Test for High-Dimensional Covariances by Li and Chen (2012)"
   Ha      = "two covariances are not equal."
   thestat = Tn1n2
   

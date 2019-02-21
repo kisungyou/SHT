@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean1.1931Hotelling.R
 \name{mean1.1931Hotelling}
 \alias{mean1.1931Hotelling}
-\title{One-Sample Hotelling's T-squared Test for Multivariate Mean}
+\title{One-sample Hotelling's T-squared Test for Multivariate Mean}
 \usage{
 mean1.1931Hotelling(X, mu0 = rep(0, ncol(X)))
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.1958Dempster.R
 \name{mean2.1958Dempster}
 \alias{mean2.1958Dempster}
-\title{Two-Sample Test for High-Dimensional Means by Dempster (1958, 1960)}
+\title{Two-sample Test for High-Dimensional Means by Dempster (1958, 1960)}
 \usage{
 mean2.1958Dempster(X, Y)
 }

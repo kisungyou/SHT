@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.1980Johansen.R
 \name{mean2.1980Johansen}
 \alias{mean2.1980Johansen}
-\title{Two-Sample Test for Multivariate Means by Johansen (1980)}
+\title{Two-sample Test for Multivariate Means by Johansen (1980)}
 \usage{
 mean2.1980Johansen(X, Y)
 }

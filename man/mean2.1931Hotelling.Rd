@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.1931Hotelling.R
 \name{mean2.1931Hotelling}
 \alias{mean2.1931Hotelling}
-\title{Two-Sample Hotelling's T-squared Test for Multivariate Means}
+\title{Two-sample Hotelling's T-squared Test for Multivariate Means}
 \usage{
 mean2.1931Hotelling(X, Y, paired = FALSE, var.equal = TRUE)
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/cov2.2013CLX.R
 \name{cov2.2013CLX}
 \alias{cov2.2013CLX}
-\title{Two-Sample Test for High-Dimensional Covariances by Cai, Liu, and Xia (2013)}
+\title{Two-sample Test for High-Dimensional Covariances by Cai, Liu, and Xia (2013)}
 \usage{
 cov2.2013CLX(X, Y)
 }

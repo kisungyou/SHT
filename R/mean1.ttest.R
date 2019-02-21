@@ -1,4 +1,4 @@
-#' One-Sample Student's t-test for Univariate Mean
+#' One-sample Student's t-test for Univariate Mean
 #' 
 #' Given an univariate sample \eqn{x}, it tests
 #' \deqn{H_0 : \mu_x = \mu_0\quad vs\quad H_1 : \mu_x \neq \mu_0}
@@ -77,7 +77,7 @@ mean1.ttest <- function(x, mu0=0, alternative=c("two.sided","less","greater")){
 
   ##############################################################
   # REPORT
-  hname   = "One-Sample Student\'s t-test"
+  hname   = "One-sample Student\'s t-test"
   thestat = t
   DNAME = deparse(substitute(x)) # borrowed from HDtest
   names(thestat) = "t"

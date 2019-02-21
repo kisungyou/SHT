@@ -59,8 +59,8 @@ We categorized available functions by their object of interest for better naviga
 | `mean2.1965Yao`  | Yao (1965)  | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.1980Johansen`  | Johansen (1980)  | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.1986NVM` | Nel and Van der Merwe (1986) | $\mu_x = \mu_y$ (2-sample) |
-| `mean2.2004KY`  | Krishnamoorthy and Yu (2004) | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.1996BS`       | Bai and Saranadasa (1996) | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.2004KY`  | Krishnamoorthy and Yu (2004) | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2008SD`| Srivastava and Du (2008)  | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2011LJW`| Lopes, Jacob, and Wainwright (2011) | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2014CLX` | Cai, Liu, and Xia (2014) | $\mu_x = \mu_y$ (2-sample) |
@@ -98,6 +98,7 @@ and here
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
 | `sim1.2017Liu`  | Liu et al. (2017) | $\mu_x = \mu_0 \textrm{ and } \Sigma_x = \Sigma_0$ (1-sample) |
+| `sim2.2018HN`  | Hyodo and Nishiyama (2018) | $\mu_x = \mu_y \textrm{ and } \Sigma_x = \Sigma_y$ (2-sample) |
 
 ### 6. distribution tests of normality
 | function name | authors | description of $H_0$|

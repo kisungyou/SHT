@@ -1,4 +1,4 @@
-#' Two-Sample Test for Multivariate Means by Johansen (1980)
+#' Two-sample Test for Multivariate Means by Johansen (1980)
 #' 
 #' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 #' \deqn{H_0 : \mu_x = \mu_y\quad vs\quad H_1 : \mu_x \neq \mu_y}
@@ -90,7 +90,7 @@ mean2.1980Johansen <- function(X, Y){
   
   ##############################################################
   # REPORT
-  hname   = "Two-Sample Test for Multivariate Means by Johansen (1980)"
+  hname   = "Two-sample Test for Multivariate Means by Johansen (1980)"
   Ha      = "true means are different."
   
   

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.1986NVM.R
 \name{mean2.1986NVM}
 \alias{mean2.1986NVM}
-\title{Two-Sample Test for Multivariate Means by Nel and Van der Merwe (1986)}
+\title{Two-sample Test for Multivariate Means by Nel and Van der Merwe (1986)}
 \usage{
 mean2.1986NVM(X, Y)
 }

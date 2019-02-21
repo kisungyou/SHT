@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.2011LJW.R
 \name{mean2.2011LJW}
 \alias{mean2.2011LJW}
-\title{Two-Sample Test for Multivariate Means by Lopes, Jacob, and Wainwright (2011)}
+\title{Two-sample Test for Multivariate Means by Lopes, Jacob, and Wainwright (2011)}
 \usage{
 mean2.2011LJW(X, Y, method = c("asymptotic", "MC"), nreps = 1000)
 }

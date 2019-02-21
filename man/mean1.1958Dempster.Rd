@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean1.1958Dempster.R
 \name{mean1.1958Dempster}
 \alias{mean1.1958Dempster}
-\title{One-Sample Test for High-Dimensional Mean by Dempster (1958, 1960)}
+\title{One-sample Test for High-Dimensional Mean by Dempster (1958, 1960)}
 \usage{
 mean1.1958Dempster(X, mu0 = rep(0, ncol(X)))
 }

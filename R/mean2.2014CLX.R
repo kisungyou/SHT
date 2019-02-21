@@ -1,4 +1,4 @@
-#' Two-Sample Test for High-Dimensional Means by Cai, Liu, and Xia (2014)
+#' Two-sample Test for High-Dimensional Means by Cai, Liu, and Xia (2014)
 #' 
 #' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 #' \deqn{H_0 : \mu_x = \mu_y\quad vs\quad H_1 : \mu_x \neq \mu_y}
@@ -92,7 +92,7 @@ mean2.2014CLX <- function(X, Y, Omega=NULL, cov.equal = TRUE){
     
     # report
     
-    hname   = "Two-Sample Mean Test with Known Precision by Cai, Liu, and Xia (2014)."
+    hname   = "Two-sample Mean Test with Known Precision by Cai, Liu, and Xia (2014)."
     names(thestat) = "statistic"
     res     = list(statistic=thestat, p.value=pvalue, alternative=Ha, method=hname, data.name=DNAME)
   } else {
@@ -121,7 +121,7 @@ mean2.2014CLX <- function(X, Y, Omega=NULL, cov.equal = TRUE){
       
       # report
       
-      hname   = "Two-Sample Mean Test with Equal Precisions with Estimation by Cai, Liu, and Xia (2014)."
+      hname   = "Two-sample Mean Test with Equal Precisions with Estimation by Cai, Liu, and Xia (2014)."
       names(thestat) = "statistic"
       res     = list(statistic=thestat, p.value=pvalue, alternative=Ha, method=hname, data.name=DNAME)
       
@@ -149,7 +149,7 @@ mean2.2014CLX <- function(X, Y, Omega=NULL, cov.equal = TRUE){
       
       # report
       
-      hname   = "Two-Sample Mean Test with Unequal Precisions with Estimation by Cai, Liu, and Xia (2014)."
+      hname   = "Two-sample Mean Test with Unequal Precisions with Estimation by Cai, Liu, and Xia (2014)."
       names(thestat) = "statistic"
       res     = list(statistic=thestat, p.value=pvalue, alternative=Ha, method=hname, data.name=DNAME)
     }

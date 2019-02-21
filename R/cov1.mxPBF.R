@@ -1,4 +1,4 @@
-#' One-Sample Covariance Test with Maximum Pairwise Bayes Factor
+#' One-sample Covariance Test with Maximum Pairwise Bayes Factor
 #' 
 #' Not Written Here - No Reference Yet.
 #' 
@@ -75,7 +75,7 @@ cov1.mxPBF <- function(X, Sigma0=diag(ncol(X)), a0=2.0, b0=2.0, gamma=1.0, nthre
   
   ##############################################################
   # FINALE
-  hname   = "One-Sample Covariance Test with Maximum Pairwise Bayes Factor"
+  hname   = "One-sample Covariance Test with Maximum Pairwise Bayes Factor"
   Ha      = "true covariance is different from Sigma0."
   
   thestat = max(exp(log.BF.mat))

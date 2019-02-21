@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean1.1996BS.R
 \name{mean1.1996BS}
 \alias{mean1.1996BS}
-\title{One-Sample Test for High-Dimensional Mean by Bai and Saranadasa (1996)}
+\title{One-sample Test for High-Dimensional Mean by Bai and Saranadasa (1996)}
 \usage{
 mean1.1996BS(X, mu0 = rep(0, ncol(X)))
 }

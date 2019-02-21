@@ -1,4 +1,4 @@
-#' Two-Sample Test for High-Dimensional Means by Bai and Saranadasa (1996)
+#' Two-sample Test for High-Dimensional Means by Bai and Saranadasa (1996)
 #' 
 #' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 #' \deqn{H_0 : \mu_x = \mu_y\quad vs\quad H_1 : \mu_x \neq \mu_y}
@@ -69,7 +69,7 @@ mean2.1996BS <- function(X, Y){
   thestat = (term1/term2)
   pvalue  = pnorm(thestat,lower.tail=FALSE) # reject if (Z > thr_alpha)
   
-  hname   = "Two-Sample Test for High-Dimensional Means by Bai and Saranadasa (1996)."
+  hname   = "Two-sample Test for High-Dimensional Means by Bai and Saranadasa (1996)."
   Ha      = "true means are different."
   # if (pvalue < alpha){
   #   conclusion = "Reject Null Hypothesis."

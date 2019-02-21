@@ -2,7 +2,7 @@
 % Please edit documentation in R/cov2.2012LC.R
 \name{cov2.2012LC}
 \alias{cov2.2012LC}
-\title{Two-Sample Test for High-Dimensional Covariances by Li and Chen (2012)}
+\title{Two-sample Test for High-Dimensional Covariances by Li and Chen (2012)}
 \usage{
 cov2.2012LC(X, Y, unbiased = FALSE)
 }

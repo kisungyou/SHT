@@ -1,4 +1,4 @@
-#' Two-Sample Covariance Test with Maximum Pairwise Bayes Factor
+#' Two-sample Covariance Test with Maximum Pairwise Bayes Factor
 #' 
 #' Not Written Here - No Reference Yet.
 #' 
@@ -80,7 +80,7 @@ cov2.mxPBF <- function(X, Y, a0=2.0, b0=2.0, gamma=1.0, nthreads=1){
   
   ##############################################################
   # FINALE
-  hname   = "Two-Sample Covariance Test with Maximum Pairwise Bayes Factor"
+  hname   = "Two-sample Covariance Test with Maximum Pairwise Bayes Factor"
   Ha      = "two covariances are not equal."
   
   thestat = max(exp(log.BF.mat))

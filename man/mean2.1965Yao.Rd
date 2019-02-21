@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.1965Yao.R
 \name{mean2.1965Yao}
 \alias{mean2.1965Yao}
-\title{Two-Sample Test for Multivariate Means by Yao (1965)}
+\title{Two-sample Test for Multivariate Means by Yao (1965)}
 \usage{
 mean2.1965Yao(X, Y)
 }

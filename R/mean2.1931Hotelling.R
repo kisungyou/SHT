@@ -1,4 +1,4 @@
-#' Two-Sample Hotelling's T-squared Test for Multivariate Means
+#' Two-sample Hotelling's T-squared Test for Multivariate Means
 #' 
 #' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 #' \deqn{H_0 : \mu_x = \mu_y\quad vs\quad H_1 : \mu_x \neq \mu_y}
@@ -70,7 +70,7 @@ mean2.1931Hotelling <- function(X, Y, paired=FALSE, var.equal=TRUE){
     mu0  = rep(0,ncol(X))
     tmpout = mean1.1931Hotelling(diff, mu0=mu0)
       
-    hname  = "Two-Sample Hotelling's T-squared Test for Paired/Dependent Data."
+    hname  = "Two-sample Hotelling's T-squared Test for Paired/Dependent Data."
     Ha     = "true means are different."
  
     thestat = tmpout$statistic

@@ -1,4 +1,4 @@
-#' One-Sample Hotelling's T-squared Test for Multivariate Mean
+#' One-sample Hotelling's T-squared Test for Multivariate Mean
 #' 
 #' Given a multivariate sample \eqn{X} and hypothesized mean \eqn{\mu_0}, it tests
 #' \deqn{H_0 : \mu_x = \mu_0\quad vs\quad H_1 : \mu_x \neq \mu_0}
@@ -68,7 +68,7 @@ mean1.1931Hotelling <- function(X, mu0=rep(0,ncol(X))){
 
   ##############################################################
   # REPORT
-  hname  = "One-Sample Hotelling's T-squared Test"
+  hname  = "One-sample Hotelling's T-squared Test"
   Ha     = "true mean is different from mu0."
   
   DNAME = deparse(substitute(X)) # borrowed from HDtest

@@ -1,4 +1,4 @@
-#' Two-Sample Test for Multivariate Means by Lopes, Jacob, and Wainwright (2011)
+#' Two-sample Test for Multivariate Means by Lopes, Jacob, and Wainwright (2011)
 #' 
 #' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 #' \deqn{H_0 : \mu_x = \mu_y\quad vs\quad H_1 : \mu_x \neq \mu_y}
@@ -92,7 +92,7 @@ mean2.2011LJW <- function(X, Y, method=c("asymptotic","MC"), nreps=1000){
   thestat = Tk2
   ##############################################################
   # FINALE
-  hname   = "Two-Sample Test for Multivariate Means by Lopes, Jacob, and Wainwright (2011)"
+  hname   = "Two-sample Test for Multivariate Means by Lopes, Jacob, and Wainwright (2011)"
   Ha      = "true means are different."
   
   DNAME = paste(deparse(substitute(X))," and ",deparse(substitute(Y)),sep="") # borrowed from HDtest

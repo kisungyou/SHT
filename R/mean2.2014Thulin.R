@@ -1,4 +1,4 @@
-#' Two-Sample Test for Multivariate Means by Thulin (2014)
+#' Two-sample Test for Multivariate Means by Thulin (2014)
 #' 
 #' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 #' \deqn{H_0 : \mu_x = \mu_y\quad vs\quad H_1 : \mu_x \neq \mu_y}
@@ -71,7 +71,7 @@ mean2.2014Thulin <- function(X, Y, B=100, nreps=1000){
   
   ##############################################################
   # FINALE
-  hname   = "Two-Sample Test for Multivariate Means by Thulin (2014)"
+  hname   = "Two-sample Test for Multivariate Means by Thulin (2014)"
   Ha      = "true means are different."
   
   DNAME = paste(deparse(substitute(X))," and ",deparse(substitute(Y)),sep="") # borrowed from HDtest

@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean2.1996BS.R
 \name{mean2.1996BS}
 \alias{mean2.1996BS}
-\title{Two-Sample Test for High-Dimensional Means by Bai and Saranadasa (1996)}
+\title{Two-sample Test for High-Dimensional Means by Bai and Saranadasa (1996)}
 \usage{
 mean2.1996BS(X, Y)
 }

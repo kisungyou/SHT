@@ -1,4 +1,4 @@
-#' Two-Sample Mean Test with Maximum Pairwise Bayes Factor
+#' Two-sample Mean Test with Maximum Pairwise Bayes Factor
 #' 
 #' Not Written Here - No Reference Yet.
 #' 
@@ -75,7 +75,7 @@ mean2.mxPBF <- function(X, Y, a0=2.0, b0=2.0, gamma=1.0, nthreads=1){
   
   ##############################################################
   # FINALE
-  hname   = "Two-Sample Mean Test with Maximum Pairwise Bayes Factor"
+  hname   = "Two-sample Mean Test with Maximum Pairwise Bayes Factor"
   Ha      = "two means are not equal."
   
   thestat = max(exp(log.BF.vec))
