@@ -16,14 +16,14 @@
 #' 
 #' @examples 
 #' \donttest{
-#' ## test when k=5 samples with (n,p) = (100,20)
+#' ## test when k=4 samples with (n,p) = (100,20)
 #' ## empirical Type 1 error 
-#' niter   = 1000
+#' niter   = 1234
 #' counter = rep(0,niter)  # record p-values
 #' for (i in 1:niter){
 #'   mylist = list()
-#'   for (j in 1:5){
-#'      mylist[[j]] = matrix(rnorm(*20),ncol=20)
+#'   for (j in 1:4){
+#'      mylist[[j]] = matrix(rnorm(100*20),ncol=20)
 #'   }
 #'   
 #'   counter[i] = ifelse(covk.2007Schott(mylist)$p.value < 0.05, 1, 0)
@@ -49,7 +49,7 @@ covk.2007Schott <- function(dlist){
   # PREPARATION
   g     = length(dlist)  # g-sample case
   p     = ncol(dlist[[1]])
-  vec.n = unlist(lapply(dlist, nrow))-1
+  vec.n = unlist(lapply(dlist, nrow)) - 1 ## nS ~ W(\Sigma, n) means nS = scatter, S = (1/n)*scatter ## ERRATA it gotta be.
   vec.S = array(0,c(p,p,g))
   for (i in 1:g){
     vec.S[,,i] = stats::cov(dlist[[i]])

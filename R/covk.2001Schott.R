@@ -52,7 +52,7 @@ covk.2001Schott <- function(dlist){
   g     = length(dlist)  # g-sample case
   p     = ncol(dlist[[1]])
   vec.n = unlist(lapply(dlist, nrow))-1
-  vec.S = array(0,c(p,p,g))
+  vec.S = array(0,c(p,p,g)) 
   for (i in 1:g){
     vec.S[,,i] = stats::cov(dlist[[i]])
   }
@@ -64,8 +64,9 @@ covk.2001Schott <- function(dlist){
   }
   vec.gamma = vec.n/n
   
-  Sinv = pracma::pinv(S)  # use pinv for Sinv
-  vec.Sinv2 = rep(0,g) # tr((SiSinv)^2)
+  # Sinv = pracma::pinv(S)  # use pinv for Sinv
+  Sinv = tryCatch({solve(S)},error = function(e){pracma::pinv(S)})
+  vec.Sinv2 = rep(0,g) # tr((SSinv)^2)
   for (i in 1:g){
     SSinv = vec.S[,,i]%*%Sinv
     vec.Sinv2[i] = sum(diag(SSinv%*%SSinv))
