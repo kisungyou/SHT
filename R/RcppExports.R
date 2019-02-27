@@ -37,6 +37,14 @@ energy_distance <- function(Xi, Xj, alpha, nCores) {
     .Call('_SHT_energy_distance', PACKAGE = 'SHT', Xi, Xj, alpha, nCores)
 }
 
+cpp_eqdist_2014BG_statistic <- function(DX, DY, DXY) {
+    .Call('_SHT_cpp_eqdist_2014BG_statistic', PACKAGE = 'SHT', DX, DY, DXY)
+}
+
+cpp_eqdist_2014BG_computeS <- function(D) {
+    .Call('_SHT_cpp_eqdist_2014BG_computeS', PACKAGE = 'SHT', D)
+}
+
 adjust_clime <- function(omega) {
     .Call('_SHT_adjust_clime', PACKAGE = 'SHT', omega)
 }

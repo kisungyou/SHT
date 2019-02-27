@@ -107,5 +107,9 @@ and here
 | `norm.1972SF` | Shapiro and Francia (1972) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
 | `norm.1980JB` | Jarque and Bera (1980) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
 | `norm.1996AJB`| Urzua (1996) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
-| `norm.2008RJB` | Gel and Gastwirth (2008) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.2008RJB`| Gel and Gastwirth (2008) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
 
+### 7. tests for equality of distributions
+| function name | authors | description of $H_0$|
+|---------------|------------------------|:----------------|
+| `eqdist.2014BG` | Biswas and Ghosh (2014) | $F_X = F_Y$ (2-sample) |

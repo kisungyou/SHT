@@ -126,6 +126,30 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
+// cpp_eqdist_2014BG_statistic
+double cpp_eqdist_2014BG_statistic(arma::mat DX, arma::mat DY, arma::mat DXY);
+RcppExport SEXP _SHT_cpp_eqdist_2014BG_statistic(SEXP DXSEXP, SEXP DYSEXP, SEXP DXYSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type DX(DXSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type DY(DYSEXP);
+    Rcpp::traits::input_parameter< arma::mat >::type DXY(DXYSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_eqdist_2014BG_statistic(DX, DY, DXY));
+    return rcpp_result_gen;
+END_RCPP
+}
+// cpp_eqdist_2014BG_computeS
+double cpp_eqdist_2014BG_computeS(arma::mat D);
+RcppExport SEXP _SHT_cpp_eqdist_2014BG_computeS(SEXP DSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< arma::mat >::type D(DSEXP);
+    rcpp_result_gen = Rcpp::wrap(cpp_eqdist_2014BG_computeS(D));
+    return rcpp_result_gen;
+END_RCPP
+}
 // adjust_clime
 arma::mat adjust_clime(arma::mat omega);
 RcppExport SEXP _SHT_adjust_clime(SEXP omegaSEXP) {
@@ -263,6 +287,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_SHT_cpp_cov2_mxPBF_single", (DL_FUNC) &_SHT_cpp_cov2_mxPBF_single, 5},
     {"_SHT_cpp_cov2_mxPBF_multiple", (DL_FUNC) &_SHT_cpp_cov2_mxPBF_multiple, 6},
     {"_SHT_energy_distance", (DL_FUNC) &_SHT_energy_distance, 4},
+    {"_SHT_cpp_eqdist_2014BG_statistic", (DL_FUNC) &_SHT_cpp_eqdist_2014BG_statistic, 3},
+    {"_SHT_cpp_eqdist_2014BG_computeS", (DL_FUNC) &_SHT_cpp_eqdist_2014BG_computeS, 1},
     {"_SHT_adjust_clime", (DL_FUNC) &_SHT_adjust_clime, 1},
     {"_SHT_cpp_mean2_mxPBF_single", (DL_FUNC) &_SHT_cpp_mean2_mxPBF_single, 5},
     {"_SHT_cpp_mean2_mxPBF_multiple", (DL_FUNC) &_SHT_cpp_mean2_mxPBF_multiple, 6},

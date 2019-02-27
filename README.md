@@ -221,3 +221,9 @@ and here
 </tr>
 </tbody>
 </table>
+
+### 7. tests for equal distributions
+
+| function name   | authors                 | description of *H*<sub>0</sub>                   |
+|-----------------|-------------------------|:-------------------------------------------------|
+| `eqdist.2014BG` | Biswas and Ghosh (2014) | *F*<sub>*X*</sub> = *F*<sub>*Y*</sub> (2-sample) |
