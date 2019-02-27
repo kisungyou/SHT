@@ -52,12 +52,12 @@ We categorized available functions by their object of interest for better naviga
 <tbody>
 <tr class="odd">
 <td><code>mean1.ttest</code></td>
-<td>Student (1908)</td>
+<td><a href="https://www.jstor.org/stable/2331554">Student (1908)</a></td>
 <td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> {≤, =, ≥} <em>μ</em><sub>0</sub></span> (1-sample)</td>
 </tr>
 <tr class="even">
 <td><code>mean2.ttest</code></td>
-<td>Student (1908) &amp; Welch (1947)</td>
+<td><a href="https://www.jstor.org/stable/2331554">Student (1908)</a> &amp; <a href="https://doi.org/10.1093/biomet/34.1-2.28">Welch (1947)</a></td>
 <td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> {≤, =, ≥} <em>μ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 <tr class="odd">
@@ -70,24 +70,24 @@ We categorized available functions by their object of interest for better naviga
 
 ### 2. tests for multivariate mean *μ* ∈ ℝ<sup>*n*</sup>
 
-| function name         | authors                             | description of *H*<sub>0</sub>                       |
-|-----------------------|-------------------------------------|:-----------------------------------------------------|
-| `mean1.1931Hotelling` | Hotelling (1931)                    | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
-| `mean1.1958Dempster`  | Dempster (1958, 1960)               | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
-| `mean1.1996BS`        | Bai and Saranadasa (1996)           | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
-| `mean1.2008SD`        | Srivastava and Du (2008)            | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
-| `mean2.1931Hotelling` | Hotelling (1931)                    | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `mean2.1958Dempster`  | Dempster (1958, 1960)               | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `mean2.1965Yao`       | Yao (1965)                          | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `mean2.1980Johansen`  | Johansen (1980)                     | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `mean2.1986NVM`       | Nel and Van der Merwe (1986)        | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `mean2.1996BS`        | Bai and Saranadasa (1996)           | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `mean2.2004KY`        | Krishnamoorthy and Yu (2004)        | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `mean2.2008SD`        | Srivastava and Du (2008)            | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `mean2.2011LJW`       | Lopes, Jacob, and Wainwright (2011) | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `mean2.2014CLX`       | Cai, Liu, and Xia (2014)            | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `mean2.2014Thulin`    | Thulin (2014)                       | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
-| `meank.2009ZX`        | Zhang and Xu (2009)                 | *μ*<sub>1</sub> = ⋯ = *μ*<sub>*k*</sub> (*k*-sample) |
+| function name         | authors                                                                                     | description of *H*<sub>0</sub>                       |
+|-----------------------|---------------------------------------------------------------------------------------------|:-----------------------------------------------------|
+| `mean1.1931Hotelling` | [Hotelling (1931)](https://projecteuclid.org/euclid.aoms/1177732979)                        | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
+| `mean1.1958Dempster`  | [Dempster (1958, 1960)](https://projecteuclid.org/euclid.aoms/1177706437)                   | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
+| `mean1.1996BS`        | [Bai and Saranadasa (1996)](http://www3.stat.sinica.edu.tw/statistica/j6n2/j6n21/j6n21.htm) | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
+| `mean1.2008SD`        | [Srivastava and Du (2008)](https://doi.org/10.1016/j.jmva.2006.11.002)                      | *μ*<sub>*x*</sub> = *μ*<sub>0</sub> (1-sample)       |
+| `mean2.1931Hotelling` | [Hotelling (1931)](https://projecteuclid.org/euclid.aoms/1177732979)                        | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.1958Dempster`  | [Dempster (1958, 1960)](https://projecteuclid.org/euclid.aoms/1177706437)                   | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.1965Yao`       | [Yao (1965)](https://www.jstor.org/stable/2333819)                                          | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.1980Johansen`  | [Johansen (1980)](https://doi.org/10.1093/biomet/67.1.85)                                   | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.1986NVM`       | Nel and Van der Merwe (1986)                                                                | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.1996BS`        | [Bai and Saranadasa (1996)](http://www3.stat.sinica.edu.tw/statistica/j6n2/j6n21/j6n21.htm) | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.2004KY`        | [Krishnamoorthy and Yu (2004)](https://doi.org/10.1016/j.spl.2003.10.012)                   | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.2008SD`        | [Srivastava and Du (2008)](https://doi.org/10.1016/j.jmva.2006.11.002)                      | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.2011LJW`       | Lopes, Jacob, and Wainwright (2011)                                                         | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.2014CLX`       | Cai, Liu, and Xia (2014)                                                                    | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `mean2.2014Thulin`    | Thulin (2014)                                                                               | *μ*<sub>*x*</sub> = *μ*<sub>*y*</sub> (2-sample)     |
+| `meank.2009ZX`        | Zhang and Xu (2009)                                                                         | *μ*<sub>1</sub> = ⋯ = *μ*<sub>*k*</sub> (*k*-sample) |
 
 ### 3. tests for variance *σ*<sup>2</sup>
 
@@ -135,12 +135,63 @@ We categorized available functions by their object of interest for better naviga
 
 ### 4. tests for covariance *Σ*
 
-| function name     | authors                  | description of *H*<sub>0</sub>                       |
-|-------------------|--------------------------|:-----------------------------------------------------|
-| `cov2.2012LC`     | Li and Chen (2012)       | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
-| `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
-| `covk.2001Schott` | Schott (2001)            | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
-| `covk.2007Schott` | Schott (2007)            | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
+| function name         | authors                                                               | description of *H*<sub>0</sub>                       |
+|-----------------------|-----------------------------------------------------------------------|:-----------------------------------------------------|
+| `cov2.2012LC`         | [Li and Chen (2012)](https://projecteuclid.org/euclid.aos/1338515142) | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
+| `cov2.2013CLX`        | Cai, Liu, and Xia (2013)                                              | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
+| `covk.2001Schott`     | Schott (2001)                                                         | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
+| `covk.2007Schott`     | Schott (2007)                                                         | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
+| \_x = \_y$ (2-sample) |                                                                       |
+
+### 6. distribution tests of normality
+
+<table style="width:82%;">
+<colgroup>
+<col width="22%" />
+<col width="34%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>function name</th>
+<th>authors</th>
+<th align="left">description of <span class="math inline"><em>H</em><sub>0</sub></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>norm.1965SW</code></td>
+<td>Shapiro and Wilk (1965)</td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
+</tr>
+<tr class="even">
+<td><code>norm.1972SF</code></td>
+<td>Shapiro and Francia (1972)</td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
+</tr>
+<tr class="odd">
+<td><code>norm.1980JB</code></td>
+<td>Jarque and Bera (1980)</td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
+</tr>
+<tr class="even">
+<td><code>norm.1996AJB</code></td>
+<td>Urzua (1996)</td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
+</tr>
+<tr class="odd">
+<td><code>norm.2008RJB</code></td>
+<td>Gel and Gastwirth (2008)</td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
+</tr>
+</tbody>
+</table>
+
+### 7. tests for equality of distributions
+
+| function name   | authors                 | description of *H*<sub>0</sub>                   |
+|-----------------|-------------------------|:-------------------------------------------------|
+| `eqdist.2014BG` | Biswas and Ghosh (2014) | *F*<sub>*X*</sub> = *F*<sub>*Y*</sub> (2-sample) |
 
 <!---
 your comment goes here

@@ -43,25 +43,25 @@ We categorized available functions by their object of interest for better naviga
 ### 1. tests for univariate mean $\mu \in \mathbb{R}$
 | function name | authors| description of $H_0$ |
 |-------|------------------------|:----------------|
-| `mean1.ttest` | Student (1908)                  | $\mu_x ~\{\leq, =, \geq\}~ \mu_0$ (1-sample) |
-| `mean2.ttest` | Student (1908) & Welch (1947) | $\mu_x ~\{\leq, =, \geq\}~ \mu_y$ (2-sample) |
+| `mean1.ttest` | [Student (1908)][1] | $\mu_x ~\{\leq, =, \geq\}~ \mu_0$ (1-sample) |
+| `mean2.ttest` | [Student (1908)][1] & [Welch (1947)][2] | $\mu_x ~\{\leq, =, \geq\}~ \mu_y$ (2-sample) |
 | `meank.anova` |               -                 | $\mu_1 = \cdots = \mu_k$ ($k$-sample) |
 
 ### 2. tests for multivariate mean $\mu \in \mathbb{R}^n$
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
-| `mean1.1931Hotelling` | Hotelling (1931)       | $\mu_x = \mu_0$ (1-sample) |
-| `mean1.1958Dempster`  | Dempster (1958, 1960)  | $\mu_x = \mu_0$ (1-sample) |
-| `mean1.1996BS`       | Bai and Saranadasa (1996) | $\mu_x = \mu_0$ (1-sample) |
-| `mean1.2008SD`| Srivastava and Du (2008)  | $\mu_x = \mu_0$ (1-sample) |
-| `mean2.1931Hotelling` | Hotelling (1931)       | $\mu_x = \mu_y$ (2-sample) |
-| `mean2.1958Dempster`  | Dempster (1958, 1960)  | $\mu_x = \mu_y$ (2-sample) |
-| `mean2.1965Yao`  | Yao (1965)  | $\mu_x = \mu_y$ (2-sample) |
-| `mean2.1980Johansen`  | Johansen (1980)  | $\mu_x = \mu_y$ (2-sample) |
+| `mean1.1931Hotelling` | [Hotelling (1931)][3]       | $\mu_x = \mu_0$ (1-sample) |
+| `mean1.1958Dempster`  | [Dempster (1958, 1960)][4]  | $\mu_x = \mu_0$ (1-sample) |
+| `mean1.1996BS`       | [Bai and Saranadasa (1996)][5] | $\mu_x = \mu_0$ (1-sample) |
+| `mean1.2008SD`| [Srivastava and Du (2008)][6]  | $\mu_x = \mu_0$ (1-sample) |
+| `mean2.1931Hotelling` | [Hotelling (1931)][3]       | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.1958Dempster`  | [Dempster (1958, 1960)][4]  | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.1965Yao`  | [Yao (1965)][7]  | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.1980Johansen`  | [Johansen (1980)][8]  | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.1986NVM` | Nel and Van der Merwe (1986) | $\mu_x = \mu_y$ (2-sample) |
-| `mean2.1996BS`       | Bai and Saranadasa (1996) | $\mu_x = \mu_y$ (2-sample) |
-| `mean2.2004KY`  | Krishnamoorthy and Yu (2004) | $\mu_x = \mu_y$ (2-sample) |
-| `mean2.2008SD`| Srivastava and Du (2008)  | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.1996BS`       | [Bai and Saranadasa (1996)][5] | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.2004KY`  | [Krishnamoorthy and Yu (2004)][9] | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.2008SD`| [Srivastava and Du (2008)][6]  | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2011LJW`| Lopes, Jacob, and Wainwright (2011) | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2014CLX` | Cai, Liu, and Xia (2014) | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2014Thulin` | Thulin (2014) | $\mu_x = \mu_y$ (2-sample) |
@@ -79,11 +79,25 @@ We categorized available functions by their object of interest for better naviga
 ### 4. tests for covariance $\Sigma$
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
-| `cov2.2012LC`    | Li and Chen (2012) | $\Sigma_x = \Sigma_y$ (2-sample) |
+| `cov2.2012LC`    | [Li and Chen (2012)][10] | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `covk.2001Schott`    | Schott (2001) | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
 | `covk.2007Schott`    | Schott (2007) | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
+\Sigma_x = \Sigma_y$ (2-sample) |
 
+### 6. distribution tests of normality
+| function name | authors | description of $H_0$|
+|---------------|------------------------|:----------------|
+| `norm.1965SW` | Shapiro and Wilk (1965) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.1972SF` | Shapiro and Francia (1972) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.1980JB` | Jarque and Bera (1980) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.1996AJB`| Urzua (1996) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.2008RJB`| Gel and Gastwirth (2008) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+
+### 7. tests for equality of distributions
+| function name | authors | description of $H_0$|
+|---------------|------------------------|:----------------|
+| `eqdist.2014BG` | Biswas and Ghosh (2014) | $F_X = F_Y$ (2-sample) |
 
 <!---
 your comment goes here
@@ -113,3 +127,15 @@ and here
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
 | `eqdist.2014BG` | Biswas and Ghosh (2014) | $F_X = F_Y$ (2-sample) |
+
+
+[1]: https://www.jstor.org/stable/2331554
+[2]: https://doi.org/10.1093/biomet/34.1-2.28
+[3]: https://projecteuclid.org/euclid.aoms/1177732979
+[4]: https://projecteuclid.org/euclid.aoms/1177706437
+[5]: http://www3.stat.sinica.edu.tw/statistica/j6n2/j6n21/j6n21.htm
+[6]: https://doi.org/10.1016/j.jmva.2006.11.002
+[7]: https://www.jstor.org/stable/2333819 
+[8]: https://doi.org/10.1093/biomet/67.1.85
+[9]: https://doi.org/10.1016/j.spl.2003.10.012
+[10]: https://projecteuclid.org/euclid.aos/1338515142
