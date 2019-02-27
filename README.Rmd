@@ -125,7 +125,7 @@ and here
 
 ### 7. tests for equality of distributions
 | function name | authors | description of $H_0$|
-|---------------|------------------------|:----------------|
+|---------------|---------------------|:----------------|
 | `eqdist.2014BG` | Biswas and Ghosh (2014) | $F_X = F_Y$ (2-sample) |
 
 
