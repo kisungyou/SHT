@@ -28,6 +28,12 @@ Given an univariate sample \eqn{x}, it tests
 \deqn{H_0 : \sigma_x^2 \left\lbrace =,\geq,\leq \right\rbrace \sigma_0^2 \quad vs\quad H_1 : \sigma_x^2 \left\lbrace \neq,<,>\right\rbrace \sigma_0^2}.
 }
 \examples{
+## CRAN-purpose small example
+x = rnorm(10)
+var1.chisq(x, alternative="g") ## Ha : var(x) >= 1
+var1.chisq(x, alternative="l") ## Ha : var(x) <= 1
+var1.chisq(x, alternative="t") ## Ha : var(x) =/=1
+
 \donttest{
 ## empirical Type 1 error 
 niter   = 1000

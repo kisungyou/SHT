@@ -97,8 +97,8 @@ and here
 ### 5. simultaneous tests for mean $\mu$ and covariance $\Sigma$
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
-| `sim1.2017Liu`  | Liu et al. (2017) | $\mu_x = \mu_0 \textrm{ and } \Sigma_x = \Sigma_0$ (1-sample) |
-| `sim2.2018HN`  | Hyodo and Nishiyama (2018) | $\mu_x = \mu_y \textrm{ and } \Sigma_x = \Sigma_y$ (2-sample) |
+| `sim1.2017Liu`  | Liu et al. (2017) | $\mu_x = \mu_y,~\Sigma_x = \Sigma_y$ (1-sample) |
+| `sim2.2018HN`  | Hyodo and Nishiyama (2018) | $\mu_x = \mu_y,~\Sigma_x = \Sigma_y$ (2-sample) |
 
 ### 6. distribution tests of normality
 | function name | authors | description of $H_0$|

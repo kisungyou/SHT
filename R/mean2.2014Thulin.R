@@ -20,6 +20,11 @@
 #' }
 #' 
 #' @examples 
+#' ## CRAN-purpose small example
+#' smallX = matrix(rnorm(10*3),ncol=10)
+#' smallY = matrix(rnorm(10*3),ncol=10)
+#' mean2.2014Thulin(smallX, smallY, B=10, nreps=10) # run the test
+#' 
 #' \donttest{
 #' ## Compare with 'mean2.2011LJW' 
 #' ## which is based on random projection.
@@ -49,20 +54,21 @@ mean2.2014Thulin <- function(X, Y, B=100, nreps=1000){
   }
   n1 = nrow(X)
   n2 = nrow(Y)
+  nn = (n1+n2)
+  seqnn = 1:nn
   
   B     = as.integer(B)
   nreps = as.integer(nreps)
   k     = floor((n1+n2-2)/2)
   Z     = rbind(X,Y)
-  
+
   ##############################################################
   # MAIN COMPUTATION
   T2     = mean2_2014_Thulin(X,Y,k,B) # our main statistic
   T2perm = rep(0,nreps)
   for (i in 1:nreps){
-    reode = sample(1:(n1+n2), (n1+n2), replace=FALSE) # random permutation
-    id1   = reode[1:n1]
-    id2   = reode[(n1+1):(n1+n2)]
+    id1   = base::sample(seqnn, n1, replace=FALSE) # random permutation
+    id2   = setdiff(seqnn, id1)
     T2perm[i] = mean2_2014_Thulin(Z[id1,], Z[id2,], k, B)
   }
   

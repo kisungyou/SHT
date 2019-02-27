@@ -16,6 +16,12 @@
 #' }
 #' 
 #' @examples 
+#' ## CRAN-purpose small example
+#' x = rnorm(10)
+#' var1.chisq(x, alternative="g") ## Ha : var(x) >= 1
+#' var1.chisq(x, alternative="l") ## Ha : var(x) <= 1
+#' var1.chisq(x, alternative="t") ## Ha : var(x) =/=1
+#' 
 #' \donttest{
 #' ## empirical Type 1 error 
 #' niter   = 1000
@@ -49,11 +55,11 @@ var1.chisq <- function(x, var0=1, alternative=c("two.sided","less","greater")){
   if (missing(alternative)){
     alternative = "two.sided"
   } else {
-    if (alternative=="g"){
+    if (pracma::strcmp(alternative,"g")){
       alternative = "greater"
-    } else if (alternative=="t"){
+    } else if (pracma::strcmp(alternative,"t")){
       alternative = "two.sided"
-    } else if (alternative=="l"){
+    } else if (pracma::strcmp(alternative,"l")){
       alternative = "less"
     }
     alternative = match.arg(alternative)

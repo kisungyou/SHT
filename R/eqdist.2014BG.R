@@ -21,6 +21,11 @@
 #' }
 #' 
 #' @examples 
+#' ## CRAN-purpose small example
+#' smallX = matrix(rnorm(10*3),ncol=3)
+#' smallY = matrix(rnorm(10*3),ncol=3)
+#' eqdist.2014BG(smallX, smallY) # run the test
+#' 
 #' \donttest{
 #' ## compare asymptotic and permutation-based powers
 #' set.seed(777)
@@ -68,6 +73,7 @@ eqdist.2014BG <- function(X, Y, method=c("asymptotic","permutation"), nreps=2000
   } else if (pracma::strcmp(mymethod,"p")){
     mymethod = "permutation"
   }
+  mymethod = match.arg(mymethod, c("asymptotic","permutation"))
   nreps = as.integer(nreps)
   
   ##############################################################
@@ -124,7 +130,7 @@ eqdist.2014BG <- function(X, Y, method=c("asymptotic","permutation"), nreps=2000
 R_eqdist_2014BG_statistic <- function(DX,DY,DXY){
   m = nrow(DXY)
   n = ncol(DXY)
-  
+
   muff = sum(DX[upper.tri(DX)])/(m*(m-1)/2)
   mufg = sum(DXY)/(m*n)
   mugg = sum(DY[upper.tri(DY)])/(n*(n-1)/2)
@@ -134,3 +140,78 @@ R_eqdist_2014BG_statistic <- function(DX,DY,DXY){
   output = sum((vec1-vec2)^2)
   return(output)
 }
+
+
+
+# for exportation given distance matrix -----------------------------------
+#' @keywords internal
+#' @noRd
+eqdist.2014BG.givenD <- function(D, size1, size2, method=c("asymptotic","permutation"), nreps=2000){
+  ##############################################################
+  ## conversion setting
+  if (is.vector(X)){
+    check_1d(X)
+    check_1d(Y)
+    X = matrix(X) 
+    Y = matrix(Y)
+  } else {
+    check_nd(X)
+    check_nd(Y)
+    if (ncol(X)!=ncol(Y)){
+      stop("* eqdist.2014BG : two input matrices should have same number of columns.")
+    }
+  }
+  mymethod = tolower(method)
+  if (pracma::strcmp(mymethod,"a")){
+    mymethod = "asymptotic"
+  } else if (pracma::strcmp(mymethod,"p")){
+    mymethod = "permutation"
+  }
+  nreps = as.integer(nreps)
+  
+  m = as.integer(size1)
+  n = as.integer(size2)
+  DXY = D
+  DX = DXY[1:m,1:m]                   # under null
+  DY = DXY[(m+1):(m+n),(m+1):(m+n)]
+  DZ = DXY[1:m,(m+1):(m+n)]
+  Tmn = R_eqdist_2014BG_statistic(DX,DY,DZ)
+  
+  ##############################################################
+  if (pracma::strcmp(mymethod,"permutation")){
+    Tvec = rep(0,nreps)
+    for (i in 1:nreps){
+      idx = sample(1:(m+n), m, replace=FALSE)
+      idy = setdiff(1:(m+n), idx)
+      
+      DX1 = DXY[idx,idx]
+      DY1 = DXY[idy,idy]
+      DZ1 = DXY[idx,idy]
+      Tvec[i] = R_eqdist_2014BG_statistic(DX1,DY1,DZ1)
+    }
+    pvalue = sum(Tvec>=Tmn)/nreps
+  } else if (pracma::strcmp(mymethod,"asymptotic")){
+    lbd = (m/(m+n))
+    S1  = cpp_eqdist_2014BG_computeS(DX)
+    S2  = cpp_eqdist_2014BG_computeS(DY)
+    
+    sig2 = (m*S1 + n*S2)/(m+n)
+    Tmnstar = ((m+n)*lbd*(1.0-lbd)/(2*sig2))*Tmn
+    pvalue  = pchisq(Tmnstar, 1, lower.tail = FALSE)
+  }
+  
+  
+  
+  ##############################################################
+  # REPORT
+  thestat = Tmn
+  hname   = "Test for Equality of Two Distributions by Biswas and Ghosh (2014)"
+  DNAME = paste(deparse(substitute(X))," and ",deparse(substitute(Y)),sep="") 
+  Ha    = "two distributions are not equal"
+  names(thestat) = "Tmn"
+  res   = list(statistic=thestat, p.value=pvalue, alternative = Ha, method=hname, data.name = DNAME)
+  class(res) = "htest"
+  return(res)
+  
+}
+  

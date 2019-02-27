@@ -27,6 +27,11 @@ using the procedure by Yao (1965) via multivariate modification of
 Welch's approximation of degrees of freedoms.
 }
 \examples{
+## CRAN-purpose small example
+smallX = matrix(rnorm(10*3),ncol=3)
+smallY = matrix(rnorm(10*3),ncol=3)
+mean2.1965Yao(smallX, smallY) # run the test
+
 \donttest{
 ## empirical Type 1 error 
 niter   = 1000

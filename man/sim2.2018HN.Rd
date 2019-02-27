@@ -27,6 +27,11 @@ using the procedure by Hyodo and Nishiyama (2018) in a similar fashion to that o
 one-sample test.
 }
 \examples{
+## CRAN-purpose small example
+smallX = matrix(rnorm(10*3),ncol=3)
+smallY = matrix(rnorm(10*3),ncol=3)
+sim2.2018HN(smallX, smallY) # run the test
+
 \donttest{
 ## empirical Type 1 error 
 niter   = 1000

@@ -17,6 +17,10 @@
 #' }
 #'
 #' @examples 
+#' ## CRAN-purpose small example
+#' smallX = matrix(rnorm(10*3),ncol=3)
+#' sim1.2017Liu(smallX) # run the test
+#' 
 #' \donttest{
 #' ## empirical Type 1 error 
 #' niter   = 1000

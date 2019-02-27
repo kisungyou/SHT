@@ -24,6 +24,13 @@ Given univariate samples \eqn{X_1~,\ldots,~X_k}, it tests
 using the procedure by Bartlett (1937).
 }
 \examples{
+## CRAN-purpose small example
+small1d = list()
+for (i in 1:5){ # k=5 sample
+  small1d[[i]] = rnorm(20)
+}
+vark.1937Bartlett(small1d) # run the test
+
 \donttest{
 ## test when k=5 (samples)
 ## empirical Type 1 error 

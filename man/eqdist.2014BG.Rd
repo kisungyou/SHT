@@ -33,16 +33,21 @@ pairwise distance measures. Both asymptotic and permutation-based determination 
 \eqn{p}-values are supported.
 }
 \examples{
+## CRAN-purpose small example
+smallX = matrix(rnorm(10*3),ncol=3)
+smallY = matrix(rnorm(10*3),ncol=3)
+eqdist.2014BG(smallX, smallY) # run the test
+
 \donttest{
 ## compare asymptotic and permutation-based powers
 set.seed(777)
-ntest  = 100 
+ntest  = 1000
 pval.a = rep(0,ntest)
 pval.p = rep(0,ntest)
 
 for (i in 1:ntest){
   x = rnorm(100)
-  y = rnorm(100)
+  y = rnorm(100, sd=1.3)
   
   pval.a[i] = ifelse(eqdist.2014BG(x,y,method="a")$p.value<0.05,1,0)
   pval.p[i] = ifelse(eqdist.2014BG(x,y,method="p",nreps=100)$p.value <0.05,1,0)

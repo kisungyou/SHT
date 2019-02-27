@@ -15,6 +15,10 @@
 #' }
 #' 
 #' @examples 
+#' ## CRAN-purpose small example
+#' x = rnorm(10)
+#' norm.1972SF(x) # run the test
+#' 
 #' \donttest{
 #' ## generate samples from several distributions
 #' x = stats::runif(496)            # uniform
@@ -57,7 +61,6 @@ norm.1972SF <- function(x){
   # REPORT
   thestat = W
   hname   = "Univariate Test of Normality by Shapiro and Francia (1972)"
-  DNAME = deparse(substitute(x)) # borrowed from HDtest
   Ha    = paste("Sample ", DNAME, " does not follow normal distribution.",sep="")
   names(thestat) = "W"
   pvalue = stats::pnorm(z, lower.tail = FALSE)

@@ -168,12 +168,12 @@ and here
 <tr class="odd">
 <td><code>sim1.2017Liu</code></td>
 <td>Liu et al. (2017)</td>
-<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub>0</sub> and <em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub>0</sub></span> (1-sample)</td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub>,  <em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (1-sample)</td>
 </tr>
 <tr class="even">
 <td><code>sim2.2018HN</code></td>
 <td>Hyodo and Nishiyama (2018)</td>
-<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub> and <em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (2-sample)</td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub>,  <em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 </tbody>
 </table>
@@ -222,7 +222,7 @@ and here
 </tbody>
 </table>
 
-### 7. tests for equal distributions
+### 7. tests for equality of distributions
 
 | function name   | authors                 | description of *H*<sub>0</sub>                   |
 |-----------------|-------------------------|:-------------------------------------------------|

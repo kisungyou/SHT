@@ -27,6 +27,13 @@ Given two univariate samples \eqn{x} and \eqn{y}, it tests
 \deqn{H_0 : \sigma_x^2 \left\lbrace =,\geq,\leq \right\rbrace \sigma_y^2\quad vs\quad H_1 : \sigma_x^2 \left\lbrace \neq,<,>\right\rbrace \sigma_y^2}.
 }
 \examples{
+## CRAN-purpose small example
+x = rnorm(10)
+y = rnorm(10)
+var2.F(x, y, alternative="g") ## Ha : var(x) >= var(y)
+var2.F(x, y, alternative="l") ## Ha : var(x) <= var(y)
+var2.F(x, y, alternative="t") ## Ha : var(x) =/= var(y)
+
 \donttest{
 ## empirical Type 1 error 
 niter   = 1000

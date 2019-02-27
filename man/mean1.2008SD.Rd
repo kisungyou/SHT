@@ -26,6 +26,10 @@ Given a multivariate sample \eqn{X} and hypothesized mean \eqn{\mu_0}, it tests
 using the procedure by Srivastava and Du (2008).
 }
 \examples{
+## CRAN-purpose small example
+smallX = matrix(rnorm(10*3),ncol=3)
+mean1.2008SD(smallX) # run the test
+
 \donttest{
 ## empirical Type 1 error 
 niter   = 1000

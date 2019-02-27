@@ -16,6 +16,13 @@
 #' }
 #' 
 #' @examples 
+#' ## CRAN-purpose small example
+#' x = rnorm(10)
+#' y = rnorm(10)
+#' var2.F(x, y, alternative="g") ## Ha : var(x) >= var(y)
+#' var2.F(x, y, alternative="l") ## Ha : var(x) <= var(y)
+#' var2.F(x, y, alternative="t") ## Ha : var(x) =/= var(y)
+#' 
 #' \donttest{
 #' ## empirical Type 1 error 
 #' niter   = 1000
@@ -46,11 +53,11 @@ var2.F <- function(x, y, alternative=c("two.sided","less","greater")){
   if (missing(alternative)){
     alternative = "two.sided"
   } else {
-    if (alternative=="g"){
+    if (pracma::strcmp(alternative,"g")){
       alternative = "greater"
-    } else if (alternative=="t"){
+    } else if (pracma::strcmp(alternative,"t")){
       alternative = "two.sided"
-    } else if (alternative=="l"){
+    } else if (pracma::strcmp(alternative,"l")){
       alternative = "less"
     }
     alternative = match.arg(alternative)
@@ -66,14 +73,14 @@ var2.F <- function(x, y, alternative=c("two.sided","less","greater")){
   
   ##############################################################
   # COMPUTATION : HYPOTHESIS and DETERMINATION
-  if (alternative=="two.sided"){
+  if (pracma::strcmp(alternative,"two.sided")){
     tmpval = stats::pf(thestat,(n-1),(m-1))
     pvalue = 2*min(tmpval, 1-tmpval)
     Ha     = "two true variances are different."
-  } else if (alternative=="less"){
+  } else if (pracma::strcmp(alternative,"less")){
     pvalue = stats::pf(thestat,(n-1),(m-1),lower.tail = TRUE)
     Ha     = "true variance of x is smaller than true variance of y."
-  } else if (alternative=="greater"){
+  } else if (pracma::strcmp(alternative,"greater")){
     pvalue = stats::pf(thestat,(n-1),(m-1),lower.tail = FALSE)
     Ha     = "true variance of x is greater than true variance of y."
   }

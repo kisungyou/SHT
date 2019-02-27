@@ -23,6 +23,11 @@
 #' }
 #' 
 #' @examples 
+#' ## CRAN-purpose small example
+#' smallX = matrix(rnorm(10*3),ncol=3)
+#' smallY = matrix(rnorm(10*3),ncol=3)
+#' mean2.2014CLX(smallX, smallY) # run the test
+#' 
 #' \donttest{
 #' ## empirical Type 1 error 
 #' niter   = 100

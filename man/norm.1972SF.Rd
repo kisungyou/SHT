@@ -24,6 +24,10 @@ Given an univariate sample \eqn{x}, it tests
 using a test procedure by Shapiro and Francia (1972), which is an approximation to Shapiro and Wilk (1965).
 }
 \examples{
+## CRAN-purpose small example
+x = rnorm(10)
+norm.1972SF(x) # run the test
+
 \donttest{
 ## generate samples from several distributions
 x = stats::runif(496)            # uniform

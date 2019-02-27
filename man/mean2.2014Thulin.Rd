@@ -32,6 +32,11 @@ We did not enable parallel computing schemes for this in that it might incur
 huge computational burden since it entirely depends on random permutation scheme.
 }
 \examples{
+## CRAN-purpose small example
+smallX = matrix(rnorm(10*3),ncol=10)
+smallY = matrix(rnorm(10*3),ncol=10)
+mean2.2014Thulin(smallX, smallY, B=10, nreps=10) # run the test
+
 \donttest{
 ## Compare with 'mean2.2011LJW' 
 ## which is based on random projection.

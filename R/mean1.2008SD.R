@@ -16,6 +16,10 @@
 #' }
 #' 
 #' @examples 
+#' ## CRAN-purpose small example
+#' smallX = matrix(rnorm(10*3),ncol=3)
+#' mean1.2008SD(smallX) # run the test
+#' 
 #' \donttest{
 #' ## empirical Type 1 error 
 #' niter   = 1000

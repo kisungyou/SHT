@@ -26,6 +26,11 @@ Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 using the procedure by Cai, Liu, and Xia (2013).
 }
 \examples{
+## CRAN-purpose small example
+smallX = matrix(rnorm(10*3),ncol=3)
+smallY = matrix(rnorm(10*3),ncol=3)
+cov2.2013CLX(smallX, smallY) # run the test
+
 \donttest{
 ## empirical Type 1 error 
 niter   = 1000

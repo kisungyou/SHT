@@ -18,6 +18,11 @@
 #' }
 #' 
 #' @examples 
+#' ## CRAN-purpose small example
+#' smallX = matrix(rnorm(10*3),ncol=3)
+#' smallY = matrix(rnorm(10*3),ncol=3)
+#' cov2.2012LC(smallX, smallY) # run the test
+#' 
 #' \donttest{
 #' ## comparison of biased and unbiased estimator
 #' ## empirical Type 1 error 

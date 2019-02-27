@@ -26,6 +26,10 @@ Given a multivariate sample \eqn{X} and hypothesized mean \eqn{\mu_0}, it tests
 using the procedure by Hotelling (1931).
 }
 \examples{
+## CRAN-purpose small example
+smallX = matrix(rnorm(10*3),ncol=3)
+mean1.1931Hotelling(smallX) # run the test
+
 \donttest{
 ## empirical Type 1 error 
 niter   = 1000

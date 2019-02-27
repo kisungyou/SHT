@@ -30,6 +30,11 @@ Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 using the procedure by Hotelling (1931).
 }
 \examples{
+## CRAN-purpose small example
+smallX = matrix(rnorm(10*3),ncol=3)
+smallY = matrix(rnorm(10*3),ncol=3)
+mean2.1931Hotelling(smallX, smallY) # run the test
+
 \donttest{
 ## generate two samples from standard normal distributions.
 X = matrix(rnorm(50*5), ncol=5)

@@ -15,6 +15,13 @@
 #' }
 #' 
 #' @examples 
+#' ## CRAN-purpose small example
+#' tinylist = list()
+#' for (i in 1:3){ # consider 3-sample case
+#'   tinylist[[i]] = matrix(rnorm(10*3),ncol=3)
+#' }
+#' covk.2007Schott(tinylist) # run the test
+#' 
 #' \donttest{
 #' ## test when k=4 samples with (n,p) = (100,20)
 #' ## empirical Type 1 error 

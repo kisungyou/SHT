@@ -7,9 +7,16 @@
 #' 
 #' @param dlist a list of length \eqn{k} where each element is a sample matrix of same dimension.
 #' @param method a method to be applied for the transformed problem. \code{"L"} for \eqn{L^2}-norm based method, and 
-#' \code{"T"} for Hotelling's test, which might fail due to dimensionality. Case Sensitive.
+#' \code{"T"} for Hotelling's test, which might fail due to dimensionality. Case insensitive.
 #' 
 #' @examples 
+#' ## CRAN-purpose small example
+#' tinylist = list()
+#' for (i in 1:3){ # consider 3-sample case
+#'   tinylist[[i]] = matrix(rnorm(10*3),ncol=3)
+#' }
+#' meank.2009ZX(tinylist) # run the test
+#' 
 #' \donttest{
 #' ## test when k=5 samples with (n,p) = (100,20)
 #' ## empirical Type 1 error 
@@ -48,8 +55,8 @@ meank.2009ZX <- function(dlist, method=c("L","T")){
   ##############################################################
   # PREPROCESSING
   check_dlistnd(dlist) 
-  method = match.arg(method)
-
+  mymethod = tolower(method)
+  method   = match.arg(mymethod, c("l","t"))
 
   ## parameters
   k = length(dlist)
@@ -74,9 +81,9 @@ meank.2009ZX <- function(dlist, method=c("L","T")){
   
   ##############################################################
   # APPLY EITHER METHODS
-  if (pracma::strcmp(method,"T")){ # Hotelling's
+  if (pracma::strcmp(method,"t")){ # Hotelling's
     tmpout = SHT::mean1.1931Hotelling(Z)
-  } else if (pracma::strcmp(method, "L")) {
+  } else if (pracma::strcmp(method, "l")) {
     tmpout = SHT::mean1.1996BS(Z)
   } else {
     stop("* meank.2009ZX : 'method' should be one of two options.")
@@ -85,7 +92,7 @@ meank.2009ZX <- function(dlist, method=c("L","T")){
   ##############################################################
   # MODIFY AND RETURN
   hname = "Test for Homogeneity of Means by Zhang and Xu (2009)"
-  DNAME = deparse(substitute(x))
+  DNAME = deparse(substitute(dlist))
   Ha    = "one of equalities does not hold."
   
   tmpout$method      = hname

@@ -35,7 +35,7 @@ norm.1980JB <- function(x, method=c("asymptotic","MC"), nreps=2000){
   # PREPROCESSING
   check_1d(x)        # univariate vector
   myrule = tolower(method)
-  if (pracma::strcmp(myr)){
+  if (pracma::strcmp(myrule,"a")){
     myrule = "asymptotic"
   } else if (pracma::strcmp(myrule,"m")){
     myrule = "mc"

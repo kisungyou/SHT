@@ -33,6 +33,11 @@ Due to solving system of linear equations, we suggest you to opt for asymptotic-
 \eqn{p}-value computation unless truly necessary for random permutation tests.
 }
 \examples{
+## CRAN-purpose small example
+smallX = matrix(rnorm(10*3),ncol=3)
+smallY = matrix(rnorm(10*3),ncol=3)
+mean2.2011LJW(smallX, smallY) # run the test
+
 \donttest{
 ## empirical Type 1 error 
 niter   = 1000

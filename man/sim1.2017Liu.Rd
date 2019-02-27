@@ -28,6 +28,10 @@ Given a multivariate sample \eqn{X}, hypothesized mean \eqn{\mu_0} and covarianc
 using the procedure by Liu et al. (2017).
 }
 \examples{
+## CRAN-purpose small example
+smallX = matrix(rnorm(10*3),ncol=3)
+sim1.2017Liu(smallX) # run the test
+
 \donttest{
 ## empirical Type 1 error 
 niter   = 1000
