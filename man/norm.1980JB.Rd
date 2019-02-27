@@ -9,7 +9,7 @@ norm.1980JB(x, method = c("asymptotic", "MC"), nreps = 2000)
 \arguments{
 \item{x}{a length-\eqn{n} data vector.}
 
-\item{method}{method to compute \eqn{p}-value. Using initials is possible, \code{"a"} for asymptotic for example.}
+\item{method}{method to compute \eqn{p}-value. Using initials is possible, \code{"a"} for asymptotic for example. Case insensitive.}
 
 \item{nreps}{the number of Monte Carlo simulations to be run when \code{method="MC"}.}
 }

@@ -5,7 +5,7 @@
 #' using a test procedure by Jarque and Bera (1980).
 #' 
 #' @param x a length-\eqn{n} data vector.
-#' @param method method to compute \eqn{p}-value. Using initials is possible, \code{"a"} for asymptotic for example.
+#' @param method method to compute \eqn{p}-value. Using initials is possible, \code{"a"} for asymptotic for example. Case insensitive.
 #' @param nreps the number of Monte Carlo simulations to be run when \code{method="MC"}.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{

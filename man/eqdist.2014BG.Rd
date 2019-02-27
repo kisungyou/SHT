@@ -7,11 +7,33 @@
 eqdist.2014BG(X, Y, method = c("asymptotic", "permutation"),
   nreps = 2000)
 }
+\arguments{
+\item{X}{a vector/matrix of 1st sample.}
+
+\item{Y}{a vector/matrix of 2nd sample.}
+
+\item{method}{method to compute \eqn{p}-value. Using initials is possible, \code{"p"} for permutation tests. Case insensitive.}
+
+\item{nreps}{the number of permutations to be run when \code{method="permutation"}.}
+}
+\value{
+a (list) object of \code{S3} class \code{htest} containing: \describe{
+\item{statistic}{a test statistic.}
+\item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
+\item{alternative}{alternative hypothesis.}
+\item{method}{name of the test.}
+\item{data.name}{name(s) of provided sample data.}
+}
+}
 \description{
-Test for Equality of Two Distributions by Biswas and Ghosh (2014)
+Given two samples (either univariate or multivariate) \eqn{X} and \eqn{Y} of same dimension, it tests
+\deqn{H_0 : F_X = F_Y\quad vs\quad H_1 : F_X \neq F_Y}
+using the procedure by Biswas and Ghosh (2014) in a nonparametric way based on 
+pairwise distance measures. Both asymptotic and permutation-based determination of 
+\eqn{p}-values are supported.
 }
 \examples{
-\dontrun{
+\donttest{
 ## compare asymptotic and permutation-based powers
 set.seed(777)
 ntest  = 100 
