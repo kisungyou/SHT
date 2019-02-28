@@ -66,6 +66,7 @@ We categorized available functions by their object of interest for better naviga
 | `mean2.2014CLX` | Cai, Liu, and Xia (2014) | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2014Thulin` | Thulin (2014) | $\mu_x = \mu_y$ (2-sample) |
 | `meank.2009ZX` | Zhang and Xu (2009) | $\mu_1 = \cdots = \mu_k$ ($k$-sample) |
+| `meank.2019CPH` | [Cao, Park, and He (2019)][11] | $\mu_1 = \cdots = \mu_k$ ($k$-sample) |
 
 ### 3. tests for variance $\sigma^2$
 | function name | authors | description of $H_0$|
@@ -83,7 +84,6 @@ We categorized available functions by their object of interest for better naviga
 | `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `covk.2001Schott`    | Schott (2001) | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
 | `covk.2007Schott`    | Schott (2007) | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
-\Sigma_x = \Sigma_y$ (2-sample) |
 
 ### 6. distribution tests of normality
 | function name | authors | description of $H_0$|
@@ -139,3 +139,4 @@ and here
 [8]: https://doi.org/10.1093/biomet/67.1.85
 [9]: https://doi.org/10.1016/j.spl.2003.10.012
 [10]: https://projecteuclid.org/euclid.aos/1338515142
+[11]: https://doi.org/10.1016/j.jspi.2018.12.002

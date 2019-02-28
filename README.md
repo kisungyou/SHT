@@ -135,13 +135,12 @@ We categorized available functions by their object of interest for better naviga
 
 ### 4. tests for covariance *Σ*
 
-| function name         | authors                                                               | description of *H*<sub>0</sub>                       |
-|-----------------------|-----------------------------------------------------------------------|:-----------------------------------------------------|
-| `cov2.2012LC`         | [Li and Chen (2012)](https://projecteuclid.org/euclid.aos/1338515142) | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
-| `cov2.2013CLX`        | Cai, Liu, and Xia (2013)                                              | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
-| `covk.2001Schott`     | Schott (2001)                                                         | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
-| `covk.2007Schott`     | Schott (2007)                                                         | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
-| \_x = \_y$ (2-sample) |                                                                       |
+| function name     | authors                                                               | description of *H*<sub>0</sub>                       |
+|-------------------|-----------------------------------------------------------------------|:-----------------------------------------------------|
+| `cov2.2012LC`     | [Li and Chen (2012)](https://projecteuclid.org/euclid.aos/1338515142) | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
+| `cov2.2013CLX`    | Cai, Liu, and Xia (2013)                                              | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
+| `covk.2001Schott` | Schott (2001)                                                         | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
+| `covk.2007Schott` | Schott (2007)                                                         | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
 
 ### 6. distribution tests of normality
 

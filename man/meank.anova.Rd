@@ -2,7 +2,7 @@
 % Please edit documentation in R/meank.anova.R
 \name{meank.anova}
 \alias{meank.anova}
-\title{Analysis of Variance for Homogeneity of Means}
+\title{Analysis of Variance for Equality of Means}
 \usage{
 meank.anova(dlist)
 }

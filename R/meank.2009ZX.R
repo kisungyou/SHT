@@ -1,4 +1,4 @@
-#' Test for Homogeneity of Means by Zhang and Xu (2009)
+#' Test for Equality of Means by Zhang and Xu (2009)
 #' 
 #' Given univariate samples \eqn{X_1~,\ldots,~X_k}, it tests
 #' \deqn{H_0 : \mu_1 = \cdots \mu_k\quad vs\quad H_1 : \textrm{at least one equality does not hold}}
@@ -24,7 +24,7 @@
 #' counter = rep(0,niter)  # record p-values
 #' for (i in 1:niter){
 #'   mylist = list()
-#'   for (j in 1:3){
+#'   for (j in 1:5){
 #'      mylist[[j]] = matrix(rnorm(100*10),ncol=10)
 #'   }
 #'   
@@ -91,7 +91,7 @@ meank.2009ZX <- function(dlist, method=c("L","T")){
   
   ##############################################################
   # MODIFY AND RETURN
-  hname = "Test for Homogeneity of Means by Zhang and Xu (2009)"
+  hname = "Test for Equality of Means by Zhang and Xu (2009)"
   DNAME = deparse(substitute(dlist))
   Ha    = "one of equalities does not hold."
   

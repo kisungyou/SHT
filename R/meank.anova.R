@@ -1,4 +1,4 @@
-#' Analysis of Variance for Homogeneity of Means
+#' Analysis of Variance for Equality of Means
 #' 
 #' Given univariate samples \eqn{X_1~,\ldots,~X_k}, it tests
 #' \deqn{H_0 : \mu_1^2 = \cdots \mu_k^2\quad vs\quad H_1 : \textrm{at least one equality does not hold.}}
@@ -61,7 +61,7 @@ meank.anova <- function(dlist){
   
   ##############################################################
   # REPORT
-  hname   = "Analysis of Variance for Homogeneity of Means"
+  hname   = "Analysis of Variance for Equality of Means"
   Ha      = "at least one of equalities does not hold."
   thestat = as.double(aovout[7])
   pvalue  = as.double(aovout[9])
