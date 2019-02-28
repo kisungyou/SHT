@@ -32,7 +32,7 @@ We categorized available functions by their object of interest for better naviga
 * Authors are referred by last names. See the help page of each function for complete references. 
 * **$k$-sample** means that the test is checking the _homogeneity_ across multiple samples.
 * Function naming convention is {`type of test`.`test name`}, or {`type of test`.`year` `authors`}, where there are two or three authors, we took their initials as abbreviation or simply the last name of the first author otherwise.
-* Since $k$-sample test is applicable for a special case of $k=2$, two functions - **`usek1d`** and **`useknd`** - are provided to extend capabilities of any $k$-sample tests in our package to be applicable for $2$-sample testing.
+* Since $k$-sample test is applicable to the special case of $k=2$, two functions - **`usek1d`** and **`useknd`** - are provided to extend capabilities of any $k$-sample tests in our package to be applicable for $2$-sample testing.
 
 ### 0. utilities 
 | function name | description |
