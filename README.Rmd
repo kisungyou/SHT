@@ -47,6 +47,8 @@ We categorized available functions by their object of interest for better naviga
 | `mean2.ttest` | [Student (1908)][1] & [Welch (1947)][2] | $\mu_x ~\{\leq, =, \geq\}~ \mu_y$ (2-sample) |
 | `meank.anova` |               -                 | $\mu_1 = \cdots = \mu_k$ ($k$-sample) |
 
+
+
 ### 2. tests for multivariate mean $\mu \in \mathbb{R}^n$
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
@@ -58,46 +60,65 @@ We categorized available functions by their object of interest for better naviga
 | `mean2.1958Dempster`  | [Dempster (1958, 1960)][4]  | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.1965Yao`  | [Yao (1965)][7]  | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.1980Johansen`  | [Johansen (1980)][8]  | $\mu_x = \mu_y$ (2-sample) |
-| `mean2.1986NVM` | Nel and Van der Merwe (1986) | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.1986NVM` | [Nel and Van der Merwe (1986)][12] | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.1996BS`       | [Bai and Saranadasa (1996)][5] | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2004KY`  | [Krishnamoorthy and Yu (2004)][9] | $\mu_x = \mu_y$ (2-sample) |
 | `mean2.2008SD`| [Srivastava and Du (2008)][6]  | $\mu_x = \mu_y$ (2-sample) |
-| `mean2.2011LJW`| Lopes, Jacob, and Wainwright (2011) | $\mu_x = \mu_y$ (2-sample) |
-| `mean2.2014CLX` | Cai, Liu, and Xia (2014) | $\mu_x = \mu_y$ (2-sample) |
-| `mean2.2014Thulin` | Thulin (2014) | $\mu_x = \mu_y$ (2-sample) |
-| `meank.2009ZX` | Zhang and Xu (2009) | $\mu_1 = \cdots = \mu_k$ ($k$-sample) |
+| `mean2.2011LJW`| [Lopes, Jacob, and Wainwright (2011)][13] | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.2014CLX` | [Cai, Liu, and Xia (2014)][14] | $\mu_x = \mu_y$ (2-sample) |
+| `mean2.2014Thulin` | [Thulin (2014)][15] | $\mu_x = \mu_y$ (2-sample) |
+| `meank.2009ZX` | [Zhang and Xu (2009)][16] | $\mu_1 = \cdots = \mu_k$ ($k$-sample) |
 | `meank.2019CPH` | [Cao, Park, and He (2019)][11] | $\mu_1 = \cdots = \mu_k$ ($k$-sample) |
+
+
 
 ### 3. tests for variance $\sigma^2$
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
 | `var1.chisq` | -        | $\sigma_x^2 ~\{\leq, =, \geq\}~ \sigma_0^2$ (1-sample) |
 | `var2.F`     | -        | $\sigma_x^2 ~\{\leq, =, \geq\}~ \sigma_y^2$ (2-sample) |
-| `vark.1937Bartlett` | Bartlett (1937) | $\sigma_1^2 = \cdots = \sigma_k^2$ ($k$-sample) |
+| `vark.1937Bartlett` | [Bartlett (1937)][18] | $\sigma_1^2 = \cdots = \sigma_k^2$ ($k$-sample) |
 | `vark.1960Levene`   | Levene (1960)   | $\sigma_1^2 = \cdots = \sigma_k^2$ ($k$-sample) |
-| `vark.1974BF`    | Brown and Forsythe (1974) | $\sigma_1^2 = \cdots = \sigma_k^2$ ($k$-sample) |
+| `vark.1974BF`    | [Brown and Forsythe (1974)][19] | $\sigma_1^2 = \cdots = \sigma_k^2$ ($k$-sample) |
+
+
 
 ### 4. tests for covariance $\Sigma$
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
+| `cov1.2012Fisher`| [Fisher (2012)][30] | $\Sigma_x = \Sigma_0$ (1-sample) |
 | `cov2.2012LC`    | [Li and Chen (2012)][10] | $\Sigma_x = \Sigma_y$ (2-sample) |
-| `cov2.2013CLX`    | Cai, Liu, and Xia (2013) | $\Sigma_x = \Sigma_y$ (2-sample) |
-| `covk.2001Schott`    | Schott (2001) | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
-| `covk.2007Schott`    | Schott (2007) | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
+| `cov2.2013CLX`    | [Cai, Liu, and Xia (2013)][20] | $\Sigma_x = \Sigma_y$ (2-sample) |
+| `covk.2001Schott`    | [Schott (2001)][21] | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
+| `covk.2007Schott`    | [Schott (2007)][22] | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
+
+
+
+### 5. simultaneous tests for mean $\mu$ and covariance $\Sigma$
+| function name | authors | description of $H_0$|
+|---------------|------------------------|:----------------|
+| `sim1.2017Liu` | [Liu et al. (2017)][28] | $\mu_x = \mu_y,~\Sigma_x = \Sigma_y$ (1-sample) |
+| `sim2.2018HN`  | [Hyodo and Nishiyama (2018)][29] | $\mu_x = \mu_y,~\Sigma_x = \Sigma_y$ (2-sample) |
+
+
 
 ### 6. distribution tests of normality
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
-| `norm.1965SW` | Shapiro and Wilk (1965) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
-| `norm.1972SF` | Shapiro and Francia (1972) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
-| `norm.1980JB` | Jarque and Bera (1980) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
-| `norm.1996AJB`| Urzua (1996) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
-| `norm.2008RJB`| Gel and Gastwirth (2008) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.1965SW` | [Shapiro and Wilk (1965)][23] | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.1972SF` | [Shapiro and Francia (1972)][26] | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.1980JB` | [Jarque and Bera (1980)][27] | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.1996AJB`| [Urzua (1996)][25] | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+| `norm.2008RJB`| [Gel and Gastwirth (2008)][24] | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
+
+
 
 ### 7. tests for equality of distributions
 | function name | authors | description of $H_0$|
-|---------------|------------------------|:----------------|
-| `eqdist.2014BG` | Biswas and Ghosh (2014) | $F_X = F_Y$ (2-sample) |
+|---------------|---------------------|:----------------|
+| `eqdist.2014BG` | [Biswas and Ghosh (2014)][17] | $F_X = F_Y$ (2-sample) |
+
+
 
 <!---
 your comment goes here
@@ -107,30 +128,19 @@ and here
 | `mean2.mxPBF` | - | $\mu_x = \mu_y$ (2-sample) |
 -->
 
-
-### 5. simultaneous tests for mean $\mu$ and covariance $\Sigma$
-| function name | authors | description of $H_0$|
-|---------------|------------------------|:----------------|
-| `sim1.2017Liu`  | Liu et al. (2017) | $\mu_x = \mu_y,~\Sigma_x = \Sigma_y$ (1-sample) |
-| `sim2.2018HN`  | Hyodo and Nishiyama (2018) | $\mu_x = \mu_y,~\Sigma_x = \Sigma_y$ (2-sample) |
-
-### 6. distribution tests of normality
-| function name | authors | description of $H_0$|
-|---------------|------------------------|:----------------|
-| `norm.1965SW` | Shapiro and Wilk (1965) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
-| `norm.1972SF` | Shapiro and Francia (1972) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
-| `norm.1980JB` | Jarque and Bera (1980) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
-| `norm.1996AJB`| Urzua (1996) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
-| `norm.2008RJB`| Gel and Gastwirth (2008) | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
-
-### 7. tests for equality of distributions
-| function name | authors | description of $H_0$|
-|---------------|---------------------|:----------------|
-| `eqdist.2014BG` | Biswas and Ghosh (2014) | $F_X = F_Y$ (2-sample) |
-
-
-[1]: https://www.jstor.org/stable/2331554
-[2]: https://doi.org/10.1093/biomet/34.1-2.28
+[30]: https://doi.org/10.1016/j.jspi.2011.07.019
+[28]: https://doi.org/10.1016/j.jspi.2017.03.009
+[29]: https://doi.org/10.1007/s11749-017-0567-x
+[23]: https://doi.org/10.1093/biomet/52.3-4.591
+[24]: https://doi.org/10.1016/j.econlet.2007.05.022
+[25]: https://doi.org/10.1016/S0165-1765(96)00923-8
+[26]: https://doi.org/10.1080/01621459.1972.10481232
+[27]: https://doi.org/10.1016/0165-1765(80)90024-5
+[17]: https://doi.org/10.1016/j.jmva.2013.09.004
+[10]: https://projecteuclid.org/euclid.aos/1338515142
+[20]: https://doi.org/10.1080/01621459.2012.758041
+[21]: https://doi.org/10.1016/j.csda.2007.03.004
+[22]: https://doi.org/10.1016/j.csda.2007.03.004
 [3]: https://projecteuclid.org/euclid.aoms/1177732979
 [4]: https://projecteuclid.org/euclid.aoms/1177706437
 [5]: http://www3.stat.sinica.edu.tw/statistica/j6n2/j6n21/j6n21.htm
@@ -138,5 +148,13 @@ and here
 [7]: https://www.jstor.org/stable/2333819 
 [8]: https://doi.org/10.1093/biomet/67.1.85
 [9]: https://doi.org/10.1016/j.spl.2003.10.012
-[10]: https://projecteuclid.org/euclid.aos/1338515142
 [11]: https://doi.org/10.1016/j.jspi.2018.12.002
+[12]: https://doi.org/10.1080/03610928608829342
+[13]: https://papers.nips.cc/paper/4260-a-more-powerful-two-sample-test-in-high-dimensions-using-random-projection
+[14]: https://doi.org/10.1111/rssb.12034
+[15]: https://doi.org/10.1016/j.csda.2013.12.003
+[16]: https://doi.org/10.1007/s11425-009-0091-x
+[1]: https://www.jstor.org/stable/2331554
+[2]: https://doi.org/10.1093/biomet/34.1-2.28
+[18]: https://doi.org/10.1098/rspa.1937.0109
+[19]: https://www.jstor.org/stable/2285659 

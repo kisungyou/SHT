@@ -126,7 +126,7 @@ We categorized available functions by their object of interest for better naviga
 </tr>
 <tr class="odd">
 <td><code>mean2.1986NVM</code></td>
-<td>Nel and Van der Merwe (1986)</td>
+<td><a href="https://doi.org/10.1080/03610928608829342">Nel and Van der Merwe (1986)</a></td>
 <td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 <tr class="even">
@@ -146,22 +146,22 @@ We categorized available functions by their object of interest for better naviga
 </tr>
 <tr class="odd">
 <td><code>mean2.2011LJW</code></td>
-<td>Lopes, Jacob, and Wainwright (2011)</td>
+<td><a href="https://papers.nips.cc/paper/4260-a-more-powerful-two-sample-test-in-high-dimensions-using-random-projection">Lopes, Jacob, and Wainwright (2011)</a></td>
 <td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 <tr class="even">
 <td><code>mean2.2014CLX</code></td>
-<td>Cai, Liu, and Xia (2014)</td>
+<td><a href="https://doi.org/10.1111/rssb.12034">Cai, Liu, and Xia (2014)</a></td>
 <td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 <tr class="odd">
 <td><code>mean2.2014Thulin</code></td>
-<td>Thulin (2014)</td>
+<td><a href="https://doi.org/10.1016/j.csda.2013.12.003">Thulin (2014)</a></td>
 <td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 <tr class="even">
 <td><code>meank.2009ZX</code></td>
-<td>Zhang and Xu (2009)</td>
+<td><a href="https://doi.org/10.1007/s11425-009-0091-x">Zhang and Xu (2009)</a></td>
 <td align="left"><span class="math inline"><em>μ</em><sub>1</sub> = ⋯ = <em>μ</em><sub><em>k</em></sub></span> (<span class="math inline"><em>k</em></span>-sample)</td>
 </tr>
 <tr class="odd">
@@ -200,7 +200,7 @@ We categorized available functions by their object of interest for better naviga
 </tr>
 <tr class="odd">
 <td><code>vark.1937Bartlett</code></td>
-<td>Bartlett (1937)</td>
+<td><a href="https://doi.org/10.1098/rspa.1937.0109">Bartlett (1937)</a></td>
 <td align="left"><span class="math inline"><em>σ</em><sub>1</sub><sup>2</sup> = ⋯ = <em>σ</em><sub><em>k</em></sub><sup>2</sup></span> (<span class="math inline"><em>k</em></span>-sample)</td>
 </tr>
 <tr class="even">
@@ -210,22 +210,13 @@ We categorized available functions by their object of interest for better naviga
 </tr>
 <tr class="odd">
 <td><code>vark.1974BF</code></td>
-<td>Brown and Forsythe (1974)</td>
+<td><a href="https://www.jstor.org/stable/2285659">Brown and Forsythe (1974)</a></td>
 <td align="left"><span class="math inline"><em>σ</em><sub>1</sub><sup>2</sup> = ⋯ = <em>σ</em><sub><em>k</em></sub><sup>2</sup></span> (<span class="math inline"><em>k</em></span>-sample)</td>
 </tr>
 </tbody>
 </table>
 
 ### 4. tests for covariance *Σ*
-
-| function name     | authors                                                               | description of *H*<sub>0</sub>                       |
-|-------------------|-----------------------------------------------------------------------|:-----------------------------------------------------|
-| `cov2.2012LC`     | [Li and Chen (2012)](https://projecteuclid.org/euclid.aos/1338515142) | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
-| `cov2.2013CLX`    | Cai, Liu, and Xia (2013)                                              | *Σ*<sub>*x*</sub> = *Σ*<sub>*y*</sub> (2-sample)     |
-| `covk.2001Schott` | Schott (2001)                                                         | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
-| `covk.2007Schott` | Schott (2007)                                                         | *Σ*<sub>1</sub> = ⋯ = *Σ*<sub>*k*</sub> (*k*-sample) |
-
-### 6. distribution tests of normality
 
 <table style="width:82%;">
 <colgroup>
@@ -242,46 +233,28 @@ We categorized available functions by their object of interest for better naviga
 </thead>
 <tbody>
 <tr class="odd">
-<td><code>norm.1965SW</code></td>
-<td>Shapiro and Wilk (1965)</td>
-<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
+<td><code>cov2.2012LC</code></td>
+<td><a href="https://projecteuclid.org/euclid.aos/1338515142">Li and Chen (2012)</a></td>
+<td align="left"><span class="math inline"><em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 <tr class="even">
-<td><code>norm.1972SF</code></td>
-<td>Shapiro and Francia (1972)</td>
-<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
+<td><code>cov2.2013CLX</code></td>
+<td><a href="https://doi.org/10.1080/01621459.2012.758041">Cai, Liu, and Xia (2013)</a></td>
+<td align="left"><span class="math inline"><em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 <tr class="odd">
-<td><code>norm.1980JB</code></td>
-<td>Jarque and Bera (1980)</td>
-<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
+<td><code>covk.2001Schott</code></td>
+<td><a href="https://doi.org/10.1016/j.csda.2007.03.004">Schott (2001)</a></td>
+<td align="left"><span class="math inline"><em>Σ</em><sub>1</sub> = ⋯ = <em>Σ</em><sub><em>k</em></sub></span> (<span class="math inline"><em>k</em></span>-sample)</td>
 </tr>
 <tr class="even">
-<td><code>norm.1996AJB</code></td>
-<td>Urzua (1996)</td>
-<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
-</tr>
-<tr class="odd">
-<td><code>norm.2008RJB</code></td>
-<td>Gel and Gastwirth (2008)</td>
-<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
+<td><code>covk.2007Schott</code></td>
+<td><a href="https://doi.org/10.1016/j.csda.2007.03.004">Schott (2007)</a></td>
+<td align="left"><span class="math inline"><em>Σ</em><sub>1</sub> = ⋯ = <em>Σ</em><sub><em>k</em></sub></span> (<span class="math inline"><em>k</em></span>-sample)</td>
 </tr>
 </tbody>
 </table>
 
-### 7. tests for equality of distributions
-
-| function name   | authors                 | description of *H*<sub>0</sub>                   |
-|-----------------|-------------------------|:-------------------------------------------------|
-| `eqdist.2014BG` | Biswas and Ghosh (2014) | *F*<sub>*X*</sub> = *F*<sub>*Y*</sub> (2-sample) |
-
-<!---
-your comment goes here
-and here
-| `cov1.mxPBF`  | - | $\Sigma_x = \Sigma_0$ (1-sample) |
-| `cov2.mxPBF`    | - | $\Sigma_x = \Sigma_y$ (2-sample) |
-| `mean2.mxPBF` | - | $\mu_x = \mu_y$ (2-sample) |
--->
 ### 5. simultaneous tests for mean *μ* and covariance *Σ*
 
 <table style="width:82%;">
@@ -300,12 +273,12 @@ and here
 <tbody>
 <tr class="odd">
 <td><code>sim1.2017Liu</code></td>
-<td>Liu et al. (2017)</td>
+<td><a href="https://doi.org/10.1016/j.jspi.2017.03.009">Liu et al. (2017)</a></td>
 <td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub>,  <em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (1-sample)</td>
 </tr>
 <tr class="even">
 <td><code>sim2.2018HN</code></td>
-<td>Hyodo and Nishiyama (2018)</td>
+<td><a href="https://doi.org/10.1007/s11749-017-0567-x">Hyodo and Nishiyama (2018)</a></td>
 <td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub>,  <em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 </tbody>
@@ -329,27 +302,27 @@ and here
 <tbody>
 <tr class="odd">
 <td><code>norm.1965SW</code></td>
-<td>Shapiro and Wilk (1965)</td>
+<td><a href="https://doi.org/10.1093/biomet/52.3-4.591">Shapiro and Wilk (1965)</a></td>
 <td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
 </tr>
 <tr class="even">
 <td><code>norm.1972SF</code></td>
-<td>Shapiro and Francia (1972)</td>
+<td><a href="https://doi.org/10.1080/01621459.1972.10481232">Shapiro and Francia (1972)</a></td>
 <td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
 </tr>
 <tr class="odd">
 <td><code>norm.1980JB</code></td>
-<td>Jarque and Bera (1980)</td>
+<td><a href="https://doi.org/10.1016/0165-1765(80)90024-5">Jarque and Bera (1980)</a></td>
 <td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
 </tr>
 <tr class="even">
 <td><code>norm.1996AJB</code></td>
-<td>Urzua (1996)</td>
+<td><a href="https://doi.org/10.1016/S0165-1765(96)00923-8">Urzua (1996)</a></td>
 <td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
 </tr>
 <tr class="odd">
 <td><code>norm.2008RJB</code></td>
-<td>Gel and Gastwirth (2008)</td>
+<td><a href="https://doi.org/10.1016/j.econlet.2007.05.022">Gel and Gastwirth (2008)</a></td>
 <td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Normal ∈ ℝ<sup>1</sup></span></td>
 </tr>
 </tbody>
@@ -357,6 +330,14 @@ and here
 
 ### 7. tests for equality of distributions
 
-| function name   | authors                 | description of *H*<sub>0</sub>                   |
-|-----------------|-------------------------|:-------------------------------------------------|
-| `eqdist.2014BG` | Biswas and Ghosh (2014) | *F*<sub>*X*</sub> = *F*<sub>*Y*</sub> (2-sample) |
+| function name   | authors                                                               | description of *H*<sub>0</sub>                   |
+|-----------------|-----------------------------------------------------------------------|:-------------------------------------------------|
+| `eqdist.2014BG` | [Biswas and Ghosh (2014)](https://doi.org/10.1016/j.jmva.2013.09.004) | *F*<sub>*X*</sub> = *F*<sub>*Y*</sub> (2-sample) |
+
+<!---
+your comment goes here
+and here
+| `cov1.mxPBF`  | - | $\Sigma_x = \Sigma_0$ (1-sample) |
+| `cov2.mxPBF`    | - | $\Sigma_x = \Sigma_y$ (2-sample) |
+| `mean2.mxPBF` | - | $\mu_x = \mu_y$ (2-sample) |
+-->

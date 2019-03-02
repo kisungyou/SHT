@@ -1,4 +1,4 @@
-#' One-sample Test for High-Dimensional Mean by Dempster (1958, 1960)
+#' One-sample Test for Mean Vector by Dempster (1958, 1960)
 #' 
 #' Given a multivariate sample \eqn{X} and hypothesized mean \eqn{\mu_0}, it tests
 #' \deqn{H_0 : \mu_x = \mu_0\quad vs\quad H_1 : \mu_x \neq \mu_0}
@@ -75,7 +75,7 @@ mean1.1958Dempster <- function(X, mu0=rep(0,ncol(X))){
   thestat = N*sum(xbar*xbar)/trS
   pvalue  = pf(thestat,df1my,df2my,lower.tail = FALSE) # reject if (T2 > thr_alpha)
   
-  hname   = "One-sample Test for High-Dimensional Mean by Dempster (1958)."
+  hname   = "One-sample Test for Mean Vector by Dempster (1958)."
   Ha      = "true mean is different from mu0."
   # if (pvalue < alpha){
   #   conclusion = "Reject Null Hypothesis."

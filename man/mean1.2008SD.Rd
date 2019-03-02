@@ -2,7 +2,7 @@
 % Please edit documentation in R/mean1.2008SD.R
 \name{mean1.2008SD}
 \alias{mean1.2008SD}
-\title{One-sample Test for High-Dimensional Mean by Srivastava and Du (2008)}
+\title{One-sample Test for Mean Vector by Srivastava and Du (2008)}
 \usage{
 mean1.2008SD(X, mu0 = rep(0, ncol(X)))
 }
