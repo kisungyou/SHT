@@ -75,6 +75,9 @@ mean2.2011LJW <- function(X, Y, method=c("asymptotic","MC"), nreps=1000){
   n1 = nrow(X)
   n2 = nrow(Y)
   n  = (n1+n2-2)
+  if (p < (n/2)){
+    stop("* mean2.2011LJW : the spirit of this method requires '2*p >= nrow(X)+nrow(Y)-2'.")
+  }
   k  = floor((n1+n2-2)/2)  
   
   if (strcmp(finrule,"asymptotic")){
