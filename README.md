@@ -174,10 +174,10 @@ We categorized available functions by their object of interest for better naviga
 
 ### 3. tests for variance *σ*<sup>2</sup>
 
-<table style="width:76%;">
+<table style="width:78%;">
 <colgroup>
 <col width="22%" />
-<col width="25%" />
+<col width="26%" />
 <col width="29%" />
 </colgroup>
 <thead>
@@ -238,13 +238,23 @@ We categorized available functions by their object of interest for better naviga
 <td align="left"><span class="math inline"><em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub>0</sub></span> (1-sample)</td>
 </tr>
 <tr class="even">
+<td><code>cov1.2015WL</code></td>
+<td><a href="https://arxiv.org/abs/1511.01611">Wu and Li (2015)</a></td>
+<td align="left"><span class="math inline"><em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub>0</sub></span> (1-sample)</td>
+</tr>
+<tr class="odd">
 <td><code>cov2.2012LC</code></td>
 <td><a href="https://projecteuclid.org/euclid.aos/1338515142">Li and Chen (2012)</a></td>
 <td align="left"><span class="math inline"><em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>cov2.2013CLX</code></td>
 <td><a href="https://doi.org/10.1080/01621459.2012.758041">Cai, Liu, and Xia (2013)</a></td>
+<td align="left"><span class="math inline"><em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (2-sample)</td>
+</tr>
+<tr class="odd">
+<td><code>cov2.2015WL</code></td>
+<td><a href="https://arxiv.org/abs/1511.01611">Wu and Li (2015)</a></td>
 <td align="left"><span class="math inline"><em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 <tr class="even">

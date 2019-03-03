@@ -72,7 +72,7 @@ We categorized available functions by their object of interest for better naviga
 
 ### 3. tests for variance $\sigma^2$
 | function name | authors | description of $H_0$|
-|---------------|-----------------|:-------------------|
+|---------------|------------------|:-------------------|
 | `var1.chisq` | -        | $\sigma_x^2 ~\{\leq, =, \geq\}~ \sigma_0^2$ (1-sample) |
 | `var2.F`     | -        | $\sigma_x^2 ~\{\leq, =, \geq\}~ \sigma_y^2$ (2-sample) |
 | `vark.1937Bartlett` | [Bartlett (1937)][18] | $\sigma_1^2 = \cdots = \sigma_k^2$ ($k$-sample) |
@@ -83,8 +83,10 @@ We categorized available functions by their object of interest for better naviga
 | function name | authors | description of $H_0$|
 |---------------|-----------------|:----------------|
 | `cov1.2012Fisher`| [Fisher (2012)][30] | $\Sigma_x = \Sigma_0$ (1-sample) |
+| `cov1.2015WL`    | [Wu and Li (2015)][31] | $\Sigma_x = \Sigma_0$ (1-sample) |
 | `cov2.2012LC`    | [Li and Chen (2012)][10] | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `cov2.2013CLX`    | [Cai, Liu, and Xia (2013)][20] | $\Sigma_x = \Sigma_y$ (2-sample) |
+| `cov2.2015WL`    | [Wu and Li (2015)][31] | $\Sigma_x = \Sigma_y$ (2-sample) |
 | `covk.2001Schott`    | [Schott (2001)][21] | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
 | `covk.2007Schott`    | [Schott (2007)][22] | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
 
@@ -124,6 +126,7 @@ and here
 | `mean2.mxPBF` | - | $\mu_x = \mu_y$ (2-sample) |
 -->
 
+[31]: https://arxiv.org/abs/1511.01611
 [30]: https://doi.org/10.1016/j.jspi.2011.07.019
 [28]: https://doi.org/10.1016/j.jspi.2017.03.009
 [29]: https://doi.org/10.1007/s11749-017-0567-x

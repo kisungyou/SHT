@@ -1,11 +1,12 @@
-#' Two-sample Test for Covariance Matrices by Cai, Liu, and Xia (2013)
+#' Two-sample Test for Covariance Matrices by Wu and Li (2015)
 #' 
 #' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 #' \deqn{H_0 : \Sigma_x = \Sigma_y\quad vs\quad H_1 : \Sigma_x \neq \Sigma_y}
-#' using the procedure by Cai, Liu, and Xia (2013).
+#' using the procedure by Wu and Li (2015).
 #' 
 #' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
 #' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
+#' @param m the number of random projections to be applied.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -19,7 +20,7 @@
 #' ## CRAN-purpose small example
 #' smallX = matrix(rnorm(10*3),ncol=3)
 #' smallY = matrix(rnorm(10*3),ncol=3)
-#' cov2.2013CLX(smallX, smallY) # run the test
+#' cov2.2015WL(smallX, smallY) # run the test
 #' 
 #' \donttest{
 #' ## empirical Type 1 error 
@@ -29,71 +30,65 @@
 #'   X = matrix(rnorm(50*5), ncol=10)
 #'   Y = matrix(rnorm(50*5), ncol=10)
 #'   
-#'   counter[i] = ifelse(cov2.2013CLX(X, Y)$p.value < 0.05, 1, 0)
+#'   counter[i] = ifelse(cov2.2015WL(X, Y)$p.value < 0.05, 1, 0)
 #' }
 #' 
 #' ## print the result
-#' cat(paste("\n* Example for 'cov2.2013CLX'\n\n",
+#' cat(paste("\n* Example for 'cov2.2015WL'\n\n",
 #' sprintf("* number of rejections   : %d\n",sum(counter)),
 #' sprintf("* total number of trials : %d\n",niter),
 #' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
 #' }
 #' 
 #' @references 
-#' \insertRef{cai_two-sample_2013}{SHT}
-#' 
+#' \insertRef{wu_tests_2015}{SHT}
 #' 
 #' @export
-cov2.2013CLX <- function(X, Y){
+cov2.2015WL <- function(X, Y, m=50){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
   check_nd(Y)
   if (ncol(X)!=ncol(Y)){
-    stop("* cov2.2013CLX : two samples X and Y should be of same dimension.")
+    stop("* cov2.2015WL : two samples X and Y should be of same dimension.")
   }
+  m = as.integer(m)
   
   ##############################################################
-  # BORROWED FROM JAY
-  # parameter setting
+  # PARAMETERS and CENTERING
   n1 = nrow(X)
   n2 = nrow(Y)
   p  = ncol(X)
-  # elementary computation : sample covariance with new df
-  Sigma1.hat = cov(X)*(n1-1)/n1
-  Sigma2.hat = cov(Y)*(n2-1)/n2
-  # mean estimation
-  bar.X = colMeans(X)
-  theta1.hat = matrix(0, nrow=p, ncol=p)
-  for(i in 1:p){
-    for(j in 1:p){
-      theta1.hat[i,j] = sum( ((X[,i]-bar.X[i])*(X[,j]-bar.X[j]) - Sigma1.hat[i,j])^2 )/n1
-    }
-  }
-  bar.Y = colMeans(Y)
-  theta2.hat = matrix(0, nrow=p, ncol=p)
-  for(i in 1:p){
-    for(j in 1:p){
-      theta2.hat[i,j] = sum( ((Y[,i]-bar.Y[i])*(Y[,j]-bar.Y[j]) - Sigma2.hat[i,j])^2 )/n2
-    }
-  }
-  # statistic and results
-  M.mat = (Sigma1.hat - Sigma2.hat)^2 / (theta1.hat/n1 + theta2.hat/n2)
-  Mn = max(M.mat) # test statistic
-  pval.num = Mn - 4*log(p) + log(log(p))
-  pvalue  = 1-exp(-(1/sqrt(8*pi))*exp(-pval.num/2))
   
-  
+  Xnew = as.matrix(scale(X, center=TRUE, scale=FALSE))
+  Ynew = as.matrix(scale(Y, center=TRUE, scale=FALSE))
   
   ##############################################################
-  # FINALE
-  hname   = "Two-sample Test for Covariance Matrices by Cai, Liu, and Xia (2013)"
+  # LET'S RUN MULTIPLE ITERATIONS 
+  rec.stat = rep(0,m)
+  for (i in 1:m){
+    projvec = rnorm(p)
+    projvec = projvec/sqrt(sum(projvec*projvec))
+    
+    Xproj = as.vector(Xnew%*%projvec) # projection onto 1-dimensional space
+    Yproj = as.vector(Ynew%*%projvec)
+    
+    s1 = sum(Xproj^2)/n1
+    s2 = sum(Yproj^2)/n2
+    rec.stat[i] = (((2/n1)+(2/n2))^(-1/2))*log(s1/s2)
+  }
+  thestat = max(rec.stat)
+  pvalue  = 1-(pnorm(thestat, lower.tail=TRUE)^m)
+  
+  ##############################################################
+  # COMPUTATION : DETERMINATION
+  hname   = "Two-sample Test for Covariance Matrices by Wu and Li (2015)"
   Ha      = "two covariances are not equal."
-  thestat = Mn
   
   DNAME = paste(deparse(substitute(X))," and ",deparse(substitute(Y)),sep="") # borrowed from HDtest
-  names(thestat) = "statistic"
+  names(thestat) = "T2m"
   res   = list(statistic=thestat, p.value=pvalue, alternative = Ha, method=hname, data.name = DNAME)
   class(res) = "htest"
   return(res)
 }
+
