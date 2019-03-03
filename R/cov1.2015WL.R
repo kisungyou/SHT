@@ -73,7 +73,7 @@ cov1.2015WL <- function(X, Sigma0=diag(ncol(X)), m=25){
   }
   thestat = max(rec.stat)
   pvalue  = 1-(pnorm(thestat, lower.tail=TRUE)^m)
-  
+
   ##############################################################
   # COMPUTATION : DETERMINATION
   hname   = "One-sample Test for Covariance Matrix by Wu and Li (2015)."
