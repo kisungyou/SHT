@@ -32,7 +32,8 @@ We categorized available functions by their object of interest for better naviga
 * Authors are referred by last names. See the help page of each function for complete references. 
 * **$k$-sample** means that the test is checking the _homogeneity_ across multiple samples.
 * Function naming convention is {`type of test`.`test name`}, or {`type of test`.`year` `authors`}, where there are two or three authors, we took their initials as abbreviation or simply the last name of the first author otherwise.
-* Since $k$-sample test is applicable to the special case of $k=2$, two functions - **`usek1d`** and **`useknd`** - are provided to extend capabilities of any $k$-sample tests in our package to be applicable for $2$-sample testing.
+* **`usek1d`** and **`useknd`** lets a user to apply any $k$-sample tests for two-sample testings.
+* When $\mathbb{R}^p$ notation is used, it denotes **_multivariate_** procedures.
 
 ### 0. utilities 
 | function name | description |
@@ -47,7 +48,7 @@ We categorized available functions by their object of interest for better naviga
 | `mean2.ttest` | [Student (1908)][1] & [Welch (1947)][2] | $\mu_x ~\{\leq, =, \geq\}~ \mu_y$ (2-sample) |
 | `meank.anova` |               -                 | $\mu_1 = \cdots = \mu_k$ ($k$-sample) |
 
-### 2. tests for multivariate mean $\mu \in \mathbb{R}^n$
+### 2. tests for multivariate mean $\mu \in \mathbb{R}^p$
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
 | `mean1.1931Hotelling` | [Hotelling (1931)][3]       | $\mu_x = \mu_0$ (1-sample) |
@@ -98,9 +99,12 @@ We categorized available functions by their object of interest for better naviga
 | `sim1.2017Liu` | [Liu et al. (2017)][28] | $\mu_x = \mu_y,~\Sigma_x = \Sigma_y$ (1-sample) |
 | `sim2.2018HN`  | [Hyodo and Nishiyama (2018)][29] | $\mu_x = \mu_y,~\Sigma_x = \Sigma_y$ (2-sample) |
 
+### 6. tests for equality of distributions
+| function name | authors | description of $H_0$|
+|---------------|---------------------|:----------------|
+| `eqdist.2014BG` | [Biswas and Ghosh (2014)][17] | $F_X = F_Y$ (2-sample) |
 
-
-### 6. distribution tests of normality
+### 7. goodness-of-fit tests of normality
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
 | `norm.1965SW` | [Shapiro and Wilk (1965)][23] | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
@@ -109,14 +113,11 @@ We categorized available functions by their object of interest for better naviga
 | `norm.1996AJB`| [Urzua (1996)][25] | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
 | `norm.2008RJB`| [Gel and Gastwirth (2008)][24] | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
 
-
-
-### 7. tests for equality of distributions
+### 8. goodness-of-fit tests of uniformity
 | function name | authors | description of $H_0$|
-|---------------|---------------------|:----------------|
-| `eqdist.2014BG` | [Biswas and Ghosh (2014)][17] | $F_X = F_Y$ (2-sample) |
-
-
+|---------------|------------------------|:----------------|
+| `unif.2017YMi` | [Yang and Modarres (2017)][32] | $F_X = \textrm{Uniform} \in \mathbb{R}^p$ |
+| `unif.2017YMq` | [Yang and Modarres (2017)][32] | $F_X = \textrm{Uniform} \in \mathbb{R}^p$ |
 
 <!---
 your comment goes here
@@ -126,6 +127,7 @@ and here
 | `mean2.mxPBF` | - | $\mu_x = \mu_y$ (2-sample) |
 -->
 
+[32]: https://doi.org/10.1007/s00362-015-0715-x
 [31]: https://arxiv.org/abs/1511.01611
 [30]: https://doi.org/10.1016/j.jspi.2011.07.019
 [28]: https://doi.org/10.1016/j.jspi.2017.03.009

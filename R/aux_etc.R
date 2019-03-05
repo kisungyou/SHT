@@ -9,6 +9,7 @@
 # 08. aux_scatter    : sample covariance without scaling
 # 09. aux_trace      : trace of a matrix
 # 10. aux_getinvroot : scaling for one-sample covariance test
+# 11. aux_adjustcube : given multivariate data, it turns them to fit in the cube
 
 # 01. PseudoInverse using SVD and NumPy Scheme ----------------------------
 # https://en.wikipedia.org/wiki/Moore%E2%80%93Penrose_inverse#Singular_value_decomposition_(SVD)
@@ -139,4 +140,22 @@ aux_getinvroot <- function(X){
   }
   out = eigs$vectors %*% diag((eigs$values)^(-0.5)) %*% t(eigs$vectors)
   return(out)
+}
+
+
+# 11. aux_adjustcube  -----------------------------------------------------
+#' @keywords internal
+#' @noRd
+aux_adjustcube <- function(X,lower,upper){
+  n = nrow(X)
+  p = ncol(X)
+  Y = array(0,c(n,p))
+  for (i in 1:p){
+    a = lower[i]
+    b = upper[i]
+    
+    tgt   = as.vector(X[,i])
+    Y[,i] = tgt/(b-a) - a/(b-a)
+  }
+  return(Y)
 }

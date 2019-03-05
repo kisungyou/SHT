@@ -25,7 +25,8 @@ We categorized available functions by their object of interest for better naviga
 -   Authors are referred by last names. See the help page of each function for complete references.
 -   ***k*-sample** means that the test is checking the *homogeneity* across multiple samples.
 -   Function naming convention is {`type of test`.`test name`}, or {`type of test`.`year` `authors`}, where there are two or three authors, we took their initials as abbreviation or simply the last name of the first author otherwise.
--   Since *k*-sample test is applicable to the special case of *k* = 2, two functions - **`usek1d`** and **`useknd`** - are provided to extend capabilities of any *k*-sample tests in our package to be applicable for 2-sample testing.
+-   **`usek1d`** and **`useknd`** lets a user to apply any *k*-sample tests for two-sample testings.
+-   When ℝ<sup>*p*</sup> notation is used, it denotes ***multivariate*** procedures.
 
 ### 0. utilities
 
@@ -68,7 +69,7 @@ We categorized available functions by their object of interest for better naviga
 </tbody>
 </table>
 
-### 2. tests for multivariate mean *μ* ∈ ℝ<sup>*n*</sup>
+### 2. tests for multivariate mean *μ* ∈ ℝ<sup>*p*</sup>
 
 <table style="width:82%;">
 <colgroup>
@@ -299,7 +300,13 @@ We categorized available functions by their object of interest for better naviga
 </tbody>
 </table>
 
-### 6. distribution tests of normality
+### 6. tests for equality of distributions
+
+| function name   | authors                                                               | description of *H*<sub>0</sub>                   |
+|-----------------|-----------------------------------------------------------------------|:-------------------------------------------------|
+| `eqdist.2014BG` | [Biswas and Ghosh (2014)](https://doi.org/10.1016/j.jmva.2013.09.004) | *F*<sub>*X*</sub> = *F*<sub>*Y*</sub> (2-sample) |
+
+### 7. goodness-of-fit tests of normality
 
 <table style="width:82%;">
 <colgroup>
@@ -343,11 +350,34 @@ We categorized available functions by their object of interest for better naviga
 </tbody>
 </table>
 
-### 7. tests for equality of distributions
+### 8. goodness-of-fit tests of uniformity
 
-| function name   | authors                                                               | description of *H*<sub>0</sub>                   |
-|-----------------|-----------------------------------------------------------------------|:-------------------------------------------------|
-| `eqdist.2014BG` | [Biswas and Ghosh (2014)](https://doi.org/10.1016/j.jmva.2013.09.004) | *F*<sub>*X*</sub> = *F*<sub>*Y*</sub> (2-sample) |
+<table style="width:82%;">
+<colgroup>
+<col width="22%" />
+<col width="34%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>function name</th>
+<th>authors</th>
+<th align="left">description of <span class="math inline"><em>H</em><sub>0</sub></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>unif.2017YMi</code></td>
+<td><a href="https://doi.org/10.1007/s00362-015-0715-x">Yang and Modarres (2017)</a></td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Uniform ∈ ℝ<sup><em>p</em></sup></span></td>
+</tr>
+<tr class="even">
+<td><code>unif.2017YMq</code></td>
+<td><a href="https://doi.org/10.1007/s00362-015-0715-x">Yang and Modarres (2017)</a></td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = Uniform ∈ ℝ<sup><em>p</em></sup></span></td>
+</tr>
+</tbody>
+</table>
 
 <!---
 your comment goes here
