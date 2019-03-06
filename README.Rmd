@@ -14,11 +14,15 @@ knitr::opts_chunk$set(
 ```
 # Statistical Hypothesis Testing in R
 
-`SHT` was designed to provide a casket of tools for hypothesis testing procedures ranging from classical to modern techniques.
+`SHT` aims at providing a casket of tools for hypothesis testing procedures ranging from classical to modern techniques. Though it's principle centers upon consistent and universal access to a number of cutting-edge academic achievements, we hope it not be used as a primary means of [**$p$-hacking**][33].
 
 ## Installation
 
-Currently, `SHT` can only be downloaded via github using following commands,
+`SHT` released version can be obtained from [CRAN](https://CRAN.R-project.org/package=SHT) with:
+```r
+install.packages("SHT")
+```
+or the up-to-date development version from github:
 ```r
 ## install.packages("devtools")
 ## library(devtools)
@@ -127,6 +131,7 @@ and here
 | `mean2.mxPBF` | - | $\mu_x = \mu_y$ (2-sample) |
 -->
 
+[33]: https://en.wikipedia.org/wiki/Data_dredging
 [32]: https://doi.org/10.1007/s00362-015-0715-x
 [31]: https://arxiv.org/abs/1511.01611
 [30]: https://doi.org/10.1016/j.jspi.2011.07.019

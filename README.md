@@ -3,12 +3,18 @@
 Statistical Hypothesis Testing in R
 ===================================
 
-`SHT` was designed to provide a casket of tools for hypothesis testing procedures ranging from classical to modern techniques.
+`SHT` aims at providing a casket of tools for hypothesis testing procedures ranging from classical to modern techniques. Though it's principle centers upon consistent and universal access to a number of cutting-edge academic achievements, we hope it not be used as a primary means of [***p*-hacking**](https://en.wikipedia.org/wiki/Data_dredging).
 
 Installation
 ------------
 
-Currently, `SHT` can only be downloaded via github using following commands,
+`SHT` released version can be obtained from [CRAN](https://CRAN.R-project.org/package=SHT) with:
+
+``` r
+install.packages("SHT")
+```
+
+or the up-to-date development version from github:
 
 ``` r
 ## install.packages("devtools")
