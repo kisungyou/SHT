@@ -24,7 +24,7 @@ a (list) object of \code{S3} class \code{htest} containing: \describe{
 }
 \description{
 Given a multivariate sample \eqn{X}, it tests
-\deqn{H_0 : \Sigma_x = \text{ uniform on } [a_i,b_i]^p \quad vs\quad H_1 : \textrm{ not } H_0}
+\deqn{H_0 : \Sigma_x = \textrm{ uniform on } \otimes_{i=1}^p [a_i,b_i] \quad vs\quad H_1 : \textrm{ not } H_0}
 using the procedure by Yang and Modarres (2017). Originally, it tests the goodness of fit 
 on the unit hypercube \eqn{[0,1]^p} and modified for arbitrary rectangular domain. Since 
 this method depends on quantile information, every observation should strictly reside within 
