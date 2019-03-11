@@ -33,8 +33,8 @@
 #' pval.p = rep(0,ntest)
 #' 
 #' for (i in 1:ntest){
-#'   x = rnorm(100)
-#'   y = rnorm(100, sd=1.3)
+#'   x = matrix(rnorm(100), nrow=5)
+#'   y = matrix(rnorm(100), nrow=5)
 #'   
 #'   pval.a[i] = ifelse(eqdist.2014BG(x,y,method="a")$p.value<0.05,1,0)
 #'   pval.p[i] = ifelse(eqdist.2014BG(x,y,method="p",nreps=100)$p.value <0.05,1,0)

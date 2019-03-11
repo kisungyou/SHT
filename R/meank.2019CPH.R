@@ -33,7 +33,7 @@
 #' for (i in 1:niter){
 #'   mylist = list()
 #'   for (j in 1:5){
-#'      mylist[[j]] = matrix(rnorm(10*5),ncol=5)
+#'      mylist[[j]] = matrix(rnorm(10*50),ncol=50)
 #'   }
 #'   
 #'   counter[i] = ifelse(meank.2019CPH(mylist)$p.value < 0.05, 1, 0)

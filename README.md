@@ -3,7 +3,7 @@
 Statistical Hypothesis Testing in R
 ===================================
 
-`SHT` aims at providing a casket of tools for hypothesis testing procedures ranging from classical to modern techniques. Though it's principle centers upon consistent and universal access to a number of cutting-edge academic achievements, we hope it not be used as a primary means of [***p*-hacking**](https://en.wikipedia.org/wiki/Data_dredging).
+`SHT` aims at providing a casket of tools for hypothesis testing procedures ranging from classical to modern techniques. We hope it not be used as a primary means of [***p*-hacking**](https://en.wikipedia.org/wiki/Data_dredging).
 
 Installation
 ------------
@@ -167,11 +167,16 @@ We categorized available functions by their object of interest for better naviga
 <td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub></span> (2-sample)</td>
 </tr>
 <tr class="even">
+<td><code>meank.2007Schott</code></td>
+<td><a href="https://doi.org/10.1016/j.jmva.2006.11.007">Schott (2007)</a></td>
+<td align="left"><span class="math inline"><em>μ</em><sub>1</sub> = ⋯ = <em>μ</em><sub><em>k</em></sub></span> (<span class="math inline"><em>k</em></span>-sample)</td>
+</tr>
+<tr class="odd">
 <td><code>meank.2009ZX</code></td>
 <td><a href="https://doi.org/10.1007/s11425-009-0091-x">Zhang and Xu (2009)</a></td>
 <td align="left"><span class="math inline"><em>μ</em><sub>1</sub> = ⋯ = <em>μ</em><sub><em>k</em></sub></span> (<span class="math inline"><em>k</em></span>-sample)</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td><code>meank.2019CPH</code></td>
 <td><a href="https://doi.org/10.1016/j.jspi.2018.12.002">Cao, Park, and He (2019)</a></td>
 <td align="left"><span class="math inline"><em>μ</em><sub>1</sub> = ⋯ = <em>μ</em><sub><em>k</em></sub></span> (<span class="math inline"><em>k</em></span>-sample)</td>
@@ -308,9 +313,27 @@ We categorized available functions by their object of interest for better naviga
 
 ### 6. tests for equality of distributions
 
-| function name   | authors                                                               | description of *H*<sub>0</sub>                   |
-|-----------------|-----------------------------------------------------------------------|:-------------------------------------------------|
-| `eqdist.2014BG` | [Biswas and Ghosh (2014)](https://doi.org/10.1016/j.jmva.2013.09.004) | *F*<sub>*X*</sub> = *F*<sub>*Y*</sub> (2-sample) |
+<table style="width:81%;">
+<colgroup>
+<col width="22%" />
+<col width="30%" />
+<col width="27%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>function name</th>
+<th>authors</th>
+<th align="left">description of <span class="math inline"><em>H</em><sub>0</sub></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>eqdist.2014BG</code></td>
+<td><a href="https://doi.org/10.1016/j.jmva.2013.09.004">Biswas and Ghosh (2014)</a></td>
+<td align="left"><span class="math inline"><em>F</em><sub><em>X</em></sub> = <em>F</em><sub><em>Y</em></sub> ∈ ℝ<sup>1</sup> &amp; ℝ<sup><em>p</em></sup></span> (2-sample)</td>
+</tr>
+</tbody>
+</table>
 
 ### 7. goodness-of-fit tests of normality
 

@@ -22,8 +22,8 @@
 #' 
 #' @examples 
 #' ## CRAN-purpose small example
-#' smallX = matrix(rnorm(10*3),ncol=3)
-#' smallY = matrix(rnorm(10*3),ncol=3)
+#' smallX = matrix(rnorm(10*3),ncol=10)
+#' smallY = matrix(rnorm(10*3),ncol=10)
 #' mean2.2011LJW(smallX, smallY) # run the test
 #' 
 #' \donttest{
