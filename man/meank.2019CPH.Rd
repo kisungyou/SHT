@@ -15,7 +15,7 @@ proposed in the paper, and \code{"Hu"} for the one used in 2017 paper by Hu et a
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{
 \item{statistic}{a test statistic.}
-\item{p.value}{\eqn{p}-value \eqn{P(H_0|H_1)} under current setting.}
+\item{p.value}{\eqn{p}-value under \eqn{H_0}.}
 \item{alternative}{alternative hypothesis.}
 \item{method}{name of the test.}
 \item{data.name}{name(s) of provided sample data.}
