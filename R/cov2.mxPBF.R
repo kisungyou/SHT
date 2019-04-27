@@ -36,8 +36,7 @@
 #' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
 #' }
 #' 
-#' @keywords internal
-#' @noRd
+#' @export
 cov2.mxPBF <- function(X, Y, a0=2.0, b0=2.0, gamma=1.0, nthreads=1){
   ##############################################################
   # PREPROCESSING
