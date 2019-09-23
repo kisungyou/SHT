@@ -3,6 +3,8 @@
 Statistical Hypothesis Testing in R
 ===================================
 
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/SHT?color=green)](https://cran.r-project.org/package=SHT) [![Travis-CI Build Status](https://travis-ci.org/kisungyou/SHT.svg?branch=master)](https://travis-ci.org/kisungyou/SHT) [![](https://cranlogs.r-pkg.org/badges/SHT)](https://cran.r-project.org/package=SHT)
+
 `SHT` aims at providing a casket of tools for hypothesis testing procedures ranging from classical to modern techniques. We hope it not be used as a primary means of [***p*-hacking**](https://en.wikipedia.org/wiki/Data_dredging).
 
 Installation
@@ -301,7 +303,7 @@ We categorized available functions by their object of interest for better naviga
 <tr class="odd">
 <td><code>sim1.2017Liu</code></td>
 <td><a href="https://doi.org/10.1016/j.jspi.2017.03.009">Liu et al. (2017)</a></td>
-<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub>,  <em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub><em>y</em></sub></span> (1-sample)</td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub>0</sub>,  <em>Σ</em><sub><em>x</em></sub> = <em>Σ</em><sub>0</sub></span> (1-sample)</td>
 </tr>
 <tr class="even">
 <td><code>sim2.2018HN</code></td>

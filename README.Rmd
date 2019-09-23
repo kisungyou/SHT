@@ -14,6 +14,10 @@ knitr::opts_chunk$set(
 ```
 # Statistical Hypothesis Testing in R
 
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/SHT?color=green)](https://cran.r-project.org/package=SHT) 
+[![Travis-CI Build Status](https://travis-ci.org/kisungyou/SHT.svg?branch=master)](https://travis-ci.org/kisungyou/SHT)
+[![](https://cranlogs.r-pkg.org/badges/SHT)](https://cran.r-project.org/package=SHT)
+
 `SHT` aims at providing a casket of tools for hypothesis testing procedures ranging from classical to modern techniques. We hope it not be used as a primary means of [**$p$-hacking**][33].
 
 ## Installation
@@ -101,7 +105,7 @@ We categorized available functions by their object of interest for better naviga
 ### 5. simultaneous tests for mean $\mu$ and covariance $\Sigma$
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
-| `sim1.2017Liu` | [Liu et al. (2017)][28] | $\mu_x = \mu_y,~\Sigma_x = \Sigma_y$ (1-sample) |
+| `sim1.2017Liu` | [Liu et al. (2017)][28] | $\mu_x = \mu_0,~\Sigma_x = \Sigma_0$ (1-sample) |
 | `sim2.2018HN`  | [Hyodo and Nishiyama (2018)][29] | $\mu_x = \mu_y,~\Sigma_x = \Sigma_y$ (2-sample) |
 
 ### 6. tests for equality of distributions
