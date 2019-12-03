@@ -28,22 +28,22 @@
 #' smallY = matrix(rnorm(10*3),ncol=3)
 #' mean2.2014CLX(smallX, smallY) # run the test
 #' 
-#' \donttest{
+#' \dontrun{
 #' ## empirical Type 1 error 
 #' niter   = 100
 #' counter = rep(0,niter)  # record p-values
 #' for (i in 1:niter){
-#'   X = matrix(rnorm(50*5), ncol=50)
-#'   Y = matrix(rnorm(50*5), ncol=50)
+#'   X = matrix(rnorm(50*5), ncol=10)
+#'   Y = matrix(rnorm(50*5), ncol=10)
 #'   
 #'   counter[i] = ifelse(mean2.2014CLX(X, Y)$p.value < 0.05, 1, 0)
 #' }
 #' 
 #' ## print the result
-#' cat(paste("\n* Example for 'mean2.2014CLX'\n\n",
-#' sprintf("* number of rejections   : %d\n",sum(counter)),
-#' sprintf("* total number of trials : %d\n",niter),
-#' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
+#' cat(paste("\n* Example for 'mean2.2014CLX'\n","*\n",
+#' "* number of rejections   : ", sum(counter),"\n",
+#' "* total number of trials : ", niter,"\n",
+#' "* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
 #' }
 #' 
 #' @references 

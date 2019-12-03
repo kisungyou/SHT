@@ -4,8 +4,13 @@
 \alias{mean2.ttest}
 \title{Two-sample Student's t-test for Univariate Means}
 \usage{
-mean2.ttest(x, y, alternative = c("two.sided", "less", "greater"),
-  paired = FALSE, var.equal = FALSE)
+mean2.ttest(
+  x,
+  y,
+  alternative = c("two.sided", "less", "greater"),
+  paired = FALSE,
+  var.equal = FALSE
+)
 }
 \arguments{
 \item{x}{a length-\eqn{n} data vector.}
@@ -45,10 +50,10 @@ for (i in 1:niter){
 }
 
 ## print the result
-cat(paste("\\n* Example for 'mean2.ttest'\\n\\n",
-sprintf("* number of rejections   : \%d\\n",sum(counter)),
-sprintf("* total number of trials : \%d\\n",niter),
-sprintf("* empirical Type 1 error : \%.4f\\n", sum(counter/niter)),sep=""))
+cat(paste("\n* Example for 'mean2.ttest'\n","*\n",
+"* number of rejections   : ", sum(counter),"\n",
+"* total number of trials : ", niter,"\n",
+"* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
 }
 
 }

@@ -20,7 +20,7 @@
 #' @examples
 #' \dontrun{
 #' ## empirical Type 1 error with BF threshold = 20
-#' niter   = 1000
+#' niter   = 12345
 #' counter = rep(0,niter)  # record p-values
 #' for (i in 1:niter){
 #'   X = matrix(rnorm(50*5), ncol=10)
@@ -30,10 +30,10 @@
 #' }
 #' 
 #' ## print the result
-#' cat(paste("\n* Example for 'cov2.mxPBF'\n\n",
-#' sprintf("* number of rejections   : %d\n",sum(counter)),
-#' sprintf("* total number of trials : %d\n",niter),
-#' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
+#' cat(paste("\n* Example for 'cov2.mxPBF'\n","*\n",
+#' "* number of rejections   : ", sum(counter),"\n",
+#' "* total number of trials : ", niter,"\n",
+#' "* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
 #' }
 #' 
 #' @export

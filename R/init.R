@@ -10,7 +10,7 @@
   this.version = packageVersion("SHT")
   
   ## Print on Screen
-  packageStartupMessage("----------------------------------------------------------")
+  packageStartupMessage("**------------------------------------------------------**")
   packageStartupMessage("** MMMMMMMMMMMMMMMMMMMMM MMMMMMMMMMMM MMMMMMMMMMMMMMMMMMM ")
   packageStartupMessage("** MMMMMMMMMMMP       MM M  MMMMM  MM M        MMMMMMMMMM ")
   packageStartupMessage("** MMMMMMMMMMM  mmmmm..M M  MMMMM  MM MMMM  MMMMMMMMMMMMM ")
@@ -23,10 +23,10 @@
   packageStartupMessage("**         Statistical Hypothesis Testing Toolbox")
   packageStartupMessage("**")
   packageStartupMessage("** Version    : ",this.version,"      (",this.year,")",sep="")
-  packageStartupMessage("** Maintainer : Kisung You (ksyou496@gmail.com)")
+  packageStartupMessage("** Maintainer : Kisung You (kyoustat@gmail.com)")
   packageStartupMessage("**")
   packageStartupMessage("** Please share any bugs or suggestions to the maintainer.")
-  packageStartupMessage("----------------------------------------------------------")
+  packageStartupMessage("**------------------------------------------------------**")
 }
 
 .onUnload <- function(libpath) {

@@ -38,10 +38,10 @@
 #' }
 #' 
 #' ## print the result
-#' cat(paste("\n* Example for 'unif.2017YMi'\n\n",
-#' sprintf("* Type 1 error with Q1 : %.4f\n", sum(rec1/niter)),
-#' sprintf("*                   Q2 : %.4f\n", sum(rec2/niter)),
-#' sprintf("*                   Q3 : %.4f\n", sum(rec3/niter)),sep=""))
+#' cat(paste("\n* Example for 'unif.2017YMi'\n","*\n",
+#' "* Type 1 error with Q1 : ", round(sum(rec1/niter),5),"\n",
+#' "*                   Q2 : ", round(sum(rec2/niter),5),"\n",
+#' "*                   Q3 : ", round(sum(rec3/niter),5),"\n",sep=""))
 #' }
 #' 
 #' @references 

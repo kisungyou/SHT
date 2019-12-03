@@ -4,8 +4,7 @@
 \alias{eqdist.2014BG}
 \title{Test for Equality of Two Distributions by Biswas and Ghosh (2014)}
 \usage{
-eqdist.2014BG(X, Y, method = c("asymptotic", "permutation"),
-  nreps = 2000)
+eqdist.2014BG(X, Y, method = c("asymptotic", "permutation"), nreps = 2000)
 }
 \arguments{
 \item{X}{a vector/matrix of 1st sample.}
@@ -54,10 +53,9 @@ for (i in 1:ntest){
 }
 
 ## print the result
-cat(paste(
-sprintf("\\n* EMPIRICAL TYPE 1 ERROR COMPARISON \\n"),
-sprintf("* Asymptotics :  \%.3f\\n", sum(pval.a/ntest)),
-sprintf("* Permutation :  \%.3f\\n", sum(pval.p/ntest)),sep=""))
+cat(paste("\n* EMPIRICAL TYPE 1 ERROR COMPARISON \n","*\n",
+"* Asymptotics : ", round(sum(pval.a/ntest),5),"\n",
+"* Permutation : ", round(sum(pval.p/ntest),5),"\n",sep=""))
 }
 
 }

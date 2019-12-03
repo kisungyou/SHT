@@ -41,10 +41,9 @@
 #' }
 #' 
 #' ## print the result
-#' cat(paste(
-#' sprintf("\n* EMPIRICAL TYPE 1 ERROR COMPARISON \n"),
-#' sprintf("* Asymptotics :  %.3f\n", sum(pval.a/ntest)),
-#' sprintf("* Permutation :  %.3f\n", sum(pval.p/ntest)),sep=""))
+#' cat(paste("\n* EMPIRICAL TYPE 1 ERROR COMPARISON \n","*\n",
+#' "* Asymptotics : ", round(sum(pval.a/ntest),5),"\n",
+#' "* Permutation : ", round(sum(pval.p/ntest),5),"\n",sep=""))
 #' }
 #' 
 #' @references 

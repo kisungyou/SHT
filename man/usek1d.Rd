@@ -40,10 +40,10 @@ y = rnorm(50)
 test1 = usek1d(x, y, "meank.anova")
 test2 = mean2.ttest(x,y)
 
-### print the results of comparison
-cat(paste("\\n* Comparison of ANOVA and t-test'\\n\\n",
-sprintf("* p-value from ANOVA   : \%.4f\\n",test1$p.value),
-sprintf("*              t-test  : \%.4f\\n",test2$p.value),sep=""))
+## print the result
+cat(paste("\n* Comparison of ANOVA and t-test \n","*\n",
+"* p-value from ANOVA  : ", round(test1$p.value,5),"\n",
+"*              t-test : ", round(test2$p.value,5),"\n",sep=""))
 }
 
 }

@@ -32,7 +32,7 @@ smallX = matrix(rnorm(10*3),ncol=3)
 smallY = matrix(rnorm(10*3),ncol=3)
 mean2.1980Johansen(smallX, smallY) # run the test
 
-\donttest{
+\dontrun{
 ## empirical Type 1 error 
 niter   = 1000
 counter = rep(0,niter)  # record p-values
@@ -44,10 +44,10 @@ for (i in 1:niter){
 }
 
 ## print the result
-cat(paste("\\n* Example for 'mean2.1980Johansen'\\n\\n",
-sprintf("* number of rejections   : \%d\\n",sum(counter)),
-sprintf("* total number of trials : \%d\\n",niter),
-sprintf("* empirical Type 1 error : \%.4f\\n", sum(counter/niter)),sep=""))
+cat(paste("\n* Example for 'mean2.1980Johansen'\n","*\n",
+"* number of rejections   : ", sum(counter),"\n",
+"* total number of trials : ", niter,"\n",
+"* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
 }
 
 }

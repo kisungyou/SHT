@@ -23,7 +23,7 @@
 #' smallY = matrix(rnorm(10*3),ncol=3)
 #' cov2.2012LC(smallX, smallY) # run the test
 #' 
-#' \donttest{
+#' \dontrun{
 #' ## comparison of biased and unbiased estimator
 #' ## empirical Type 1 error 
 #' niter   = 100
@@ -38,10 +38,9 @@
 #' }
 #' 
 #' ## print the result
-#' cat(paste(
-#' sprintf("* EMPIRICAL TYPE 1 ERROR COMPARISON \n\n"),
-#' sprintf("* Biased   case :  %.3f\n", sum(vec.fast/niter)),
-#' sprintf("* Unbiased case :  %.3f\n", sum(vec.slow/niter)),sep=""))
+#' cat(paste("\n* EMPIRICAL TYPE 1 ERROR COMPARISON \n","*\n",
+#' "* Biased   case : ", round(sum(vec.fast/niter),5),"\n",
+#' "* Unbiased case : ", round(sum(vec.slow/niter),5),"\n",sep=""))
 #' }
 #'
 #' @references 

@@ -1,4 +1,8 @@
 # News for Package SHT
+### Changes in version 0.1.2
+  * Corrected example's multiline display of simulation results.
+  * Change of maintainer's contact.
+  
 ### Changes in version 0.1.1
   * Functions are added, a lot.
   * README invisible on CRAN. Later we'll add vignette.

@@ -4,8 +4,7 @@
 \alias{norm.2008RJB}
 \title{Robust Jarque-Bera Test of Univariate Normality by Gel and Gastwirth (2008)}
 \usage{
-norm.2008RJB(x, C1 = 6, C2 = 24, method = c("asymptotic", "MC"),
-  nreps = 2000)
+norm.2008RJB(x, C1 = 6, C2 = 24, method = c("asymptotic", "MC"), nreps = 2000)
 }
 \arguments{
 \item{x}{a length-\eqn{n} data vector.}

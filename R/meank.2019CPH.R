@@ -25,10 +25,10 @@
 #' meank.2019CPH(tinylist, method="o") # newly-proposed variance estimator
 #' meank.2019CPH(tinylist, method="h") # adopt one from 2017Hu
 #' 
-#' \donttest{
+#' \dontrun{
 #' ## test when k=5 samples with (n,p) = (10,50)
 #' ## empirical Type 1 error 
-#' niter   = 1000
+#' niter   = 10000
 #' counter = rep(0,niter)  # record p-values
 #' for (i in 1:niter){
 #'   mylist = list()
@@ -40,10 +40,10 @@
 #' }
 #' 
 #' ## print the result
-#' cat(paste("\n* Example for 'meank.2019CPH'\n\n",
-#' sprintf("* number of rejections   : %d\n",sum(counter)),
-#' sprintf("* total number of trials : %d\n",niter),
-#' sprintf("* empirical Type 1 error : %.4f\n", sum(counter/niter)),sep=""))
+#' cat(paste("\n* Example for 'meank.2019CPH'\n","*\n",
+#' "* number of rejections   : ", sum(counter),"\n",
+#' "* total number of trials : ", niter,"\n",
+#' "* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
 #' }
 #' 
 #' @references 

@@ -35,9 +35,9 @@
 #' }
 #' 
 #' ## print the result
-#' cat(paste("\n* Example for 'cov1.2012Fisher'\n\n",
-#' sprintf("* empirical error with statistic 1 : %.4f\n", sum(counter1/niter)),
-#' sprintf("* empirical error with statistic 2 : %.4f\n", sum(counter2/niter)),sep=""))
+#' cat(paste("\n* Example for 'cov1.2012Fisher' \n","*\n",
+#' "* empirical error with statistic 1 : ", round(sum(counter1/niter),5),"\n",
+#' "* empirical error with statistic 2 : ", round(sum(counter2/niter),5),"\n",sep=""))
 #' }
 #' 
 #' @references 

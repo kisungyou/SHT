@@ -37,10 +37,10 @@
 #' }
 #' 
 #' ## print the result
-#' cat(paste("\n* Example for 'cov1.2015WL'\n\n",
-#' sprintf("* Type 1 error with m=5  : %.4f\n", sum(rec1/niter)),
-#' sprintf("*                   m=10 : %.4f\n", sum(rec2/niter)),
-#' sprintf("*                   m=50 : %.4f\n", sum(rec3/niter)),sep=""))
+#' cat(paste("\n* Example for 'cov1.2015WL'\n","*\n",
+#' "* Type 1 error with m=5   : ",round(sum(rec1/niter),5),"\n",
+#' "* Type 1 error with m=10  : ",round(sum(rec2/niter),5),"\n",
+#' "* Type 1 error with m=50  : ",round(sum(rec3/niter),5),"\n",sep=""))
 #' }
 #' 
 #' @references 
