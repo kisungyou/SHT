@@ -100,20 +100,30 @@ We categorized available functions by their object of interest for better naviga
 | `covk.2001Schott`    | [Schott (2001)][21] | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
 | `covk.2007Schott`    | [Schott (2007)][22] | $\Sigma_1 = \cdots = \Sigma_k$ ($k$-sample) |
 
+### 5. simultaneous tests for mean $\mu$ and variance $\sigma^2$ in $\mathbb{R}^1$
+| function name | authors | description of $H_0$|
+|---------------|-----------------------|:-------------------|
+| `mvar1.1998AS` | [Arnold and Shavelle (1998)][38] | $\mu_x = \mu_0,~\sigma_x^2 = \sigma_0^2$ (1-sample) | 
+| `mvar1.LRT`    | -                         | $\mu_x = \mu_0,~\sigma_x^2 = \sigma_0^2$ (1-sample) |
+| `mvar2.1930PN` | Pearson and Neyman (1930) | $\mu_x = \mu_y,~\sigma_x^2 = \sigma_y^2$ (2-sample) |
+| `mvar2.1976PL` | [Perng and Littell (1976)][35] | $\mu_x = \mu_y,~\sigma_x^2 = \sigma_y^2$ (2-sample) |
+| `mvar2.1982Muirhead` | [Muirhead (1982)][36] | $\mu_x = \mu_y,~\sigma_x^2 = \sigma_y^2$ (2-sample) |
+| `mvar2.2012ZXC` | [Zhang, Xu, and Chen (2012)][37] | $\mu_x = \mu_y,~\sigma_x^2 = \sigma_y^2$ (2-sample) | 
+| `mvar2.LRT`    | -                      | $\mu_x = \mu_y,~\sigma_x^2 = \sigma_y^2$ (2-sample) |
 
 
-### 5. simultaneous tests for mean $\mu$ and covariance $\Sigma$
+### 6. simultaneous tests for mean $\mu$ and covariance $\Sigma$ in $\mathbb{R}^p$
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
 | `sim1.2017Liu` | [Liu et al. (2017)][28] | $\mu_x = \mu_0,~\Sigma_x = \Sigma_0$ (1-sample) |
 | `sim2.2018HN`  | [Hyodo and Nishiyama (2018)][29] | $\mu_x = \mu_y,~\Sigma_x = \Sigma_y$ (2-sample) |
 
-### 6. tests for equality of distributions
+### 7. tests for equality of distributions
 | function name | authors | description of $H_0$|
 |---------------|---------------------|:------------------|
 | `eqdist.2014BG` | [Biswas and Ghosh (2014)][17] | $F_X = F_Y \in \mathbb{R}^1 ~\&~ \mathbb{R}^p$ (2-sample) |
 
-### 7. goodness-of-fit tests of normality
+### 8. goodness-of-fit tests of normality
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
 | `norm.1965SW` | [Shapiro and Wilk (1965)][23] | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
@@ -122,11 +132,11 @@ We categorized available functions by their object of interest for better naviga
 | `norm.1996AJB`| [Urzua (1996)][25] | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
 | `norm.2008RJB`| [Gel and Gastwirth (2008)][24] | $F_X = \textrm{Normal} \in \mathbb{R}^1$|
 
-### 8. goodness-of-fit tests of uniformity
+### 9. goodness-of-fit tests of uniformity
 | function name | authors | description of $H_0$|
 |---------------|------------------------|:----------------|
-| `unif.2017YMi` | [Yang and Modarres (2017)][32] | $F_X = \textrm{Uniform} \in \mathbb{R}^p$ |
-| `unif.2017YMq` | [Yang and Modarres (2017)][32] | $F_X = \textrm{Uniform} \in \mathbb{R}^p$ |
+| `unif.2017YMi` | [Yang and Modarres (2017)][32] | $F_X = \textrm{Uniform} \in \Omega \subset \mathbb{R}^p$ |
+| `unif.2017YMq` | [Yang and Modarres (2017)][32] | $F_X = \textrm{Uniform} \in \Omega \subset \mathbb{R}^p$ |
 
 <!---
 your comment goes here
@@ -136,6 +146,10 @@ and here
 | `mean2.mxPBF` | - | $\mu_x = \mu_y$ (2-sample) |
 -->
 
+[38]: https://doi.org/10.1080/00031305.1998.10480552
+[37]: https://doi.org/10.1080/00031305.2012.707083
+[36]: https://doi.org/10.1002/9780470316559
+[35]: https://doi.org/10.1080/01621459.1976.10480978
 [34]: https://doi.org/10.1016/j.jmva.2006.11.007
 [33]: https://en.wikipedia.org/wiki/Data_dredging
 [32]: https://doi.org/10.1007/s00362-015-0715-x

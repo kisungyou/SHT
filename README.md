@@ -284,7 +284,61 @@ We categorized available functions by their object of interest for better naviga
 </tbody>
 </table>
 
-### 5. simultaneous tests for mean *μ* and covariance *Σ*
+### 5. simultaneous tests for mean *μ* and variance *σ*<sup>2</sup> in ℝ<sup>1</sup>
+
+<table style="width:85%;">
+<colgroup>
+<col width="22%" />
+<col width="33%" />
+<col width="29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>function name</th>
+<th>authors</th>
+<th align="left">description of <span class="math inline"><em>H</em><sub>0</sub></span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>mvar1.1998AS</code></td>
+<td><a href="https://doi.org/10.1080/00031305.1998.10480552">Arnold and Shavelle (1998)</a></td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub>0</sub>,  <em>σ</em><sub><em>x</em></sub><sup>2</sup> = <em>σ</em><sub>0</sub><sup>2</sup></span> (1-sample)</td>
+</tr>
+<tr class="even">
+<td><code>mvar1.LRT</code></td>
+<td>-</td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub>0</sub>,  <em>σ</em><sub><em>x</em></sub><sup>2</sup> = <em>σ</em><sub>0</sub><sup>2</sup></span> (1-sample)</td>
+</tr>
+<tr class="odd">
+<td><code>mvar2.1930PN</code></td>
+<td>Pearson and Neyman (1930)</td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub>,  <em>σ</em><sub><em>x</em></sub><sup>2</sup> = <em>σ</em><sub><em>y</em></sub><sup>2</sup></span> (2-sample)</td>
+</tr>
+<tr class="even">
+<td><code>mvar2.1976PL</code></td>
+<td><a href="https://doi.org/10.1080/01621459.1976.10480978">Perng and Littell (1976)</a></td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub>,  <em>σ</em><sub><em>x</em></sub><sup>2</sup> = <em>σ</em><sub><em>y</em></sub><sup>2</sup></span> (2-sample)</td>
+</tr>
+<tr class="odd">
+<td><code>mvar2.1982Muirhead</code></td>
+<td><a href="https://doi.org/10.1002/9780470316559">Muirhead (1982)</a></td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub>,  <em>σ</em><sub><em>x</em></sub><sup>2</sup> = <em>σ</em><sub><em>y</em></sub><sup>2</sup></span> (2-sample)</td>
+</tr>
+<tr class="even">
+<td><code>mvar2.2012ZXC</code></td>
+<td><a href="https://doi.org/10.1080/00031305.2012.707083">Zhang, Xu, and Chen (2012)</a></td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub>,  <em>σ</em><sub><em>x</em></sub><sup>2</sup> = <em>σ</em><sub><em>y</em></sub><sup>2</sup></span> (2-sample)</td>
+</tr>
+<tr class="odd">
+<td><code>mvar2.LRT</code></td>
+<td>-</td>
+<td align="left"><span class="math inline"><em>μ</em><sub><em>x</em></sub> = <em>μ</em><sub><em>y</em></sub>,  <em>σ</em><sub><em>x</em></sub><sup>2</sup> = <em>σ</em><sub><em>y</em></sub><sup>2</sup></span> (2-sample)</td>
+</tr>
+</tbody>
+</table>
+
+### 6. simultaneous tests for mean *μ* and covariance *Σ* in ℝ<sup>*p*</sup>
 
 <table style="width:82%;">
 <colgroup>
@@ -313,7 +367,7 @@ We categorized available functions by their object of interest for better naviga
 </tbody>
 </table>
 
-### 6. tests for equality of distributions
+### 7. tests for equality of distributions
 
 <table style="width:81%;">
 <colgroup>
@@ -337,7 +391,7 @@ We categorized available functions by their object of interest for better naviga
 </tbody>
 </table>
 
-### 7. goodness-of-fit tests of normality
+### 8. goodness-of-fit tests of normality
 
 <table style="width:82%;">
 <colgroup>
@@ -381,7 +435,7 @@ We categorized available functions by their object of interest for better naviga
 </tbody>
 </table>
 
-### 8. goodness-of-fit tests of uniformity
+### 9. goodness-of-fit tests of uniformity
 
 <table style="width:82%;">
 <colgroup>

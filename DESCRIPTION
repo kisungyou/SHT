@@ -1,13 +1,13 @@
 Package: SHT
 Type: Package
 Title: Statistical Hypothesis Testing Toolbox
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: c(person("Kyoungjae","Lee",role="aut",email="leekjstat@gmail.com"),person("Lizhen", "Lin", role = "aut", email="lizhen.lin@nd.edu"),person("Hyungmin", "Park", role = "aut", email="hmpark0702@korea.ac.kr"),person("Kisung", "You", role = c("aut", "cre"),email = "kyoustat@gmail.com",comment=c(ORCID="0000-0002-8584-459X")))
 Description: We provide a collection of statistical hypothesis testing procedures ranging from classical to modern methods for non-trivial settings such as high-dimensional scenario. For the general treatment of statistical hypothesis testing, see the book by Lehmann and Romano (2005) <doi:10.1007/0-387-27605-X>.
 License: GPL (>=3)
 Encoding: UTF-8
 Imports: Rcpp, Rdpack, stats, utils, fastclime, pracma
 LinkingTo: Rcpp, RcppArmadillo
-RoxygenNote: 7.0.0
+RoxygenNote: 7.0.2
 RdMacros: Rdpack
 URL: https://github.com/kyoustat/SHT
