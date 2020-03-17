@@ -1,7 +1,8 @@
+#ifdef _OPENMP
+  #include <omp.h>
+#endif
 #include "RcppArmadillo.h"
-#include <omp.h>
 
-// [[Rcpp::plugins(openmp)]]
 // [[Rcpp::depends(RcppArmadillo)]]
 
 using namespace Rcpp;
@@ -27,6 +28,7 @@ double energy_distance(arma::mat Xi, arma::mat Xj, double alpha, int nCores){
   // Mij /= (nni*nnj);
   
   arma::mat matMij(ni,nj,fill::zeros);
+  #ifdef _OPENMP
   #pragma omp parallel for num_threads(nCores) collapse(2) shared(matMij,Xi,Xj,ni,nj,alpha)
   for (int i=0;i<ni;i++){
     for (int j=0;j<nj;j++){
@@ -34,6 +36,14 @@ double energy_distance(arma::mat Xi, arma::mat Xj, double alpha, int nCores){
       matMij(i,j) = std::pow(arma::dot(xdiff,xdiff), alpha/2.0);
     }
   }
+  #else
+  for (int i=0;i<ni;i++){
+    for (int j=0;j<nj;j++){
+      arma::rowvec xdiff = Xi.row(i) - Xj.row(j);
+      matMij(i,j) = std::pow(arma::dot(xdiff,xdiff), alpha/2.0);
+    }
+  }
+  #endif
   Mij = arma::accu(matMij)/(nni*nnj);
   
   // compute 2. Mii
@@ -64,6 +74,7 @@ double energy_distance(arma::mat Xi, arma::mat Xj, double alpha, int nCores){
   // Mii = arma::accu(matMii)/(nni*nni);
   
   double Mii = 0.0;
+  #ifdef _OPENMP
   #pragma omp parallel for num_threads(nCores) collapse(2) shared(Xi,ni,alpha) reduction(+: Mii)
   for (int i=0;i<ni;i++){
     for (int j=0;j<ni;j++){
@@ -73,12 +84,23 @@ double energy_distance(arma::mat Xi, arma::mat Xj, double alpha, int nCores){
       }
     }
   }
+  #else
+  for (int i=0;i<ni;i++){
+    for (int j=0;j<ni;j++){
+      if (i<j){
+        arma::rowvec xdiff = Xi.row(i)-Xi.row(j);
+        Mii += 2.0*std::pow(arma::dot(xdiff,xdiff), alpha/2.0);
+      }
+    }
+  }
+  #endif
   Mii /= (nni*nni);
   
   
   
   // compute 3. Mjj
   double Mjj = 0.0;
+  #ifdef _OPENMP
   #pragma omp parallel for num_threads(nCores) collapse(2) shared(Xj,nj,alpha) reduction(+: Mjj)
   for (int i=0;i<nj;i++){
     for (int j=0;j<nj;j++){
@@ -88,6 +110,16 @@ double energy_distance(arma::mat Xi, arma::mat Xj, double alpha, int nCores){
       }
     }
   }
+  #else
+  for (int i=0;i<nj;i++){
+    for (int j=0;j<nj;j++){
+      if (i<j){
+        arma::rowvec xdiff = Xj.row(i)-Xj.row(j);
+        Mjj += 2.0*std::pow(arma::dot(xdiff,xdiff), alpha/2.0);
+      }
+    }
+  }
+  #endif
   Mjj /= (nnj*nnj);
   
   // arma::mat matMjj(nj,nj,fill::zeros);

@@ -1,4 +1,7 @@
 # News for Package SHT
+### Changes in version 0.1.3
+  * Defensive protection for OpenMP. 
+
 ### Changes in version 0.1.2
   * Corrected example's multiline display of simulation results.
   * Change of maintainer's contact.

@@ -1,11 +1,14 @@
+#ifdef _OPENMP
+  #include <omp.h>
+#endif
 #include "RcppArmadillo.h"
-#include <omp.h>
+#include "cpp_extras.h"
 
-// [[Rcpp::plugins(openmp)]]
 // [[Rcpp::depends(RcppArmadillo)]]
 
 using namespace Rcpp;
 using namespace arma;
+using namespace std;
 
 double mean2_get_sigmasq(arma::vec x, double gamma){
   int n = x.n_elem;
@@ -18,8 +21,6 @@ double mean2_get_sigmasq(arma::vec x, double gamma){
   double output = (term1-term2)/static_cast<double>(n);
   return(output);
 }
-  
-
 
 // [[Rcpp::export]]
 arma::vec cpp_mean2_mxPBF_single(arma::mat X, arma::mat Y, double a0, double b0, double gamma){
@@ -41,12 +42,12 @@ arma::vec cpp_mean2_mxPBF_single(arma::mat X, arma::mat Y, double a0, double b0,
   
   // 3. main computation
   arma::vec logBFvec(p,fill::zeros);
-  double log_gammas = std::log((gamma/(1.0+gamma)));
+  double log_gammas = mylog(gamma/(1.0+gamma));
   double term1, term2;
   for (int i=0;i<p;i++){
     term1 = 2.0*b0 + nn*sigsqZ(i);
     term2 = 2.0*b0 + nn1*sigsqX(i) + nn2*sigsqY(i);
-    logBFvec(i) = 0.5*log_gammas + ((nn/2.0)+a0)*std::log((term1/term2));
+    logBFvec(i) = 0.5*log_gammas + ((nn/2.0)+a0)*(mylog(term1/term2));
   }
   return(logBFvec);
 }
@@ -63,22 +64,30 @@ arma::vec cpp_mean2_mxPBF_multiple(arma::mat X, arma::mat Y, double a0, double b
   arma::vec sigsqX(p, fill::zeros);
   arma::vec sigsqY(p, fill::zeros);
   arma::vec sigsqZ(p, fill::zeros);
-
+  
+  #ifdef _OPENMP
   #pragma omp parallel for num_threads(nCores) shared(p,sigsqX,sigsqY,sigsqZ,X,Y,gamma)
   for (int i=0;i<p;i++){
     sigsqX(i) = mean2_get_sigmasq(X.col(i), gamma);
     sigsqY(i) = mean2_get_sigmasq(Y.col(i), gamma);
     sigsqZ(i) = mean2_get_sigmasq(arma::join_vert(X.col(i),Y.col(i)), gamma);
   }
+  #else
+  for (int i=0;i<p;i++){
+    sigsqX(i) = mean2_get_sigmasq(X.col(i), gamma);
+    sigsqY(i) = mean2_get_sigmasq(Y.col(i), gamma);
+    sigsqZ(i) = mean2_get_sigmasq(arma::join_vert(X.col(i),Y.col(i)), gamma);
+  }
+  #endif
 
   // 3. main computation
   arma::vec logBFvec(p,fill::zeros);
-  double log_gammas = std::log((gamma/(1.0+gamma)));
+  double log_gammas = mylog(gamma/(1.0+gamma));
   double term1, term2;
   for (int i=0;i<p;i++){
     term1 = 2.0*b0 + nn*sigsqZ(i);
     term2 = 2.0*b0 + nn1*sigsqX(i) + nn2*sigsqY(i);
-    logBFvec(i) = 0.5*log_gammas + ((nn/2.0)+a0)*std::log((term1/term2));
+    logBFvec(i) = 0.5*log_gammas + ((nn/2.0)+a0)*mylog(term1/term2);
   }
   return(logBFvec);
 }

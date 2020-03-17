@@ -1,12 +1,15 @@
+#ifdef _OPENMP
+  #include <omp.h>
+#endif
 #include "RcppArmadillo.h"
-#include <omp.h>
+#include "cpp_extras.h"
 
-// [[Rcpp::plugins(openmp)]]
 // [[Rcpp::depends(RcppArmadillo)]]
 
 using namespace Rcpp;
 using namespace arma;
-// 
+using namespace std;
+
 double cov2_get_tau(arma::vec xi, arma::vec xj, double gamma){
   int n = xi.n_elem; double nn = static_cast<double>(n);
 
@@ -17,6 +20,7 @@ double cov2_get_tau(arma::vec xi, arma::vec xj, double gamma){
   double output = (term1-term2)/nn;
   return(output);
 }
+
 
 // double cov2_get_tau(arma::vec xi, arma::vec xj, double gamma){
 //   int nx = xi.n_elem;
@@ -44,7 +48,7 @@ arma::mat cpp_cov2_mxPBF_single(arma::mat X, arma::mat Y, double a0, double b0, 
   arma::vec Zj(n,fill::zeros);
   
   
-  double term_const = 0.5*std::log(gamma/(1.0+gamma)) + Rf_lgammafn((nn1/2.0) + a0) + Rf_lgammafn((nn2/2.0) + a0) - Rf_lgammafn(nn/2.0 + a0) + a0*std::log(b0) - Rf_lgammafn(a0);
+  double term_const = 0.5*std::log(static_cast<float>(gamma/(1.0+gamma))) + Rf_lgammafn((nn1/2.0) + a0) + Rf_lgammafn((nn2/2.0) + a0) - Rf_lgammafn(nn/2.0 + a0) + a0*std::log(static_cast<float>(b0)) - Rf_lgammafn(a0);
 
   // 3. iterate !
   arma::mat logBFmat(p,p,fill::zeros);
@@ -59,9 +63,9 @@ arma::mat cpp_cov2_mxPBF_single(arma::mat X, arma::mat Y, double a0, double b0, 
       Zj = arma::join_vert(Xj,Yj);
       
       if (i!=j){
-        double term1 = (nn1/2.0 + a0)*std::log(b0 + (nn1/2.0)*cov2_get_tau(Xi,Xj,gamma));
-        double term2 = (nn2/2.0 + a0)*std::log(b0 + (nn2/2.0)*cov2_get_tau(Yi,Yj,gamma));
-        double term3 = (nn/2.0  + a0)*std::log(b0 + (nn/2.0)*cov2_get_tau(Zi,Zj,gamma));
+        double term1 = (nn1/2.0 + a0)*mylog(b0 + (nn1/2.0)*cov2_get_tau(Xi,Xj,gamma));
+        double term2 = (nn2/2.0 + a0)*mylog(b0 + (nn2/2.0)*cov2_get_tau(Yi,Yj,gamma));
+        double term3 = (nn/2.0  + a0)*mylog(b0 + (nn/2.0)*cov2_get_tau(Zi,Zj,gamma));
         
         logBFmat(i,j) = term_const-(term1+term2)+term3;
       }
@@ -89,7 +93,7 @@ arma::mat cpp_cov2_mxPBF_multiple(arma::mat X, arma::mat Y, double a0, double b0
   // arma::vec Zj(n,fill::zeros);
   
   
-  double term_const = 0.5*std::log(gamma/(1.0+gamma)) + Rf_lgammafn((nn1/2.0) + a0) + Rf_lgammafn((nn2/2.0) + a0) - Rf_lgammafn(nn/2.0 + a0) + a0*std::log(b0) - Rf_lgammafn(a0);
+  double term_const = 0.5*mylog(gamma/(1.0+gamma)) + Rf_lgammafn((nn1/2.0) + a0) + Rf_lgammafn((nn2/2.0) + a0) - Rf_lgammafn(nn/2.0 + a0) + a0*mylog(b0) - Rf_lgammafn(a0);
   
   // 3. iterate !
   // 3-1. openmp implementation for tau's
@@ -97,6 +101,7 @@ arma::mat cpp_cov2_mxPBF_multiple(arma::mat X, arma::mat Y, double a0, double b0
   arma::mat taumatY(p,p,fill::zeros);
   arma::mat taumatZ(p,p,fill::zeros);  
   
+  #ifdef _OPENMP
   #pragma omp parallel for num_threads(nCores) collapse(2) shared(X,Y,p,gamma,taumatX,taumatY,taumatZ)
   for (int i=0;i<p;i++){
     for (int j=0;j<p;j++){
@@ -115,16 +120,34 @@ arma::mat cpp_cov2_mxPBF_multiple(arma::mat X, arma::mat Y, double a0, double b0
       }
     }
   }
-  
+  #else
+  for (int i=0;i<p;i++){
+    for (int j=0;j<p;j++){
+      if (i!=j){
+        arma::vec Xi = X.col(i);
+        arma::vec Yi = Y.col(i);
+        arma::vec Zi = arma::join_vert(Xi,Yi);
+        
+        arma::vec Xj = X.col(j);
+        arma::vec Yj = Y.col(j);
+        arma::vec Zj = arma::join_vert(Xj,Yj);
+        
+        taumatX(i,j) = cov2_get_tau(Xi,Xj,gamma);
+        taumatY(i,j) = cov2_get_tau(Yi,Yj,gamma);
+        taumatZ(i,j) = cov2_get_tau(Zi,Zj,gamma);  
+      }
+    }
+  }
+  #endif
   // 3-2. gather up !
   double term1, term2, term3;
   arma::mat logBFmat(p,p,fill::zeros);
   for (int i=0;i<p;i++){
     for (int j=0;j<p;j++){
       if (i!=j){
-        term1 = (nn1/2.0 + a0)*std::log(b0 + (nn1/2.0)*taumatX(i,j));
-        term2 = (nn2/2.0 + a0)*std::log(b0 + (nn2/2.0)*taumatY(i,j));
-        term3 = (nn/2.0  + a0)*std::log(b0 + (nn/2.0)*taumatZ(i,j));  
+        term1 = (nn1/2.0 + a0)*mylog(b0 + (nn1/2.0)*taumatX(i,j));
+        term2 = (nn2/2.0 + a0)*mylog(b0 + (nn2/2.0)*taumatY(i,j));
+        term3 = (nn/2.0  + a0)*mylog(b0 + (nn/2.0)*taumatZ(i,j));  
         
         logBFmat(i,j) = term_const-(term1+term2)+term3;
       }

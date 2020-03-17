@@ -1,42 +1,7 @@
 #' Temporary : Random Projection for One-Sample Simultaneous Testing
 #' 
-#' 
-#' 
-#' @examples 
-#' ## CRAN-purpose small example
-#' smallX = matrix(rnorm(10*3),ncol=3)
-#' sim1.2020YLL(smallX) # run the test
-#' 
-#' \dontrun{
-#' ## empirical Type 1 error 
-#' niter   = 10000
-#' pvalues = rep(0,niter)
-#' counter = rep(0,niter)  # record p-values
-#' for (i in 1:niter){
-#'   X = matrix(rnorm(50*10), ncol=25)
-#'   pvalues[i] = sim1.2020YLL(X)$p.value
-#'   counter[i] = ifelse(pvalues[i] < 0.05, 1, 0)
-#' }
-#' 
-#' ## print the result
-#' cat(paste("\n* Example for 'sim1.2020YLL'\n","*\n",
-#' "* number of rejections   : ", sum(counter),"\n",
-#' "* total number of trials : ", niter,"\n",
-#' "* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
-#' 
-#' ## visualize
-#' vec.alpha = seq(from=0.01, to=0.99, length.out=100)
-#' vec.error = rep(0,100)
-#' for (i in 1:100){
-#'    vec.error[i] = sum((pvalues <= vec.alpha[i]))/length(pvalues)
-#' }
-#' opar <- par(pty="s")
-#' plot(vec.alpha, vec.error, type="b", main="Type 1 Error")
-#' abline(a=0, b=1, lwd=2, col="red")
-#' par(opar)
-#' }
-#' 
-#' @export
+#' @keywords internal
+#' @noRd
 sim1.2020YLL <- function(X, mu0=rep(0,ncol(X)), Sigma0=diag(ncol(X)), m=50){
   ##############################################################
   # PREPROCESSING

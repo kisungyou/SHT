@@ -1,28 +1,5 @@
 #' Temporary : Random Projection for Two-Sample Simultaneous Testing
 #' 
-#' @examples 
-#' ## CRAN-purpose small example
-#' smallX = matrix(rnorm(10*3),ncol=3)
-#' smallY = matrix(rnorm(10*3),ncol=3)
-#' sim2.2020YLL(smallX, smallY) # run the test
-#' 
-#' \donttest{
-#' ## empirical Type 1 error 
-#' niter   = 1000
-#' counter = rep(0,niter)  # record p-values
-#' for (i in 1:niter){
-#'   X = matrix(rnorm(100*10), ncol=50)
-#'   Y = matrix(rnorm(100*10), ncol=50)
-#'   counter[i] = ifelse(sim2.2020YLL(X,Y,m=100)$p.value < 0.05, 1, 0)
-#' }
-#' 
-#' ## print the result
-#' cat(paste("\n* Example for 'sim2.2020YLL'\n","*\n",
-#' "* number of rejections   : ", sum(counter),"\n",
-#' "* total number of trials : ", niter,"\n",
-#' "* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
-#' }
-#' 
 #' @keywords internal
 #' @noRd
 sim2.2020YLL <- function(X, Y, m=50){
