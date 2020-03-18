@@ -46,5 +46,5 @@ cat(paste("\n* Example for 'mean1.ttest'\n","*\n",
 \references{
 \insertRef{student_probable_1908}{SHT}
 
-\insertRef{student_probable_1908-1}{SHT}
+\insertRef{student_probable_1908a}{SHT}
 }

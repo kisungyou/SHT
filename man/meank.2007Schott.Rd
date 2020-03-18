@@ -56,5 +56,5 @@ cat(paste("\n* Example for 'meank.2007Schott'\n","*\n",
 
 }
 \references{
-\insertRef{schott_high-dimensional_2007}{SHT}
+\insertRef{schott_highdimensional_2007}{SHT}
 }

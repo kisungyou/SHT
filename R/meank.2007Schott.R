@@ -46,7 +46,7 @@
 #' 
 #' 
 #' @references 
-#' \insertRef{schott_high-dimensional_2007}{SHT}
+#' \insertRef{schott_highdimensional_2007}{SHT}
 #' 
 #' @export
 meank.2007Schott <- function(dlist){

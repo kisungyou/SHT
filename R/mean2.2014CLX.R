@@ -47,7 +47,7 @@
 #' }
 #' 
 #' @references 
-#' \insertRef{cai_two-sample_2014}{SHT}
+#' \insertRef{cai_twosample_2014}{SHT}
 #' 
 #' @export
 mean2.2014CLX <- function(X, Y, Omega=NULL, cov.equal = TRUE){

@@ -40,7 +40,7 @@
 #' }
 #' 
 #' @references 
-#' \insertRef{cai_two-sample_2013}{SHT}
+#' \insertRef{cai_twosample_2013}{SHT}
 #' 
 #' @export
 cov2.2013CLX <- function(X, Y){

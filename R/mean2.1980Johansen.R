@@ -41,7 +41,7 @@
 #' }
 #' 
 #' @references 
-#' \insertRef{johansen_welch-james_1980}{SHT}
+#' \insertRef{johansen_welchjames_1980}{SHT}
 #' 
 #' @export
 mean2.1980Johansen <- function(X, Y){

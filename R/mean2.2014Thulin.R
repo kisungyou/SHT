@@ -40,7 +40,7 @@
 #' }
 #' 
 #' @references 
-#' \insertRef{thulin_high-dimensional_2014}{SHT}
+#' \insertRef{thulin_highdimensional_2014}{SHT}
 #' 
 #' @author Kisung You
 #' @export

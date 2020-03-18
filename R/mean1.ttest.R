@@ -34,7 +34,7 @@
 #' @references 
 #' \insertRef{student_probable_1908}{SHT}
 #' 
-#' \insertRef{student_probable_1908-1}{SHT}
+#' \insertRef{student_probable_1908a}{SHT}
 #' 
 #' @export
 mean1.ttest <- function(x, mu0=0, alternative=c("two.sided","less","greater")){

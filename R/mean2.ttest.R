@@ -40,7 +40,7 @@
 #' @references 
 #' \insertRef{student_probable_1908}{SHT}
 #' 
-#' \insertRef{student_probable_1908-1}{SHT}
+#' \insertRef{student_probable_1908a}{SHT}
 #' 
 #' \insertRef{welch_generalization_1947}{SHT}
 #' 

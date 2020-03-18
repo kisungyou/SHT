@@ -52,5 +52,5 @@ cat(paste("\n* Example for 'mean2.1980Johansen'\n","*\n",
 
 }
 \references{
-\insertRef{johansen_welch-james_1980}{SHT}
+\insertRef{johansen_welchjames_1980}{SHT}
 }

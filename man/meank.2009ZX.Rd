@@ -59,5 +59,5 @@ cat(paste("\n* Example for 'meank.2009ZX'\n","*\n",
 
 }
 \references{
-\insertRef{zhang_k-sample_2009}{SHT}
+\insertRef{zhang_ksample_2009}{SHT}
 }

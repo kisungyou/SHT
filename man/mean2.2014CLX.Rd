@@ -60,5 +60,5 @@ cat(paste("\n* Example for 'mean2.2014CLX'\n","*\n",
 
 }
 \references{
-\insertRef{cai_two-sample_2014}{SHT}
+\insertRef{cai_twosample_2014}{SHT}
 }

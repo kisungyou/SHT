@@ -48,7 +48,7 @@
 #' }
 #' 
 #' @references 
-#' \insertRef{zhang_k-sample_2009}{SHT}
+#' \insertRef{zhang_ksample_2009}{SHT}
 #' 
 #' @export
 meank.2009ZX <- function(dlist, method=c("L","T")){
