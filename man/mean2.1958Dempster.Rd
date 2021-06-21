@@ -55,6 +55,4 @@ cat(paste("\n* Example for 'mean2.1958Dempster'\n","*\n",
 
 \insertRef{dempster_significance_1960}{SHT}
 }
-\author{
-Kisung You
-}
+\concept{mean_multivariate}

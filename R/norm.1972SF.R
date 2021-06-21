@@ -34,6 +34,7 @@
 #' @references 
 #' \insertRef{shapiro_approximate_1972}{SHT}
 #' 
+#' @concept gof_normal
 #' @export
 norm.1972SF <- function(x){
   ##############################################################

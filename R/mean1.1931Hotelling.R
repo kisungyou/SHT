@@ -39,6 +39,7 @@
 #' @references 
 #' \insertRef{hotelling_generalization_1931}{SHT}
 #' 
+#' @concept mean_multivariate
 #' @export
 mean1.1931Hotelling <- function(X, mu0=rep(0,ncol(X))){
   ##############################################################

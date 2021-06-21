@@ -58,3 +58,4 @@ cat(paste("\n* EMPIRICAL TYPE 1 ERROR COMPARISON \n","*\n",
 \references{
 \insertRef{li_two_2012}{SHT}
 }
+\concept{covariance}

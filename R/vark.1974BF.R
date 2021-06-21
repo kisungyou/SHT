@@ -46,6 +46,7 @@
 #' @references 
 #' \insertRef{brown_robust_1974}{SHT}
 #' 
+#' @concept variance
 #' @export
 vark.1974BF<- function(dlist){
   ##############################################################

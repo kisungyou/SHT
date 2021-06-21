@@ -58,3 +58,4 @@ cat(paste("\n* Example for 'cov1.2015WL'\n","*\n",
 \references{
 \insertRef{wu_tests_2015}{SHT}
 }
+\concept{covariance}

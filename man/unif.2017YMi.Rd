@@ -65,3 +65,4 @@ cat(paste("\n* Example for 'unif.2017YMi'\n","*\n",
 \references{
 \insertRef{yang_multivariate_2017}{SHT}
 }
+\concept{gof_uniform}

@@ -54,3 +54,4 @@ cat(paste("\n* Example for 'mean2.1965Yao'\n","*\n",
 \references{
 \insertRef{yao_approximate_1965}{SHT}
 }
+\concept{mean_multivariate}

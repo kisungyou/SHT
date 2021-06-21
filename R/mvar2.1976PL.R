@@ -42,6 +42,7 @@
 #' @references 
 #' \insertRef{perng_test_1976}{SHT}
 #' 
+#' @concept mvar
 #' @export
 mvar2.1976PL <- function(x, y){
   ##############################################################

@@ -37,6 +37,7 @@
 #' "* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
 #' }
 #' 
+#' @concept mvar
 #' @export
 mvar1.LRT <- function(x, mu0=0, var0=1){
   ##############################################################

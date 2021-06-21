@@ -44,6 +44,7 @@
 #' @references 
 #' \insertRef{snedecor_statistical_1996}{SHT}
 #' 
+#' @concept variance
 #' @export
 var2.F <- function(x, y, alternative=c("two.sided","less","greater")){
   ##############################################################

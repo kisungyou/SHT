@@ -41,3 +41,4 @@ test.z = norm.1965SW(z) # log-normal
 
 \insertRef{royston_approximating_1992}{SHT}
 }
+\concept{gof_normal}

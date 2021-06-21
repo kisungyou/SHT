@@ -43,3 +43,4 @@ test2 = norm.2008RJB(x, method="m") # Monte Carlo
 \references{
 \insertRef{gel_robust_2008}{SHT}
 }
+\concept{gof_normal}

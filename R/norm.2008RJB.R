@@ -29,6 +29,7 @@
 #' @references 
 #' \insertRef{gel_robust_2008}{SHT}
 #' 
+#' @concept gof_normal
 #' @export
 norm.2008RJB <- function(x, C1=6, C2=24, method=c("asymptotic","MC"), nreps=2000){
   ##############################################################

@@ -42,6 +42,7 @@
 #' @references 
 #' \insertRef{cai_twosample_2013}{SHT}
 #' 
+#' @concept covariance
 #' @export
 cov2.2013CLX <- function(X, Y){
   ##############################################################

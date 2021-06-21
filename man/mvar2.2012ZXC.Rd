@@ -54,3 +54,4 @@ cat(paste("\n* Example for 'mvar2.2012ZXC'\n","*\n",
 \references{
 \insertRef{zhang_exact_2012}{SHT}
 }
+\concept{mvar}

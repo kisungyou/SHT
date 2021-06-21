@@ -50,3 +50,4 @@ cat(paste("\n* Example for 'mean1.1931Hotelling'\n","*\n",
 \references{
 \insertRef{hotelling_generalization_1931}{SHT}
 }
+\concept{mean_multivariate}

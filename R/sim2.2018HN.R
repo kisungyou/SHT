@@ -42,6 +42,7 @@
 #' @references 
 #' \insertRef{hyodo_simultaneous_2018}{SHT}
 #' 
+#' @concept simtest
 #' @export
 sim2.2018HN <- function(X, Y){
   ##############################################################

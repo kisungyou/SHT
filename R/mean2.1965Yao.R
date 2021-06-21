@@ -43,6 +43,7 @@
 #' @references 
 #' \insertRef{yao_approximate_1965}{SHT}
 #' 
+#' @concept mean_multivariate
 #' @export
 mean2.1965Yao <- function(X, Y){
   # First two parts are commonly available for 

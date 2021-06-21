@@ -43,6 +43,7 @@
 #' @references 
 #' \insertRef{wu_tests_2015}{SHT}
 #' 
+#' @concept covariance
 #' @export
 cov2.2015WL <- function(X, Y, m=50){
   ##############################################################

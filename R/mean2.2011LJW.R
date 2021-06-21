@@ -47,7 +47,7 @@
 #' @references 
 #' \insertRef{lopes_more_2011}{SHT}
 #' 
-#' @author Kisung You
+#' @concept mean_multivariate
 #' @export
 mean2.2011LJW <- function(X, Y, method=c("asymptotic","MC"), nreps=1000){
   ##############################################################

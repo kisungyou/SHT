@@ -50,5 +50,5 @@ cat(paste("\n* Example for 'mean2.mxPBF'\n","*\n",
 "* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
 }
 
-
 }
+\concept{mean_multivariate}

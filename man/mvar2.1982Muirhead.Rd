@@ -53,3 +53,4 @@ cat(paste("\n* Example for 'mvar2.1982Muirhead'\n","*\n",
 \references{
 \insertRef{muirhead_aspects_1982}{SHT}
 }
+\concept{mvar}

@@ -51,6 +51,7 @@
 #' @references 
 #' \insertRef{hotelling_generalization_1931}{SHT}
 #' 
+#' @concept mean_multivariate
 #' @export
 mean2.1931Hotelling <- function(X, Y, paired=FALSE, var.equal=TRUE){
   ##############################################################

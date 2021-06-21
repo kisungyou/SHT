@@ -50,3 +50,4 @@ cat(paste("\n* Example for 'mean1.1996BS'\n","*\n",
 \references{
 \insertRef{bai_high_1996}{SHT}
 }
+\concept{mean_multivariate}

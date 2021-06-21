@@ -3,3 +3,7 @@
 ^\.Rproj\.user$
 ^README\.md$
 ^\.travis\.yml$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^LICENSE\.md$

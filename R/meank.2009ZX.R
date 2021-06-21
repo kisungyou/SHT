@@ -50,6 +50,7 @@
 #' @references 
 #' \insertRef{zhang_ksample_2009}{SHT}
 #' 
+#' @concept mean_multivariate
 #' @export
 meank.2009ZX <- function(dlist, method=c("L","T")){
   ##############################################################

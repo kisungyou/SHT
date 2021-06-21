@@ -43,6 +43,7 @@
 #' @references 
 #' \insertRef{fisher_testing_2012}{SHT}
 #' 
+#' @concept covariance
 #' @export
 cov1.2012Fisher <- function(X, Sigma0=diag(ncol(X)), type){
   ##############################################################

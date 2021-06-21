@@ -56,3 +56,4 @@ cat(paste("\n* Example for 'vark.1960Levene'\n","*\n",
 \references{
 \insertRef{levene_robust_1960}{SHT}
 }
+\concept{variance}

@@ -49,6 +49,7 @@
 #' @references 
 #' \insertRef{cao_test_2019}{SHT}
 #' 
+#' @concept mean_multivariate
 #' @export
 meank.2019CPH <- function(dlist, method=c("original","Hu")){
   ##############################################################

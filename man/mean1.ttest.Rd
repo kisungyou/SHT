@@ -48,3 +48,4 @@ cat(paste("\n* Example for 'mean1.ttest'\n","*\n",
 
 \insertRef{student_probable_1908a}{SHT}
 }
+\concept{mean_univariate}

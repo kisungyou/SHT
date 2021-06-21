@@ -46,6 +46,7 @@
 #' @references 
 #' \insertRef{wu_tests_2015}{SHT}
 #' 
+#' @concept covariance
 #' @export
 cov1.2015WL <- function(X, Sigma0=diag(ncol(X)), m=25){
   ##############################################################

@@ -43,6 +43,7 @@
 #' @references 
 #' \insertRef{johansen_welchjames_1980}{SHT}
 #' 
+#' @concept mean_multivariate
 #' @export
 mean2.1980Johansen <- function(X, Y){
   # First two parts are commonly available for 

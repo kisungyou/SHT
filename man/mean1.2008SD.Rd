@@ -50,6 +50,4 @@ cat(paste("\n* Example for 'mean1.2008SD'\n","*\n",
 \references{
 \insertRef{srivastava_test_2008}{SHT}
 }
-\author{
-Kisung You
-}
+\concept{mean_multivariate}

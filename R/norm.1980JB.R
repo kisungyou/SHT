@@ -29,6 +29,7 @@
 #' 
 #' \insertRef{jarque_test_1987}{SHT}
 #' 
+#' @concept gof_normal
 #' @export
 norm.1980JB <- function(x, method=c("asymptotic","MC"), nreps=2000){
   ##############################################################

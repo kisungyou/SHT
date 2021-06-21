@@ -53,3 +53,4 @@ cat(paste("\n* Example for 'mean2.1986NVM'\n","*\n",
 \references{
 \insertRef{nel_solution_1986}{SHT}
 }
+\concept{mean_multivariate}

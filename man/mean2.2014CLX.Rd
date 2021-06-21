@@ -62,3 +62,4 @@ cat(paste("\n* Example for 'mean2.2014CLX'\n","*\n",
 \references{
 \insertRef{cai_twosample_2014}{SHT}
 }
+\concept{mean_multivariate}

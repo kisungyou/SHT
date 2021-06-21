@@ -39,6 +39,7 @@
 #' @references 
 #' \insertRef{bai_high_1996}{SHT}
 #' 
+#' @concept mean_multivariate
 #' @export
 mean1.1996BS <- function(X, mu0=rep(0,ncol(X))){
   ##############################################################

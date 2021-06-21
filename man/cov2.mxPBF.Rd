@@ -51,3 +51,4 @@ cat(paste("\n* Example for 'cov2.mxPBF'\n","*\n",
 }
 
 }
+\concept{covariance}

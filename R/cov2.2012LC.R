@@ -46,6 +46,7 @@
 #' @references 
 #' \insertRef{li_two_2012}{SHT}
 #' 
+#' @concept covariance
 #' @export
 cov2.2012LC <- function(X, Y, unbiased=FALSE){
   ##############################################################

@@ -53,6 +53,4 @@ cat(paste("\n* Example for 'mean2.1996BS'\n","*\n",
 \references{
 \insertRef{bai_high_1996}{SHT}
 }
-\author{
-Kisung You
-}
+\concept{mean_multivariate}

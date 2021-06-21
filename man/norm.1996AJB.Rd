@@ -39,3 +39,4 @@ test2 = norm.1996AJB(x, method="m") # Monte Carlo
 \references{
 \insertRef{urzua_correct_1996}{SHT}
 }
+\concept{gof_normal}

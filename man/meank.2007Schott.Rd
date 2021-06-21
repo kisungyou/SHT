@@ -58,3 +58,4 @@ cat(paste("\n* Example for 'meank.2007Schott'\n","*\n",
 \references{
 \insertRef{schott_highdimensional_2007}{SHT}
 }
+\concept{mean_multivariate}

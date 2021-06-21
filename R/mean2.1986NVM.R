@@ -42,6 +42,7 @@
 #' @references 
 #' \insertRef{nel_solution_1986}{SHT}
 #' 
+#' @concept mean_multivariate
 #' @export
 mean2.1986NVM <- function(X, Y){
   # First two parts are commonly available for 

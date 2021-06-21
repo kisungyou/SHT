@@ -64,6 +64,4 @@ cat(paste("\n* Example for 'mean2.ttest'\n","*\n",
 
 \insertRef{welch_generalization_1947}{SHT}
 }
-\author{
-Kisung You
-}
+\concept{mean_univariate}

@@ -50,3 +50,4 @@ cat(paste("\n* Example for 'mvar2.LRT'\n","*\n",
 }
 
 }
+\concept{mvar}

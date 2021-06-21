@@ -56,3 +56,4 @@ cat(paste("\n* Example for 'vark.1937Bartlett'\n","*\n",
 \references{
 \insertRef{bartlett_properties_1937}{SHT}
 }
+\concept{variance}

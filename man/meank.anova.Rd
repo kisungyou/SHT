@@ -45,3 +45,4 @@ cat(paste("\n* Example for 'meank.anova'\n","*\n",
 }
 
 }
+\concept{mean_univariate}

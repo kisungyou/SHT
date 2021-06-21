@@ -46,6 +46,7 @@
 #' @references 
 #' \insertRef{bartlett_properties_1937}{SHT}
 #' 
+#' @concept variance
 #' @export
 vark.1937Bartlett <- function(dlist){
   ##############################################################

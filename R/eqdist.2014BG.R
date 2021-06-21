@@ -49,8 +49,9 @@
 #' @references 
 #' \insertRef{biswas_nonparametric_2014}{SHT}
 #' 
+#' @concept eqdist
 #' @export
-eqdist.2014BG <- function(X, Y, method=c("asymptotic","permutation"), nreps=2000){
+eqdist.2014BG <- function(X, Y, method=c("permutation","asymptotic"), nreps=999){
   ##############################################################
   # PREPROCESSING : accept both vector and matrix-valued data
   if (is.vector(X)){
@@ -65,7 +66,11 @@ eqdist.2014BG <- function(X, Y, method=c("asymptotic","permutation"), nreps=2000
       stop("* eqdist.2014BG : two input matrices should have same number of columns.")
     }
   }
-  mymethod = tolower(method)
+  if (missing(method)){
+    mymethod = "permutation"
+  } else {
+    mymethod = tolower(method) 
+  }
   if (pracma::strcmp(mymethod,"a")){
     mymethod = "asymptotic"
   } else if (pracma::strcmp(mymethod,"p")){
@@ -80,7 +85,7 @@ eqdist.2014BG <- function(X, Y, method=c("asymptotic","permutation"), nreps=2000
   n = nrow(Y)
   
   XY  = rbind(X,Y) # smart way of doing this is to concatenate all data
-  DXY = as.matrix(dist(XY))
+  DXY = as.matrix(stats::dist(XY))
   DX0 = DXY[1:m,1:m]                   # under null
   DY0 = DXY[(m+1):(m+n),(m+1):(m+n)]
   DZ0 = DXY[1:m,(m+1):(m+n)]

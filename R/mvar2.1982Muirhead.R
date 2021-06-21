@@ -43,6 +43,7 @@
 #' @references 
 #' \insertRef{muirhead_aspects_1982}{SHT}
 #' 
+#' @concept mvar
 #' @export
 mvar2.1982Muirhead <- function(x, y){
   ##############################################################

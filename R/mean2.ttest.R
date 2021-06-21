@@ -44,7 +44,7 @@
 #' 
 #' \insertRef{welch_generalization_1947}{SHT}
 #' 
-#' @author Kisung You
+#' @concept mean_univariate
 #' @export
 mean2.ttest <- function(x, y, alternative=c("two.sided","less","greater"), paired=FALSE, var.equal=FALSE){
   ##############################################################

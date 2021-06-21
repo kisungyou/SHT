@@ -39,8 +39,9 @@
 #' 
 #' @references 
 #' \insertRef{liu_simultaneous_2017}{SHT}
-#'
-#'@export
+#' 
+#' @concept simtest
+#' @export
 sim1.2017Liu <- function(X, mu0=rep(0,ncol(X)),  Sigma0=diag(ncol(X))){
   ##############################################################
   # PREPROCESSING

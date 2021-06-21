@@ -56,3 +56,4 @@ cat(paste("\n* Example for 'var2.F'\n","*\n",
 \references{
 \insertRef{snedecor_statistical_1996}{SHT}
 }
+\concept{variance}

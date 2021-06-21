@@ -38,7 +38,8 @@
 #' "* total number of trials : ", niter,"\n",
 #' "* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
 #' }
-#'
+#' 
+#' @concept mvar
 #' @export
 mvar2.1930PN <- function(x, y){
   ##############################################################

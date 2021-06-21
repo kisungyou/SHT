@@ -42,7 +42,7 @@
 #' @references 
 #' \insertRef{srivastava_test_2008}{SHT}
 #' 
-#' @author Kisung You
+#' @concept mean_multivariate
 #' @export
 mean2.2008SD <- function(X, Y){
   ##############################################################

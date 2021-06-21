@@ -52,3 +52,4 @@ cat(paste("\n* Example for 'mvar1.1998AS'\n","*\n",
 \references{
 \insertRef{arnold_joint_1998}{SHT}
 }
+\concept{mvar}

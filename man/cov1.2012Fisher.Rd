@@ -55,3 +55,4 @@ cat(paste("\n* Example for 'cov1.2012Fisher' \n","*\n",
 \references{
 \insertRef{fisher_testing_2012}{SHT}
 }
+\concept{covariance}

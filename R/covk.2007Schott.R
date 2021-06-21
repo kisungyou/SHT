@@ -46,6 +46,7 @@
 #' @references 
 #' \insertRef{schott_test_2007}{SHT}
 #' 
+#' @concept covariance
 #' @export
 covk.2007Schott <- function(dlist){
   ##############################################################

@@ -43,6 +43,7 @@
 #' @references 
 #' \insertRef{krishnamoorthy_modified_2004}{SHT}
 #' 
+#' @concept mean_multivariate
 #' @export
 mean2.2004KY <- function(X, Y){
   # First two parts are commonly available for 

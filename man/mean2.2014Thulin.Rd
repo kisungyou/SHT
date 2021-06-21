@@ -55,6 +55,4 @@ mean2.2014Thulin(X,Y,nreps=100)
 \references{
 \insertRef{thulin_highdimensional_2014}{SHT}
 }
-\author{
-Kisung You
-}
+\concept{mean_multivariate}

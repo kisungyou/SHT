@@ -42,7 +42,7 @@
 #' @references 
 #' \insertRef{snedecor_statistical_1996}{SHT}
 #' 
-#' 
+#' @concept variance
 #' @export
 var1.chisq <- function(x, var0=1, alternative=c("two.sided","less","greater")){
   ##############################################################

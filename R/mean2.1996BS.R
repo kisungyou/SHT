@@ -42,7 +42,7 @@
 #' @references 
 #' \insertRef{bai_high_1996}{SHT}
 #' 
-#' @author Kisung You
+#' @concept mean_multivariate
 #' @export
 mean2.1996BS <- function(X, Y){
   ##############################################################

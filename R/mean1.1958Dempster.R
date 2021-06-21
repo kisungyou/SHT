@@ -41,7 +41,7 @@
 #' 
 #' \insertRef{dempster_significance_1960}{SHT}
 #' 
-#' @author Kisung You
+#' @concept mean_multivariate
 #' @export
 mean1.1958Dempster <- function(X, mu0=rep(0,ncol(X))){
   ##############################################################

@@ -4,7 +4,7 @@
 \alias{eqdist.2014BG}
 \title{Test for Equality of Two Distributions by Biswas and Ghosh (2014)}
 \usage{
-eqdist.2014BG(X, Y, method = c("asymptotic", "permutation"), nreps = 2000)
+eqdist.2014BG(X, Y, method = c("permutation", "asymptotic"), nreps = 999)
 }
 \arguments{
 \item{X}{a vector/matrix of 1st sample.}
@@ -62,3 +62,4 @@ cat(paste("\n* EMPIRICAL TYPE 1 ERROR COMPARISON \n","*\n",
 \references{
 \insertRef{biswas_nonparametric_2014}{SHT}
 }
+\concept{eqdist}

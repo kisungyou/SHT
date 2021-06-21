@@ -60,3 +60,4 @@ cat(paste("\n* Example for 'meank.2019CPH'\n","*\n",
 \references{
 \insertRef{cao_test_2019}{SHT}
 }
+\concept{mean_multivariate}

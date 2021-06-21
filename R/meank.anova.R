@@ -35,6 +35,7 @@
 #' "* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
 #' }
 #' 
+#' @concept mean_univariate
 #' @export
 meank.anova <- function(dlist){
   ##############################################################

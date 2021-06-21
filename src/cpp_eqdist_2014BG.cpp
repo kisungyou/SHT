@@ -54,7 +54,10 @@ double cpp_eqdist_2014BG_computeS(arma::mat D){
       }
     }
   }
-  term1 /= ((mm*(mm-1.0)*(mm-2.0))/6.0);
+  double term1fin = term1/((mm*(mm-1.0)*(mm-2.0))/6.0);
+  
+  
+  // term1 /= ((mm*(mm-1.0)*(mm-2.0))/6.0);
   // 2-2. pair with squared
   double term2 = 0.0;
   for (int i=0;i<(m-1);i++){
@@ -62,9 +65,11 @@ double cpp_eqdist_2014BG_computeS(arma::mat D){
       term2 += D(i,j);
     }
   }
-  term2 /= (mm*(mm-1.0))/2.0;
+  double term2fin = term2/(mm*(mm-1.0))/2.0;
+  // term2 /= (mm*(mm-1.0))/2.0;
   
   // 3. return output
-  double output = term1-(term2*term2);
+  // double output = term1-(term2*term2);
+  double output = term1fin - (term2fin*term2fin);
   return(output);
 }

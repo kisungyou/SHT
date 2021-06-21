@@ -53,3 +53,4 @@ cat(paste("\n* Example for 'cov2.2013CLX'\n","*\n",
 \references{
 \insertRef{cai_twosample_2013}{SHT}
 }
+\concept{covariance}

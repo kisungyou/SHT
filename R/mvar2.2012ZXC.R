@@ -43,6 +43,7 @@
 #' @references 
 #' \insertRef{zhang_exact_2012}{SHT}
 #' 
+#' @concept mvar
 #' @export
 mvar2.2012ZXC <- function(x, y){
   ##############################################################

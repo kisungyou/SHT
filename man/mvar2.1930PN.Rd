@@ -50,3 +50,4 @@ cat(paste("\n* Example for 'mvar2.1930PN'\n","*\n",
 }
 
 }
+\concept{mvar}

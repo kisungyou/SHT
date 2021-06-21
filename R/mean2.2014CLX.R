@@ -49,6 +49,7 @@
 #' @references 
 #' \insertRef{cai_twosample_2014}{SHT}
 #' 
+#' @concept mean_multivariate
 #' @export
 mean2.2014CLX <- function(X, Y, Omega=NULL, cov.equal = TRUE){
   ##############################################################

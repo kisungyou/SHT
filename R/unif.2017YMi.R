@@ -47,6 +47,7 @@
 #' @references 
 #' \insertRef{yang_multivariate_2017}{SHT}
 #' 
+#' @concept gof_uniform
 #' @export
 unif.2017YMi <- function(X, type=c("Q1","Q2","Q3"), lower=rep(0,ncol(X)), upper=rep(1,ncol(X))){
   ##############################################################

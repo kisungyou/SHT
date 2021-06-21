@@ -39,7 +39,7 @@
 #' @references 
 #' \insertRef{srivastava_test_2008}{SHT}
 #' 
-#' @author Kisung You
+#' @concept mean_multivariate
 #' @export
 mean1.2008SD <- function(X, mu0=rep(0,ncol(X))){
   ##############################################################

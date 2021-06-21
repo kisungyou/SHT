@@ -53,3 +53,4 @@ cat(paste("\n* Example for 'mvar2.1976PL'\n","*\n",
 \references{
 \insertRef{perng_test_1976}{SHT}
 }
+\concept{mvar}

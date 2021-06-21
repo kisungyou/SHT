@@ -42,7 +42,7 @@
 #' @references 
 #' \insertRef{thulin_highdimensional_2014}{SHT}
 #' 
-#' @author Kisung You
+#' @concept mean_multivariate
 #' @export
 mean2.2014Thulin <- function(X, Y, B=100, nreps=1000){
   ##############################################################

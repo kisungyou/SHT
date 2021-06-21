@@ -53,3 +53,4 @@ cat(paste("\n* Example for 'sim2.2018HN'\n","*\n",
 \references{
 \insertRef{hyodo_simultaneous_2018}{SHT}
 }
+\concept{simtest}

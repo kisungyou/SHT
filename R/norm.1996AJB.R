@@ -27,6 +27,7 @@
 #' @references 
 #' \insertRef{urzua_correct_1996}{SHT}
 #' 
+#' @concept gof_normal
 #' @export
 norm.1996AJB <- function(x, method=c("asymptotic","MC"), nreps=2000){
   ##############################################################

@@ -49,3 +49,4 @@ cat(paste("\n* Example for 'mvar1.LRT'\n","*\n",
 }
 
 }
+\concept{mvar}

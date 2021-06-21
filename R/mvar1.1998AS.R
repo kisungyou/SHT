@@ -40,6 +40,7 @@
 #' @references 
 #' \insertRef{arnold_joint_1998}{SHT}
 #' 
+#' @concept mvar
 #' @export
 mvar1.1998AS <- function(x, mu0=0, var0=1){
   ##############################################################

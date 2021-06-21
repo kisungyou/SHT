@@ -44,3 +44,4 @@ test.z = norm.1972SF(z) # log-normal
 \references{
 \insertRef{shapiro_approximate_1972}{SHT}
 }
+\concept{gof_normal}

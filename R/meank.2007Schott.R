@@ -48,6 +48,7 @@
 #' @references 
 #' \insertRef{schott_highdimensional_2007}{SHT}
 #' 
+#' @concept mean_multivariate
 #' @export
 meank.2007Schott <- function(dlist){
   ##############################################################

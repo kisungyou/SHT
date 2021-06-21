@@ -52,3 +52,4 @@ cat(paste("\n* Example for 'sim1.2017Liu'\n","*\n",
 \references{
 \insertRef{liu_simultaneous_2017}{SHT}
 }
+\concept{simtest}

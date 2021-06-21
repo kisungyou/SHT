@@ -36,6 +36,7 @@
 #' 
 #' \insertRef{student_probable_1908a}{SHT}
 #' 
+#' @concept mean_univariate
 #' @export
 mean1.ttest <- function(x, mu0=0, alternative=c("two.sided","less","greater")){
   ##############################################################

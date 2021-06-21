@@ -8,6 +8,7 @@
 #'
 #' @docType package
 #' @name SHT
+#' @noRd
 #' @aliases SHT-package
 #' @import Rdpack
 #' @importFrom pracma pinv strcmp

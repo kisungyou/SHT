@@ -56,3 +56,4 @@ cat(paste("\n* Example for 'covk.2007Schott'\n","*\n",
 \references{
 \insertRef{schott_test_2007}{SHT}
 }
+\concept{covariance}

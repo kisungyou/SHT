@@ -46,6 +46,7 @@
 #' @references 
 #' \insertRef{levene_robust_1960}{SHT}
 #' 
+#' @concept variance
 #' @export
 vark.1960Levene <- function(dlist){
   ##############################################################

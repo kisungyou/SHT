@@ -31,6 +31,7 @@
 #' 
 #' \insertRef{royston_approximating_1992}{SHT}
 #' 
+#' @concept gof_normal
 #' @export
 norm.1965SW <- function(x){
   ##############################################################

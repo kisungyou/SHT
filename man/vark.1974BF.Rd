@@ -56,3 +56,4 @@ cat(paste("\n* Example for 'vark.1974BF'\n","*\n",
 \references{
 \insertRef{brown_robust_1974}{SHT}
 }
+\concept{variance}

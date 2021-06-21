@@ -54,3 +54,4 @@ cat(paste("\n* Example for 'mean2.2004KY'\n","*\n",
 \references{
 \insertRef{krishnamoorthy_modified_2004}{SHT}
 }
+\concept{mean_multivariate}

@@ -41,3 +41,4 @@ test2 = norm.1980JB(x, method="m") # Monte Carlo
 
 \insertRef{jarque_test_1987}{SHT}
 }
+\concept{gof_normal}
