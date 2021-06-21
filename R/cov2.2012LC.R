@@ -77,14 +77,14 @@ cov2.2012LC <- function(X, Y, unbiased=FALSE){
   
   Tn1n2 = (A1 + A2 - 2*C12)  # test statistic
   shat  = 2*(A1/n2 + A2/n1)  # variance term
-  pvalue = pnorm((Tn1n2/shat), lower.tail = FALSE)
+  pvalue = stats::pnorm((Tn1n2/sqrt(shat)), lower.tail = FALSE)
   
   
   ##############################################################
   # FINALE
   hname   = "Two-sample Test for High-Dimensional Covariances by Li and Chen (2012)"
   Ha      = "two covariances are not equal."
-  thestat = Tn1n2
+  thestat = Tn1n2/sqrt(shat)
   
   DNAME = paste(deparse(substitute(X))," and ",deparse(substitute(Y)),sep="") # borrowed from HDtest
   names(thestat) = "statistic"
