@@ -1,3 +1,7 @@
+# SHT 0.1.5
+
+* In `mean2.2014CLX()`, support for an adaptive thresholding estimator is added for a case with non-sparse precision matrix.
+
 # SHT 0.1.4
 
 * Fixed an error in `cov2.2012LC()` function.

@@ -47,6 +47,8 @@ using the procedure by Cao, Park, and He (2019)." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -58,9 +60,15 @@ using the procedure by Cao, Park, and He (2019)." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -74,7 +82,7 @@ using the procedure by Cao, Park, and He (2019)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -130,7 +138,7 @@ $$H_0 : \mu_1 = \cdots \mu_k\quad vs\quad H_1 : \textrm{at least one equality do
 using the procedure by Cao, Park, and He (2019).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>meank.2019CPH</span><span class='op'>(</span><span class='va'>dlist</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"original"</span>, <span class='st'>"Hu"</span><span class='op'>)</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>meank.2019CPH</span><span class='op'>(</span><span class='va'>dlist</span>, method <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"original"</span>, <span class='st'>"Hu"</span><span class='op'>)</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -165,48 +173,50 @@ proposed in the paper, and <code>"Hu"</code> for the one used in 2017 paper by H
 ISSN 03783758.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'>## CRAN-purpose small example</span>
-<span class='va'>tinylist</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>
-<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>{</span> <span class='co'># consider 3-sample case</span>
-  <span class='va'>tinylist</span><span class='op'>[[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>*</span><span class='fl'>3</span><span class='op'>)</span>,ncol<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span>
-<span class='op'>}</span>
-<span class='fu'>meank.2019CPH</span><span class='op'>(</span><span class='va'>tinylist</span>, method<span class='op'>=</span><span class='st'>"o"</span><span class='op'>)</span> <span class='co'># newly-proposed variance estimator</span>
-</div><div class='output co'>#&gt; 
-#&gt; 	Test for Equality of Means by Cao, Park, and He (2019)
-#&gt; 
-#&gt; data:  tinylist
-#&gt; T = 1.4062, p-value = 0.3102
-#&gt; alternative hypothesis: one of equalities does not hold.
-#&gt; </div><div class='input'><span class='fu'>meank.2019CPH</span><span class='op'>(</span><span class='va'>tinylist</span>, method<span class='op'>=</span><span class='st'>"h"</span><span class='op'>)</span> <span class='co'># adopt one from 2017Hu</span>
-</div><div class='output co'>#&gt; 
-#&gt; 	Test for Equality of Means by Cao, Park, and He (2019)
-#&gt; 
-#&gt; data:  tinylist
-#&gt; T = 1.4062, p-value = 0.3246
-#&gt; alternative hypothesis: one of equalities does not hold.
-#&gt; </div><div class='input'>
-<span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span>
-<span class='co'>## test when k=5 samples with (n,p) = (10,50)</span>
-<span class='co'>## empirical Type 1 error </span>
-<span class='va'>niter</span>   <span class='op'>=</span> <span class='fl'>10000</span>
-<span class='va'>counter</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='va'>niter</span><span class='op'>)</span>  <span class='co'># record p-values</span>
-<span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>niter</span><span class='op'>)</span><span class='op'>{</span>
-  <span class='va'>mylist</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span>
-  <span class='kw'>for</span> <span class='op'>(</span><span class='va'>j</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span><span class='op'>{</span>
-     <span class='va'>mylist</span><span class='op'>[[</span><span class='va'>j</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>*</span><span class='fl'>50</span><span class='op'>)</span>,ncol<span class='op'>=</span><span class='fl'>50</span><span class='op'>)</span>
-  <span class='op'>}</span>
-  
-  <span class='va'>counter</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'>meank.2019CPH</span><span class='op'>(</span><span class='va'>mylist</span><span class='op'>)</span><span class='op'>$</span><span class='va'>p.value</span> <span class='op'>&lt;</span> <span class='fl'>0.05</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span>
-<span class='op'>}</span>
-
-<span class='co'>## print the result</span>
-<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"\n* Example for 'meank.2019CPH'\n"</span>,<span class='st'>"*\n"</span>,
-<span class='st'>"* number of rejections   : "</span>, <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>counter</span><span class='op'>)</span>,<span class='st'>"\n"</span>,
-<span class='st'>"* total number of trials : "</span>, <span class='va'>niter</span>,<span class='st'>"\n"</span>,
-<span class='st'>"* empirical Type 1 error : "</span>,<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>counter</span><span class='op'>/</span><span class='va'>niter</span><span class='op'>)</span>,<span class='fl'>5</span><span class='op'>)</span>,<span class='st'>"\n"</span>,sep<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span><span class='op'>)</span>
-<span class='op'>}</span>
-
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'>## CRAN-purpose small example</span></span>
+<span class='r-in'><span class='va'>tinylist</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'><span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>3</span><span class='op'>)</span><span class='op'>{</span> <span class='co'># consider 3-sample case</span></span>
+<span class='r-in'>  <span class='va'>tinylist</span><span class='op'>[[</span><span class='va'>i</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>*</span><span class='fl'>3</span><span class='op'>)</span>,ncol<span class='op'>=</span><span class='fl'>3</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'><span class='fu'>meank.2019CPH</span><span class='op'>(</span><span class='va'>tinylist</span>, method<span class='op'>=</span><span class='st'>"o"</span><span class='op'>)</span> <span class='co'># newly-proposed variance estimator</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	Test for Equality of Means by Cao, Park, and He (2019)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> data:  tinylist</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> T = 1.4062, p-value = 0.3102</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> alternative hypothesis: one of equalities does not hold.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'><span class='fu'>meank.2019CPH</span><span class='op'>(</span><span class='va'>tinylist</span>, method<span class='op'>=</span><span class='st'>"h"</span><span class='op'>)</span> <span class='co'># adopt one from 2017Hu</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 	Test for Equality of Means by Cao, Park, and He (2019)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> data:  tinylist</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> T = 1.4062, p-value = 0.3246</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> alternative hypothesis: one of equalities does not hold.</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+<span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
+<span class='r-in'><span class='co'>## test when k=5 samples with (n,p) = (10,50)</span></span>
+<span class='r-in'><span class='co'>## empirical Type 1 error </span></span>
+<span class='r-in'><span class='va'>niter</span>   <span class='op'>=</span> <span class='fl'>10000</span></span>
+<span class='r-in'><span class='va'>counter</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='va'>niter</span><span class='op'>)</span>  <span class='co'># record p-values</span></span>
+<span class='r-in'><span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>niter</span><span class='op'>)</span><span class='op'>{</span></span>
+<span class='r-in'>  <span class='va'>mylist</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span><span class='op'>(</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='kw'>for</span> <span class='op'>(</span><span class='va'>j</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='fl'>5</span><span class='op'>)</span><span class='op'>{</span></span>
+<span class='r-in'>     <span class='va'>mylist</span><span class='op'>[[</span><span class='va'>j</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>10</span><span class='op'>*</span><span class='fl'>50</span><span class='op'>)</span>,ncol<span class='op'>=</span><span class='fl'>50</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='op'>}</span></span>
+<span class='r-in'>  </span>
+<span class='r-in'>  <span class='va'>counter</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'>meank.2019CPH</span><span class='op'>(</span><span class='va'>mylist</span><span class='op'>)</span><span class='op'>$</span><span class='va'>p.value</span> <span class='op'>&lt;</span> <span class='fl'>0.05</span>, <span class='fl'>1</span>, <span class='fl'>0</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## print the result</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"\n* Example for 'meank.2019CPH'\n"</span>,<span class='st'>"*\n"</span>,</span>
+<span class='r-in'><span class='st'>"* number of rejections   : "</span>, <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>counter</span><span class='op'>)</span>,<span class='st'>"\n"</span>,</span>
+<span class='r-in'><span class='st'>"* total number of trials : "</span>, <span class='va'>niter</span>,<span class='st'>"\n"</span>,</span>
+<span class='r-in'><span class='st'>"* empirical Type 1 error : "</span>,<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>counter</span><span class='op'>/</span><span class='va'>niter</span><span class='op'>)</span>,<span class='fl'>5</span><span class='op'>)</span>,<span class='st'>"\n"</span>,sep<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='op'>}</span></span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -218,11 +228,11 @@ ISSN 03783758.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Kyoungjae Lee, Lizhen Lin, Kisung You.</p>
+  <p><p>Developed by Kyoungjae Lee, Lizhen Lin, Kisung You.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -230,6 +240,8 @@ ISSN 03783758.</p>
 
   
 
+
+  
 
   </body>
 </html>

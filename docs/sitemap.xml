@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://kisungyou.com/SHT/404.html</loc>
+  </url>
+  <url>
+    <loc>https://kisungyou.com/SHT/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>https://kisungyou.com/SHT/LICENSE.html</loc>
+  </url>
+  <url>
+    <loc>https://kisungyou.com/SHT/authors.html</loc>
+  </url>
+  <url>
     <loc>https://kisungyou.com/SHT/index.html</loc>
+  </url>
+  <url>
+    <loc>https://kisungyou.com/SHT/news/index.html</loc>
   </url>
   <url>
     <loc>https://kisungyou.com/SHT/reference/cov1.2012Fisher.html</loc>
@@ -29,6 +44,9 @@
   </url>
   <url>
     <loc>https://kisungyou.com/SHT/reference/eqdist.2014BG.html</loc>
+  </url>
+  <url>
+    <loc>https://kisungyou.com/SHT/reference/index.html</loc>
   </url>
   <url>
     <loc>https://kisungyou.com/SHT/reference/mean1.1931Hotelling.html</loc>

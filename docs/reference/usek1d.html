@@ -47,6 +47,8 @@ provided in this package be used with two univariate samples \(x\) and \(y\)." /
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -58,9 +60,15 @@ provided in this package be used with two univariate samples \(x\) and \(y\)." /
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -74,7 +82,7 @@ provided in this package be used with two univariate samples \(x\) and \(y\)." /
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
       </span>
     </div>
 
@@ -130,7 +138,7 @@ a special case of \(k=2\). <code>usek1d</code> lets any \(k\)-sample tests
 provided in this package be used with two univariate samples \(x\) and \(y\).</p>
     </div>
 
-    <pre class="usage"><span class='fu'>usek1d</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='va'>test.name</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>usek1d</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='va'>test.name</span>, <span class='va'>...</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,27 +174,28 @@ provided in this package be used with two univariate samples \(x\) and \(y\).</p
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='co'>### compare two-means via anova and t-test</span>
-<span class='co'>### since they coincide when k=2</span>
-<span class='va'>x</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>50</span><span class='op'>)</span>
-<span class='va'>y</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>50</span><span class='op'>)</span>
-
-<span class='co'>### run anova and t-test</span>
-<span class='va'>test1</span> <span class='op'>=</span> <span class='fu'>usek1d</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='st'>"meank.anova"</span><span class='op'>)</span>
-<span class='va'>test2</span> <span class='op'>=</span> <span class='fu'><a href='mean2.ttest.html'>mean2.ttest</a></span><span class='op'>(</span><span class='va'>x</span>,<span class='va'>y</span><span class='op'>)</span>
-
-<span class='co'>## print the result</span>
-<span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"\n* Comparison of ANOVA and t-test \n"</span>,<span class='st'>"*\n"</span>,
-<span class='st'>"* p-value from ANOVA  : "</span>, <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>test1</span><span class='op'>$</span><span class='va'>p.value</span>,<span class='fl'>5</span><span class='op'>)</span>,<span class='st'>"\n"</span>,
-<span class='st'>"*              t-test : "</span>, <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>test2</span><span class='op'>$</span><span class='va'>p.value</span>,<span class='fl'>5</span><span class='op'>)</span>,<span class='st'>"\n"</span>,sep<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span><span class='op'>)</span>
-</div><div class='output co'>#&gt; 
-#&gt; * Comparison of ANOVA and t-test 
-#&gt; *
-#&gt; * p-value from ANOVA  : 0.74031
-#&gt; *              t-test : 0.74031</div><div class='input'><span class='co'># }</span>
-
-</div></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='co'># \donttest{</span></span>
+<span class='r-in'><span class='co'>### compare two-means via anova and t-test</span></span>
+<span class='r-in'><span class='co'>### since they coincide when k=2</span></span>
+<span class='r-in'><span class='va'>x</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>50</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>y</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>50</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>### run anova and t-test</span></span>
+<span class='r-in'><span class='va'>test1</span> <span class='op'>=</span> <span class='fu'>usek1d</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>y</span>, <span class='st'>"meank.anova"</span><span class='op'>)</span></span>
+<span class='r-in'><span class='va'>test2</span> <span class='op'>=</span> <span class='fu'><a href='mean2.ttest.html'>mean2.ttest</a></span><span class='op'>(</span><span class='va'>x</span>,<span class='va'>y</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'>## print the result</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"\n* Comparison of ANOVA and t-test \n"</span>,<span class='st'>"*\n"</span>,</span>
+<span class='r-in'><span class='st'>"* p-value from ANOVA  : "</span>, <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>test1</span><span class='op'>$</span><span class='va'>p.value</span>,<span class='fl'>5</span><span class='op'>)</span>,<span class='st'>"\n"</span>,</span>
+<span class='r-in'><span class='st'>"*              t-test : "</span>, <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='va'>test2</span><span class='op'>$</span><span class='va'>p.value</span>,<span class='fl'>5</span><span class='op'>)</span>,<span class='st'>"\n"</span>,sep<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> * Comparison of ANOVA and t-test </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> *</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> * p-value from ANOVA  : 0.74031</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> *              t-test : 0.74031</span>
+<span class='r-in'><span class='co'># }</span></span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -198,11 +207,11 @@ provided in this package be used with two univariate samples \(x\) and \(y\).</p
 
       <footer>
       <div class="copyright">
-  <p>Developed by Kyoungjae Lee, Lizhen Lin, Kisung You.</p>
+  <p><p>Developed by Kyoungjae Lee, Lizhen Lin, Kisung You.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -210,6 +219,8 @@ provided in this package be used with two univariate samples \(x\) and \(y\).</p
 
   
 
+
+  
 
   </body>
 </html>

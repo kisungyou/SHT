@@ -2,17 +2,21 @@
 #' 
 #' Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 #' \deqn{H_0 : \mu_x = \mu_y\quad vs\quad H_1 : \mu_x \neq \mu_y}
-#' using the procedure by Cai, Liu, and Xia (2014). Since the test is equivalent to testing 
-#' \deqn{H_0 : \Omega(\mu_x - \mu_y)=0},
-#' if \eqn{\Omega}, an inverse covariance (or precision), is not provided, it finds 
-#' a sparse precision matrix via CLIME estimator. Also, if two samples 
+#' using the procedure by Cai, Liu, and Xia (2014) which is equivalent to test
+#' \deqn{H_0 : \Omega(\mu_x - \mu_y)=0}
+#' for an inverse covariance (or precision) \eqn{\Omega}. When \eqn{\Omega} is not given 
+#' and known to be sparse, it is first estimated with CLIME estimator. Otherwise, 
+#' adaptive thresholding estimator is used. Also, if two samples 
 #' are assumed to have different covariance structure, it uses weighting scheme for adjustment.
 #' 
 #' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
 #' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
-#' @param Omega precision matrix; if \code{NULL}, it applies CLIME estimation. Otherwise, 
+#' @param precision type of assumption for a precision matrix (default: \code{"sparse"}).
+#' @param delta an algorithmic parameter for adaptive thresholding estimation (default: 2).
+#' @param Omega precision matrix; if \code{NULL}, an estimate is used. Otherwise, 
 #' a \eqn{(p\times p)} inverse covariance should be provided.
 #' @param cov.equal a logical to determine homogeneous covariance assumption.
+#' 
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -26,7 +30,8 @@
 #' ## CRAN-purpose small example
 #' smallX = matrix(rnorm(10*3),ncol=3)
 #' smallY = matrix(rnorm(10*3),ncol=3)
-#' mean2.2014CLX(smallX, smallY) # run the test
+#' mean2.2014CLX(smallX, smallY, precision="unknown")
+#' mean2.2014CLX(smallX, smallY, precision="sparse")
 #' 
 #' \dontrun{
 #' ## empirical Type 1 error 
@@ -51,7 +56,7 @@
 #' 
 #' @concept mean_multivariate
 #' @export
-mean2.2014CLX <- function(X, Y, Omega=NULL, cov.equal = TRUE){
+mean2.2014CLX <- function(X, Y, precision=c("sparse","unknown"), delta=2, Omega=NULL, cov.equal = TRUE){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
@@ -69,6 +74,13 @@ mean2.2014CLX <- function(X, Y, Omega=NULL, cov.equal = TRUE){
       warning(" mean2.2014CLX : provided 'Omega' is not a valid matrix. We use data-driven approach with 'CLIME' estimator.")
       clime.flag = TRUE
     }
+  }
+  
+  use.clime = match.arg(precision)
+  if (all(use.clime=="unknown")){
+    mydelta = max(sqrt(.Machine$double.eps), as.double(delta))
+    output  = mean2.2014CLX.AT(X, Y, mydelta)
+    return(output)
   }
 
   # Parameters and Functions
@@ -127,7 +139,7 @@ mean2.2014CLX <- function(X, Y, Omega=NULL, cov.equal = TRUE){
       
       # report
       
-      hname   = "Two-sample Mean Test with Equal Precisions with Estimation by Cai, Liu, and Xia (2014)."
+      hname   = "Two-sample Mean Test with Equal Precisions with CLIME estimate by Cai, Liu, and Xia (2014)."
       names(thestat) = "statistic"
       res     = list(statistic=thestat, p.value=pvalue, alternative=Ha, method=hname, data.name=DNAME)
       
@@ -155,7 +167,7 @@ mean2.2014CLX <- function(X, Y, Omega=NULL, cov.equal = TRUE){
       
       # report
       
-      hname   = "Two-sample Mean Test with Unequal Precisions with Estimation by Cai, Liu, and Xia (2014)."
+      hname   = "Two-sample Mean Test with Unequal Precisions with CLIME estimate by Cai, Liu, and Xia (2014)."
       names(thestat) = "statistic"
       res     = list(statistic=thestat, p.value=pvalue, alternative=Ha, method=hname, data.name=DNAME)
     }
@@ -172,6 +184,62 @@ mean2.2014CLX <- function(X, Y, Omega=NULL, cov.equal = TRUE){
 #' @noRd
 extreme_type1 <- function(t){
   return(exp(-(1/sqrt(pi))*exp(-t/2)))
+}
+
+#' @keywords internal
+#' @noRd
+mean2.2014CLX.AT <- function(X, Y, delta){
+  ##############################################################
+  # Parameters and Functions
+  n1   = nrow(X)
+  n2   = nrow(Y)
+  p    = ncol(X)
+  
+  # extra for future report
+  Ha    = "two means are different."
+  DNAME = paste(deparse(substitute(X))," and ",deparse(substitute(Y)),sep="") # borrowed from HDtest
+  
+  ##############################################################
+  S.pooled = ((n1-1)*cov(X) + (n2-1)*cov(Y))/(n1 + n2)
+  
+  X.ctd = scale(X, scale = FALSE)
+  Y.ctd = scale(Y, scale = FALSE)
+  
+  lambda.mat = matrix(0, p,p)
+  for(i in 1:p){
+    for(j in (1:p)[-i]){
+      theta.ij = (sum((X.ctd[,i]*X.ctd[,j] - S.pooled[i,j])^2) + sum((Y.ctd[,i]*Y.ctd[,j] - S.pooled[i,j])^2))/(n1 + n2)
+      lambda.mat[i,j] = delta * sqrt(theta.ij*log(p)/(n1+n2))
+    }
+  }
+  supp.mat = (abs(S.pooled) >= lambda.mat)
+  Sigma.hat = S.pooled * supp.mat
+  if(min(eigen(Sigma.hat)$val)<=0) Sigma.hat = Sigma.hat + (-min(eigen(Sigma.hat)$values) + 0.001)*diag(p)
+  Omega.hat = solve(Sigma.hat)
+  
+  X.omega = X%*%Omega.hat
+  Y.omega = Y%*%Omega.hat
+  W0      = ((n1-1)*cov(X.omega) + (n2-1)*cov(Y.omega))/(n1+n2)
+  
+  eeps    = 100*.Machine$double.eps
+  wvec    = diag(W0)
+  # wvec[abs(wvec)<eeps] = eeps
+  zbar    = Omega.hat%*% as.vector(base::colMeans(X) - base::colMeans(Y))
+  
+  thestat = ((n1*n2)/(n1+n2))*max(zbar^2/wvec)
+  # threshold = 2*log(p) - log(log(p)) - log(pi) - 2*log(log(1/(1-alpha))) # just in case for future use
+  pvalue    = 1-extreme_type1(thestat-2*log(p)+log(log(p)))
+  
+  # report
+  
+  hname   = "Two-sample Mean Test with Equal Precisions with Adaptive Thresholding estimate  by Cai, Liu, and Xia (2014)."
+  names(thestat) = "statistic"
+  res     = list(statistic=thestat, p.value=pvalue, alternative=Ha, method=hname, data.name=DNAME)
+  
+  ##############################################################
+  # set up the output
+  class(res) = "htest"
+  return(res)
 }
 
 # #' @keywords internal
