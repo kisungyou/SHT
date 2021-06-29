@@ -4,14 +4,25 @@
 \alias{mean2.2014CLX}
 \title{Two-sample Test for High-Dimensional Means by Cai, Liu, and Xia (2014)}
 \usage{
-mean2.2014CLX(X, Y, Omega = NULL, cov.equal = TRUE)
+mean2.2014CLX(
+  X,
+  Y,
+  precision = c("sparse", "unknown"),
+  delta = 2,
+  Omega = NULL,
+  cov.equal = TRUE
+)
 }
 \arguments{
 \item{X}{an \eqn{(n_x \times p)} data matrix of 1st sample.}
 
 \item{Y}{an \eqn{(n_y \times p)} data matrix of 2nd sample.}
 
-\item{Omega}{precision matrix; if \code{NULL}, it applies CLIME estimation. Otherwise, 
+\item{precision}{type of assumption for a precision matrix (default: \code{"sparse"}).}
+
+\item{delta}{an algorithmic parameter for adaptive thresholding estimation (default: 2).}
+
+\item{Omega}{precision matrix; if \code{NULL}, an estimate is used. Otherwise, 
 a \eqn{(p\times p)} inverse covariance should be provided.}
 
 \item{cov.equal}{a logical to determine homogeneous covariance assumption.}
@@ -28,17 +39,19 @@ a (list) object of \code{S3} class \code{htest} containing: \describe{
 \description{
 Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 \deqn{H_0 : \mu_x = \mu_y\quad vs\quad H_1 : \mu_x \neq \mu_y}
-using the procedure by Cai, Liu, and Xia (2014). Since the test is equivalent to testing 
-\deqn{H_0 : \Omega(\mu_x - \mu_y)=0},
-if \eqn{\Omega}, an inverse covariance (or precision), is not provided, it finds 
-a sparse precision matrix via CLIME estimator. Also, if two samples 
+using the procedure by Cai, Liu, and Xia (2014) which is equivalent to test
+\deqn{H_0 : \Omega(\mu_x - \mu_y)=0}
+for an inverse covariance (or precision) \eqn{\Omega}. When \eqn{\Omega} is not given 
+and known to be sparse, it is first estimated with CLIME estimator. Otherwise, 
+adaptive thresholding estimator is used. Also, if two samples 
 are assumed to have different covariance structure, it uses weighting scheme for adjustment.
 }
 \examples{
 ## CRAN-purpose small example
 smallX = matrix(rnorm(10*3),ncol=3)
 smallY = matrix(rnorm(10*3),ncol=3)
-mean2.2014CLX(smallX, smallY) # run the test
+mean2.2014CLX(smallX, smallY, precision="unknown")
+mean2.2014CLX(smallX, smallY, precision="sparse")
 
 \dontrun{
 ## empirical Type 1 error 
