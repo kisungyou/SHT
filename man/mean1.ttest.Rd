@@ -9,7 +9,7 @@ mean1.ttest(x, mu0 = 0, alternative = c("two.sided", "less", "greater"))
 \arguments{
 \item{x}{a length-\eqn{n} data vector.}
 
-\item{mu0}{hypothesized variance \eqn{\sigma_0^2}.}
+\item{mu0}{hypothesized me \eqn{\mu_0}.}
 
 \item{alternative}{specifying the alternative hypothesis.}
 }

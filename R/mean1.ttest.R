@@ -5,7 +5,7 @@
 #' using the procedure by Student (1908).
 #' 
 #' @param x a length-\eqn{n} data vector.
-#' @param mu0 hypothesized variance \eqn{\sigma_0^2}.
+#' @param mu0 hypothesized me \eqn{\mu_0}.
 #' @param alternative specifying the alternative hypothesis.
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
