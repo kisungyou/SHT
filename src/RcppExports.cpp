@@ -35,49 +35,49 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// cpp_cov2_2012LC_biased_computeA
-double cpp_cov2_2012LC_biased_computeA(arma::mat X);
-RcppExport SEXP _SHT_cpp_cov2_2012LC_biased_computeA(SEXP XSEXP) {
+// cov2_2012LC_A
+double cov2_2012LC_A(arma::mat& X);
+RcppExport SEXP _SHT_cov2_2012LC_A(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_cov2_2012LC_biased_computeA(X));
+    Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
+    rcpp_result_gen = Rcpp::wrap(cov2_2012LC_A(X));
     return rcpp_result_gen;
 END_RCPP
 }
-// cpp_cov2_2012LC_biased_computeC
-double cpp_cov2_2012LC_biased_computeC(arma::mat X, arma::mat Y);
-RcppExport SEXP _SHT_cpp_cov2_2012LC_biased_computeC(SEXP XSEXP, SEXP YSEXP) {
+// cov2_2012LC_C
+double cov2_2012LC_C(arma::mat& X, arma::mat& Y);
+RcppExport SEXP _SHT_cov2_2012LC_C(SEXP XSEXP, SEXP YSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
-    Rcpp::traits::input_parameter< arma::mat >::type Y(YSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_cov2_2012LC_biased_computeC(X, Y));
+    Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type Y(YSEXP);
+    rcpp_result_gen = Rcpp::wrap(cov2_2012LC_C(X, Y));
     return rcpp_result_gen;
 END_RCPP
 }
-// cpp_cov2_2012LC_computeA
-double cpp_cov2_2012LC_computeA(arma::mat X);
-RcppExport SEXP _SHT_cpp_cov2_2012LC_computeA(SEXP XSEXP) {
+// cov2_2012LC_A_no_bias
+double cov2_2012LC_A_no_bias(arma::mat& X);
+RcppExport SEXP _SHT_cov2_2012LC_A_no_bias(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_cov2_2012LC_computeA(X));
+    Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
+    rcpp_result_gen = Rcpp::wrap(cov2_2012LC_A_no_bias(X));
     return rcpp_result_gen;
 END_RCPP
 }
-// cpp_cov2_2012LC_computeC
-double cpp_cov2_2012LC_computeC(arma::mat X, arma::mat Y);
-RcppExport SEXP _SHT_cpp_cov2_2012LC_computeC(SEXP XSEXP, SEXP YSEXP) {
+// cov2_2012LC_C_no_bias
+double cov2_2012LC_C_no_bias(arma::mat& X, arma::mat& Y);
+RcppExport SEXP _SHT_cov2_2012LC_C_no_bias(SEXP XSEXP, SEXP YSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
-    Rcpp::traits::input_parameter< arma::mat >::type X(XSEXP);
-    Rcpp::traits::input_parameter< arma::mat >::type Y(YSEXP);
-    rcpp_result_gen = Rcpp::wrap(cpp_cov2_2012LC_computeC(X, Y));
+    Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
+    Rcpp::traits::input_parameter< arma::mat& >::type Y(YSEXP);
+    rcpp_result_gen = Rcpp::wrap(cov2_2012LC_C_no_bias(X, Y));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -280,10 +280,10 @@ END_RCPP
 static const R_CallMethodDef CallEntries[] = {
     {"_SHT_cpp_cov1_mxPBF_single", (DL_FUNC) &_SHT_cpp_cov1_mxPBF_single, 4},
     {"_SHT_cpp_cov1_mxPBF_multiple", (DL_FUNC) &_SHT_cpp_cov1_mxPBF_multiple, 5},
-    {"_SHT_cpp_cov2_2012LC_biased_computeA", (DL_FUNC) &_SHT_cpp_cov2_2012LC_biased_computeA, 1},
-    {"_SHT_cpp_cov2_2012LC_biased_computeC", (DL_FUNC) &_SHT_cpp_cov2_2012LC_biased_computeC, 2},
-    {"_SHT_cpp_cov2_2012LC_computeA", (DL_FUNC) &_SHT_cpp_cov2_2012LC_computeA, 1},
-    {"_SHT_cpp_cov2_2012LC_computeC", (DL_FUNC) &_SHT_cpp_cov2_2012LC_computeC, 2},
+    {"_SHT_cov2_2012LC_A", (DL_FUNC) &_SHT_cov2_2012LC_A, 1},
+    {"_SHT_cov2_2012LC_C", (DL_FUNC) &_SHT_cov2_2012LC_C, 2},
+    {"_SHT_cov2_2012LC_A_no_bias", (DL_FUNC) &_SHT_cov2_2012LC_A_no_bias, 1},
+    {"_SHT_cov2_2012LC_C_no_bias", (DL_FUNC) &_SHT_cov2_2012LC_C_no_bias, 2},
     {"_SHT_cpp_cov2_mxPBF_single", (DL_FUNC) &_SHT_cpp_cov2_mxPBF_single, 5},
     {"_SHT_cpp_cov2_mxPBF_multiple", (DL_FUNC) &_SHT_cpp_cov2_mxPBF_multiple, 6},
     {"_SHT_energy_distance", (DL_FUNC) &_SHT_energy_distance, 4},

@@ -11,7 +11,7 @@ cov2.2012LC(X, Y, unbiased = FALSE)
 
 \item{Y}{an \eqn{(n_y \times p)} data matrix of 2nd sample.}
 
-\item{unbiased}{a logical; \code{FALSE} to use biased estimator with faster speed, \code{TRUE} otherwise.}
+\item{unbiased}{a logical; \code{FALSE} to use up to 4th-order U-statistics as proposed in the paper, \code{TRUE} for faster run under an assumption that \eqn{\mu_h = 0} (default: \code{FALSE}).}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{
@@ -25,8 +25,7 @@ a (list) object of \code{S3} class \code{htest} containing: \describe{
 \description{
 Given two multivariate data \eqn{X} and \eqn{Y} of same dimension, it tests
 \deqn{H_0 : \Sigma_x = \Sigma_y\quad vs\quad H_1 : \Sigma_x \neq \Sigma_y}
-using the procedure by Li and Chen (2012). In accordance with a proposal 
-by authors, we offer an option to use biased estimator instead for faster computation.
+using the procedure by Li and Chen (2012).
 }
 \examples{
 ## CRAN-purpose small example
@@ -35,23 +34,22 @@ smallY = matrix(rnorm(10*3),ncol=3)
 cov2.2012LC(smallX, smallY) # run the test
 
 \dontrun{
-## comparison of biased and unbiased estimator
-## empirical Type 1 error 
-niter   = 100
-vec.slow = rep(0,niter)  # record p-values
-vec.fast = rep(0,niter)
+## empirical Type 1 error : use 'biased' version for faster computation
+niter   = 1000
+counter = rep(0,niter)
 for (i in 1:niter){
   X = matrix(rnorm(500*25), ncol=10)
   Y = matrix(rnorm(500*25), ncol=10)
   
-  vec.slow[i] = ifelse(cov2.2012LC(X,Y,unbiased=TRUE)$p.value  < 0.05,1,0)
-  vec.fast[i] = ifelse(cov2.2012LC(X,Y,unbiased=FALSE)$p.value < 0.05,1,0)
+  counter[i] = ifelse(cov2.2012LC(X,Y,unbiased=TRUE)$p.value  < 0.05,1,0)
+  print(paste0("iteration ",i,"/1000 complete.."))
 }
 
 ## print the result
-cat(paste("\n* EMPIRICAL TYPE 1 ERROR COMPARISON \n","*\n",
-"* Biased   case : ", round(sum(vec.fast/niter),5),"\n",
-"* Unbiased case : ", round(sum(vec.slow/niter),5),"\n",sep=""))
+cat(paste("\n* Example for 'cov2.2012LC'\n","*\n",
+"* number of rejections   : ", sum(counter),"\n",
+"* total number of trials : ", niter,"\n",
+"* empirical Type 1 error : ",round(sum(counter/niter),5),"\n",sep=""))
 }
 
 }

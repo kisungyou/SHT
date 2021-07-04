@@ -9,20 +9,20 @@ cpp_cov1_mxPBF_multiple <- function(X, a0, b0, gamma, nCores) {
     .Call('_SHT_cpp_cov1_mxPBF_multiple', PACKAGE = 'SHT', X, a0, b0, gamma, nCores)
 }
 
-cpp_cov2_2012LC_biased_computeA <- function(X) {
-    .Call('_SHT_cpp_cov2_2012LC_biased_computeA', PACKAGE = 'SHT', X)
+cov2_2012LC_A <- function(X) {
+    .Call('_SHT_cov2_2012LC_A', PACKAGE = 'SHT', X)
 }
 
-cpp_cov2_2012LC_biased_computeC <- function(X, Y) {
-    .Call('_SHT_cpp_cov2_2012LC_biased_computeC', PACKAGE = 'SHT', X, Y)
+cov2_2012LC_C <- function(X, Y) {
+    .Call('_SHT_cov2_2012LC_C', PACKAGE = 'SHT', X, Y)
 }
 
-cpp_cov2_2012LC_computeA <- function(X) {
-    .Call('_SHT_cpp_cov2_2012LC_computeA', PACKAGE = 'SHT', X)
+cov2_2012LC_A_no_bias <- function(X) {
+    .Call('_SHT_cov2_2012LC_A_no_bias', PACKAGE = 'SHT', X)
 }
 
-cpp_cov2_2012LC_computeC <- function(X, Y) {
-    .Call('_SHT_cpp_cov2_2012LC_computeC', PACKAGE = 'SHT', X, Y)
+cov2_2012LC_C_no_bias <- function(X, Y) {
+    .Call('_SHT_cov2_2012LC_C_no_bias', PACKAGE = 'SHT', X, Y)
 }
 
 cpp_cov2_mxPBF_single <- function(X, Y, a0, b0, gamma) {

@@ -42,8 +42,7 @@
 <meta property="og:title" content="Two-sample Test for High-Dimensional Covariances by Li and Chen (2012) — cov2.2012LC" />
 <meta property="og:description" content="Given two multivariate data \(X\) and \(Y\) of same dimension, it tests
 $$H_0 : \Sigma_x = \Sigma_y\quad vs\quad H_1 : \Sigma_x \neq \Sigma_y$$
-using the procedure by Li and Chen (2012). In accordance with a proposal 
-by authors, we offer an option to use biased estimator instead for faster computation." />
+using the procedure by Li and Chen (2012)." />
 
 
 
@@ -136,8 +135,7 @@ by authors, we offer an option to use biased estimator instead for faster comput
     <div class="ref-description">
     <p>Given two multivariate data \(X\) and \(Y\) of same dimension, it tests
 $$H_0 : \Sigma_x = \Sigma_y\quad vs\quad H_1 : \Sigma_x \neq \Sigma_y$$
-using the procedure by Li and Chen (2012). In accordance with a proposal 
-by authors, we offer an option to use biased estimator instead for faster computation.</p>
+using the procedure by Li and Chen (2012).</p>
     </div>
 
     <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>cov2.2012LC</span><span class='op'>(</span><span class='va'>X</span>, <span class='va'>Y</span>, unbiased <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></code></pre></div>
@@ -155,7 +153,7 @@ by authors, we offer an option to use biased estimator instead for faster comput
     </tr>
     <tr>
       <th>unbiased</th>
-      <td><p>a logical; <code>FALSE</code> to use biased estimator with faster speed, <code>TRUE</code> otherwise.</p></td>
+      <td><p>a logical; <code>FALSE</code> to use up to 4th-order U-statistics as proposed in the paper, <code>TRUE</code> for faster run under an assumption that \(\mu_h = 0\) (default: <code>FALSE</code>).</p></td>
     </tr>
     </table>
 
@@ -186,28 +184,27 @@ ISSN 0090-5364.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 	Two-sample Test for High-Dimensional Covariances by Li and Chen (2012)</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> data:  smallX and smallY</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> statistic = 0.47072, p-value = 0.3189</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> statistic = -0.91131, p-value = 0.8189</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> alternative hypothesis: two covariances are not equal.</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
 <span class='r-in'></span>
 <span class='r-in'><span class='kw'>if</span> <span class='op'>(</span><span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>{</span></span>
-<span class='r-in'><span class='co'>## comparison of biased and unbiased estimator</span></span>
-<span class='r-in'><span class='co'>## empirical Type 1 error </span></span>
-<span class='r-in'><span class='va'>niter</span>   <span class='op'>=</span> <span class='fl'>100</span></span>
-<span class='r-in'><span class='va'>vec.slow</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='va'>niter</span><span class='op'>)</span>  <span class='co'># record p-values</span></span>
-<span class='r-in'><span class='va'>vec.fast</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='va'>niter</span><span class='op'>)</span></span>
+<span class='r-in'><span class='co'>## empirical Type 1 error : use 'biased' version for faster computation</span></span>
+<span class='r-in'><span class='va'>niter</span>   <span class='op'>=</span> <span class='fl'>1000</span></span>
+<span class='r-in'><span class='va'>counter</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/rep.html'>rep</a></span><span class='op'>(</span><span class='fl'>0</span>,<span class='va'>niter</span><span class='op'>)</span></span>
 <span class='r-in'><span class='kw'>for</span> <span class='op'>(</span><span class='va'>i</span> <span class='kw'>in</span> <span class='fl'>1</span><span class='op'>:</span><span class='va'>niter</span><span class='op'>)</span><span class='op'>{</span></span>
 <span class='r-in'>  <span class='va'>X</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>500</span><span class='op'>*</span><span class='fl'>25</span><span class='op'>)</span>, ncol<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span></span>
 <span class='r-in'>  <span class='va'>Y</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>500</span><span class='op'>*</span><span class='fl'>25</span><span class='op'>)</span>, ncol<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span></span>
 <span class='r-in'>  </span>
-<span class='r-in'>  <span class='va'>vec.slow</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'>cov2.2012LC</span><span class='op'>(</span><span class='va'>X</span>,<span class='va'>Y</span>,unbiased<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>$</span><span class='va'>p.value</span>  <span class='op'>&lt;</span> <span class='fl'>0.05</span>,<span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span></span>
-<span class='r-in'>  <span class='va'>vec.fast</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'>cov2.2012LC</span><span class='op'>(</span><span class='va'>X</span>,<span class='va'>Y</span>,unbiased<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>$</span><span class='va'>p.value</span> <span class='op'>&lt;</span> <span class='fl'>0.05</span>,<span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='va'>counter</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'>cov2.2012LC</span><span class='op'>(</span><span class='va'>X</span>,<span class='va'>Y</span>,unbiased<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>$</span><span class='va'>p.value</span>  <span class='op'>&lt;</span> <span class='fl'>0.05</span>,<span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"iteration "</span>,<span class='va'>i</span>,<span class='st'>"/1000 complete.."</span><span class='op'>)</span><span class='op'>)</span></span>
 <span class='r-in'><span class='op'>}</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='co'>## print the result</span></span>
-<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"\n* EMPIRICAL TYPE 1 ERROR COMPARISON \n"</span>,<span class='st'>"*\n"</span>,</span>
-<span class='r-in'><span class='st'>"* Biased   case : "</span>, <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>vec.fast</span><span class='op'>/</span><span class='va'>niter</span><span class='op'>)</span>,<span class='fl'>5</span><span class='op'>)</span>,<span class='st'>"\n"</span>,</span>
-<span class='r-in'><span class='st'>"* Unbiased case : "</span>, <span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>vec.slow</span><span class='op'>/</span><span class='va'>niter</span><span class='op'>)</span>,<span class='fl'>5</span><span class='op'>)</span>,<span class='st'>"\n"</span>,sep<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/base/cat.html'>cat</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste</a></span><span class='op'>(</span><span class='st'>"\n* Example for 'cov2.2012LC'\n"</span>,<span class='st'>"*\n"</span>,</span>
+<span class='r-in'><span class='st'>"* number of rejections   : "</span>, <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>counter</span><span class='op'>)</span>,<span class='st'>"\n"</span>,</span>
+<span class='r-in'><span class='st'>"* total number of trials : "</span>, <span class='va'>niter</span>,<span class='st'>"\n"</span>,</span>
+<span class='r-in'><span class='st'>"* empirical Type 1 error : "</span>,<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>counter</span><span class='op'>/</span><span class='va'>niter</span><span class='op'>)</span>,<span class='fl'>5</span><span class='op'>)</span>,<span class='st'>"\n"</span>,sep<span class='op'>=</span><span class='st'>""</span><span class='op'>)</span><span class='op'>)</span></span>
 <span class='r-in'><span class='op'>}</span></span>
 <span class='r-in'></span>
 </code></pre></div>
