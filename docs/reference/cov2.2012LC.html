@@ -82,7 +82,7 @@ using the procedure by Li and Chen (2012)." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.6</span>
       </span>
     </div>
 
@@ -138,7 +138,7 @@ $$H_0 : \Sigma_x = \Sigma_y\quad vs\quad H_1 : \Sigma_x \neq \Sigma_y$$
 using the procedure by Li and Chen (2012).</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>cov2.2012LC</span><span class='op'>(</span><span class='va'>X</span>, <span class='va'>Y</span>, unbiased <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></code></pre></div>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>cov2.2012LC</span><span class='op'>(</span><span class='va'>X</span>, <span class='va'>Y</span>, use.unbiased <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -152,8 +152,8 @@ using the procedure by Li and Chen (2012).</p>
       <td><p>an \((n_y \times p)\) data matrix of 2nd sample.</p></td>
     </tr>
     <tr>
-      <th>unbiased</th>
-      <td><p>a logical; <code>FALSE</code> to use up to 4th-order U-statistics as proposed in the paper, <code>TRUE</code> for faster run under an assumption that \(\mu_h = 0\) (default: <code>FALSE</code>).</p></td>
+      <th>use.unbiased</th>
+      <td><p>a logical; <code>TRUE</code> to use up to 4th-order U-statistics as proposed in the paper, <code>FALSE</code> for faster run under an assumption that \(\mu_h = 0\) (default: <code>FALSE</code>).</p></td>
     </tr>
     </table>
 
@@ -184,7 +184,7 @@ ISSN 0090-5364.</p>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> 	Two-sample Test for High-Dimensional Covariances by Li and Chen (2012)</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> data:  smallX and smallY</span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> statistic = -0.91131, p-value = 0.8189</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> statistic = -1.8166, p-value = 0.9654</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> alternative hypothesis: two covariances are not equal.</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
 <span class='r-in'></span>
@@ -196,7 +196,7 @@ ISSN 0090-5364.</p>
 <span class='r-in'>  <span class='va'>X</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>500</span><span class='op'>*</span><span class='fl'>25</span><span class='op'>)</span>, ncol<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span></span>
 <span class='r-in'>  <span class='va'>Y</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/stats/Normal.html'>rnorm</a></span><span class='op'>(</span><span class='fl'>500</span><span class='op'>*</span><span class='fl'>25</span><span class='op'>)</span>, ncol<span class='op'>=</span><span class='fl'>10</span><span class='op'>)</span></span>
 <span class='r-in'>  </span>
-<span class='r-in'>  <span class='va'>counter</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'>cov2.2012LC</span><span class='op'>(</span><span class='va'>X</span>,<span class='va'>Y</span>,unbiased<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>$</span><span class='va'>p.value</span>  <span class='op'>&lt;</span> <span class='fl'>0.05</span>,<span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span></span>
+<span class='r-in'>  <span class='va'>counter</span><span class='op'>[</span><span class='va'>i</span><span class='op'>]</span> <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/ifelse.html'>ifelse</a></span><span class='op'>(</span><span class='fu'>cov2.2012LC</span><span class='op'>(</span><span class='va'>X</span>,<span class='va'>Y</span>,use.unbiased<span class='op'>=</span><span class='cn'>FALSE</span><span class='op'>)</span><span class='op'>$</span><span class='va'>p.value</span>  <span class='op'>&lt;</span> <span class='fl'>0.05</span>,<span class='fl'>1</span>,<span class='fl'>0</span><span class='op'>)</span></span>
 <span class='r-in'>  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='fu'><a href='https://rdrr.io/r/base/paste.html'>paste0</a></span><span class='op'>(</span><span class='st'>"iteration "</span>,<span class='va'>i</span>,<span class='st'>"/1000 complete.."</span><span class='op'>)</span><span class='op'>)</span></span>
 <span class='r-in'><span class='op'>}</span></span>
 <span class='r-in'></span>

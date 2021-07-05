@@ -1,3 +1,8 @@
+# SHT 0.1.6
+
+* New methods added; `sim1.LRT()`.
+* Option for `cov2.2012LC()` is changed for clarity.
+
 # SHT 0.1.5
 
 * Fixed critical errors in `cov2.2012LC()`.

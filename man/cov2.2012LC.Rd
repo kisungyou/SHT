@@ -4,14 +4,14 @@
 \alias{cov2.2012LC}
 \title{Two-sample Test for High-Dimensional Covariances by Li and Chen (2012)}
 \usage{
-cov2.2012LC(X, Y, unbiased = FALSE)
+cov2.2012LC(X, Y, use.unbiased = FALSE)
 }
 \arguments{
 \item{X}{an \eqn{(n_x \times p)} data matrix of 1st sample.}
 
 \item{Y}{an \eqn{(n_y \times p)} data matrix of 2nd sample.}
 
-\item{unbiased}{a logical; \code{FALSE} to use up to 4th-order U-statistics as proposed in the paper, \code{TRUE} for faster run under an assumption that \eqn{\mu_h = 0} (default: \code{FALSE}).}
+\item{use.unbiased}{a logical; \code{TRUE} to use up to 4th-order U-statistics as proposed in the paper, \code{FALSE} for faster run under an assumption that \eqn{\mu_h = 0} (default: \code{FALSE}).}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{
@@ -41,7 +41,7 @@ for (i in 1:niter){
   X = matrix(rnorm(500*25), ncol=10)
   Y = matrix(rnorm(500*25), ncol=10)
   
-  counter[i] = ifelse(cov2.2012LC(X,Y,unbiased=TRUE)$p.value  < 0.05,1,0)
+  counter[i] = ifelse(cov2.2012LC(X,Y,use.unbiased=FALSE)$p.value  < 0.05,1,0)
   print(paste0("iteration ",i,"/1000 complete.."))
 }
 

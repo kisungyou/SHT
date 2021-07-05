@@ -6,7 +6,7 @@
 #' 
 #' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
 #' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
-#' @param unbiased a logical; \code{FALSE} to use up to 4th-order U-statistics as proposed in the paper, \code{TRUE} for faster run under an assumption that \eqn{\mu_h = 0} (default: \code{FALSE}).
+#' @param use.unbiased a logical; \code{TRUE} to use up to 4th-order U-statistics as proposed in the paper, \code{FALSE} for faster run under an assumption that \eqn{\mu_h = 0} (default: \code{FALSE}).
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -30,7 +30,7 @@
 #'   X = matrix(rnorm(500*25), ncol=10)
 #'   Y = matrix(rnorm(500*25), ncol=10)
 #'   
-#'   counter[i] = ifelse(cov2.2012LC(X,Y,unbiased=TRUE)$p.value  < 0.05,1,0)
+#'   counter[i] = ifelse(cov2.2012LC(X,Y,use.unbiased=FALSE)$p.value  < 0.05,1,0)
 #'   print(paste0("iteration ",i,"/1000 complete.."))
 #' }
 #' 
@@ -46,7 +46,7 @@
 #' 
 #' @concept covariance
 #' @export
-cov2.2012LC <- function(X, Y, unbiased=FALSE){
+cov2.2012LC <- function(X, Y, use.unbiased=FALSE){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
@@ -64,7 +64,7 @@ cov2.2012LC <- function(X, Y, unbiased=FALSE){
   X1 = as.matrix(scale(X, center = TRUE, scale = FALSE))
   X2 = as.matrix(scale(Y, center = TRUE, scale = FALSE))
   
-  if (unbiased==FALSE){ # unbiased / slower / full
+  if (use.unbiased){ # unbiased / slower / full
     A1  = cov2_2012LC_A(X1)
     A2  = cov2_2012LC_A(X2)
     C12 = cov2_2012LC_C(X1, X2)
