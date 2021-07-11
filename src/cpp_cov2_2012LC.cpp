@@ -158,7 +158,7 @@ double cov2_2012LC_C_no_bias(arma::mat &X, arma::mat &Y){
   
   for (int i=0; i<n1; i++){
     for (int j=0; j<n2; j++){
-      tmpval = arma::dot(X.row(i), X.row(j));
+      tmpval = arma::dot(X.row(i), Y.row(j));
       sumh  += tmpval*tmpval;
     }
   }
