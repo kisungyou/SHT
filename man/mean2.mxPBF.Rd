@@ -4,20 +4,20 @@
 \alias{mean2.mxPBF}
 \title{Two-sample Mean Test with Maximum Pairwise Bayes Factor}
 \usage{
-mean2.mxPBF(X, Y, a0 = 2, b0 = 2, gamma = 1, nthreads = 1)
+mean2.mxPBF(X, Y, a0 = 0, b0 = 0, gamma = 1, nthreads = 1)
 }
 \arguments{
 \item{X}{an \eqn{(n_x \times p)} data matrix of 1st sample.}
 
 \item{Y}{an \eqn{(n_y \times p)} data matrix of 2nd sample.}
 
-\item{a0}{shape parameter for inverse-gamma prior.}
+\item{a0}{shape parameter for inverse-gamma prior (default: 0).}
 
-\item{b0}{scale parameter for inverse-gamma prior.}
+\item{b0}{scale parameter for inverse-gamma prior (default: 0).}
 
-\item{gamma}{non-negative variance scaling parameter.}
+\item{gamma}{non-negative variance scaling parameter (default: 1).}
 
-\item{nthreads}{number of threads for parallel execution via OpenMP.}
+\item{nthreads}{number of threads for parallel execution via OpenMP (default: 1).}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{

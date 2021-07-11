@@ -4,10 +4,10 @@
 #' 
 #' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
 #' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
-#' @param a0 shape parameter for inverse-gamma prior.
-#' @param b0 scale parameter for inverse-gamma prior.
-#' @param gamma non-negative variance scaling parameter.
-#' @param nthreads number of threads for parallel execution via OpenMP.
+#' @param a0 shape parameter for inverse-gamma prior (default: 0).
+#' @param b0 scale parameter for inverse-gamma prior (default: 0).
+#' @param gamma non-negative variance scaling parameter (default: 1).
+#' @param nthreads number of threads for parallel execution via OpenMP (default: 1).
 #'
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{maximum of pairwise Bayes factor.}
@@ -38,7 +38,7 @@
 #'
 #' @concept mean_multivariate
 #' @export
-mean2.mxPBF <- function(X, Y, a0=2.0, b0=2.0, gamma=1.0, nthreads=1){
+mean2.mxPBF <- function(X, Y, a0=0, b0=0, gamma=1.0, nthreads=1){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
@@ -50,10 +50,10 @@ mean2.mxPBF <- function(X, Y, a0=2.0, b0=2.0, gamma=1.0, nthreads=1){
   if ((nrow(X)<2)||(nrow(Y)<2)||(p<2)){
     stop("* mean2.mxPBF : inputs are invalid. Provide multivariate samples with multiple observations.")
   }
-  if ((length(a0)>1)||(a0<=0)){
+  if ((length(a0)>1)||(a0<0)){
     stop("* mean2.mxPBF : 'a0' should be a nonnegative number.")
   }
-  if ((length(b0)>1)||(b0<=0)){
+  if ((length(b0)>1)||(b0<0)){
     stop("* mean2.mxPBF : 'b0' should be a nonnegative number.")
   }
   if ((length(gamma)>1)||(gamma<=0)){
