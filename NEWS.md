@@ -2,6 +2,7 @@
 
 * New methods added; `sim1.LRT()`.
 * Option for `cov2.2012LC()` is changed for clarity.
+* Default parameters are changed for `mean2.mxPBF()`.
 
 # SHT 0.1.5
 

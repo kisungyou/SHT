@@ -134,7 +134,7 @@
     <p>Not Written Here - No Reference Yet.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>mean2.mxPBF</span><span class='op'>(</span><span class='va'>X</span>, <span class='va'>Y</span>, a0 <span class='op'>=</span> <span class='fl'>2</span>, b0 <span class='op'>=</span> <span class='fl'>2</span>, gamma <span class='op'>=</span> <span class='fl'>1</span>, nthreads <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></code></pre></div>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>mean2.mxPBF</span><span class='op'>(</span><span class='va'>X</span>, <span class='va'>Y</span>, a0 <span class='op'>=</span> <span class='fl'>0</span>, b0 <span class='op'>=</span> <span class='fl'>0</span>, gamma <span class='op'>=</span> <span class='fl'>1</span>, nthreads <span class='op'>=</span> <span class='fl'>1</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -149,19 +149,19 @@
     </tr>
     <tr>
       <th>a0</th>
-      <td><p>shape parameter for inverse-gamma prior.</p></td>
+      <td><p>shape parameter for inverse-gamma prior (default: 0).</p></td>
     </tr>
     <tr>
       <th>b0</th>
-      <td><p>scale parameter for inverse-gamma prior.</p></td>
+      <td><p>scale parameter for inverse-gamma prior (default: 0).</p></td>
     </tr>
     <tr>
       <th>gamma</th>
-      <td><p>non-negative variance scaling parameter.</p></td>
+      <td><p>non-negative variance scaling parameter (default: 1).</p></td>
     </tr>
     <tr>
       <th>nthreads</th>
-      <td><p>number of threads for parallel execution via OpenMP.</p></td>
+      <td><p>number of threads for parallel execution via OpenMP (default: 1).</p></td>
     </tr>
     </table>
 
