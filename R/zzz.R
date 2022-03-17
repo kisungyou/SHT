@@ -23,6 +23,7 @@
   packageStartupMessage("**         Statistical Hypothesis Testing Toolbox")
   packageStartupMessage("**")
   packageStartupMessage("** Version    : ",this.version,"      (",this.year,")",sep="")
+  packageStartupMessage("** Authors    : Kyoungjae Lee, Lizhen Lin, Kisung You")
   packageStartupMessage("** Maintainer : Kisung You (kisungyou@outlook.com)")
   packageStartupMessage("**")
   packageStartupMessage("** Please share any bugs or suggestions to the maintainer.")

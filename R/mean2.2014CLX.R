@@ -193,6 +193,7 @@ mean2.2014CLX.AT <- function(X, Y, delta){
   # Parameters and Functions
   n1   = nrow(X)
   n2   = nrow(Y)
+  n    = (n1*n2)/(n1+n2)
   p    = ncol(X)
   
   # extra for future report
@@ -202,19 +203,24 @@ mean2.2014CLX.AT <- function(X, Y, delta){
   ##############################################################
   S.pooled = ((n1-1)*cov(X) + (n2-1)*cov(Y))/(n1 + n2)
   
-  X.ctd = scale(X, scale = FALSE)
-  Y.ctd = scale(Y, scale = FALSE)
+  X.ctd = as.matrix(scale(X, center=TRUE, scale = FALSE))
+  Y.ctd = as.matrix(scale(Y, center=TRUE, scale = FALSE))
   
-  lambda.mat = matrix(0, p,p)
-  for(i in 1:p){
-    for(j in (1:p)[-i]){
+  lambda.mat = array(0,c(p,p))
+  for (i in 1:(p-1)){
+    for (j in (i+1):p){
       theta.ij = (sum((X.ctd[,i]*X.ctd[,j] - S.pooled[i,j])^2) + sum((Y.ctd[,i]*Y.ctd[,j] - S.pooled[i,j])^2))/(n1 + n2)
-      lambda.mat[i,j] = delta * sqrt(theta.ij*log(p)/(n1+n2))
+      
+      lambda.mat[i,j] = delta*sqrt(theta.ij*log(p)/n)
+      lambda.mat[j,i] = lambda.mat[i,j]
     }
   }
-  supp.mat = (abs(S.pooled) >= lambda.mat)
-  Sigma.hat = S.pooled * supp.mat
-  if(min(eigen(Sigma.hat)$val)<=0) Sigma.hat = Sigma.hat + (-min(eigen(Sigma.hat)$values) + 0.001)*diag(p)
+  
+  Sigma.hat = S.pooled * (abs(S.pooled) >= lambda.mat)
+  Sigma.eig = base::eigen(Sigma.hat)$values
+  if (min(Sigma.eig) <= 0){ # adjust for non-definite case
+    Sigma.hat = Sigma.hat + (abs(min(Sigma.eig)) + 0.001)*diag(p)
+  }
   Omega.hat = solve(Sigma.hat)
   
   X.omega = X%*%Omega.hat
@@ -224,9 +230,9 @@ mean2.2014CLX.AT <- function(X, Y, delta){
   eeps    = 100*.Machine$double.eps
   wvec    = diag(W0)
   # wvec[abs(wvec)<eeps] = eeps
-  zbar    = Omega.hat%*% as.vector(base::colMeans(X) - base::colMeans(Y))
+  zbar    = as.vector(Omega.hat%*%as.vector(base::colMeans(X) - base::colMeans(Y)))
   
-  thestat = ((n1*n2)/(n1+n2))*max(zbar^2/wvec)
+  thestat = ((n1*n2)/(n1+n2))*max((zbar^2)/wvec)
   # threshold = 2*log(p) - log(log(p)) - log(pi) - 2*log(log(1/(1-alpha))) # just in case for future use
   pvalue    = 1-extreme_type1(thestat-2*log(p)+log(log(p)))
   

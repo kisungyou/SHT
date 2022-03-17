@@ -1,5 +1,6 @@
 # SHT 0.1.6
 
+* Fixed an error in `mean2.2014CLX()` in case of adaptive thresholding estimate used.
 * New methods added; `sim1.LRT()`.
 * Option for `cov2.2012LC()` is changed for clarity.
 * Default parameters are changed for `mean2.mxPBF()`.
@@ -25,11 +26,11 @@
 # SHT 0.1.1
 
 * Functions are added, a lot.
-* README invisible on CRAN. Later we'll add vignette.
+* `README` invisible on CRAN. Later we'll add vignette.
   
 # SHT 0.1.0
 
 * Package is first deployed.
 * Initialize the following documentation:
-  - NEWS for keeping record of updates.
-  - README to briefly introduce the method.
+  - `NEWS` for keeping record of updates.
+  - `README` to briefly introduce the method.

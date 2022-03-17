@@ -10,5 +10,5 @@ URL: https://kisungyou.com/SHT/
 BugReports: https://github.com/kisungyou/SHT/issues
 Imports: Rcpp, Rdpack, stats, utils, fastclime, pracma
 LinkingTo: Rcpp, RcppArmadillo
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 RdMacros: Rdpack
