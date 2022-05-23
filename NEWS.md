@@ -1,3 +1,8 @@
+# SHT 0.1.7
+
+* Replaced CLIME estimator for `mean2.2014CLX()`.
+* Changed the default setting for `cov2.2012LC()`.
+
 # SHT 0.1.6
 
 * Fixed an error in `mean2.2014CLX()` in case of adaptive thresholding estimate used.

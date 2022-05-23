@@ -5,7 +5,7 @@
 using namespace Rcpp;
 using namespace arma;
 
-// OPTION : unbiased=FALSE =====================================================
+// OPTION : use.unbiased=TRUE ==================================================
 // [[Rcpp::export]]
 double cov2_2012LC_A(arma::mat &X){
   // parameters
@@ -27,7 +27,7 @@ double cov2_2012LC_A(arma::mat &X){
   
   // second term
   double sum2 = 0.0;
-  double denom2 = nh*(nh-1.0)*(nh-2.0)/2.0;
+  double denom2 = (nh*(nh-1.0)*(nh-2.0))/2.0;
   for (int i=0; i<n; i++){
     for (int j=0; j<n; j++){
       for (int k=0; k<n; k++){
@@ -90,11 +90,11 @@ double cov2_2012LC_C(arma::mat &X, arma::mat &Y){
 
   // 3. (i,k,j) to be subtracted
   double sum3 = 0.0;
-  for (int i=0;i<n1;i++){
-    for (int k=0;k<n1;k++){
-      for (int j=0;j<n2;j++){
+  for (int i=0;i<n2;i++){
+    for (int k=0;k<n2;k++){
+      for (int j=0;j<n1;j++){
         if (i!=k){
-          sum3 += arma::dot(Y.row(i), X.row(j))*arma::dot(X.row(j), Y.row(k));
+          sum3 += arma::dot(Y.row(i), X.row(j))*arma::dot(Y.row(k), X.row(j));
         }
       }
     }
@@ -124,10 +124,9 @@ double cov2_2012LC_C(arma::mat &X, arma::mat &Y){
 }
 
 
-
-// OPTION : unbiased=TRUE ======================================================
+// OPTION : use.unbiased=FALSE =================================================
 // [[Rcpp::export]]
-double cov2_2012LC_A_no_bias(arma::mat &X){
+double cov2_2012LC_A_biased(arma::mat &X){
   int n = X.n_rows;
   double nh = static_cast<double>(n);
   
@@ -148,7 +147,7 @@ double cov2_2012LC_A_no_bias(arma::mat &X){
   return(output);
 }
 // [[Rcpp::export]]
-double cov2_2012LC_C_no_bias(arma::mat &X, arma::mat &Y){
+double cov2_2012LC_C_biased(arma::mat &X, arma::mat &Y){
   int n1 = X.n_rows;
   int n2 = Y.n_rows;
   

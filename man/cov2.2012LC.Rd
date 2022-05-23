@@ -4,14 +4,14 @@
 \alias{cov2.2012LC}
 \title{Two-sample Test for High-Dimensional Covariances by Li and Chen (2012)}
 \usage{
-cov2.2012LC(X, Y, use.unbiased = FALSE)
+cov2.2012LC(X, Y, use.unbiased = TRUE)
 }
 \arguments{
 \item{X}{an \eqn{(n_x \times p)} data matrix of 1st sample.}
 
 \item{Y}{an \eqn{(n_y \times p)} data matrix of 2nd sample.}
 
-\item{use.unbiased}{a logical; \code{TRUE} to use up to 4th-order U-statistics as proposed in the paper, \code{FALSE} for faster run under an assumption that \eqn{\mu_h = 0} (default: \code{FALSE}).}
+\item{use.unbiased}{a logical; \code{TRUE} to use up to 4th-order U-statistics as proposed in the paper, \code{FALSE} for faster run under an assumption that \eqn{\mu_h = 0} (default: \code{TRUE}).}
 }
 \value{
 a (list) object of \code{S3} class \code{htest} containing: \describe{
@@ -29,8 +29,8 @@ using the procedure by Li and Chen (2012).
 }
 \examples{
 ## CRAN-purpose small example
-smallX = matrix(rnorm(10*3),ncol=3)
-smallY = matrix(rnorm(10*3),ncol=3)
+smallX = matrix(rnorm(10*4),ncol=5)
+smallY = matrix(rnorm(10*4),ncol=5)
 cov2.2012LC(smallX, smallY) # run the test
 
 \dontrun{

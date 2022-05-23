@@ -6,7 +6,7 @@
 #' 
 #' @param X an \eqn{(n_x \times p)} data matrix of 1st sample.
 #' @param Y an \eqn{(n_y \times p)} data matrix of 2nd sample.
-#' @param use.unbiased a logical; \code{TRUE} to use up to 4th-order U-statistics as proposed in the paper, \code{FALSE} for faster run under an assumption that \eqn{\mu_h = 0} (default: \code{FALSE}).
+#' @param use.unbiased a logical; \code{TRUE} to use up to 4th-order U-statistics as proposed in the paper, \code{FALSE} for faster run under an assumption that \eqn{\mu_h = 0} (default: \code{TRUE}).
 #' 
 #' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
 #' \item{statistic}{a test statistic.}
@@ -18,8 +18,8 @@
 #' 
 #' @examples 
 #' ## CRAN-purpose small example
-#' smallX = matrix(rnorm(10*3),ncol=3)
-#' smallY = matrix(rnorm(10*3),ncol=3)
+#' smallX = matrix(rnorm(10*4),ncol=5)
+#' smallY = matrix(rnorm(10*4),ncol=5)
 #' cov2.2012LC(smallX, smallY) # run the test
 #' 
 #' \dontrun{
@@ -46,7 +46,7 @@
 #' 
 #' @concept covariance
 #' @export
-cov2.2012LC <- function(X, Y, use.unbiased=FALSE){
+cov2.2012LC <- function(X, Y, use.unbiased=TRUE){
   ##############################################################
   # PREPROCESSING
   check_nd(X)
@@ -61,17 +61,17 @@ cov2.2012LC <- function(X, Y, use.unbiased=FALSE){
   n2 = nrow(Y)
   p  = ncol(X)
   
-  X1 = as.matrix(scale(X, center = TRUE, scale = FALSE))
-  X2 = as.matrix(scale(Y, center = TRUE, scale = FALSE))
-  
   if (use.unbiased){ # unbiased / slower / full
-    A1  = cov2_2012LC_A(X1)
-    A2  = cov2_2012LC_A(X2)
-    C12 = cov2_2012LC_C(X1, X2)
+    A1  = cov2_2012LC_A(X)
+    A2  = cov2_2012LC_A(Y)
+    C12 = cov2_2012LC_C(X, Y)
   } else {
-    A1  = cov2_2012LC_A_no_bias(X1) # elements for test statistics
-    A2  = cov2_2012LC_A_no_bias(X2)
-    C12 = cov2_2012LC_C_no_bias(X1, X2)
+    X1 = as.matrix(scale(X, center = TRUE, scale = FALSE))
+    X2 = as.matrix(scale(Y, center = TRUE, scale = FALSE))
+    
+    A1  = cov2_2012LC_A_biased(X1) # elements for test statistics
+    A2  = cov2_2012LC_A_biased(X2)
+    C12 = cov2_2012LC_C_biased(X1, X2)
   }
   
   Tn1n2 = (A1 + A2 - 2*C12)  # test statistic

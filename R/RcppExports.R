@@ -17,12 +17,12 @@ cov2_2012LC_C <- function(X, Y) {
     .Call('_SHT_cov2_2012LC_C', PACKAGE = 'SHT', X, Y)
 }
 
-cov2_2012LC_A_no_bias <- function(X) {
-    .Call('_SHT_cov2_2012LC_A_no_bias', PACKAGE = 'SHT', X)
+cov2_2012LC_A_biased <- function(X) {
+    .Call('_SHT_cov2_2012LC_A_biased', PACKAGE = 'SHT', X)
 }
 
-cov2_2012LC_C_no_bias <- function(X, Y) {
-    .Call('_SHT_cov2_2012LC_C_no_bias', PACKAGE = 'SHT', X, Y)
+cov2_2012LC_C_biased <- function(X, Y) {
+    .Call('_SHT_cov2_2012LC_C_biased', PACKAGE = 'SHT', X, Y)
 }
 
 cpp_cov2_mxPBF_single <- function(X, Y, a0, b0, gamma) {

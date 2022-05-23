@@ -117,12 +117,16 @@ mean2.2014CLX <- function(X, Y, precision=c("sparse","unknown"), delta=2, Omega=
   # CASE 2 : Omega is 'unknown' : need to estimate using clime 
     if (cov.equal==TRUE){ # 2-1.
       S.pooled = ((n1-1)*cov(X) + (n2-1)*cov(Y))/(n1+n2)
-      sink(tempfile())    ########################################################################### no CV yet
-      fastout = fastclime(S.pooled, lambda.min = 0.01)
-      sink()
-
-      Omega.hat = fastout$icovlist[[length(fastout$icovlist)]]
-      # Omega.hat = cv_fastclime_equalcov(X, Y)
+      
+      # CLIME : fastclime
+      # sink(tempfile())    
+      # fastout = fastclime(S.pooled, lambda.min = 0.01)
+      # sink()
+      # 
+      # Omega.hat = fastout$icovlist[[length(fastout$icovlist)]]
+      
+      # CLIME : flare
+      Omega.hat = clime_with_flare(S.pooled)
       
       X.omega = X%*%Omega.hat
       Y.omega = Y%*%Omega.hat
@@ -145,11 +149,15 @@ mean2.2014CLX <- function(X, Y, precision=c("sparse","unknown"), delta=2, Omega=
       
     } else {              # 2-2. unequal covariance
       S.pooled = ((n1-1)*cov(X)/n1 + ((n1/n2)*(n2-1)*cov(Y))/n2)
-      sink(tempfile())    ########################################################################### no CV yet
-      fastout = fastclime(S.pooled, lambda.min = 0.01)
-      sink()
       
-      Omega.hat = fastout$icovlist[[length(fastout$icovlist)]]
+      # CLIME : fastclime
+      # sink(tempfile())   
+      # fastout = fastclime(S.pooled, lambda.min = 0.01)
+      # sink()
+      # Omega.hat = fastout$icovlist[[length(fastout$icovlist)]]
+      
+      # CLIME : flare
+      Omega.hat = clime_with_flare(S.pooled)
       
       X.omega = X%*%Omega.hat
       Y.omega = Y%*%Omega.hat
@@ -248,6 +256,21 @@ mean2.2014CLX.AT <- function(X, Y, delta){
   return(res)
 }
 
+
+
+
+# clime using 'flare' -----------------------------------------------------
+#' @keywords internal
+#' @noRd
+clime_with_flare <- function(S.pooled){
+  sink(tempfile())
+  out.f     = flare::sugm(data=S.pooled, method="clime", nlambda = 50)
+  sink()
+  Omega.hat = out.f$icov[[length(out.f$lambda)]]
+  return(Omega.hat)
+}
+
+# custom cross validation -------------------------------------------------
 # #' @keywords internal
 # #' @noRd
 #' cv_fastclime_equalcov <- function(X, Y){

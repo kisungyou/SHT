@@ -25,7 +25,7 @@
 #' smallY = matrix(rnorm(10*3),ncol=3)
 #' eqdist.2014BG(smallX, smallY) # run the test
 #' 
-#' \donttest{
+#' \dontrun{
 #' ## compare asymptotic and permutation-based powers
 #' set.seed(777)
 #' ntest  = 1000

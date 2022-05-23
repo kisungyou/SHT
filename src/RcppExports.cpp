@@ -63,26 +63,26 @@ BEGIN_RCPP
     return rcpp_result_gen;
 END_RCPP
 }
-// cov2_2012LC_A_no_bias
-double cov2_2012LC_A_no_bias(arma::mat& X);
-RcppExport SEXP _SHT_cov2_2012LC_A_no_bias(SEXP XSEXP) {
+// cov2_2012LC_A_biased
+double cov2_2012LC_A_biased(arma::mat& X);
+RcppExport SEXP _SHT_cov2_2012LC_A_biased(SEXP XSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
-    rcpp_result_gen = Rcpp::wrap(cov2_2012LC_A_no_bias(X));
+    rcpp_result_gen = Rcpp::wrap(cov2_2012LC_A_biased(X));
     return rcpp_result_gen;
 END_RCPP
 }
-// cov2_2012LC_C_no_bias
-double cov2_2012LC_C_no_bias(arma::mat& X, arma::mat& Y);
-RcppExport SEXP _SHT_cov2_2012LC_C_no_bias(SEXP XSEXP, SEXP YSEXP) {
+// cov2_2012LC_C_biased
+double cov2_2012LC_C_biased(arma::mat& X, arma::mat& Y);
+RcppExport SEXP _SHT_cov2_2012LC_C_biased(SEXP XSEXP, SEXP YSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
     Rcpp::traits::input_parameter< arma::mat& >::type X(XSEXP);
     Rcpp::traits::input_parameter< arma::mat& >::type Y(YSEXP);
-    rcpp_result_gen = Rcpp::wrap(cov2_2012LC_C_no_bias(X, Y));
+    rcpp_result_gen = Rcpp::wrap(cov2_2012LC_C_biased(X, Y));
     return rcpp_result_gen;
 END_RCPP
 }
@@ -287,8 +287,8 @@ static const R_CallMethodDef CallEntries[] = {
     {"_SHT_cpp_cov1_mxPBF_multiple", (DL_FUNC) &_SHT_cpp_cov1_mxPBF_multiple, 5},
     {"_SHT_cov2_2012LC_A", (DL_FUNC) &_SHT_cov2_2012LC_A, 1},
     {"_SHT_cov2_2012LC_C", (DL_FUNC) &_SHT_cov2_2012LC_C, 2},
-    {"_SHT_cov2_2012LC_A_no_bias", (DL_FUNC) &_SHT_cov2_2012LC_A_no_bias, 1},
-    {"_SHT_cov2_2012LC_C_no_bias", (DL_FUNC) &_SHT_cov2_2012LC_C_no_bias, 2},
+    {"_SHT_cov2_2012LC_A_biased", (DL_FUNC) &_SHT_cov2_2012LC_A_biased, 1},
+    {"_SHT_cov2_2012LC_C_biased", (DL_FUNC) &_SHT_cov2_2012LC_C_biased, 2},
     {"_SHT_cpp_cov2_mxPBF_single", (DL_FUNC) &_SHT_cpp_cov2_mxPBF_single, 5},
     {"_SHT_cpp_cov2_mxPBF_multiple", (DL_FUNC) &_SHT_cpp_cov2_mxPBF_multiple, 6},
     {"_SHT_energy_distance", (DL_FUNC) &_SHT_energy_distance, 4},
