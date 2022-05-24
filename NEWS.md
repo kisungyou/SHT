@@ -1,6 +1,6 @@
 # SHT 0.1.7
 
-* Replaced CLIME estimator for `mean2.2014CLX()`.
+* Replaced CLIME estimation algorithm for `mean2.2014CLX()` with cross validation.
 * Changed the default setting for `cov2.2012LC()`.
 
 # SHT 0.1.6

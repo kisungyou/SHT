@@ -126,7 +126,7 @@ mean2.2014CLX <- function(X, Y, precision=c("sparse","unknown"), delta=2, Omega=
       # Omega.hat = fastout$icovlist[[length(fastout$icovlist)]]
       
       # CLIME : flare
-      Omega.hat = clime_with_flare(S.pooled)
+      Omega.hat = clime_with_flare(X, Y)
       
       X.omega = X%*%Omega.hat
       Y.omega = Y%*%Omega.hat
@@ -157,7 +157,7 @@ mean2.2014CLX <- function(X, Y, precision=c("sparse","unknown"), delta=2, Omega=
       # Omega.hat = fastout$icovlist[[length(fastout$icovlist)]]
       
       # CLIME : flare
-      Omega.hat = clime_with_flare(S.pooled)
+      Omega.hat = clime_with_flare(X, Y)
       
       X.omega = X%*%Omega.hat
       Y.omega = Y%*%Omega.hat
@@ -256,19 +256,31 @@ mean2.2014CLX.AT <- function(X, Y, delta){
   return(res)
 }
 
-
-
-
 # clime using 'flare' -----------------------------------------------------
 #' @keywords internal
 #' @noRd
-clime_with_flare <- function(S.pooled){
+clime_with_flare <- function(X, Y){
+  # old method
+  # sink(tempfile())
+  # out.f     = flare::sugm(data=S.pooled, method="clime", nlambda = 50)
+  # sink()
+  # Omega.hat = out.f$icov[[length(out.f$lambda)]]
+  
+  # new method
+  # centering + concatenation
+  xydata = rbind(as.matrix(scale(X, center=TRUE, scale = FALSE)),
+                 as.matrix(scale(Y, center=TRUE, scale = FALSE)))
+  
+  # run the algorithm
   sink(tempfile())
-  out.f     = flare::sugm(data=S.pooled, method="clime", nlambda = 50)
+  out.f   = flare::sugm(xydata, method="clime", nlambda = 50)
+  out.sel = flare::sugm.select(out.f, criterion = "cv")
   sink()
-  Omega.hat = out.f$icov[[length(out.f$lambda)]]
+  
+  Omega.hat = out.sel$opt.icov
   return(Omega.hat)
 }
+
 
 # custom cross validation -------------------------------------------------
 # #' @keywords internal
