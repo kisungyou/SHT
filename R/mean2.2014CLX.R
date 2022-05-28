@@ -273,7 +273,7 @@ clime_with_flare <- function(X, Y){
   
   # run the algorithm
   sink(tempfile())
-  out.f   = flare::sugm(xydata, method="clime", nlambda = 50)
+  out.f   = flare::sugm(xydata, method="clime")
   out.sel = flare::sugm.select(out.f, criterion = "cv")
   sink()
   
