@@ -1,8 +1,8 @@
-pandoc: 2.11.4
+pandoc: 2.17.1.1
 pkgdown: 2.0.3
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-05-23T23:33Z
+last_built: 2022-06-04T19:19Z
 urls:
   reference: https://kisungyou.com/SHT/reference
   article: https://kisungyou.com/SHT/articles

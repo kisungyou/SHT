@@ -3,7 +3,7 @@
 
 # Statistical Hypothesis Testing in R
 
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/SHT?color=green)](https://cran.r-project.org/package=SHT)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/SHT?color=green)](https://cran.r-project.org/package=SHT)
 [![Travis-CI Build
 Status](https://travis-ci.org/kisungyou/SHT.svg?branch=master)](https://travis-ci.org/kisungyou/SHT)
 [![](https://cranlogs.r-pkg.org/badges/SHT)](https://cran.r-project.org/package=SHT)
