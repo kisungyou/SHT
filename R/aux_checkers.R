@@ -5,6 +5,7 @@
 #   4. check_alpha   : (0,1)
 #   5. check_dlist1d : datalist 1d
 #   6. check_dlistnd : datalist nd
+#   7. check_simplex : probability simplex with correction
 
 
 # 01. check_1d ------------------------------------------------------------
@@ -129,3 +130,23 @@ check_dlistnd <- function(dlist){
     stop()
   }
 }
+
+
+# 07. check_simplex -------------------------------------------------------
+#' @keywords internal
+#' @noRd
+check_simplex <- function(X, fname){
+  if (!is.matrix(X)){
+    stop(paste("* ",fname," : an input 'X' is not a matrix."))
+  }
+  if (any(X < 0)){
+    stop(paste0("* ",fname," : an input 'X' contains negative entries."))
+  }
+  if (any(is.infinite(X))||any(is.na(X))){
+    stop(paste0("* ",fname," : an input 'X' contains NA or Inf values."))
+  }
+  
+  n = base::nrow(X)
+  p = base::ncol(X)
+}
+#   7. check_simplex : probability simplex with correction
