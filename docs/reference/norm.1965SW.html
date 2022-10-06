@@ -20,7 +20,7 @@ is done via an approximation scheme by Royston (1992)."><!-- mathjax --><script 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.8</span>
       </span>
     </div>
 
@@ -71,17 +71,20 @@ is done via an approximation scheme by Royston (1992).</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">norm.1965SW</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">norm.1965SW</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>a length-\(n\) data vector.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
+    
+
+<p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
 <dd><p>a test statistic.</p></dd>
 
 <dt>p.value</dt>
@@ -112,16 +115,16 @@ ISSN 0960-3174, 1573-1375.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## generate samples from several distributions</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">28</span><span class="op">)</span>            <span class="co"># uniform</span></span>
-<span class="r-in"><span class="va">y</span> <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html" class="external-link">rgamma</a></span><span class="op">(</span><span class="fl">28</span>, shape<span class="op">=</span><span class="fl">2</span><span class="op">)</span>  <span class="co"># gamma</span></span>
-<span class="r-in"><span class="va">z</span> <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Lognormal.html" class="external-link">rlnorm</a></span><span class="op">(</span><span class="fl">28</span><span class="op">)</span>           <span class="co"># log-normal</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## test above samples</span></span>
-<span class="r-in"><span class="va">test.x</span> <span class="op">=</span> <span class="fu">norm.1965SW</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># uniform</span></span>
-<span class="r-in"><span class="va">test.y</span> <span class="op">=</span> <span class="fu">norm.1965SW</span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="co"># gamma</span></span>
-<span class="r-in"><span class="va">test.z</span> <span class="op">=</span> <span class="fu">norm.1965SW</span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="co"># log-normal</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## generate samples from several distributions</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">28</span><span class="op">)</span>            <span class="co"># uniform</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/GammaDist.html" class="external-link">rgamma</a></span><span class="op">(</span><span class="fl">28</span>, shape<span class="op">=</span><span class="fl">2</span><span class="op">)</span>  <span class="co"># gamma</span></span></span>
+<span class="r-in"><span><span class="va">z</span> <span class="op">=</span> <span class="fu">stats</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/r/stats/Lognormal.html" class="external-link">rlnorm</a></span><span class="op">(</span><span class="fl">28</span><span class="op">)</span>           <span class="co"># log-normal</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## test above samples</span></span></span>
+<span class="r-in"><span><span class="va">test.x</span> <span class="op">=</span> <span class="fu">norm.1965SW</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="co"># uniform</span></span></span>
+<span class="r-in"><span><span class="va">test.y</span> <span class="op">=</span> <span class="fu">norm.1965SW</span><span class="op">(</span><span class="va">y</span><span class="op">)</span> <span class="co"># gamma</span></span></span>
+<span class="r-in"><span><span class="va">test.z</span> <span class="op">=</span> <span class="fu">norm.1965SW</span><span class="op">(</span><span class="va">z</span><span class="op">)</span> <span class="co"># log-normal</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -136,7 +139,7 @@ ISSN 0960-3174, 1573-1375.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

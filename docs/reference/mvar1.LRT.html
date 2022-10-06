@@ -19,7 +19,7 @@ using likelihood ratio test."><!-- mathjax --><script src="https://cdnjs.cloudfl
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.8</span>
       </span>
     </div>
 
@@ -69,21 +69,28 @@ using likelihood ratio test.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mvar1.LRT</span><span class="op">(</span><span class="va">x</span>, mu0 <span class="op">=</span> <span class="fl">0</span>, var0 <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mvar1.LRT</span><span class="op">(</span><span class="va">x</span>, mu0 <span class="op">=</span> <span class="fl">0</span>, var0 <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>a length-\(n\) data vector.</p></dd>
+
+
 <dt>mu0</dt>
 <dd><p>hypothesized mean \(\mu_0\).</p></dd>
+
+
 <dt>var0</dt>
 <dd><p>hypothesized variance \(\sigma_0^2\).</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
+    
+
+<p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
 <dd><p>a test statistic.</p></dd>
 
 <dt>p.value</dt>
@@ -103,33 +110,33 @@ using likelihood ratio test.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## CRAN-purpose small example</span></span>
-<span class="r-in"><span class="fu">mvar1.LRT</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## CRAN-purpose small example</span></span></span>
+<span class="r-in"><span><span class="fu">mvar1.LRT</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	One-sample Simultaneous Likelihood Ratio Test of Mean and Variance.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  rnorm(10)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> statistic = 3.5069, p-value = 0.1732</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> statistic = 1.8285, p-value = 0.4008</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> alternative hypothesis: true mean and variance of x are different from mu0 and var0.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co">## empirical Type 1 error </span></span>
-<span class="r-in"><span class="va">niter</span>   <span class="op">=</span> <span class="fl">1000</span></span>
-<span class="r-in"><span class="va">counter</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">niter</span><span class="op">)</span>  <span class="co"># record p-values</span></span>
-<span class="r-in"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">niter</span><span class="op">)</span><span class="op">{</span></span>
-<span class="r-in">  <span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>  <span class="co"># sample x from N(0,1)</span></span>
-<span class="r-in">  </span>
-<span class="r-in">  <span class="va">counter</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">mvar1.LRT</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## print the result</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"\n* Example for 'mvar1.LRT'\n"</span>,<span class="st">"*\n"</span>,</span>
-<span class="r-in"><span class="st">"* number of rejections   : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">counter</span><span class="op">)</span>,<span class="st">"\n"</span>,</span>
-<span class="r-in"><span class="st">"* total number of trials : "</span>, <span class="va">niter</span>,<span class="st">"\n"</span>,</span>
-<span class="r-in"><span class="st">"* empirical Type 1 error : "</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">counter</span><span class="op">/</span><span class="va">niter</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">## empirical Type 1 error </span></span></span>
+<span class="r-in"><span><span class="va">niter</span>   <span class="op">=</span> <span class="fl">1000</span></span></span>
+<span class="r-in"><span><span class="va">counter</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">niter</span><span class="op">)</span>  <span class="co"># record p-values</span></span></span>
+<span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">niter</span><span class="op">)</span><span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>  <span class="co"># sample x from N(0,1)</span></span></span>
+<span class="r-in"><span>  </span></span>
+<span class="r-in"><span>  <span class="va">counter</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">mvar1.LRT</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## print the result</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"\n* Example for 'mvar1.LRT'\n"</span>,<span class="st">"*\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"* number of rejections   : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">counter</span><span class="op">)</span>,<span class="st">"\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"* total number of trials : "</span>, <span class="va">niter</span>,<span class="st">"\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"* empirical Type 1 error : "</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">counter</span><span class="op">/</span><span class="va">niter</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -144,7 +151,7 @@ using likelihood ratio test.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

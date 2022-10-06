@@ -1,7 +1,7 @@
 Package: SHT
 Type: Package
 Title: Statistical Hypothesis Testing Toolbox
-Version: 0.1.7
+Version: 0.1.8
 Authors@R: c(person("Kyoungjae","Lee",role="aut",email="leekjstat@gmail.com"),person("Lizhen", "Lin", role = "aut", email="lizhen.lin@nd.edu"),person("Kisung", "You", role = c("aut", "cre"),email = "kisungyou@outlook.com",comment=c(ORCID="0000-0002-8584-459X")))
 Description: We provide a collection of statistical hypothesis testing procedures ranging from classical to modern methods for non-trivial settings such as high-dimensional scenario. For the general treatment of statistical hypothesis testing, see the book by Lehmann and Romano (2005) <doi:10.1007/0-387-27605-X>.
 License: MIT + file LICENSE

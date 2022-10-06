@@ -1,3 +1,7 @@
+# SHT 0.1.8
+
+* Added tests of uniformity on the probability simplex.
+
 # SHT 0.1.7
 
 * Replaced CLIME estimation algorithm for `mean2.2014CLX()` with cross validation.

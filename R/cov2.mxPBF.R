@@ -37,6 +37,7 @@
 #' }
 #' 
 #' @concept covariance
+#' @keywords internal
 #' @export
 cov2.mxPBF <- function(X, Y, a0=2.0, b0=2.0, gamma=1.0, nthreads=1){
   ##############################################################

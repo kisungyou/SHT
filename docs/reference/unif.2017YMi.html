@@ -20,7 +20,7 @@ on the unit hypercube \([0,1]^p\) and modified for arbitrary rectangular domain.
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.8</span>
       </span>
     </div>
 
@@ -71,28 +71,37 @@ on the unit hypercube \([0,1]^p\) and modified for arbitrary rectangular domain.
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">unif.2017YMi</span><span class="op">(</span>
-  <span class="va">X</span>,
-  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Q1"</span>, <span class="st">"Q2"</span>, <span class="st">"Q3"</span><span class="op">)</span>,
-  lower <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span><span class="op">)</span>,
-  upper <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">unif.2017YMi</span><span class="op">(</span></span>
+<span>  <span class="va">X</span>,</span>
+<span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Q1"</span>, <span class="st">"Q2"</span>, <span class="st">"Q3"</span><span class="op">)</span>,</span>
+<span>  lower <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>  upper <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/nrow.html" class="external-link">ncol</a></span><span class="op">(</span><span class="va">X</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>X</dt>
 <dd><p>an \((n\times p)\) data matrix where each row is an observation.</p></dd>
+
+
 <dt>type</dt>
 <dd><p>type of statistic to be used, one of <code>"Q1"</code>,<code>"Q2"</code>, and <code>"Q3"</code>.</p></dd>
+
+
 <dt>lower</dt>
 <dd><p>length-\(p\) vector of lower bounds of the test domain.</p></dd>
+
+
 <dt>upper</dt>
 <dd><p>length-\(p\) vector of upper bounds of the test domain.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
+    
+
+<p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
 <dd><p>a test statistic.</p></dd>
 
 <dt>p.value</dt>
@@ -119,45 +128,45 @@ ISSN 0932-5026, 1613-9798.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## CRAN-purpose small example</span></span>
-<span class="r-in"><span class="va">smallX</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">unif.2017YMi</span><span class="op">(</span><span class="va">smallX</span><span class="op">)</span> <span class="co"># run the test</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## CRAN-purpose small example</span></span></span>
+<span class="r-in"><span><span class="va">smallX</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">unif.2017YMi</span><span class="op">(</span><span class="va">smallX</span><span class="op">)</span> <span class="co"># run the test</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	Multivariate Test of Uniformity based on Interpoint Distances by Yang</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	and Modarres (2017)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  smallX</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Q1 = 4470.8, p-value &lt; 2.2e-16</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Q1 = 4592.2, p-value &lt; 2.2e-16</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> alternative hypothesis: Sample smallX does not follow uniform distribution.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co">## empirical Type 1 error </span></span>
-<span class="r-in"><span class="co">##   compare performances of three methods </span></span>
-<span class="r-in"><span class="va">niter</span> <span class="op">=</span> <span class="fl">1234</span></span>
-<span class="r-in"><span class="va">rec1</span>  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">niter</span><span class="op">)</span> <span class="co"># for Q1</span></span>
-<span class="r-in"><span class="va">rec2</span>  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">niter</span><span class="op">)</span> <span class="co">#     Q2</span></span>
-<span class="r-in"><span class="va">rec3</span>  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">niter</span><span class="op">)</span> <span class="co">#     Q3</span></span>
-<span class="r-in"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">niter</span><span class="op">)</span><span class="op">{</span></span>
-<span class="r-in">  <span class="va">X</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">50</span><span class="op">*</span><span class="fl">10</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">50</span><span class="op">)</span> <span class="co"># (n,p) = (10,50)</span></span>
-<span class="r-in">  <span class="va">rec1</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">unif.2017YMi</span><span class="op">(</span><span class="va">X</span>, type<span class="op">=</span><span class="st">"Q1"</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">rec2</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">unif.2017YMi</span><span class="op">(</span><span class="va">X</span>, type<span class="op">=</span><span class="st">"Q2"</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">rec3</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">unif.2017YMi</span><span class="op">(</span><span class="va">X</span>, type<span class="op">=</span><span class="st">"Q3"</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## print the result</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"\n* Example for 'unif.2017YMi'\n"</span>,<span class="st">"*\n"</span>,</span>
-<span class="r-in"><span class="st">"* Type 1 error with Q1 : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">rec1</span><span class="op">/</span><span class="va">niter</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,</span>
-<span class="r-in"><span class="st">"*                   Q2 : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">rec2</span><span class="op">/</span><span class="va">niter</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,</span>
-<span class="r-in"><span class="st">"*                   Q3 : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">rec3</span><span class="op">/</span><span class="va">niter</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co">## empirical Type 1 error </span></span></span>
+<span class="r-in"><span><span class="co">##   compare performances of three methods </span></span></span>
+<span class="r-in"><span><span class="va">niter</span> <span class="op">=</span> <span class="fl">1234</span></span></span>
+<span class="r-in"><span><span class="va">rec1</span>  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">niter</span><span class="op">)</span> <span class="co"># for Q1</span></span></span>
+<span class="r-in"><span><span class="va">rec2</span>  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">niter</span><span class="op">)</span> <span class="co">#     Q2</span></span></span>
+<span class="r-in"><span><span class="va">rec3</span>  <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">niter</span><span class="op">)</span> <span class="co">#     Q3</span></span></span>
+<span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">niter</span><span class="op">)</span><span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">X</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Uniform.html" class="external-link">runif</a></span><span class="op">(</span><span class="fl">50</span><span class="op">*</span><span class="fl">10</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">50</span><span class="op">)</span> <span class="co"># (n,p) = (10,50)</span></span></span>
+<span class="r-in"><span>  <span class="va">rec1</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">unif.2017YMi</span><span class="op">(</span><span class="va">X</span>, type<span class="op">=</span><span class="st">"Q1"</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">rec2</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">unif.2017YMi</span><span class="op">(</span><span class="va">X</span>, type<span class="op">=</span><span class="st">"Q2"</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">rec3</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">unif.2017YMi</span><span class="op">(</span><span class="va">X</span>, type<span class="op">=</span><span class="st">"Q3"</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## print the result</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"\n* Example for 'unif.2017YMi'\n"</span>,<span class="st">"*\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"* Type 1 error with Q1 : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">rec1</span><span class="op">/</span><span class="va">niter</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"*                   Q2 : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">rec2</span><span class="op">/</span><span class="va">niter</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"*                   Q3 : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">rec3</span><span class="op">/</span><span class="va">niter</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Example for 'unif.2017YMi'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> *</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * Type 1 error with Q1 : 0.04457</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> *                   Q2 : 0.04214</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> *                   Q3 : 0.04862</span>
-<span class="r-in"><span class="co"># }</span></span>
-<span class="r-in"></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * Type 1 error with Q1 : 0.05429</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> *                   Q2 : 0.04133</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> *                   Q3 : 0.05673</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -172,7 +181,7 @@ ISSN 0932-5026, 1613-9798.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

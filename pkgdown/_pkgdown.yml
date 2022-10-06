@@ -55,3 +55,7 @@ reference:
   - title: "[9] Goodness-of-Fit : Uniform Distribution"
     contents:
       - has_concept("gof_uniform")
+  - title: "[10] Tests on the Special Domains"
+    subtitle: "Probability Simplex"
+    contents:
+      - has_concept("simplex")

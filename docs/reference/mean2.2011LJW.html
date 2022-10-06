@@ -21,7 +21,7 @@ Due to solving system of linear equations, we suggest you to opt for asymptotic-
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.8</span>
       </span>
     </div>
 
@@ -73,24 +73,33 @@ Due to solving system of linear equations, we suggest you to opt for asymptotic-
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mean2.2011LJW</span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"asymptotic"</span>, <span class="st">"MC"</span><span class="op">)</span>, nreps <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mean2.2011LJW</span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"asymptotic"</span>, <span class="st">"MC"</span><span class="op">)</span>, nreps <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>X</dt>
 <dd><p>an \((n_x \times p)\) data matrix of 1st sample.</p></dd>
+
+
 <dt>Y</dt>
 <dd><p>an \((n_y \times p)\) data matrix of 2nd sample.</p></dd>
+
+
 <dt>method</dt>
 <dd><p>method to compute \(p\)-value. <code>"asymptotic"</code> for using approximating null distribution, 
 and <code>"MC"</code> for random permutation tests. Using initials is possible, <code>"a"</code> for asymptotic for example.</p></dd>
+
+
 <dt>nreps</dt>
 <dd><p>the number of permutation iterations to be run when <code>method="MC"</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
+    
+
+<p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
 <dd><p>a test statistic.</p></dd>
 
 <dt>p.value</dt>
@@ -117,43 +126,43 @@ ISBN 978-1-61839-599-3.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## CRAN-purpose small example</span></span>
-<span class="r-in"><span class="va">smallX</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">smallY</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mean2.2011LJW</span><span class="op">(</span><span class="va">smallX</span>, <span class="va">smallY</span><span class="op">)</span> <span class="co"># run the test</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## CRAN-purpose small example</span></span></span>
+<span class="r-in"><span><span class="va">smallX</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">smallY</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mean2.2011LJW</span><span class="op">(</span><span class="va">smallX</span>, <span class="va">smallY</span><span class="op">)</span> <span class="co"># run the test</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	Two-sample Test for Multivariate Means by Lopes, Jacob, and Wainwright</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	(2011)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  smallX and smallY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> T2 = 5.2961, p-value = 0.2823</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> T2 = 2.574, p-value = 0.4746</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> alternative hypothesis: true means are different.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co">## empirical Type 1 error </span></span>
-<span class="r-in"><span class="va">niter</span>   <span class="op">=</span> <span class="fl">1000</span></span>
-<span class="r-in"><span class="va">counter</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">niter</span><span class="op">)</span>  <span class="co"># record p-values</span></span>
-<span class="r-in"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">niter</span><span class="op">)</span><span class="op">{</span></span>
-<span class="r-in">  <span class="va">X</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">20</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">20</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">Y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">20</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">20</span><span class="op">)</span></span>
-<span class="r-in">  </span>
-<span class="r-in">  <span class="va">counter</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">mean2.2011LJW</span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## print the result</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"\n* Example for 'mean2.2011LJW'\n"</span>,<span class="st">"*\n"</span>,</span>
-<span class="r-in"><span class="st">"* number of rejections   : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">counter</span><span class="op">)</span>,<span class="st">"\n"</span>,</span>
-<span class="r-in"><span class="st">"* total number of trials : "</span>, <span class="va">niter</span>,<span class="st">"\n"</span>,</span>
-<span class="r-in"><span class="st">"* empirical Type 1 error : "</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">counter</span><span class="op">/</span><span class="va">niter</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co">## empirical Type 1 error </span></span></span>
+<span class="r-in"><span><span class="va">niter</span>   <span class="op">=</span> <span class="fl">1000</span></span></span>
+<span class="r-in"><span><span class="va">counter</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">niter</span><span class="op">)</span>  <span class="co"># record p-values</span></span></span>
+<span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">niter</span><span class="op">)</span><span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">X</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">20</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">20</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">Y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">20</span><span class="op">)</span>, ncol<span class="op">=</span><span class="fl">20</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  </span></span>
+<span class="r-in"><span>  <span class="va">counter</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">mean2.2011LJW</span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span> <span class="fl">0.05</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## print the result</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"\n* Example for 'mean2.2011LJW'\n"</span>,<span class="st">"*\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"* number of rejections   : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">counter</span><span class="op">)</span>,<span class="st">"\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"* total number of trials : "</span>, <span class="va">niter</span>,<span class="st">"\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"* empirical Type 1 error : "</span>,<span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">counter</span><span class="op">/</span><span class="va">niter</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Example for 'mean2.2011LJW'</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> *</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * number of rejections   : 53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * number of rejections   : 38</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * total number of trials : 1000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * empirical Type 1 error : 0.053</span>
-<span class="r-in"><span class="co"># }</span></span>
-<span class="r-in"></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * empirical Type 1 error : 0.038</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -168,7 +177,7 @@ ISBN 978-1-61839-599-3.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

@@ -21,7 +21,7 @@ pairwise distance measures. Both asymptotic and permutation-based determination 
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.8</span>
       </span>
     </div>
 
@@ -73,23 +73,32 @@ pairwise distance measures. Both asymptotic and permutation-based determination 
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">eqdist.2014BG</span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"permutation"</span>, <span class="st">"asymptotic"</span><span class="op">)</span>, nreps <span class="op">=</span> <span class="fl">999</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">eqdist.2014BG</span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, method <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"permutation"</span>, <span class="st">"asymptotic"</span><span class="op">)</span>, nreps <span class="op">=</span> <span class="fl">999</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>X</dt>
 <dd><p>a vector/matrix of 1st sample.</p></dd>
+
+
 <dt>Y</dt>
 <dd><p>a vector/matrix of 2nd sample.</p></dd>
+
+
 <dt>method</dt>
 <dd><p>method to compute \(p\)-value. Using initials is possible, <code>"p"</code> for permutation tests. Case insensitive.</p></dd>
+
+
 <dt>nreps</dt>
 <dd><p>the number of permutations to be run when <code>method="permutation"</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
+    
+
+<p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
 <dd><p>a test statistic.</p></dd>
 
 <dt>p.value</dt>
@@ -116,39 +125,39 @@ ISSN 0047259X.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## CRAN-purpose small example</span></span>
-<span class="r-in"><span class="va">smallX</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">smallY</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">eqdist.2014BG</span><span class="op">(</span><span class="va">smallX</span>, <span class="va">smallY</span><span class="op">)</span> <span class="co"># run the test</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## CRAN-purpose small example</span></span></span>
+<span class="r-in"><span><span class="va">smallX</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">smallY</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">3</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">eqdist.2014BG</span><span class="op">(</span><span class="va">smallX</span>, <span class="va">smallY</span><span class="op">)</span> <span class="co"># run the test</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	Test for Equality of Two Distributions by Biswas and Ghosh (2014)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  smallX and smallY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Tmn = 0.1711, p-value = 0.3554</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Tmn = 0.14864, p-value = 0.1902</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> alternative hypothesis: two distributions are not equal</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co">## compare asymptotic and permutation-based powers</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">777</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">ntest</span>  <span class="op">=</span> <span class="fl">1000</span></span>
-<span class="r-in"><span class="va">pval.a</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">ntest</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">pval.p</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">ntest</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">ntest</span><span class="op">)</span><span class="op">{</span></span>
-<span class="r-in">  <span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">5</span><span class="op">)</span></span>
-<span class="r-in">  </span>
-<span class="r-in">  <span class="va">pval.a</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">eqdist.2014BG</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,method<span class="op">=</span><span class="st">"a"</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span><span class="op">&lt;</span><span class="fl">0.05</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in">  <span class="va">pval.p</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">eqdist.2014BG</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,method<span class="op">=</span><span class="st">"p"</span>,nreps<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span><span class="fl">0.05</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## print the result</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"\n* EMPIRICAL TYPE 1 ERROR COMPARISON \n"</span>,<span class="st">"*\n"</span>,</span>
-<span class="r-in"><span class="st">"* Asymptotics : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">pval.a</span><span class="op">/</span><span class="va">ntest</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,</span>
-<span class="r-in"><span class="st">"* Permutation : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">pval.p</span><span class="op">/</span><span class="va">ntest</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">## compare asymptotic and permutation-based powers</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">777</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">ntest</span>  <span class="op">=</span> <span class="fl">1000</span></span></span>
+<span class="r-in"><span><span class="va">pval.a</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">ntest</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">pval.p</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fl">0</span>,<span class="va">ntest</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fl">1</span><span class="op">:</span><span class="va">ntest</span><span class="op">)</span><span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">100</span><span class="op">)</span>, nrow<span class="op">=</span><span class="fl">5</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  </span></span>
+<span class="r-in"><span>  <span class="va">pval.a</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">eqdist.2014BG</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,method<span class="op">=</span><span class="st">"a"</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span><span class="op">&lt;</span><span class="fl">0.05</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="va">pval.p</span><span class="op">[</span><span class="va">i</span><span class="op">]</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu">eqdist.2014BG</span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span>,method<span class="op">=</span><span class="st">"p"</span>,nreps<span class="op">=</span><span class="fl">100</span><span class="op">)</span><span class="op">$</span><span class="va">p.value</span> <span class="op">&lt;</span><span class="fl">0.05</span>,<span class="fl">1</span>,<span class="fl">0</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## print the result</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"\n* EMPIRICAL TYPE 1 ERROR COMPARISON \n"</span>,<span class="st">"*\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"* Asymptotics : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">pval.a</span><span class="op">/</span><span class="va">ntest</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"* Permutation : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">pval.p</span><span class="op">/</span><span class="va">ntest</span><span class="op">)</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -163,7 +172,7 @@ ISSN 0047259X.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

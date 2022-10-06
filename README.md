@@ -10,8 +10,7 @@ Status](https://travis-ci.org/kisungyou/SHT.svg?branch=master)](https://travis-c
 
 `SHT` aims at providing a casket of tools for hypothesis testing
 procedures ranging from classical to modern techniques. We hope it not
-be used as a primary means of
-**![p](https://latex.codecogs.com/png.image?%5Cdpi%7B110%7D&space;%5Cbg_white&space;p "p")-hacking**.
+be used as a primary means of **$p$-hacking**.
 
 ## Installation
 

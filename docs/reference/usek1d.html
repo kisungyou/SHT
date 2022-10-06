@@ -19,7 +19,7 @@ provided in this package be used with two univariate samples \(x\) and \(y\)."><
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.8</span>
       </span>
     </div>
 
@@ -69,23 +69,32 @@ provided in this package be used with two univariate samples \(x\) and \(y\).</p
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">usek1d</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">test.name</span>, <span class="va">...</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">usek1d</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="va">test.name</span>, <span class="va">...</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>x</dt>
 <dd><p>a length-\(n\) data vector.</p></dd>
+
+
 <dt>y</dt>
 <dd><p>a length-\(m\) data vector.</p></dd>
+
+
 <dt>test.name</dt>
 <dd><p>character string for the name of k-sample test to be used.</p></dd>
+
+
 <dt>...</dt>
 <dd><p>extra arguments passed onto the function <code>test.name</code>.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
+    
+
+<p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
 <dd><p>a test statistic.</p></dd>
 
 <dt>p.value</dt>
@@ -105,27 +114,27 @@ provided in this package be used with two univariate samples \(x\) and \(y\).</p
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co">### compare two-means via anova and t-test</span></span>
-<span class="r-in"><span class="co">### since they coincide when k=2</span></span>
-<span class="r-in"><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">### run anova and t-test</span></span>
-<span class="r-in"><span class="va">test1</span> <span class="op">=</span> <span class="fu">usek1d</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="st">"meank.anova"</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">test2</span> <span class="op">=</span> <span class="fu"><a href="mean2.ttest.html">mean2.ttest</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## print the result</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"\n* Comparison of ANOVA and t-test \n"</span>,<span class="st">"*\n"</span>,</span>
-<span class="r-in"><span class="st">"* p-value from ANOVA  : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">test1</span><span class="op">$</span><span class="va">p.value</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,</span>
-<span class="r-in"><span class="st">"*              t-test : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">test2</span><span class="op">$</span><span class="va">p.value</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co">### compare two-means via anova and t-test</span></span></span>
+<span class="r-in"><span><span class="co">### since they coincide when k=2</span></span></span>
+<span class="r-in"><span><span class="va">x</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">50</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">### run anova and t-test</span></span></span>
+<span class="r-in"><span><span class="va">test1</span> <span class="op">=</span> <span class="fu">usek1d</span><span class="op">(</span><span class="va">x</span>, <span class="va">y</span>, <span class="st">"meank.anova"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">test2</span> <span class="op">=</span> <span class="fu"><a href="mean2.ttest.html">mean2.ttest</a></span><span class="op">(</span><span class="va">x</span>,<span class="va">y</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## print the result</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste</a></span><span class="op">(</span><span class="st">"\n* Comparison of ANOVA and t-test \n"</span>,<span class="st">"*\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"* p-value from ANOVA  : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">test1</span><span class="op">$</span><span class="va">p.value</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,</span></span>
+<span class="r-in"><span><span class="st">"*              t-test : "</span>, <span class="fu"><a href="https://rdrr.io/r/base/Round.html" class="external-link">round</a></span><span class="op">(</span><span class="va">test2</span><span class="op">$</span><span class="va">p.value</span>,<span class="fl">5</span><span class="op">)</span>,<span class="st">"\n"</span>,sep<span class="op">=</span><span class="st">""</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> * Comparison of ANOVA and t-test </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> *</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> * p-value from ANOVA  : 0.85295</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> *              t-test : 0.85297</span>
-<span class="r-in"><span class="co"># }</span></span>
-<span class="r-in"></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> * p-value from ANOVA  : 0.64593</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> *              t-test : 0.64598</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -140,7 +149,7 @@ provided in this package be used with two univariate samples \(x\) and \(y\).</p
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>

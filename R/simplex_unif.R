@@ -1,10 +1,39 @@
-#' Classical Test of Uniformity
+#' Probability Simplex : Tests of Uniformity
 #' 
+#' Given a data \eqn{X \in \mathbb{R}{n\times p}} such that its rows are 
+#' vectors in a probability simplex, i.e., \eqn{x \in \Delta_{p-1}
+#' =\lbrace z \in \mathbb{R}^p~|~z_j > 0, \sum_{i=1}^p z_i = 1 \rbrace,
+#' } test whether the data is uniformly distributed.
 #' 
 #' @param X an \eqn{(n\times p)} data matrix where each row is an observation.
 #' @param method (\emph{case-insensitive}) name of the method to be used, including\describe{
 #' \item{LRT}{likelihood-ratio test with the Dirichlet distribution.}
 #' \item{LRTsym}{likelihood-ratio test using the symmetric Dirichlet distribution (default).}
+#' }
+#' 
+#' @return a (list) object of \code{S3} class \code{htest} containing: \describe{
+#' \item{statistic}{a test statistic.}
+#' \item{p.value}{\eqn{p}-value under \eqn{H_0}.}
+#' \item{alternative}{alternative hypothesis.}
+#' \item{method}{name of the test.}
+#' \item{data.name}{name(s) of provided sample data.}
+#' }
+#' 
+#' @examples 
+#' \donttest{
+#' ## pseudo-uniform data generation
+#' N = 100
+#' P = 4
+#' X = matrix(stats::rnorm(N*P), ncol=P)
+#' for (n in 1:N){
+#'   x = X[n,]
+#'   x = abs(x/sqrt(sum(x^2)))
+#'   X[n,] = x^2
+#' }
+#' 
+#' ## run the tests
+#' simplex.uniform(X, "LRT")
+#' simplex.uniform(X, "lrtsym")
 #' }
 #' 
 #' @concept simplex

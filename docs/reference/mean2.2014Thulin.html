@@ -21,7 +21,7 @@ huge computational burden since it entirely depends on random permutation scheme
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">SHT</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.8</span>
       </span>
     </div>
 
@@ -73,23 +73,32 @@ huge computational burden since it entirely depends on random permutation scheme
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mean2.2014Thulin</span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, B <span class="op">=</span> <span class="fl">100</span>, nreps <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mean2.2014Thulin</span><span class="op">(</span><span class="va">X</span>, <span class="va">Y</span>, B <span class="op">=</span> <span class="fl">100</span>, nreps <span class="op">=</span> <span class="fl">1000</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>X</dt>
 <dd><p>an \((n_x \times p)\) data matrix of 1st sample.</p></dd>
+
+
 <dt>Y</dt>
 <dd><p>an \((n_y \times p)\) data matrix of 2nd sample.</p></dd>
+
+
 <dt>B</dt>
 <dd><p>the number of selected subsets for averaging. \(B\geq 100\) is recommended.</p></dd>
+
+
 <dt>nreps</dt>
 <dd><p>the number of permutation iterations to be run.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
+    
+
+<p>a (list) object of <code>S3</code> class <code>htest</code> containing:</p><dl><dt>statistic</dt>
 <dd><p>a test statistic.</p></dd>
 
 <dt>p.value</dt>
@@ -110,53 +119,53 @@ huge computational burden since it entirely depends on random permutation scheme
     <h2>References</h2>
     <p>Thulin M (2014).
 “A high-dimensional two-sample test for the mean using random subspaces.”
-<em>Computational Statistics \&amp; Data Analysis</em>, <b>74</b>, 26--38.
+<em>Computational Statistics &amp; Data Analysis</em>, <b>74</b>, 26--38.
 ISSN 01679473.</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## CRAN-purpose small example</span></span>
-<span class="r-in"><span class="va">smallX</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">smallY</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu">mean2.2014Thulin</span><span class="op">(</span><span class="va">smallX</span>, <span class="va">smallY</span>, B<span class="op">=</span><span class="fl">10</span>, nreps<span class="op">=</span><span class="fl">10</span><span class="op">)</span> <span class="co"># run the test</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## CRAN-purpose small example</span></span></span>
+<span class="r-in"><span><span class="va">smallX</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">smallY</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="fl">10</span><span class="op">*</span><span class="fl">3</span><span class="op">)</span>,ncol<span class="op">=</span><span class="fl">10</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">mean2.2014Thulin</span><span class="op">(</span><span class="va">smallX</span>, <span class="va">smallY</span>, B<span class="op">=</span><span class="fl">10</span>, nreps<span class="op">=</span><span class="fl">10</span><span class="op">)</span> <span class="co"># run the test</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	Two-sample Test for Multivariate Means by Thulin (2014)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  smallX and smallY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> T2 = 9.7325, p-value = 0.2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> T2 = 0.89098, p-value = 1</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> alternative hypothesis: true means are different.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># \donttest{</span></span>
-<span class="r-in"><span class="co">## Compare with 'mean2.2011LJW' </span></span>
-<span class="r-in"><span class="co">## which is based on random projection.</span></span>
-<span class="r-in"><span class="va">n</span> <span class="op">=</span> <span class="fl">33</span>    <span class="co"># number of observations for each sample</span></span>
-<span class="r-in"><span class="va">p</span> <span class="op">=</span> <span class="fl">100</span>   <span class="co"># dimensionality</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">X</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span><span class="op">*</span><span class="va">p</span><span class="op">)</span>, ncol<span class="op">=</span><span class="va">p</span><span class="op">)</span></span>
-<span class="r-in"><span class="va">Y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span><span class="op">*</span><span class="va">p</span><span class="op">)</span>, ncol<span class="op">=</span><span class="va">p</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## run both methods with 100 permutations</span></span>
-<span class="r-in"><span class="fu"><a href="mean2.2011LJW.html">mean2.2011LJW</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span>,nreps<span class="op">=</span><span class="fl">100</span>,method<span class="op">=</span><span class="st">"m"</span><span class="op">)</span>  <span class="co"># 2011LJW requires 'm' to be set.</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># \donttest{</span></span></span>
+<span class="r-in"><span><span class="co">## Compare with 'mean2.2011LJW' </span></span></span>
+<span class="r-in"><span><span class="co">## which is based on random projection.</span></span></span>
+<span class="r-in"><span><span class="va">n</span> <span class="op">=</span> <span class="fl">33</span>    <span class="co"># number of observations for each sample</span></span></span>
+<span class="r-in"><span><span class="va">p</span> <span class="op">=</span> <span class="fl">100</span>   <span class="co"># dimensionality</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">X</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span><span class="op">*</span><span class="va">p</span><span class="op">)</span>, ncol<span class="op">=</span><span class="va">p</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">Y</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html" class="external-link">rnorm</a></span><span class="op">(</span><span class="va">n</span><span class="op">*</span><span class="va">p</span><span class="op">)</span>, ncol<span class="op">=</span><span class="va">p</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## run both methods with 100 permutations</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mean2.2011LJW.html">mean2.2011LJW</a></span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span>,nreps<span class="op">=</span><span class="fl">100</span>,method<span class="op">=</span><span class="st">"m"</span><span class="op">)</span>  <span class="co"># 2011LJW requires 'm' to be set.</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	Two-sample Test for Multivariate Means by Lopes, Jacob, and Wainwright</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	(2011)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  X and Y</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> T2 = 46.317, p-value = 0.79</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> T2 = 70.551, p-value = 0.29</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> alternative hypothesis: true means are different.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="fu">mean2.2014Thulin</span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span>,nreps<span class="op">=</span><span class="fl">100</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu">mean2.2014Thulin</span><span class="op">(</span><span class="va">X</span>,<span class="va">Y</span>,nreps<span class="op">=</span><span class="fl">100</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 	Two-sample Test for Multivariate Means by Thulin (2014)</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> data:  X and Y</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> T2 = 61.259, p-value = 0.62</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> T2 = 76.733, p-value = 0.12</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> alternative hypothesis: true means are different.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span class="co"># }</span></span>
-<span class="r-in"></span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -171,7 +180,7 @@ ISSN 01679473.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer></div>
