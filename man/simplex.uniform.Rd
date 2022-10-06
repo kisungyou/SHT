@@ -9,7 +9,7 @@ simplex.uniform(X, method)
 \arguments{
 \item{X}{an \eqn{(n\times p)} data matrix where each row is an observation.}
 
-\item{method}{name of the method to be used, including\describe{
+\item{method}{(\emph{case-insensitive}) name of the method to be used, including\describe{
 \item{LRT}{likelihood-ratio test with the Dirichlet distribution.}
 \item{LRTsym}{likelihood-ratio test using the symmetric Dirichlet distribution (default).}
 }}

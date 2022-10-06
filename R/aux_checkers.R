@@ -148,5 +148,16 @@ check_simplex <- function(X, fname){
   
   n = base::nrow(X)
   p = base::ncol(X)
+  
+  output = array(0,c(n,p))
+  for (i in 1:n){
+    tgt = abs(as.vector(X[i,]))
+    if (all(tgt>0)){
+      output[i,] = tgt/base::sum(tgt)
+    } else {
+      tgt[tgt<.Machine$double.eps] = 1e-10
+      output[i,] = tgt/base::sum(tgt)
+    }
+  }
+  return(output)
 }
-#   7. check_simplex : probability simplex with correction
