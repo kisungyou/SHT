@@ -1,3 +1,7 @@
+# SHT 0.1.9
+
+* Corrected an error in `eqdist.2014BG()` thanks to [Wolfgang Rolke](https://academic.uprm.edu/wrolke/) at UPR.
+
 # SHT 0.1.8
 
 * Added tests of uniformity on the probability simplex.

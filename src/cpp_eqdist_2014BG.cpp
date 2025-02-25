@@ -65,7 +65,7 @@ double cpp_eqdist_2014BG_computeS(arma::mat D){
       term2 += D(i,j);
     }
   }
-  double term2fin = term2/(mm*(mm-1.0))/2.0;
+  double term2fin = term2/((mm*(mm-1.0))/2.0);
   // term2 /= (mm*(mm-1.0))/2.0;
   
   // 3. return output

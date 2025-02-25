@@ -6,8 +6,8 @@
 #' some of frequently appearing tests as many as possible. Entire list of available tests 
 #' can be seen at README file. 
 #'
-#' @docType package
-#' @name SHT
+#' @keywords internal
+#' @name package-maotai
 #' @noRd
 #' @aliases SHT-package
 #' @import Rdpack
@@ -17,5 +17,4 @@
 #' @importFrom stats pt sd cov pchisq pf median aov cov2cor pnorm var runif shapiro.test rgamma rlnorm cor ppoints qnorm dist rnorm qnorm punif uniroot optimize
 #' @importFrom Rcpp evalCpp
 #' @useDynLib SHT
-NULL
-
+"_PACKAGE"
